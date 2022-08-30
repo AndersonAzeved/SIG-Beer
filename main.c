@@ -13,7 +13,7 @@
 //Importacao de bibliotecas
 #include <stdio.h>
 #include <stdlib.h>
-#include <locale.h>
+//#include <locale.h>
 #include "biblioteca.h" //Importacao da biblioteca criada, e feita entre ""
 
 void tela_principal(void);
@@ -21,7 +21,7 @@ void tela_equipe(void);
 void tela_sobre(void);
 
 int main(void){
-	setlocale(LC_ALL,"Portuguese");
+	//setlocale(LC_ALL,"Portuguese");
 	
 	tela_principal();
 	tela_equipe();
