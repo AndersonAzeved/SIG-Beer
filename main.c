@@ -3,7 +3,7 @@
 ///                 Centro de Ensino Superior do Seridó                     ///
 ///               Departamento de Computação e Tecnologia                   ///
 ///                  Disciplina DCT1106 -- Programação                      ///
-///                  		Projeto SIG - Beer 			                    ///
+///               	SIG - Beer: Assinatura de Cervejas 		                ///
 ///    Developed by @andersonazeved and @ericleisonn -- since Aug, 2022     ///
 ///////////////////////////////////////////////////////////////////////////////
 ///                                Semana 1                                 ///
@@ -17,6 +17,8 @@
 #include "biblioteca.h" //Importacao da biblioteca criada, e feita entre ""
 
 void tela_principal(void);
+void tela_equipe(void);
+void tela_sobre(void);
 
 int main(void){
 	setlocale(LC_ALL,"Portuguese");
