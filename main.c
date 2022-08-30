@@ -22,6 +22,8 @@ int main(void){
 	setlocale(LC_ALL,"Portuguese");
 	
 	tela_principal();
+	tela_equipe();
+	tela_sobre();
 	
 	return 0;
 }
