@@ -1,8 +1,8 @@
-#include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-void tela_principal(void) {
+int tela_principal(void) {
+  int op;
   printf("\n"
 	"//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
@@ -19,13 +19,15 @@ void tela_principal(void) {
   "///                                                                        ///\n"
   "///            1. Módulo Cervejas                                          ///\n"
   "///            2. Módulo Assinaturas                                       ///\n"
-  "///            3. Módulo <EM CONSTRUÇÃO>                                   ///\n"
-  "///            4. Módulo <EM CONSTRUÇÃO>                                   ///\n"
-  "///            5. Módulo Relatórios                                        ///\n"
+  "///            3. Módulo Relatórios                                        ///\n"
+  "///            4. Equipe                                                   ///\n"
+  "///            5. Sobre                                                    ///\n"
   "///            0. Sair                                                     ///\n"
   "///                                                                        ///\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-	"\n");
+  "//////////////////////////////////////////////////////////////////////////////\n");
+  printf("Informe a opção: "); scanf("%d",&op); fflush(stdin);
+  printf("\n");
+  return op;
 }
 
 void tela_equipe(void) {

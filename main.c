@@ -13,19 +13,39 @@
 //Importacao de bibliotecas
 #include <stdio.h>
 #include <stdlib.h>
-//#include <locale.h>
+#include <locale.h>
 #include "biblioteca.h" //Importacao da biblioteca criada, e feita entre ""
 
-void tela_principal(void);
+int tela_principal(void);
 void tela_equipe(void);
 void tela_sobre(void);
 
+int op;
+
 int main(void){
-	//setlocale(LC_ALL,"Portuguese");
+	setlocale(LC_ALL,"Portuguese");
 	
-	tela_principal();
-	tela_equipe();
-	tela_sobre();
-	
+	do{
+		op = tela_principal();
+
+		if(op == 1){
+			printf("Módulo Cervejas");
+		}
+		else if(op == 2){
+			printf("Módulo Assinaturas");
+		}
+		else if(op == 3){
+			printf("Módulo Relatórios");
+		}
+		else if(op == 4){
+			printf("Sobre Equipe");
+			tela_equipe();
+		}
+		else if(op == 5){
+			printf("Sobre Projeto");
+			tela_sobre(); 
+		}
+
+	}while(op != 0);	
 	return 0;
 }
