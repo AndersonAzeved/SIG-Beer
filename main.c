@@ -261,6 +261,7 @@ int tela_assinaturas(void){
   scanf("%d", &op); 
   fflush(stdin);
   printf("\n");
+  printf("Teste");
 }
 
 int tela_fornecedores(void){
