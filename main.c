@@ -30,21 +30,29 @@ int main(void){
 
 		if(op == 1){
 			printf("Módulo Cervejas");
+      tela_cervejas();
 		}
 		else if(op == 2){
 			printf("Módulo Assinaturas");
 		}
 		else if(op == 3){
-			printf("Módulo Relatórios");
+			printf("Módulo Fornecedores");
 		}
 		else if(op == 4){
-			printf("Sobre Equipe");
+			printf("Módulo relatórios");
 			tela_equipe();
 		}
 		else if(op == 5){
-			printf("Sobre Projeto");
+			printf("Equipe");
 			tela_sobre(); 
 		}
+    else if (op==6){
+      printf("Sobre");
+    }
+    else if(op==7){
+      printf("Lixeira");
+      
+    }
 
 	}while(op != 0);	
 	return 0;
