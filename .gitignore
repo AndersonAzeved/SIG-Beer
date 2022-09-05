@@ -26,11 +26,14 @@
 # Shared objects (inc. Windows DLLs)
 *.dll
 *.so
-*.so.*
+.so.
 *.dylib
 
 # Executables
 *.exe
+*.a
+*.o
+*.so
 *.out
 *.app
 *.i*86
@@ -45,7 +48,7 @@ ls*
 *.pdb
 
 # Kernel Module Compile Results
-*.mod*
+.mod
 *.cmd
 .tmp_versions/
 modules.order
