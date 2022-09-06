@@ -9,3 +9,7 @@ void tela_opcao_invalida(void);
 int tela_assinaturas(void);
 int tela_fornecedores(void);
 void tela_encerramento(void);
+
+
+
+// Fim das assinaturas 
