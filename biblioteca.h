@@ -16,6 +16,7 @@ int tela_principal(void) {
   "//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
   "///            = = = = Sistema de Assinatura de Cervejas = = = =           ///\n"
+  "///                      = = = = Menu Principal = = = =                    ///\n"
   "///                                                                        ///\n"
   "///            1. Módulo Assinaturas                                       ///\n"
   "///            2. Módulo Cervejas                                          ///\n"
@@ -39,20 +40,21 @@ void tela_equipe(void) {
   "///                 Centro de Ensino Superior do Seridó                    ///\n"
   "///               Departamento de Computação e Tecnologia                  ///\n"
   "///                  Disciplina DCT1106 -- Programação                     ///\n"
-	"///               	SIG - Beer: Assinatura de Cervejas 		                  ///\n"
+	"///                 SIG - Beer: Assinatura de Cervejas                     ///\n"
 	"///    Developed by @andersonazeved and @ericleisonn -- since Aug, 2022    ///\n"
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
-  "///         = = = = Sistema de Assinatura de Cervejas = = = =           	  ///\n"
+  "///            = = = = Sistema de Assinatura de Cervejas = = = =           ///\n"
+  "///                   = = = = Sobre Equipe = = = =                         ///\n"
   "///                                                                        ///\n"
-  "///    Este projeto exemplo foi desenvolvido por:                       	  ///\n"
-  "///    Ericleison Camilo Silva de Holanda                               	  ///\n"
+  "///    Este projeto exemplo foi desenvolvido por:                          ///\n"
+  "///    Ericleison Camilo Silva de Holanda                                  ///\n"
   "///    Anderson Azevedo da Silva                                           ///\n"
-  "///    E-mail: ericleison.camilo.124@ufrn.edu.br                        	  ///\n"
-  "///    E-mail: andersonsilva14.2017@gmail.com                           	  ///\n"
-  "///    Redes sociais (instagram): @ericleisonholanda and @anderson.azvd 	  ///\n"
-  "///	Git: https://github.com/AndersonAzeved/SIG-Beer 					            ///\n"                                                    
+  "///    E-mail: ericleison.camilo.124@ufrn.edu.br                           ///\n"
+  "///    E-mail: andersonsilva14.2017@gmail.com                              ///\n"
+  "///    Redes sociais (instagram): @ericleisonholanda and @anderson.azvd    ///\n"
+  "///    Git: https://github.com/AndersonAzeved/SIG-Beer                     ///\n"                                                    
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
@@ -66,16 +68,17 @@ void tela_sobre(void){
   "///                 Centro de Ensino Superior do Seridó                    ///\n"
   "///               Departamento de Computação e Tecnologia                  ///\n"
   "///                  Disciplina DCT1106 -- Programação                     ///\n"
-	"///               	SIG - Beer: Assinatura de Cervejas 		                  ///\n"
+	"///                 SIG - Beer: Assinatura de Cervejas                     ///\n"
 	"///    Developed by @andersonazeved and @ericleisonn -- since Aug, 2022    ///\n"
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
   "///            = = = = Sistema de Assinatura de Cervejas = = = =           ///\n"
+  "///                      = = = = Sobre Projeto = = = =                     ///\n"
   "///                                                                        ///\n"
-  "///    Os clubes de assinatura de cerveja estão cada vez mais populares   	///\n"
+  "///    Os clubes de assinatura de cerveja estão cada vez mais populares    ///\n"
   "///    e permitem que os clientes recebam mensalmente packs de cervejas    ///\n"
-  "///    artesanais selecionadas em seu endereço. Este programa tem como    	///\n"
+  "///    artesanais selecionadas em seu endereço. Este programa tem como     ///\n"
   "///    objetivo gerenciar de forma eficiente as assinaturas e fornecendo   ///\n"
   "///    lembretes sobre os pedidos a serem entregues em cada semana e o     ///\n"
   "///    controle de pagamento das assinaturas.                              ///\n"
@@ -84,7 +87,7 @@ void tela_sobre(void){
 	"\n");
   }
 
-void tela_cervejas(void) {
+int tela_cervejas(void) {
   int op;
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -102,25 +105,18 @@ void tela_cervejas(void) {
   "///                = = = = Módulo de Cervejas = = = =                      ///\n"
   "///                                                                        ///\n"
   "///             1. Cadastrar cerveja                                       ///\n"
-  "///                                                                        ///\n"
   "///             2. Atualizar cerveja                                       ///\n"
-  "///                                                                        ///\n"
   "///             3. Deletar cerveja                                         ///\n"
-  "///                                                                        ///\n"
   "///             4. Recuperar cerveja                                       ///\n"
-  "///                                                                        ///\n"
   "///             5. Pesquisar cerveja                                       ///\n"
-  "///                                                                        ///\n"
   "///             0. Voltar                                                  ///\n"
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
-  printf("Informe a opção: ");
-  scanf("%d", &op);
-  fflush(stdin);
+  printf("Informe a opção: "); scanf("%d", &op); fflush(stdin);
   printf("\n");
 }
 
-void tela_relatorio(void) {
+int tela_relatorio(void) {
   int op;
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -133,28 +129,21 @@ void tela_relatorio(void) {
   "///    Developed by @andersonazeved and @ericleisonn -- since Aug,2022     ///\n"
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
   "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
   "///                 = = = = Módulo relatórios = = = =                      ///\n"       
   "///                                                                        ///\n"
   "///             1. Relatório de cervejas                                   ///\n"
-  "///                                                                        ///\n"
-  "///                                                                        ///\n"
   "///             2. Relatório de assinaturas                                ///\n"
-  "///                                                                        ///\n"
-  "///                                                                        ///\n"
   "///             3. Relatório de fornecedores                               ///\n"
-  "///                                                                        ///\n"
-  "///                                                                        ///\n"
   "///             0. Voltar                                                  ///\n"
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
-  printf("Informe a opção: ");
-  scanf("%d", &op);
-  fflush(stdin);
+  printf("Informe a opção: "); scanf("%d", &op); fflush(stdin);
   printf("\n");
   }
 
-void tela_lixeira(void){
+int tela_lixeira(void){
   int op;
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -167,23 +156,122 @@ void tela_lixeira(void){
   "///    Developed by @andersonazeved and @ericleisonn -- since Aug,2022     ///\n"
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
   "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
   "///                        = = = =  Lixeira = = = =                        ///\n"       
   "///                                                                        ///\n"
   "///             1. Lixeira de assinaturas                                  ///\n"
-  "///                                                                        ///\n"
   "///             2. Lixeira das cervejas                                    ///\n"
-  "///                                                                        ///\n"
   "///             3. Lixeira de fornecedores                                 ///\n"
-  "///                                                                        ///\n"
   "///             4. Lixeira de relatórios                                   ///\n"
-  "///                                                                        ///\n"
   "///             0. Voltar                                                  ///\n"
   "///                                                                        ///\n"
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
-  printf("Informe a opção: ");
-  scanf("%d", &op);
-  fflush(stdin);
+  printf("Informe a opção: "); scanf("%d", &op); fflush(stdin);
   printf("\n");
+  }
+
+void tela_opcao_invalida(void){
+  printf("\n"
+	"//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///             Universidade Federal do Rio Grande do Norte                ///\n"
+  "///                 Centro de Ensino Superior do Seridó                    ///\n"
+  "///               Departamento de Computação e Tecnologia                  ///\n"
+  "///                  Disciplina DCT1106 -- Programação                     ///\n"
+  "///                 SIG - Beer: Assinatura de Cervejas                     ///\n"
+	"///    Developed by @andersonazeved and @ericleisonn -- since Aug, 2022    ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "///                          Opção Inválida                                ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+	"\n");
+  }
+
+int tela_assinaturas(void){
+  int op;
+  printf("\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///             Universidade Federal do Rio Grande do Norte                ///\n"
+  "///                 Centro de Ensino Superior do Seridó                    ///\n"
+  "///               Departamento de Computação e Tecnologia                  ///\n"
+  "///                  Disciplina DCT1106 -- Programação                     ///\n"
+  "///                SIG - Beer: Assinatura de Cervejas                      ///\n"
+  "///    Developed by @andersonazeved and @ericleisonn -- since Aug,2022     ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///               = = = = Módulo de Assinaturas = = = =                    ///\n"
+  "///                                                                        ///\n"
+  "///             1. Cadastrar Assinatura                                    ///\n"
+  "///             2. Atualizar Assinatura                                    ///\n"
+  "///             3. Deletar Assinatura                                      ///\n"
+  "///             4. Recuperar Assinatura                                    ///\n"
+  "///             5. Pesquisar Assinatura                                    ///\n"
+  "///             0. Voltar                                                  ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n");
+  printf("Informe a opção: "); scanf("%d", &op); fflush(stdin);
+  printf("\n");
+}
+
+int tela_fornecedores(void){
+  int op;
+  printf("\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///             Universidade Federal do Rio Grande do Norte                ///\n"
+  "///                 Centro de Ensino Superior do Seridó                    ///\n"
+  "///               Departamento de Computação e Tecnologia                  ///\n"
+  "///                  Disciplina DCT1106 -- Programação                     ///\n"
+  "///                SIG - Beer: Assinatura de Cervejas                      ///\n"
+  "///    Developed by @andersonazeved and @ericleisonn -- since Aug,2022     ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///               = = = = Módulo de Fornecedores = = = =                   ///\n"
+  "///                                                                        ///\n"
+  "///             1. Cadastrar Fornecedores                                  ///\n"
+  "///             2. Atualizar Fornecedores                                  ///\n"
+  "///             3. Deletar Fornecedores                                    ///\n"
+  "///             4. Recuperar Fornecedores                                  ///\n"
+  "///             5. Pesquisar Fornecedores                                  ///\n"
+  "///             0. Voltar                                                  ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n");
+  printf("Informe a opção: "); scanf("%d", &op); fflush(stdin);
+  printf("\n");
+}
+
+void tela_encerramento(void){
+  printf("\n"
+	"//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///             Universidade Federal do Rio Grande do Norte                ///\n"
+  "///                 Centro de Ensino Superior do Seridó                    ///\n"
+  "///               Departamento de Computação e Tecnologia                  ///\n"
+  "///                  Disciplina DCT1106 -- Programação                     ///\n"
+	"///                SIG - Beer: Assinatura de Cervejas                      ///\n"
+	"///    Developed by @andersonazeved and @ericleisonn -- since Aug, 2022    ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "///                       Encerrando o SIG-Beer                            ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+	"\n");
   }
