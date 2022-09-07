@@ -19,6 +19,7 @@
 // Funções
 int tela_principal(void) {
   int op;
+  //system("clear||cls");
   printf("\n"
 	"//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
@@ -49,6 +50,7 @@ int tela_principal(void) {
 }
 
 void tela_equipe(void) {
+  system("clear||cls");
   printf("\n"
 	"//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
@@ -74,9 +76,12 @@ void tela_equipe(void) {
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
+  //printf("\t\t>>> Pressione QUALQUER TECLA para continuar...\n");
+  //getchar();
   }
 
 void tela_sobre(void){
+  system("clear||cls");
   printf("\n"
 	"//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
@@ -133,6 +138,7 @@ int tela_cervejas(void) {
 }
 
 int tela_relatorio(void) {
+  system("clear||cls");
   int op;
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -160,6 +166,7 @@ int tela_relatorio(void) {
   }
 
 int tela_lixeira(void){
+  system("clear||cls");
   int op;
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -189,6 +196,7 @@ int tela_lixeira(void){
   }
 
 void tela_opcao_invalida(void){
+  system("clear||cls");
   printf("\n"
 	"//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
@@ -213,6 +221,7 @@ void tela_opcao_invalida(void){
 
 int tela_assinaturas(void){
   int op;
+  system("clear||cls");
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
@@ -242,6 +251,7 @@ int tela_assinaturas(void){
 
 int tela_fornecedores(void){
   int op;
+  system("clear||cls");
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
@@ -270,6 +280,7 @@ int tela_fornecedores(void){
 }
 
 void tela_encerramento(void){
+  system("clear||cls");
   printf("\n"
 	"//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
