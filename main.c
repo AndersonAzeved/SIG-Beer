@@ -292,6 +292,8 @@ int tela_fornecedores(void){
   scanf("%d", &op); 
   fflush(stdin);
   printf("\n");
+  getchar();
+  printf("Teste");
 }
 
 void tela_encerramento(void){
