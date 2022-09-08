@@ -79,13 +79,9 @@ void tela_equipe(void) {
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
-<<<<<<< HEAD
-  //printf("\t\t>>> Pressione QUALQUER TECLA para continuar...\n");
-  //getchar();
-=======
   printf("\t\t>>> Pressione QUALQUER TECLA para continuar...\n");
-  getchar(); fflush(stdin);
->>>>>>> b3fadbaaa4e02e6b1332cf6f750a8e5d7be0bc99
+  getchar(); 
+  fflush(stdin);
   }
 
 void tela_sobre(void){
