@@ -77,6 +77,7 @@ void tela_equipe(void) {
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
   printf("\t\t>>> Pressione QUALQUER TECLA para continuar...\n");
+  getchar(); fflush(stdin);
   getchar();
   }
 
@@ -107,6 +108,7 @@ void tela_sobre(void){
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
   printf("\t\t>>> Pressione QUALQUER TECLA para continuar...\n");
+  getchar();
   getchar();
   }
 
