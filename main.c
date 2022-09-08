@@ -76,8 +76,8 @@ void tela_equipe(void) {
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
-  //printf("\t\t>>> Pressione QUALQUER TECLA para continuar...\n");
-  //getchar();
+  printf("\t\t>>> Pressione QUALQUER TECLA para continuar...\n");
+  getchar();
   }
 
 void tela_sobre(void){
@@ -106,6 +106,8 @@ void tela_sobre(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
+  printf("\t\t>>> Pressione QUALQUER TECLA para continuar...\n");
+  getchar();
   }
 
 int tela_cervejas(void) {
