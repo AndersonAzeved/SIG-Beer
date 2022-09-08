@@ -45,7 +45,10 @@ int tela_principal(void) {
   "///            0. Sair                                                     ///\n"
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
-  printf("Informe a opção: "); scanf("%d",&op); fflush(stdin);
+  printf("Informe a opção: "); 
+  scanf("%d",&op); 
+  getchar();
+  fflush(stdin);
   return op;
 }
 
@@ -78,7 +81,6 @@ void tela_equipe(void) {
 	"\n");
   printf("\t\t>>> Pressione QUALQUER TECLA para continuar...\n");
   getchar(); fflush(stdin);
-  getchar();
   }
 
 void tela_sobre(void){
@@ -108,8 +110,7 @@ void tela_sobre(void){
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
   printf("\t\t>>> Pressione QUALQUER TECLA para continuar...\n");
-  getchar();
-  getchar();
+  getchar(); fflush(stdin);
   }
 
 int tela_cervejas(void) {
@@ -165,7 +166,9 @@ int tela_relatorio(void) {
   "///             0. Voltar                                                  ///\n"
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
-  printf("Informe a opção: "); scanf("%d", &op); fflush(stdin);
+  printf("Informe a opção: "); 
+  scanf("%d", &op); 
+  fflush(stdin);
   printf("\n");
   }
 
@@ -195,7 +198,9 @@ int tela_lixeira(void){
   "///                                                                        ///\n"
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
-  printf("Informe a opção: "); scanf("%d", &op); fflush(stdin);
+  printf("Informe a opção: "); 
+  scanf("%d", &op);
+  fflush(stdin);
   printf("\n");
   }
 
@@ -221,6 +226,8 @@ void tela_opcao_invalida(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
+  printf("\t\t>>> Pressione QUALQUER TECLA para continuar...\n");
+  getchar(); fflush(stdin);
   }
 
 int tela_assinaturas(void){
@@ -249,7 +256,9 @@ int tela_assinaturas(void){
   "///             0. Voltar                                                  ///\n"
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
-  printf("Informe a opção: "); scanf("%d", &op); fflush(stdin);
+  printf("Informe a opção: "); 
+  scanf("%d", &op); 
+  fflush(stdin);
   printf("\n");
 }
 
@@ -279,7 +288,9 @@ int tela_fornecedores(void){
   "///             0. Voltar                                                  ///\n"
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
-  printf("Informe a opção: "); scanf("%d", &op); fflush(stdin);
+  printf("Informe a opção: "); 
+  scanf("%d", &op); 
+  fflush(stdin);
   printf("\n");
 }
 
