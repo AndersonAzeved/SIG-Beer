@@ -26,7 +26,11 @@ int main(void) {
 
 	if (op == 1) {
 		//printf("Módulo Assinaturas");
-		tela_assinaturas();
+		op = tela_assinaturas();
+		if(op == 1){
+			cadastrar_assinatura();
+		}
+		
 	}
 	else if (op == 2) {
 		//printf("Módulo Cervejas");

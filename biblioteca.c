@@ -129,6 +129,7 @@ int tela_cervejas(void) {
   scanf("%d", &op); 
   fflush(stdin);
   printf("\n");
+  return op;
 }
 
 int tela_relatorio(void) {
@@ -159,6 +160,7 @@ int tela_relatorio(void) {
   scanf("%d", &op); 
   fflush(stdin);
   printf("\n");
+  return op;
   }
 
 int tela_lixeira(void){
@@ -191,6 +193,7 @@ int tela_lixeira(void){
   scanf("%d", &op);
   fflush(stdin);
   printf("\n");
+  return op;
   }
 
 void tela_opcao_invalida(void){
@@ -248,9 +251,10 @@ int tela_assinaturas(void){
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
   scanf("%d", &op); 
+  getchar();
   fflush(stdin);
   printf("\n");
-  printf("Teste");
+  return op;
 }
 
 int tela_fornecedores(void){
@@ -284,7 +288,7 @@ int tela_fornecedores(void){
   fflush(stdin);
   printf("\n");
   getchar();
-  printf("Teste");
+  return op;
 }
 
 void tela_encerramento(void){
@@ -305,6 +309,34 @@ void tela_encerramento(void){
   "///                                                                        ///\n"
   "///                                                                        ///\n"
   "///                       Encerrando o SIG-Beer                            ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+	"\n");
+}
+
+void cadastrar_assinatura(void){
+  char nome;
+  char cpf;
+  char endereco;
+
+  printf("Nome do Cliente (APENAS LETRAS): ");
+  scanf("%[A-Z a-z]",nome);
+  getchar();
+  printf("CPF: ");
+  scanf("%[0-9.-]",cpf);
+  getchar();
+  printf("Endereço: ");
+  scanf("%[A-z a-z.,-0-9]",endereco);
+  getchar();
+
+ printf(""
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "///                       Cadastrado com Sucesso                           ///\n"
   "///                                                                        ///\n"
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
