@@ -14,3 +14,5 @@ void atualizar_assinatura(void);
 void buscar_assinatura(void);
 
 // Fim das assinaturas 
+
+
