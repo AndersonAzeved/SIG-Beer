@@ -316,21 +316,36 @@ void tela_encerramento(void){
 }
 
 void cadastrar_assinatura(void){
-  char nome;
-  char cpf;
-  char endereco;
+  char nome[50];
+  char cpf[20];
+  char endereco[50]; 
+  char telefone[50];
+  char codigo[50]; //Código da cerveja
+  char email[30];
+  //char cod_assinatura[20]; //Criar algum meio para a cada assinatura, criar um código diferente
 
   printf("Nome do Cliente (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]",nome);
+  scanf("%[A-Z a-z]s",nome);
   getchar();
   printf("CPF: ");
-  scanf("%[0-9.-]",cpf);
+  scanf("%[0-9.-]s",cpf);
   getchar();
   printf("Endereço: ");
-  scanf("%[A-z a-z.,-0-9]",endereco);
+  scanf("%[A-z a-z., -0-9]s",endereco);
+  getchar();
+  printf("Telefone: ");
+  scanf("%[0-9-]s",telefone);
+  getchar();
+  printf("Email: ");
+  scanf("%[A-z a-z.@0-9]s",email);
+  getchar();
+  printf("Código da Cerveja: ");
+  scanf("%[A-Za-z0-9]s", codigo);
   getchar();
 
- printf(""
+  system("clear||cls");
+
+  printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
   "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
