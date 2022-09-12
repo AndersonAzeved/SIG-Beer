@@ -456,5 +456,5 @@ void recuperar_assinatura(void){
   system("clear||cls");
 
   printf(nome);
-  print ("EM DESENVOLVIMENTO ...");
+  printf ("EM DESENVOLVIMENTO ...");
 }
