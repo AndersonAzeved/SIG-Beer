@@ -33,6 +33,8 @@ int main(void) {
 			atualizar_assinatura();
 		}else if(op == 5){
 			buscar_assinatura();
+		}else if (op==3){
+			apagar_assinatura();
 		}
 		
 		

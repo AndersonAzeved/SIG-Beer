@@ -414,3 +414,23 @@ void buscar_assinatura(void){
 
   printf(nome);
 }
+
+void apagar_assinatura(void){
+  char nome[50];
+
+  printf("Nome a ser pesquisado (APENAS LETRAS): ");
+  scanf("%[A-Z a-z]s",nome);
+  fflush(nome);
+
+  printf("\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "///                        Deletado com Sucesso                            ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+	"\n");
+}
