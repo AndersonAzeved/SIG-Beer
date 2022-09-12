@@ -29,8 +29,10 @@ int main(void) {
 		op = tela_assinaturas();
 		if(op == 1){
 			cadastrar_assinatura();
-		}else if (op == 2){
+		}else if(op == 2){
 			atualizar_assinatura();
+		}else if(op == 5){
+			buscar_assinatura();
 		}
 		
 		

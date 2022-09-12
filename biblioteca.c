@@ -399,3 +399,13 @@ void atualizar_assinatura(void){
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
 }
+
+void buscar_assinatura(void){
+  char nome[50];
+
+  printf("Nome a ser pesquisado (APENAS LETRAS): ");
+  scanf("%[A-Z a-z]s",nome);
+  getchar();
+
+  printf(nome);
+}

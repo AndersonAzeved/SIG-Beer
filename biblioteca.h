@@ -11,5 +11,6 @@ int tela_fornecedores(void);
 void tela_encerramento(void);
 void cadastrar_assinatura(void);
 void atualizar_assinatura(void);
+void buscar_assinatura(void);
 
 // Fim das assinaturas 
