@@ -36,7 +36,9 @@ int main(void) {
 		}else if (op==3){
 			apagar_assinatura();
 		}
-		
+		else if (op==4){
+			recuperar_assinatura();
+		}
 		
 	}
 	else if (op == 2) {

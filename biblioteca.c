@@ -446,3 +446,15 @@ void apagar_assinatura(void){
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
 }
+
+void recuperar_assinatura(void){
+  char nome[50];
+
+  printf("Nome a ser pesquisado (APENAS LETRAS): ");
+  scanf("%[A-Z a-z]s",nome);
+  getchar();
+  system("clear||cls");
+
+  printf(nome);
+  print ("EM DESENVOLVIMENTO ...");
+}
