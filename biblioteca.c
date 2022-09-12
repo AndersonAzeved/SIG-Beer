@@ -417,10 +417,22 @@ void buscar_assinatura(void){
 
 void apagar_assinatura(void){
   char nome[50];
+  char cpf[20];
+  char endereco[50]; 
+  char telefone[50];
+  char codigo[50]; //Código da cerveja
+  char email[30];
+  char assinatura[20];
 
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
   scanf("%[A-Z a-z]s",nome);
   fflush(nome);
+  fflush(cpf);
+  fflush(endereco);
+  fflush(telefone);
+  fflush(codigo);
+  fflush(email);
+  fflush(assinatura);
 
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
