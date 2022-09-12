@@ -357,3 +357,45 @@ void cadastrar_assinatura(void){
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
 }
+
+void atualizar_assinatura(void){
+  char nome[50];
+  char cpf[20];
+  char endereco[50]; 
+  char telefone[50];
+  char codigo[50]; //Código da cerveja
+  char email[30];
+
+  printf("Nome do Cliente (APENAS LETRAS): ");
+  scanf("%[A-Z a-z]s",nome);
+  getchar();
+  printf("CPF: ");
+  scanf("%[0-9.-]s",cpf);
+  getchar();
+  printf("Endereço: ");
+  scanf("%[A-z a-z., -0-9]s",endereco);
+  getchar();
+  printf("Telefone: ");
+  scanf("%[0-9-]s",telefone);
+  getchar();
+  printf("Email: ");
+  scanf("%[A-z a-z.@0-9]s",email);
+  getchar();
+  printf("Código da Cerveja: ");
+  scanf("%[A-Za-z0-9]s", codigo);
+  getchar();
+
+  system("clear||cls");
+
+  printf("\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "///                       Atualizado com Sucesso                           ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+	"\n");
+}
