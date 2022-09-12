@@ -365,6 +365,11 @@ void atualizar_assinatura(void){
   char telefone[50];
   char codigo[50]; //Código da cerveja
   char email[30];
+  char assinatura[20];
+
+  printf("Código da assinatura a atualizar: ");
+  scanf("%[A-Za-z0-9]s", assinatura);
+  getchar();
 
   printf("Nome do Cliente (APENAS LETRAS): ");
   scanf("%[A-Z a-z]s",nome);
