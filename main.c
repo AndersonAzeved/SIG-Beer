@@ -44,7 +44,7 @@ int main(void) {
 	else if (op == 2) { //Módulo Cervejas
 		op = tela_cervejas();
 		if(op == 1){
-			//cadastrar cerveja
+			cadastrar_cerveja();
 		}else if(op == 2){
 			//atualizar cerveja
 		}else if(op == 3){
