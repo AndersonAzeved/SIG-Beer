@@ -553,3 +553,13 @@ void recuperar_cerveja(void){
   printf(codigo);
   printf ("EM DESENVOLVIMENTO ...");
 }
+
+void buscar_cerveja(void){
+  char nome[0];
+
+  printf("Nome a ser pesquisado (APENAS LETRAS): ");
+  scanf("%[A-Z a-z]s",nome);
+  getchar();
+
+  printf(nome);
+}

@@ -16,6 +16,7 @@ void cadastrar_cerveja(void);
 void atualizar_cerveja(void);
 void apagar_cerveja(void);
 void recuperar_cerveja(void);
+void buscar_cerveja(void);
 
 // Fim das assinaturas 
 

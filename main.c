@@ -52,7 +52,7 @@ int main(void) {
 		}else if(op == 4){
 			recuperar_cerveja();
 		}else if(op == 5){
-			//buscar cerveja
+			buscar_cerveja();
 		}else{
 			tela_opcao_invalida();
 		}
