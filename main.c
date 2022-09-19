@@ -68,9 +68,9 @@ int main(void) {
 		}else if(op == 3){
 			apagar_fornecedor();
 		}else if(op == 4){
-			//recuperar fornecedores
+			recuperar_fornecedor();
 		}else if(op == 5){
-			//buscar fornecedores
+			buscar_fornecedor();
 		}else{
 			tela_opcao_invalida();
 		}

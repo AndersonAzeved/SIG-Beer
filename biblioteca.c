@@ -646,6 +646,7 @@ void apagar_fornecedor(void){
   char emailempresa[20];
   char cnpj[15];
 
+
   printf("Nome a ser pesquisado : ");
   scanf("%[A-Z a-z]s",empresa);
   fflush(empresa);
@@ -654,4 +655,29 @@ void apagar_fornecedor(void){
   fflush(emailempresa);
   fflush(cnpj);
 
+}
+
+
+
+void recuperar_fornecedor(void){
+  char cnpj[50];
+
+  printf("CNPJ a ser pesquisado : ");
+  scanf("%[A-Za-z0-9]s",cnpj);
+  getchar();
+  system("clear||cls");
+
+  printf(cnpj);
+  printf ("EM DESENVOLVIMENTO ...");
+}
+
+
+void buscar_fornecedor(void){
+  char cnpj[0];
+
+  printf("CNPJ a ser pesquisado : ");
+  scanf("%[A-Z a-z]s",cnpj);
+  getchar();
+
+  printf(cnpj);
 }

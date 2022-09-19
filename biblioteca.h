@@ -20,5 +20,6 @@ void buscar_cerveja(void);
 void cadastrar_fornecedor(void);
 void atualizar_fornecedor(void);
 void apagar_fornecedor(void);
-
+void recuperar_fornecedor(void);
+void buscar_fornecedor(void);
 // Fim das assinaturas 
