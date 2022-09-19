@@ -638,3 +638,20 @@ void atualizar_fornecedor(void){
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
 }
+
+void apagar_fornecedor(void){
+  char empresa[20];
+  char cpfempresa[12];
+  char telefoneempresa[10];
+  char emailempresa[20];
+  char cnpj[15];
+
+  printf("Nome a ser pesquisado : ");
+  scanf("%[A-Z a-z]s",empresa);
+  fflush(empresa);
+  fflush(cpfempresa);
+  fflush(telefoneempresa);
+  fflush(emailempresa);
+  fflush(cnpj);
+
+}

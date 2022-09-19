@@ -66,7 +66,7 @@ int main(void) {
 		}else if(op == 2){
 			atualizar_fornecedor();
 		}else if(op == 3){
-			//apagar fornecedores
+			apagar_fornecedor();
 		}else if(op == 4){
 			//recuperar fornecedores
 		}else if(op == 5){
