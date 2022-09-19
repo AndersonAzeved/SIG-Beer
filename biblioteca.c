@@ -564,3 +564,51 @@ void buscar_cerveja(void){
   printf(nome);
 }
 
+void cadastrar_fornecedor(void){
+  char nome[20];
+  char cpf[12];
+  char telefone[10];
+  char email[20];
+  char empresa[20];
+  char cnpj[15];
+
+  printf("Nome da empresa : ");
+  scanf(nome);
+  getchar();
+
+  printf("CPF do dono da empresa : ");
+  scanf("%[A-Za-z0-9]s", cpf);
+  getchar();
+
+  printf("Telefone: ");
+  scanf("%[A-Za-z0-9]s", telefone);
+  getchar();
+
+  printf("E-mail da empresa : ");
+  scanf("%[A-z a-z.@0-9]s",email);
+  getchar();
+
+  printf("Nome jurídico da empresa : ");
+  scanf(nome);
+  getchar();
+
+  printf("CNPJ da empresa : ");
+  scanf(cnpj);
+  getchar();
+
+
+
+  system("clear||cls");
+  printf("\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "///                       Cadastrado com Sucesso                           ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+	"\n");
+}
+

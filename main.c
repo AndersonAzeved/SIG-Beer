@@ -62,7 +62,7 @@ int main(void) {
 	else if(op == 3){ //Módulo Fornecedores
 		op = tela_fornecedores();
 		if(op == 1){
-			//cadastrar fornecedores
+			cadastrar_fornecedor();
 		}else if(op == 2){
 			//atualizar fornecedores
 		}else if(op == 3){
