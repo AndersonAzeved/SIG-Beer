@@ -488,3 +488,32 @@ void cadastrar_cerveja(void){
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
 }
+
+void atualizar_cerveja(void){
+  char nome[20];
+  char codigo[50]; //Código da cerveja
+  char fornecedor[20];
+
+  printf("Nome da cerveja (APENAS LETRAS): ");
+  scanf("%[A-Z a-z]s",nome);
+  getchar();
+  printf("Código da Cerveja: ");
+  scanf("%[A-Za-z0-9]s", codigo);
+  getchar();
+  printf("Fornecedor: ");
+  scanf("%[A-Za-z0-9]s", fornecedor);
+  getchar();
+
+  system("clear||cls");
+  printf("\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "///                       Atualizado com Sucesso                           ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+	"\n");
+}

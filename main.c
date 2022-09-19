@@ -46,7 +46,7 @@ int main(void) {
 		if(op == 1){
 			cadastrar_cerveja();
 		}else if(op == 2){
-			//atualizar cerveja
+			atualizar_cerveja();
 		}else if(op == 3){
 			//apagar cerveja
 		}else if(op == 4){

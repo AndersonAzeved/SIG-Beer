@@ -13,6 +13,7 @@ void cadastrar_assinatura(void); //Módulo Assinatura
 void atualizar_assinatura(void); //Módulo Assinatura
 void buscar_assinatura(void); //Módulo Assinatura
 void cadastrar_cerveja(void);
+void atualizar_cerveja(void);
 
 // Fim das assinaturas 
 
