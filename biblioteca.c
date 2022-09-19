@@ -517,3 +517,27 @@ void atualizar_cerveja(void){
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
 }
+
+void apagar_cerveja(void){
+  char nome[20];
+  char codigo[50]; //Código da cerveja
+  char fornecedor[20];
+
+  printf("Nome a ser pesquisado (APENAS LETRAS): ");
+  scanf("%[A-Z a-z]s",nome);
+  fflush(nome);
+  fflush(codigo);
+  fflush(fornecedor);
+
+  printf("\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "///                        Deletado com Sucesso                            ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+	"\n");
+}

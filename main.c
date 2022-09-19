@@ -48,7 +48,7 @@ int main(void) {
 		}else if(op == 2){
 			atualizar_cerveja();
 		}else if(op == 3){
-			//apagar cerveja
+			apagar_cerveja();
 		}else if(op == 4){
 			//recuperar cerveja
 		}else if(op == 5){

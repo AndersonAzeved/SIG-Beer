@@ -14,6 +14,7 @@ void atualizar_assinatura(void); //Módulo Assinatura
 void buscar_assinatura(void); //Módulo Assinatura
 void cadastrar_cerveja(void);
 void atualizar_cerveja(void);
+void apagar_cerveja(void);
 
 // Fim das assinaturas 
 
