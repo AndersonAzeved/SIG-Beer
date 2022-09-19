@@ -1,3 +1,3 @@
 <h1>SIG-Beer</h1>
-    <p>Um Sistema de Assinatura de Cervejas
-    Os clubes de assinaturas de cervejas estão cada vez mais populares e permitem que os clintes recebam mensalmente packs de cervejas artesanais selecionadas em seu endereço. O presente projeto tem como objetivo desenvolver um programa de computador que gerencia o sistema de assinaturas de forma eficiente, cadastrando e mantendo os usuários e pacotes de assinatura disponíveis, fornecendo lembretes sobre os pedidos a serem entregues em cada semana e o controle de pagamento das assinaturas.</p>
+    <h2>Um Sistema de Assinatura de Cervejas</h2>
+    <p>Os clubes de assinaturas de cervejas estão cada vez mais populares e permitem que os clintes recebam mensalmente packs de cervejas artesanais selecionadas em seu endereço. O presente projeto tem como objetivo desenvolver um programa de computador que gerencia o sistema de assinaturas de forma eficiente, cadastrando e mantendo os usuários e pacotes de assinatura disponíveis, fornecendo lembretes sobre os pedidos a serem entregues em cada semana e o controle de pagamento das assinaturas.</p>
