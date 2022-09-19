@@ -36,18 +36,46 @@ int main(void) {
 			recuperar_assinatura();
 		}else if(op == 5){
 			buscar_assinatura();		
+		}else{
+			tela_opcao_invalida();
 		}
 	}
-	else if (op == 2) {
-		//printf("Módulo Cervejas");
-		tela_cervejas();
+
+	else if (op == 2) { //Módulo Cervejas
+		op = tela_cervejas();
+		if(op == 1){
+			//cadastrar cerveja
+		}else if(op == 2){
+			//atualizar cerveja
+		}else if(op == 3){
+			//apagar cerveja
+		}else if(op == 4){
+			//recuperar cerveja
+		}else if(op == 5){
+			//buscar cerveja
+		}else{
+			tela_opcao_invalida();
+		}
+
 	}
-	else if (op == 3) {
-		//printf("Módulo Fornecedores");
-		tela_fornecedores();
+
+	else if(op == 3){ //Módulo Fornecedores
+		op = tela_fornecedores();
+		if(op == 1){
+			//cadastrar fornecedores
+		}else if(op == 2){
+			//atualizar fornecedores
+		}else if(op == 3){
+			//apagar fornecedores
+		}else if(op == 4){
+			//recuperar fornecedores
+		}else if(op == 5){
+			//buscar fornecedores
+		}else{
+			tela_opcao_invalida();
+		}
 	}
-	else if (op == 4) {
-		//printf("Módulo relatórios");
+	else if (op == 4){ //Módulo relatórios
 		tela_relatorio();
 	}
 	else if (op == 5) {
