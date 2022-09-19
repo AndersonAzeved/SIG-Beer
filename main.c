@@ -22,17 +22,21 @@ int main(void) {
   setlocale(LC_ALL, "Portuguese");
 
   do {
-	op = tela_assinaturas();
-	if(op == 1){
-		cadastrar_assinatura();
-		}if(op == 2){
+	op = tela_principal();
+
+	if(op == 1){ //Módulo Assinaturas
+		op = tela_assinaturas();
+		if(op == 1){
+			cadastrar_assinatura();
+		}else if(op == 2){
 			atualizar_assinatura();
-		}else if (op ==3){
+		}else if (op == 3){
 			apagar_assinatura();
-		}else if (op==4){
+		}else if (op == 4){
 			recuperar_assinatura();
 		}else if(op == 5){
 			buscar_assinatura();		
+		}
 	}
 	else if (op == 2) {
 		//printf("Módulo Cervejas");
