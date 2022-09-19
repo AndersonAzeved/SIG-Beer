@@ -50,7 +50,7 @@ int main(void) {
 		}else if(op == 3){
 			apagar_cerveja();
 		}else if(op == 4){
-			//recuperar cerveja
+			recuperar_cerveja();
 		}else if(op == 5){
 			//buscar cerveja
 		}else{

@@ -541,3 +541,15 @@ void apagar_cerveja(void){
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
 }
+
+void recuperar_cerveja(void){
+  char codigo[50];
+
+  printf("Codigo da cerveja a ser pesquisado (APENAS LETRAS): ");
+  scanf("%[A-Za-z0-9]s",codigo);
+  getchar();
+  system("clear||cls");
+
+  printf(codigo);
+  printf ("EM DESENVOLVIMENTO ...");
+}
