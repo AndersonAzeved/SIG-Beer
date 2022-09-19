@@ -565,38 +565,27 @@ void buscar_cerveja(void){
 }
 
 void cadastrar_fornecedor(void){
-  char nome[20];
-  char cpf[12];
-  char telefone[10];
-  char email[20];
   char empresa[20];
+  char cpfempresa[12];
+  char telefoneempresa[10];
+  char emailempresa[20];
   char cnpj[15];
 
-  printf("Nome da empresa : ");
-  scanf(nome);
-  getchar();
-
-  printf("CPF do dono da empresa : ");
-  scanf("%[A-Za-z0-9]s", cpf);
-  getchar();
-
-  printf("Telefone: ");
-  scanf("%[A-Za-z0-9]s", telefone);
-  getchar();
-
-  printf("E-mail da empresa : ");
-  scanf("%[A-z a-z.@0-9]s",email);
-  getchar();
-
   printf("Nome jurídico da empresa : ");
-  scanf(nome);
+  scanf(empresa);
   getchar();
-
+  printf("CPF do dono da empresa : ");
+  scanf("%[A-Za-z0-9]s", cpfempresa);
+  getchar();
+  printf("Telefone: ");
+  scanf("%[A-Za-z0-9]s", telefoneempresa);
+  getchar();
+  printf("E-mail da empresa : ");
+  scanf("%[A-z a-z.@0-9]s",emailempresa);
+  getchar();
   printf("CNPJ da empresa : ");
   scanf(cnpj);
   getchar();
-
-
 
   system("clear||cls");
   printf("\n"
@@ -612,3 +601,40 @@ void cadastrar_fornecedor(void){
 	"\n");
 }
 
+
+void atualizar_fornecedor(void){
+  char empresa[20];
+  char cpfempresa[12];
+  char telefoneempresa[10];
+  char emailempresa[20];
+  char cnpj[15];
+
+  printf("Nome jurídico da empresa : ");
+  scanf(empresa);
+  getchar();
+  printf("CPF do dono da empresa : ");
+  scanf("%[A-Za-z0-9]s", cpfempresa);
+  getchar();
+  printf("Telefone: ");
+  scanf("%[A-Za-z0-9]s", telefoneempresa);
+  getchar();
+  printf("E-mail da empresa : ");
+  scanf("%[A-z a-z.@0-9]s",emailempresa);
+  getchar();
+  printf("CNPJ da empresa : ");
+  scanf(cnpj);
+  getchar();
+
+  system("clear||cls");
+  printf("\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "///                       Atualizado com Sucesso                           ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+	"\n");
+}

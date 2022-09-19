@@ -64,7 +64,7 @@ int main(void) {
 		if(op == 1){
 			cadastrar_fornecedor();
 		}else if(op == 2){
-			//atualizar fornecedores
+			atualizar_fornecedor();
 		}else if(op == 3){
 			//apagar fornecedores
 		}else if(op == 4){
