@@ -19,5 +19,3 @@ void recuperar_cerveja(void);
 void buscar_cerveja(void);
 
 // Fim das assinaturas 
-
-
