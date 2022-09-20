@@ -325,22 +325,22 @@ void cadastrar_assinatura(void){
   //char cod_assinatura[20]; //Criar algum meio para a cada assinatura, criar um código diferente
 
   printf("Nome do Cliente (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]s",nome);
+  scanf("%[A-Z a-z]",nome);
   getchar();
   printf("CPF: ");
-  scanf("%[0-9.-]s",cpf);
+  scanf("%[0-9.-]",cpf);
   getchar();
   printf("Endereço: ");
-  scanf("%[A-z a-z., -0-9]s",endereco);
+  scanf("%[A-z a-z., -0-9]",endereco);
   getchar();
   printf("Telefone: ");
-  scanf("%[0-9-]s",telefone);
+  scanf("%[0-9-]",telefone);
   getchar();
   printf("Email: ");
-  scanf("%[A-z a-z.@0-9]s",email);
+  scanf("%[A-z a-z.@0-9]",email);
   getchar();
   printf("Código da Cerveja: ");
-  scanf("%[A-Za-z0-9]s", codigo);
+  scanf("%[A-Za-z0-9]", codigo);
   getchar();
 
   system("clear||cls");
