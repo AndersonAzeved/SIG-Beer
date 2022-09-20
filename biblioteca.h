@@ -23,3 +23,6 @@ void apagar_fornecedor(void);
 void recuperar_fornecedor(void);
 void buscar_fornecedor(void);
 // Fim das assinaturas 
+
+
+

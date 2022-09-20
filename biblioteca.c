@@ -681,3 +681,6 @@ void buscar_fornecedor(void){
 
   printf(cnpj);
 }
+
+
+
