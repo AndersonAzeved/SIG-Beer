@@ -12,14 +12,14 @@
 // Importacao de bibliotecas
 #include "biblioteca.h" //Importacao da biblioteca criada, e feita entre ""
 #include "biblioteca.c"
-#include "bibliotecas/assinatura/assinatura.h"
-#include "bibliotecas/assinatura/assinatura.c"
-#include "bibliotecas/cerveja/cerveja.h"
-#include "bibliotecas/cerveja/cerveja.c"
+// #include "bibliotecas/assinatura/assinatura.h"
+// #include "bibliotecas/assinatura/assinatura.c"
+// #include "bibliotecas/cerveja/cerveja.h"
+// #include "bibliotecas/cerveja/cerveja.c"
 #include "bibliotecas/fornecedor/fornecedor.h"
 #include "bibliotecas/fornecedor/fornecedor.c"
-#include "bibliotecas/principal/principal.h"
-#include "bibliotecas/principal/principal.c"
+// #include "bibliotecas/principal/principal.h"
+// #include "bibliotecas/principal/principal.c"
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
