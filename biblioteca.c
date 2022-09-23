@@ -2,8 +2,8 @@
 #include <stdlib.h>
 
 
-
-
+// Módulo Relatório
+/*
 int tela_relatorio(void) {
   system("clear||cls");
   int op;
@@ -33,11 +33,8 @@ int tela_relatorio(void) {
   fflush(stdin);
   printf("\n");
   return op;
-  }
-
-
-
-
+  }*/
+  
 
 int tela_assinaturas(void){
   int op;
