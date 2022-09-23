@@ -36,6 +36,7 @@ int tela_cervejas(void) {
 }
 
 void cadastrar_cerveja(void){
+  fflush(stdin);
   char nome[20];
   char codigo[50]; //Código da cerveja
   char fornecedor[20];
