@@ -3,11 +3,8 @@
 //int tela_principal(void); //Menu Principal 
 //void tela_equipe(void); //Menu Principal
 //void tela_sobre(void); //Menu Principal
-int tela_relatorio(void); 
 //int tela_lixeira(void); 
 // void tela_opcao_invalida(void);
-// int tela_fornecedores(void);
-
 //void tela_encerramento(void);
 
 int tela_assinaturas(void);
@@ -22,11 +19,14 @@ void apagar_cerveja(void);
 void recuperar_cerveja(void);
 void buscar_cerveja(void);
 
+// int tela_fornecedores(void);
 // void cadastrar_fornecedor(void);
 // void atualizar_fornecedor(void);
 // void apagar_fornecedor(void);
 // void recuperar_fornecedor(void);
 // void buscar_fornecedor(void);
+
+//int tela_relatorio(void); 
 
 // Fim das assinaturas 
 

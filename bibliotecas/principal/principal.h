@@ -1,4 +1,4 @@
-// Assinaturas das Funções da tela principal
+// Assinaturas das funções da tela principal
 
 int tela_principal(void);
 void tela_equipe(void);
