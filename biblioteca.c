@@ -159,26 +159,26 @@ void atualizar_assinatura(void){
   char assinatura[20];
 
   printf("Código da assinatura a atualizar: ");
-  scanf("%[A-Za-z0-9]s", assinatura);
+  scanf("%[A-Za-z0-9]", assinatura);
   getchar();
 
   printf("Nome do Cliente (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]s",nome);
+  scanf("%[A-Z a-z]",nome);
   getchar();
   printf("CPF: ");
-  scanf("%[0-9.-]s",cpf);
+  scanf("%[0-9.-]",cpf);
   getchar();
   printf("Endereço: ");
-  scanf("%[A-z a-z., -0-9]s",endereco);
+  scanf("%[A-z a-z., -0-9]",endereco);
   getchar();
   printf("Telefone: ");
-  scanf("%[0-9-]s",telefone);
+  scanf("%[0-9-]",telefone);
   getchar();
   printf("Email: ");
-  scanf("%[A-z a-z.@0-9]s",email);
+  scanf("%[A-z a-z.@0-9]",email);
   getchar();
   printf("Código da Cerveja: ");
-  scanf("%[A-Za-z0-9]s", codigo);
+  scanf("%[A-Za-z0-9]", codigo);
   getchar();
 
   system("clear||cls");
@@ -200,7 +200,7 @@ void buscar_assinatura(void){
   char nome[50];
 
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]s",nome);
+  scanf("%[A-Z a-z]",nome);
   getchar();
 
   printf(nome);
@@ -216,7 +216,7 @@ void apagar_assinatura(void){
   char assinatura[20];
 
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]s",nome);
+  scanf("%[A-Z a-z]",nome);
   fflush(nome);
   fflush(cpf);
   fflush(endereco);
@@ -242,7 +242,7 @@ void recuperar_assinatura(void){
   char nome[50];
 
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]s",nome);
+  scanf("%[A-Z a-z]",nome);
   getchar();
   system("clear||cls");
 
@@ -264,13 +264,13 @@ void recuperar_assinatura(void){
 //   scanf(empresa);
 //   getchar();
 //   printf("CPF do dono da empresa : ");
-//   scanf("%[A-Za-z0-9]s", cpfempresa);
+//   scanf("%[A-Za-z0-9]", cpfempresa);
 //   getchar();
 //   printf("Telefone: ");
-//   scanf("%[A-Za-z0-9]s", telefoneempresa);
+//   scanf("%[A-Za-z0-9]", telefoneempresa);
 //   getchar();
 //   printf("E-mail da empresa : ");
-//   scanf("%[A-z a-z.@0-9]s",emailempresa);
+//   scanf("%[A-z a-z.@0-9]",emailempresa);
 //   getchar();
 //   printf("CNPJ da empresa : ");
 //   scanf(cnpj);
@@ -302,13 +302,13 @@ void recuperar_assinatura(void){
 //   scanf(empresa);
 //   getchar();
 //   printf("CPF do dono da empresa : ");
-//   scanf("%[A-Za-z0-9]s", cpfempresa);
+//   scanf("%[A-Za-z0-9]", cpfempresa);
 //   getchar();
 //   printf("Telefone: ");
-//   scanf("%[A-Za-z0-9]s", telefoneempresa);
+//   scanf("%[A-Za-z0-9]", telefoneempresa);
 //   getchar();
 //   printf("E-mail da empresa : ");
-//   scanf("%[A-z a-z.@0-9]s",emailempresa);
+//   scanf("%[A-z a-z.@0-9]",emailempresa);
 //   getchar();
 //   printf("CNPJ da empresa : ");
 //   scanf(cnpj);
@@ -337,7 +337,7 @@ void recuperar_assinatura(void){
 
 
 //   printf("Nome a ser pesquisado : ");
-//   scanf("%[A-Z a-z]s",empresa);
+//   scanf("%[A-Z a-z]",empresa);
 //   fflush(empresa);
 //   fflush(cpfempresa);
 //   fflush(telefoneempresa);
@@ -352,7 +352,7 @@ void recuperar_assinatura(void){
 //   char cnpj[50];
 
 //   printf("CNPJ a ser pesquisado : ");
-//   scanf("%[A-Za-z0-9]s",cnpj);
+//   scanf("%[A-Za-z0-9]",cnpj);
 //   getchar();
 //   system("clear||cls");
 
@@ -365,7 +365,7 @@ void recuperar_assinatura(void){
 //   char cnpj[0];
 
 //   printf("CNPJ a ser pesquisado : ");
-//   scanf("%[A-Z a-z]s",cnpj);
+//   scanf("%[A-Z a-z]",cnpj);
 //   getchar();
 
 //   printf(cnpj);
@@ -597,13 +597,13 @@ void cadastrar_cerveja(void){
   char fornecedor[20];
 
   printf("Nome da cerveja (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]s",nome);
+  scanf("%[A-Z a-z]",nome);
   getchar();
   printf("Código da Cerveja: ");
-  scanf("%[A-Za-z0-9]s", codigo);
+  scanf("%[A-Za-z0-9]", codigo);
   getchar();
   printf("Fornecedor: ");
-  scanf("%[A-Za-z0-9]s", fornecedor);
+  scanf("%[A-Za-z0-9]", fornecedor);
   getchar();
 
   system("clear||cls");
@@ -626,13 +626,13 @@ void atualizar_cerveja(void){
   char fornecedor[20];
 
   printf("Nome da cerveja (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]s",nome);
+  scanf("%[A-Z a-z]",nome);
   getchar();
   printf("Código da Cerveja: ");
-  scanf("%[A-Za-z0-9]s", codigo);
+  scanf("%[A-Za-z0-9]", codigo);
   getchar();
   printf("Fornecedor: ");
-  scanf("%[A-Za-z0-9]s", fornecedor);
+  scanf("%[A-Za-z0-9]", fornecedor);
   getchar();
 
   system("clear||cls");
@@ -655,7 +655,7 @@ void apagar_cerveja(void){
   char fornecedor[20];
 
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]s",nome);
+  scanf("%[A-Z a-z]",nome);
   fflush(nome);
   fflush(codigo);
   fflush(fornecedor);
@@ -677,7 +677,7 @@ void recuperar_cerveja(void){
   char codigo[50];
 
   printf("Codigo da cerveja a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Za-z0-9]s",codigo);
+  scanf("%[A-Za-z0-9]",codigo);
   getchar();
   system("clear||cls");
 
@@ -689,7 +689,7 @@ void buscar_cerveja(void){
   char nome[0];
 
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]s",nome);
+  scanf("%[A-Z a-z]",nome);
   getchar();
 
   printf(nome);

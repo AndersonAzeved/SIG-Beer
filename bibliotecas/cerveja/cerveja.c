@@ -41,13 +41,13 @@ void cadastrar_cerveja(void){
   char fornecedor[20];
 
   printf("Nome da cerveja (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]s",nome);
+  scanf("%[A-Z a-z]",nome);
   getchar();
   printf("Código da Cerveja: ");
-  scanf("%[A-Za-z0-9]s", codigo);
+  scanf("%[A-Za-z0-9]", codigo);
   getchar();
   printf("Fornecedor: ");
-  scanf("%[A-Za-z0-9]s", fornecedor);
+  scanf("%[A-Za-z0-9]", fornecedor);
   getchar();
 
   system("clear||cls");
@@ -70,13 +70,13 @@ void atualizar_cerveja(void){
   char fornecedor[20];
 
   printf("Nome da cerveja (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]s",nome);
+  scanf("%[A-Z a-z]",nome);
   getchar();
   printf("Código da Cerveja: ");
-  scanf("%[A-Za-z0-9]s", codigo);
+  scanf("%[A-Za-z0-9]", codigo);
   getchar();
   printf("Fornecedor: ");
-  scanf("%[A-Za-z0-9]s", fornecedor);
+  scanf("%[A-Za-z0-9]", fornecedor);
   getchar();
 
   system("clear||cls");
@@ -99,7 +99,7 @@ void apagar_cerveja(void){
   char fornecedor[20];
 
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]s",nome);
+  scanf("%[A-Z a-z]",nome);
   fflush(nome);
   fflush(codigo);
   fflush(fornecedor);
@@ -121,7 +121,7 @@ void recuperar_cerveja(void){
   char codigo[50];
 
   printf("Codigo da cerveja a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Za-z0-9]s",codigo);
+  scanf("%[A-Za-z0-9]",codigo);
   getchar();
   system("clear||cls");
 
@@ -133,7 +133,7 @@ void buscar_cerveja(void){
   char nome[0];
 
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]s",nome);
+  scanf("%[A-Z a-z]",nome);
   getchar();
 
   printf(nome);
