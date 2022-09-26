@@ -46,7 +46,10 @@ int main(void) {
 			recuperar_assinatura();
 		}else if(op == 5){
 			buscar_assinatura();		
-		}else{
+		}else if(op == 0){
+			op = tela_assinaturas();
+		}
+		else{
 			tela_opcao_invalida();
 		}
 	}
