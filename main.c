@@ -10,8 +10,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 // Importacao de bibliotecas
-#include "biblioteca.h" //Importacao da biblioteca criada, e feita entre ""
-#include "biblioteca.c"
+//#include "biblioteca.h" //Importacao da biblioteca criada, e feita entre ""
+//#include "biblioteca.c"
 #include "bibliotecas/assinatura/assinatura.h"
 #include "bibliotecas/assinatura/assinatura.c"
 #include "bibliotecas/cerveja/cerveja.h"
@@ -46,8 +46,6 @@ int main(void) {
 			recuperar_assinatura();
 		}else if(op == 5){
 			buscar_assinatura();		
-		}else if(op == 0){
-			op = tela_assinaturas();
 		}
 		else{
 			tela_opcao_invalida();
