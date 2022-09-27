@@ -63,6 +63,8 @@ void cadastrar_cerveja(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "\n");
+  getchar();
+  
 }
 
 void atualizar_cerveja(void){
@@ -79,6 +81,7 @@ void atualizar_cerveja(void){
   printf("Fornecedor: ");
   scanf("%[A-Za-z0-9]", fornecedor);
   getchar();
+  
 
   system("clear||cls");
   printf("\n"
@@ -92,6 +95,7 @@ void atualizar_cerveja(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "\n");
+  getchar();
 }
 
 void apagar_cerveja(void){
@@ -104,6 +108,7 @@ void apagar_cerveja(void){
   fflush(nome);
   fflush(codigo);
   fflush(fornecedor);
+  
 
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -116,6 +121,7 @@ void apagar_cerveja(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "\n");
+  getchar();
 }
 
 void recuperar_cerveja(void){
@@ -127,7 +133,9 @@ void recuperar_cerveja(void){
   system("clear||cls");
 
   printf(codigo);
-  printf ("EM DESENVOLVIMENTO ...");
+  printf("\nEM DESENVOLVIMENTO ...\n");
+  getchar();
+  
 }
 
 void buscar_cerveja(void){
@@ -138,4 +146,7 @@ void buscar_cerveja(void){
   getchar();
 
   printf(nome);
+  printf("\nEM DESENVOLVIMENTO ...\n");
+  getchar();
+  
 }

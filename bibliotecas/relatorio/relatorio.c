@@ -31,5 +31,7 @@ int tela_relatorio(void) {
   scanf("%d", &op); 
   fflush(stdin);
   printf("\n");
+  printf("\nEM DESENVOLVIMENTO ...\n");
+  getchar();
   return op;
   }

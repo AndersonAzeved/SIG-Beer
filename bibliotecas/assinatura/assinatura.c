@@ -78,6 +78,7 @@ void cadastrar_assinatura(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
+  getchar();
 }
 
 void atualizar_assinatura(void){
@@ -178,5 +179,6 @@ void recuperar_assinatura(void){
   system("clear||cls");
 
   printf(nome);
-  printf ("EM DESENVOLVIMENTO ...");
+  printf("\nEM DESENVOLVIMENTO ...\n");
+  getchar();
 }

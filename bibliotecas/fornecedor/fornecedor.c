@@ -25,6 +25,9 @@ void cadastrar_fornecedor(void){
   printf("CNPJ da empresa : ");
   scanf(cnpj);
   getchar();
+  printf("\nFornecedor cadastrado com sucesso ...\n");
+  getchar();
+  
 
   system("clear||cls");
   printf("\n"
@@ -63,6 +66,9 @@ void atualizar_fornecedor(void){
   printf("CNPJ da empresa : ");
   scanf(cnpj);
   getchar();
+  printf("\nCadastro atualizado com sucesso......\n");
+  getchar();
+  
 
   system("clear||cls");
   printf("\n"
@@ -93,6 +99,9 @@ void apagar_fornecedor(void){
   fflush(telefoneempresa);
   fflush(emailempresa);
   fflush(cnpj);
+  printf("\nCadastro apagado com sucesso ...\n");
+  getchar();
+  
 
 }
 
@@ -107,7 +116,9 @@ void recuperar_fornecedor(void){
   system("clear||cls");
 
   printf(cnpj);
-  printf ("EM DESENVOLVIMENTO ...");
+  printf("\nEM DESENVOLVIMENTO ...\n");
+  getchar();
+  
 }
 
 
@@ -119,6 +130,10 @@ void buscar_fornecedor(void){
   getchar();
 
   printf(cnpj);
+  printf("\nEM DESENVOLVIMENTO ...\n");
+  getchar();
+
+
 }
 
 int tela_fornecedores(void){
