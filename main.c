@@ -20,8 +20,8 @@
 #include "bibliotecas/fornecedor/fornecedor.c"
 #include "bibliotecas/principal/principal.h"
 #include "bibliotecas/principal/principal.c"
-#include "bibliotecas/relatorio/relatorio.h"
-#include "bibliotecas/relatorio/relatorio.c"
+#include "bibliotecas/relatorio/relatorio.h" //Por enquanto, não tem nenhum código dentro da bilbioteca,
+#include "bibliotecas/relatorio/relatorio.c" //não vamos importar, para evitar conflitos
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>

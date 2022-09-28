@@ -30,13 +30,15 @@ int tela_cervejas(void) {
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
   scanf("%d", &op); 
-  fflush(stdin);
+  getchar();
+  //fflush(stdin);
   printf("\n");
+  getchar();
   return op;
 }
 
 void cadastrar_cerveja(void){
-  fflush(stdin);
+  //fflush(stdin);
   char nome[20];
   char codigo[50]; //Código da cerveja
   char fornecedor[20];
@@ -105,7 +107,8 @@ void apagar_cerveja(void){
 
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
   scanf("%[A-Z a-z]",nome);
-  fflush(stdin);
+  getchar();
+  ////fflush(stdin);
 
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"

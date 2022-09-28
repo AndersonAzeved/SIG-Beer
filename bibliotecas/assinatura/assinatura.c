@@ -32,7 +32,7 @@ int tela_assinaturas(void){
   printf("Informe a opção: "); 
   scanf("%d", &op); 
   getchar();
-  fflush(stdin);
+  //fflush(stdin);
   printf("\n");
   return op;
 }
@@ -126,6 +126,7 @@ void atualizar_assinatura(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
+  getchar();
 }
 
 void buscar_assinatura(void){
@@ -136,6 +137,7 @@ void buscar_assinatura(void){
   getchar();
 
   printf("%s",nome);
+  getchar();
 }
 
 void apagar_assinatura(void){
@@ -149,7 +151,7 @@ void apagar_assinatura(void){
 
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
   scanf("%[A-Z a-z]",nome);
-  fflush(stdin);
+  //fflush(stdin);
 
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -162,6 +164,7 @@ void apagar_assinatura(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
+  getchar();
 }
 
 void recuperar_assinatura(void){

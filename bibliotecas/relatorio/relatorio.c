@@ -29,7 +29,8 @@ int tela_relatorio(void) {
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
   scanf("%d", &op); 
-  fflush(stdin);
+  getchar();
+  //fflush(stdin);
   printf("\n");
   printf("\nEM DESENVOLVIMENTO ...\n");
   getchar();

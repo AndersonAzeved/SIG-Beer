@@ -41,6 +41,7 @@ void cadastrar_fornecedor(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
+  getchar();
 }
 
 
@@ -82,6 +83,7 @@ void atualizar_fornecedor(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
+  getchar();
 }
 
 void apagar_fornecedor(void){
@@ -94,7 +96,8 @@ void apagar_fornecedor(void){
 
   printf("Nome a ser pesquisado : ");
   scanf("%[A-Z a-z]",empresa);
-  fflush(stdin);
+  getchar();
+  //fflush(stdin);
   printf("\nCadastro apagado com sucesso ...\n");
   getchar();
   
@@ -160,7 +163,8 @@ int tela_fornecedores(void){
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
   scanf("%d", &op); 
-  fflush(stdin);
+  getchar();
+  //fflush(stdin);
   printf("\n");
   getchar();
   return op;
