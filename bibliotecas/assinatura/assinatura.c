@@ -135,27 +135,21 @@ void buscar_assinatura(void){
   scanf("%[A-Z a-z]",nome);
   getchar();
 
-  printf(nome);
+  printf("%s",nome);
 }
 
 void apagar_assinatura(void){
   char nome[50];
-  char cpf[20];
-  char endereco[50]; 
-  char telefone[50];
-  char codigo[50]; //Código da cerveja
-  char email[30];
-  char assinatura[20];
+  //char cpf[20];
+  //char endereco[50]; 
+  //char telefone[50];
+  //char codigo[50]; //Código da cerveja
+  //char email[30];
+  //char assinatura[20];
 
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
   scanf("%[A-Z a-z]",nome);
-  fflush(nome);
-  fflush(cpf);
-  fflush(endereco);
-  fflush(telefone);
-  fflush(codigo);
-  fflush(email);
-  fflush(assinatura);
+  fflush(stdin);
 
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -178,7 +172,7 @@ void recuperar_assinatura(void){
   getchar();
   system("clear||cls");
 
-  printf(nome);
+  printf("%s",nome);
   printf("\nEM DESENVOLVIMENTO ...\n");
   getchar();
 }
