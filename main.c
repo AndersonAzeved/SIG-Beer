@@ -6,7 +6,7 @@
 ///               	SIG - Beer: Assinatura de Cervejas                      ///
 ///    Developed by @andersonazeved and @ericleisonn -- since Aug, 2022     ///
 ///////////////////////////////////////////////////////////////////////////////
-///                                Semana 5                                 ///
+///                                Semana 6                                 ///
 ///////////////////////////////////////////////////////////////////////////////
 
 // Importacao de bibliotecas
@@ -26,7 +26,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int op;
+int op; 
+int op2; 
 
 int main(void) {
   setlocale(LC_ALL, "Portuguese");
@@ -35,7 +36,7 @@ int main(void) {
 	op = tela_principal();
 
 	if(op == 1){ //Módulo Assinaturas
-		op = tela_assinaturas();
+		op2 = tela_assinaturas();
 		if(op == 1){
 			cadastrar_assinatura();
 		}else if(op == 2){
@@ -53,7 +54,7 @@ int main(void) {
 	}
 
 	else if (op == 2) { //Módulo Cervejas
-		op = tela_cervejas();
+		op2 = tela_cervejas();
 		if(op == 1){
 			cadastrar_cerveja();
 		}else if(op == 2){
@@ -71,7 +72,7 @@ int main(void) {
 	}
 
 	else if(op == 3){ //Módulo Fornecedores
-		op = tela_fornecedores();
+		op2 = tela_fornecedores();
 		if(op == 1){
 			cadastrar_fornecedor();
 		}else if(op == 2){
@@ -88,6 +89,7 @@ int main(void) {
 	}
 	else if (op == 4){ //Módulo relatórios
 		tela_relatorio();
+		// Fazer condições 
 	}
 	else if (op == 5) {
 		//printf("Sobre Equipe");
@@ -100,6 +102,7 @@ int main(void) {
 	else if (op == 7) {
 		//printf("Lixeira");
 		tela_lixeira();
+		// Fazer condições 
 	}
 	else if(op == 0){
 		//printf("Módulo de Encerramento");
