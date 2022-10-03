@@ -130,9 +130,9 @@ int tela_lixeira(void){
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
   scanf("%d", &op);
+  printf("\n");
   getchar();
   //fflush(stdin);
-  printf("\n");
   return op;
 }
 
