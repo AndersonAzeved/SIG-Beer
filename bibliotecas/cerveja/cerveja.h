@@ -1,7 +1,7 @@
 // Assinaturas das funções do módulo cervejas
 
-int tela_cervejas(void);
-void cadastrar_cerveja(void);
+char tela_cervejas(void);
+void cadastrar_cerveja();
 void atualizar_cerveja(void);
 void apagar_cerveja(void);
 void recuperar_cerveja(void);

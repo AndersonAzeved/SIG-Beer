@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int tela_assinaturas(void){
-  int op;
+char tela_assinaturas(void){
+  char op;
   system("clear||cls");
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -30,7 +30,7 @@ int tela_assinaturas(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
-  scanf("%d", &op); 
+  scanf("%s", &op); 
   getchar();
   //fflush(stdin);
   printf("\n");

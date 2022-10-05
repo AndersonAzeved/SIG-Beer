@@ -4,8 +4,8 @@
 #include <stdlib.h>
 
 
-int tela_principal(void) {
-  int op;
+char tela_principal(void) {
+  char op;
   //system("clear||cls");
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -33,7 +33,7 @@ int tela_principal(void) {
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
-  scanf("%d",&op); 
+  scanf("%s",&op); 
   getchar();
   //fflush(stdin);
   return op;
@@ -102,9 +102,9 @@ void tela_sobre(void){
   //fflush(stdin);
 }
 
-int tela_lixeira(void){
+char tela_lixeira(void){
   system("clear||cls");
-  int op;
+  char op;
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
@@ -129,15 +129,17 @@ int tela_lixeira(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
-  scanf("%d", &op);
-  printf("\n");
+  scanf("%s", &op);
+  printf("\n Em DESENVOLVIMENTO...");
   getchar();
+  getchar();
+
   //fflush(stdin);
   return op;
 }
 
 void tela_opcao_invalida(void){
-  system("clear||cls");
+  // system("clear||cls");
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
@@ -153,7 +155,7 @@ void tela_opcao_invalida(void){
   "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
   "///                                                                        ///\n"
   "///                                                                        ///\n"
-  "///                  Opção Inválida, tente novamente                       ///\n"
+  "///                  Opção Inválida, tente novamente kk                      ///\n"
   "///                                                                        ///\n"
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"

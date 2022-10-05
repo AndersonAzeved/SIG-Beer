@@ -1,4 +1,4 @@
-int tela_assinaturas(void);
+char tela_assinaturas(void);
 void cadastrar_assinatura(void);
 void atualizar_assinatura(void);
 void buscar_assinatura(void);

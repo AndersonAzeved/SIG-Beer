@@ -26,7 +26,6 @@ void cadastrar_fornecedor(void){
   scanf("%c",cnpj);
   getchar();
   printf("\nFornecedor cadastrado com sucesso ...\n");
-  getchar();
   
 
   system("clear||cls");
@@ -135,8 +134,8 @@ void buscar_fornecedor(void){
 
 }
 
-int tela_fornecedores(void){
-  int op;
+char tela_fornecedores(void){
+  char op;
   system("clear||cls");
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -162,10 +161,9 @@ int tela_fornecedores(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
-  scanf("%d", &op); 
+  scanf("%s", &op); 
   getchar();
   //fflush(stdin);
   printf("\n");
-  getchar();
   return op;
 }

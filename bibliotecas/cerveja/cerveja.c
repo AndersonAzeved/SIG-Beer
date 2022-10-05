@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int tela_cervejas(void) {
-  int op;
+char tela_cervejas(void) {
+  char op;
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
@@ -29,15 +29,14 @@ int tela_cervejas(void) {
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
-  scanf("%d", &op); 
+  scanf("%s", &op); 
   getchar();
   //fflush(stdin);
   printf("\n");
-  getchar();
   return op;
 }
 
-void cadastrar_cerveja(void){
+void cadastrar_cerveja(){
   //fflush(stdin);
   char nome[20];
   char codigo[50]; //Código da cerveja

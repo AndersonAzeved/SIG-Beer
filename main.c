@@ -26,28 +26,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int op; 
-int op2; 
+char op; 
+char op2; 
 
-int main(void) {
+int main() {
   setlocale(LC_ALL, "Portuguese");
 
   do {
 	op = tela_principal();
 
-	if(op == 1){ //Módulo Assinaturas
+	if (op == '1'){ //Módulo Assinaturas
 		do{
-			if(op2 == 1){
+			if(op2 == '1'){
 				cadastrar_assinatura();
-			}else if(op2 == 2){
+			}else if(op2 == '2'){
 				atualizar_assinatura();
-			}else if (op2 == 3){
+			}else if (op2 == '3'){
 				apagar_assinatura();
-			}else if (op2 == 4){
+			}else if (op2 == '4'){
 				recuperar_assinatura();
-			}else if(op2 == 5){
+			}else if(op2 == '5'){
 				buscar_assinatura();		
-			}else if(op2 == 0){
+			}else if(op2 == '0'){
 				printf("\nVoltando...\n");
 			}else{
 				tela_opcao_invalida();
@@ -55,22 +55,22 @@ int main(void) {
 
 			op2 = tela_assinaturas();
 
-		}while(op2 != 0);	
+		}while(op2 != '0');	
 	}
 
-	else if (op == 2) { //Módulo Cervejas
+	else if (op == '2') { //Módulo Cervejas
 		do{
-			if(op2 == 1){
+			if(op2 == '1'){
 				cadastrar_cerveja();
-			}else if(op2 == 2){
+			}else if(op2 == '2'){
 				atualizar_cerveja();
-			}else if(op2 == 3){
+			}else if(op2 == '3'){
 				apagar_cerveja();
-			}else if(op2 == 4){
+			}else if(op2 == '4'){
 				recuperar_cerveja();
-			}else if(op2 == 5){
+			}else if(op2 == '5'){
 				buscar_cerveja();
-			}else if(op2 == 0){
+			}else if(op2 == '0'){
 				printf("\nVoltando...\n");
 			}else{
 				tela_opcao_invalida();
@@ -78,22 +78,22 @@ int main(void) {
 
 			op2 = tela_cervejas();
 
-		}while(op2 != 0);
+		}while(op2 != '0');
 	}
 
-	else if(op == 3){ //Módulo Fornecedores
+	else if(op == '3'){ //Módulo Fornecedores
 		do{
-			if(op2 == 1){
+			if(op2 == '1'){
 				cadastrar_fornecedor();
-			}else if(op2 == 2){
+			}else if(op2 == '2'){
 				atualizar_fornecedor();
-			}else if(op2 == 3){
+			}else if(op2 == '3'){
 				apagar_fornecedor();
-			}else if(op2 == 4){
+			}else if(op2 == '4'){
 				recuperar_fornecedor();
-			}else if(op2 == 5){
+			}else if(op2 == '5'){
 				buscar_fornecedor();
-			}else if(op2 == 0){
+			}else if(op2 == '0'){
 				printf("\nVoltando...\n");
 			}else{
 				tela_opcao_invalida();
@@ -101,17 +101,17 @@ int main(void) {
 
 			op2 = tela_fornecedores();
 		
-		}while(op2 != 0);
+		}while(op2 != '0');
 	}
-	else if (op == 4){ //Módulo relatórios
+	else if (op == '4'){ //Módulo relatórios
 		do{
-			if(op2 == 1){
+			if(op2 == '1'){
 				printf("\nRelatório de Cervejas\n");
-			}else if(op2 == 2){
+			}else if(op2 == '2'){
 				printf("\nRelatório de Assinaturas\n");
-			}else if(op2 == 3){
+			}else if(op2 == '3'){
 				printf("\nRelatório de Fornecedores\n");
-			}else if(op2 == 0){
+			}else if(op2 == '0'){
 				printf("\nVoltando...\n");
 			}
 			else{
@@ -120,29 +120,29 @@ int main(void) {
 
 			op2 = tela_relatorio();
 
-		}while(op2 != 0);
+		}while(op2 != '0');
 		
 	}
-	else if (op == 5) {
+	else if (op == '5') {
 		//printf("Sobre Equipe");
 		tela_equipe();
 	} 
-	else if (op == 6) {
+	else if (op == '6') {
 		//printf("Sobre Projeto");
 		tela_sobre();
 	} 
-	else if (op == 7) {
+	else if (op == '7') {
 		//printf("Lixeira");
 		do{
-			if(op2 == 1){
+			if(op2 == '1'){
 				printf("\nLixeira de Cervejas\n");
-			}else if(op2 == 2){
+			}else if(op2 == '2'){
 				printf("\nLixeira de Assinaturas\n");
-			}else if(op2 == 3){
+			}else if(op2 == '3'){
 				printf("\nLixeira de Fornecedores\n");
-			}else if(op2 == 4){
+			}else if(op2 == '4'){
 				printf("\nLixeira de Relatórios\n");
-			}else if(op2 == 0){
+			}else if(op2 == '0'){
 				printf("\nVoltando...\n");
 			}else{
 				tela_opcao_invalida();
@@ -150,9 +150,9 @@ int main(void) {
 
 			op2 = tela_lixeira();
 
-		}while(op2 != 0);
+		}while(op2 != '0');
 	}
-	else if(op == 0){
+	else if(op == '0'){
 		//printf("Módulo de Encerramento");
 		tela_encerramento();
 	}
@@ -161,6 +161,6 @@ int main(void) {
 		tela_opcao_invalida();
 	}
 
-  } while (op != 0);
+  } while (op != '0');
   return 0;
 }

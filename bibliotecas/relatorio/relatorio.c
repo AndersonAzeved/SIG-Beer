@@ -3,9 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int tela_relatorio(void) {
+char tela_relatorio(void) {
   system("clear||cls");
-  int op;
+  char op;
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
@@ -28,7 +28,7 @@ int tela_relatorio(void) {
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
-  scanf("%d", &op); 
+  scanf("%s", &op); 
   getchar();
   //fflush(stdin);
   printf("\n");
