@@ -155,7 +155,7 @@ void tela_opcao_invalida(void){
   "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
   "///                                                                        ///\n"
   "///                                                                        ///\n"
-  "///                  Opção Inválida, tente novamente kk                      ///\n"
+  "///                  Opção Inválida, tente novamente kk                    ///\n"
   "///                                                                        ///\n"
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"

@@ -37,6 +37,8 @@ int main() {
 
 	if (op == '1'){ //Módulo Assinaturas
 		do{
+			op2 = tela_assinaturas();
+
 			if(op2 == '1'){
 				cadastrar_assinatura();
 			}else if(op2 == '2'){
@@ -53,13 +55,16 @@ int main() {
 				tela_opcao_invalida();
 			}
 
-			op2 = tela_assinaturas();
+			//op2 = tela_assinaturas();
 
 		}while(op2 != '0');	
 	}
 
 	else if (op == '2') { //Módulo Cervejas
 		do{
+
+			op2 = tela_cervejas();
+
 			if(op2 == '1'){
 				cadastrar_cerveja();
 			}else if(op2 == '2'){
@@ -76,13 +81,16 @@ int main() {
 				tela_opcao_invalida();
 			}
 
-			op2 = tela_cervejas();
+			//op2 = tela_cervejas();
 
 		}while(op2 != '0');
 	}
 
 	else if(op == '3'){ //Módulo Fornecedores
 		do{
+
+			op2 = tela_fornecedores();
+
 			if(op2 == '1'){
 				cadastrar_fornecedor();
 			}else if(op2 == '2'){
@@ -99,12 +107,15 @@ int main() {
 				tela_opcao_invalida();
 			}
 
-			op2 = tela_fornecedores();
+			//op2 = tela_fornecedores();
 		
 		}while(op2 != '0');
 	}
 	else if (op == '4'){ //Módulo relatórios
 		do{
+			
+			op2 = tela_relatorio();
+
 			if(op2 == '1'){
 				printf("\nRelatório de Cervejas\n");
 			}else if(op2 == '2'){
@@ -118,7 +129,7 @@ int main() {
 				tela_opcao_invalida();
 			}
 
-			op2 = tela_relatorio();
+			//op2 = tela_relatorio();
 
 		}while(op2 != '0');
 		
@@ -134,6 +145,9 @@ int main() {
 	else if (op == '7') {
 		//printf("Lixeira");
 		do{
+
+			op2 = tela_lixeira();
+			
 			if(op2 == '1'){
 				printf("\nLixeira de Cervejas\n");
 			}else if(op2 == '2'){
@@ -148,7 +162,7 @@ int main() {
 				tela_opcao_invalida();
 			}
 
-			op2 = tela_lixeira();
+			//op2 = tela_lixeira();
 
 		}while(op2 != '0');
 	}
