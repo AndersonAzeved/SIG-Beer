@@ -10,8 +10,8 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 // Importacao de bibliotecas
-//#include "biblioteca.h" //Importacao da biblioteca criada, e feita entre ""
-//#include "biblioteca.c"
+//#include "bibliotecas/biblioteca.h" //Importacao da biblioteca criada, e feita entre ""
+//#include "bibliotecas/biblioteca.c"
 #include "bibliotecas/assinatura/assinatura.h"
 #include "bibliotecas/assinatura/assinatura.c"
 #include "bibliotecas/cerveja/cerveja.h"
