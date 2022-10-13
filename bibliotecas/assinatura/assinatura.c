@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "assinatura.h"
 #include "../biblioteca.h" //Importacao da biblioteca criada, e feita entre ""
 
 char tela_assinaturas(void){
@@ -110,16 +111,13 @@ void atualizar_assinatura(void){
   printf("Email: ");
   scanf("%[A-z a-z.@0-9]",email);
   getchar();
-  int valida;
-  valida = valida_email(email);
-  if(valida == 0){
-    do{
-      printf("Email: ");
-      scanf("%[A-z a-z.@0-9]",email);
-      getchar();
-      valida = valida_email(email);
-    }while(!valida);
-  }
+  do{
+    printf("Email inválido, tente novamente!");
+    printf("Email: ");
+    scanf("%[A-z a-z.@0-9]",email);
+    getchar();
+  }while(!valida_email(email));
+  
   
   printf("Código da Cerveja: ");
   scanf("%[A-Za-z0-9]", codigo);
