@@ -1,7 +1,9 @@
 
 //      FUNÇÕES MÓDULO ASSINATURA 
 
-
+#include <stdio.h>
+#include <stdlib.h>
+#include "fornecedor.h"
 
 void cadastrar_fornecedor(void){
   char empresa[20];
@@ -11,7 +13,7 @@ void cadastrar_fornecedor(void){
   char cnpj[15];
 
   printf("Nome jurídico da empresa : ");
-  scanf(empresa);
+  scanf("%[A-Z a-z]",empresa);
   getchar();
   printf("CPF do dono da empresa : ");
   scanf("%[A-Za-z0-9]", cpfempresa);
@@ -23,8 +25,10 @@ void cadastrar_fornecedor(void){
   scanf("%[A-z a-z.@0-9]",emailempresa);
   getchar();
   printf("CNPJ da empresa : ");
-  scanf(cnpj);
+  scanf("%c",cnpj);
   getchar();
+  printf("\nFornecedor cadastrado com sucesso ...\n");
+  
 
   system("clear||cls");
   printf("\n"
@@ -38,6 +42,7 @@ void cadastrar_fornecedor(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
+  getchar();
 }
 
 
@@ -61,8 +66,11 @@ void atualizar_fornecedor(void){
   scanf("%[A-z a-z.@0-9]",emailempresa);
   getchar();
   printf("CNPJ da empresa : ");
-  scanf(cnpj);
+  scanf("%s",cnpj);
   getchar();
+  printf("\nCadastro atualizado com sucesso......\n");
+  getchar();
+  
 
   system("clear||cls");
   printf("\n"
@@ -76,23 +84,24 @@ void atualizar_fornecedor(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
+  getchar();
 }
 
 void apagar_fornecedor(void){
   char empresa[20];
-  char cpfempresa[12];
-  char telefoneempresa[10];
-  char emailempresa[20];
-  char cnpj[15];
+  //char cpfempresa[12];
+  //char telefoneempresa[10];
+  //char emailempresa[20];
+  //char cnpj[15];
 
 
   printf("Nome a ser pesquisado : ");
   scanf("%[A-Z a-z]",empresa);
-  fflush(empresa);
-  fflush(cpfempresa);
-  fflush(telefoneempresa);
-  fflush(emailempresa);
-  fflush(cnpj);
+  getchar();
+  //fflush(stdin);
+  printf("\nCadastro apagado com sucesso ...\n");
+  getchar();
+  
 
 }
 
@@ -106,8 +115,10 @@ void recuperar_fornecedor(void){
   getchar();
   system("clear||cls");
 
-  printf(cnpj);
-  printf ("EM DESENVOLVIMENTO ...");
+  printf("%s",cnpj);
+  printf("\nEM DESENVOLVIMENTO ...\n");
+  getchar();
+  
 }
 
 
@@ -118,5 +129,43 @@ void buscar_fornecedor(void){
   scanf("%[A-Z a-z]",cnpj);
   getchar();
 
-  printf(cnpj);
+  printf("%s",cnpj);
+  printf("\nEM DESENVOLVIMENTO ...\n");
+  getchar();
+
+
+}
+
+char tela_fornecedores(void){
+  char op;
+  system("clear||cls");
+  printf("\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///             Universidade Federal do Rio Grande do Norte                ///\n"
+  "///                 Centro de Ensino Superior do Seridó                    ///\n"
+  "///               Departamento de Computação e Tecnologia                  ///\n"
+  "///                  Disciplina DCT1106 -- Programação                     ///\n"
+  "///                SIG - Beer: Assinatura de Cervejas                      ///\n"
+  "///    Developed by @andersonazeved and @ericleisonn -- since Aug,2022     ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///               = = = = Módulo de Fornecedores = = = =                   ///\n"
+  "///                                                                        ///\n"
+  "///             1. Cadastrar Fornecedores                                  ///\n"
+  "///             2. Atualizar Fornecedores                                  ///\n"
+  "///             3. Deletar Fornecedores                                    ///\n"
+  "///             4. Recuperar Fornecedores                                  ///\n"
+  "///             5. Pesquisar Fornecedores                                  ///\n"
+  "///             0. Voltar                                                  ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n");
+  printf("Informe a opção: "); 
+  scanf("%s", &op); 
+  getchar();
+  //fflush(stdin);
+  printf("\n");
+  return op;
 }

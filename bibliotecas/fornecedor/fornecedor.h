@@ -1,4 +1,4 @@
-int tela_fornecedores(void);
+char tela_fornecedores(void);
 void cadastrar_fornecedor(void);
 void atualizar_fornecedor(void);
 void apagar_fornecedor(void);

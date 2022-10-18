@@ -2,9 +2,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "cerveja.h"
 
-int tela_cervejas(void) {
-  int op;
+char tela_cervejas(void) {
+  char op;
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
@@ -29,14 +30,15 @@ int tela_cervejas(void) {
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
-  scanf("%d", &op); 
-  fflush(stdin);
+  scanf("%s", &op); 
+  getchar();
+  //fflush(stdin);
   printf("\n");
   return op;
 }
 
-void cadastrar_cerveja(void){
-  fflush(stdin);
+void cadastrar_cerveja(){
+  //fflush(stdin);
   char nome[20];
   char codigo[50]; //Código da cerveja
   char fornecedor[20];
@@ -63,6 +65,8 @@ void cadastrar_cerveja(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "\n");
+  getchar();
+  
 }
 
 void atualizar_cerveja(void){
@@ -79,6 +83,7 @@ void atualizar_cerveja(void){
   printf("Fornecedor: ");
   scanf("%[A-Za-z0-9]", fornecedor);
   getchar();
+  
 
   system("clear||cls");
   printf("\n"
@@ -92,18 +97,18 @@ void atualizar_cerveja(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "\n");
+  getchar();
 }
 
 void apagar_cerveja(void){
   char nome[20];
-  char codigo[50]; //Código da cerveja
-  char fornecedor[20];
+  //char codigo[50]; //Código da cerveja
+  //char fornecedor[20];
 
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
   scanf("%[A-Z a-z]",nome);
-  fflush(nome);
-  fflush(codigo);
-  fflush(fornecedor);
+  getchar();
+  ////fflush(stdin);
 
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -116,6 +121,7 @@ void apagar_cerveja(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "\n");
+  getchar();
 }
 
 void recuperar_cerveja(void){
@@ -126,8 +132,10 @@ void recuperar_cerveja(void){
   getchar();
   system("clear||cls");
 
-  printf(codigo);
-  printf ("EM DESENVOLVIMENTO ...");
+  printf("%s",codigo);
+  printf("\nEM DESENVOLVIMENTO ...\n");
+  getchar();
+  
 }
 
 void buscar_cerveja(void){
@@ -137,5 +145,8 @@ void buscar_cerveja(void){
   scanf("%[A-Z a-z]",nome);
   getchar();
 
-  printf(nome);
+  printf("%s",nome);
+  printf("\nEM DESENVOLVIMENTO ...\n");
+  getchar();
+  
 }

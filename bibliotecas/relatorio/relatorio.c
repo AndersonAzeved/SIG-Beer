@@ -2,10 +2,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "relatorio.h"
 
-int tela_relatorio(void) {
+char tela_relatorio(void) {
   system("clear||cls");
-  int op;
+  char op;
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
@@ -28,8 +29,11 @@ int tela_relatorio(void) {
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
-  scanf("%d", &op); 
-  fflush(stdin);
+  scanf("%s", &op); 
+  getchar();
+  //fflush(stdin);
   printf("\n");
+  printf("\nEM DESENVOLVIMENTO ...\n");
+  getchar();
   return op;
   }
