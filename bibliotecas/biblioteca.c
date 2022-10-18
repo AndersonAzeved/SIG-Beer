@@ -10,3 +10,14 @@ int valida_email(char *email){
     }
     return 0;
 }   
+
+// int validaCPF(char *cpf){
+//     int n;
+//     n=0;
+//     for (n =0,n = 11,n++){
+
+
+//      }
+
+    
+// }
