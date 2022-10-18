@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "assinatura.h"
+#include "../biblioteca.h" //Importacao da biblioteca criada, e feita entre ""
 
 char tela_assinaturas(void){
   char op;
@@ -87,7 +89,7 @@ void atualizar_assinatura(void){
   char endereco[50]; 
   char telefone[50];
   char codigo[50]; //Código da cerveja
-  char email[30];
+  char email[50];
   char assinatura[20];
 
   printf("Código da assinatura a atualizar: ");
@@ -109,6 +111,14 @@ void atualizar_assinatura(void){
   printf("Email: ");
   scanf("%[A-z a-z.@0-9]",email);
   getchar();
+  do{
+    printf("Email inválido, tente novamente!");
+    printf("Email: ");
+    scanf("%[A-z a-z.@0-9]",email);
+    getchar();
+  }while(!valida_email(email));
+  
+  
   printf("Código da Cerveja: ");
   scanf("%[A-Za-z0-9]", codigo);
   getchar();

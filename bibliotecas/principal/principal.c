@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "principal.h"
 
 char tela_principal(void) {
   char op;
