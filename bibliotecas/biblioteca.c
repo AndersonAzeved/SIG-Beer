@@ -99,4 +99,11 @@ int valida_cnpj(char *cnpj){
   return 1;
 }
 
-
+int valida_email(char *email){
+    for(int i = 0; i < 50; i++){
+        if(email[i] == '@'){
+            return 1;
+        }
+    }
+    return 0;
+}   
