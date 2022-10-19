@@ -98,3 +98,5 @@ int valida_cnpj(char *cnpj){
 
   return 1;
 }
+
+
