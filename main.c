@@ -10,16 +10,11 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 // Importacao de bibliotecas
-#include "bibliotecas/assinatura.h"
-#include "bibliotecas/assinatura.c"
-#include "bibliotecas/cerveja.h"
-#include "bibliotecas/cerveja.c"
-#include "bibliotecas/fornecedor.h"
-#include "bibliotecas/fornecedor.c"
-#include "bibliotecas/principal.h"
-#include "bibliotecas/principal.c"
-#include "bibliotecas/relatorio.h" 
-#include "bibliotecas/relatorio.c" 
+#include "assinatura.h"
+#include "cerveja.h"
+#include "fornecedor.h"
+#include "principal.h"
+#include "relatorio.h" 
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
