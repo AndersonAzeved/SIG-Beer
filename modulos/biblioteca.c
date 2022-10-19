@@ -109,9 +109,9 @@ int valida_email(char *email){
     return 0;
 }   
 
-int valida_cpf(char *cpf){
+// int valida_cpf(char *cpf){
 
 
 
   
-}
+// }
