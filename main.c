@@ -6,22 +6,22 @@
 ///               	SIG - Beer: Assinatura de Cervejas                      ///
 ///    Developed by @andersonazeved and @ericleisonn -- since Aug, 2022     ///
 ///////////////////////////////////////////////////////////////////////////////
-///                                Semana 6                                 ///
+///                                Semana 9                                 ///
 ///////////////////////////////////////////////////////////////////////////////
 
 // Importacao de bibliotecas
 //#include "bibliotecas/biblioteca.h" //Importacao da biblioteca criada, e feita entre ""
 //#include "biblioteca.c"
 #include "bibliotecas/assinatura.h"
-//#include "bibliotecas/assinatura/assinatura.c"
+#include "bibliotecas/assinatura.c"
 #include "bibliotecas/cerveja.h"
-//#include "bibliotecas/cerveja/cerveja.c"
+#include "bibliotecas/cerveja.c"
 #include "bibliotecas/fornecedor.h"
-//#include "bibliotecas/fornecedor/fornecedor.c"
+#include "bibliotecas/fornecedor.c"
 #include "bibliotecas/principal.h"
-//#include "bibliotecas/principal/principal.c"
-#include "bibliotecas/relatorio.h" //Por enquanto, não tem nenhum código dentro da bilbioteca,
-//#include "bibliotecas/relatorio/relatorio.c" //não vamos importar, para evitar conflitos
+#include "bibliotecas/principal.c"
+#include "bibliotecas/relatorio.h" 
+#include "bibliotecas/relatorio.c" 
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
