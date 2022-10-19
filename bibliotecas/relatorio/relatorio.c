@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "relatorio.h"
+#include "biblioteca.h"
 
 char tela_relatorio(void) {
   system("clear||cls");

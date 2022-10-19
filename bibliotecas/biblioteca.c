@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "biblioteca.h"
 
 void retira_pontos(char *cnpj){
 

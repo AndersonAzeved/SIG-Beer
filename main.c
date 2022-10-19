@@ -10,18 +10,18 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 // Importacao de bibliotecas
-//#include "biblioteca.h" //Importacao da biblioteca criada, e feita entre ""
+#include "bibliotecas/biblioteca.h" //Importacao da biblioteca criada, e feita entre ""
 //#include "biblioteca.c"
 #include "bibliotecas/assinatura/assinatura.h"
-#include "bibliotecas/assinatura/assinatura.c"
+//#include "bibliotecas/assinatura/assinatura.c"
 #include "bibliotecas/cerveja/cerveja.h"
-#include "bibliotecas/cerveja/cerveja.c"
+//#include "bibliotecas/cerveja/cerveja.c"
 #include "bibliotecas/fornecedor/fornecedor.h"
-#include "bibliotecas/fornecedor/fornecedor.c"
+//#include "bibliotecas/fornecedor/fornecedor.c"
 #include "bibliotecas/principal/principal.h"
-#include "bibliotecas/principal/principal.c"
+//#include "bibliotecas/principal/principal.c"
 #include "bibliotecas/relatorio/relatorio.h" //Por enquanto, não tem nenhum código dentro da bilbioteca,
-#include "bibliotecas/relatorio/relatorio.c" //não vamos importar, para evitar conflitos
+//#include "bibliotecas/relatorio/relatorio.c" //não vamos importar, para evitar conflitos
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>

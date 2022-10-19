@@ -2,7 +2,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include "principal.h"
+#include "biblioteca.h"
 
 char tela_principal(void) {
   char op;

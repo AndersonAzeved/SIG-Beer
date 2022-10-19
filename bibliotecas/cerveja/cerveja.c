@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "cerveja.h"
+#include "biblioteca.h"
 
 char tela_cervejas(void) {
   char op;

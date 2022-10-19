@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "assinatura.h"
+#include "biblioteca.h"
 
 char tela_assinaturas(void){
   char op;

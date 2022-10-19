@@ -1,7 +1,10 @@
 
 //      FUNÇÕES MÓDULO ASSINATURA 
 
-
+#include <stdio.h>
+#include <stdlib.h>
+#include "fornecedor.h"
+#include "biblioteca.h"
 
 void cadastrar_fornecedor(void){
   char empresa[20];
