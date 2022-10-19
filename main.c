@@ -10,11 +10,11 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 // Importacao de bibliotecas
-#include "assinatura.h"
-#include "cerveja.h"
-#include "fornecedor.h"
-#include "principal.h"
-#include "relatorio.h" 
+#include "modulos/assinatura.h"
+#include "modulos/cerveja.h"
+#include "modulos/fornecedor.h"
+#include "modulos/principal.h"
+#include "modulos/relatorio.h" 
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
