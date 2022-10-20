@@ -115,3 +115,19 @@ int valida_email(char *email){
 
   
 // }
+
+
+void retira_pontoscpf(char *cpf){
+
+  // Retirando os ./-
+  char *pt;
+  pt = strtok(cpf,".-/");
+  char cpf_novo[25] = {""};
+  while(pt){
+      strcat(cpf_novo, pt);
+      pt = strtok(NULL, ".-/");
+  }
+  
+  strcpy(cpf,cpf_novo);
+  
+}
