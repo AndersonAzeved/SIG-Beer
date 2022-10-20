@@ -140,3 +140,45 @@ int verifica_letracpf(char *cpf){
   }
   return 0;
 }
+
+int valida_cpf(char *cpf){
+  // \\* FEITA POR ERICLEISON CAMILO ᕦ( ͡° ͜ʖ ͡°)ᕤ  *//
+  int i;
+  int len= strlen(cpf);
+  int cpf_convertido[11];
+  int soma =0;
+  int d1;
+  int d2;
+  // Transforma em vetor int
+  for (i = 0 ; i < len ; i++){
+      cpf_convertido[i]= (cpf[i] -48);
+  }
+  // Verifica e valida o tamanho do cpf
+  if (strlen(cpf) != 11){
+      return 0;
+  }
+  // Cálculo para verificar e validar o Dígito verificador 1
+  for (i = 0 ; i <= 8 ; i++){
+      soma = soma+ (cpf_convertido[i]* (10-i));
+  }
+  d1 = 11 - (soma % 11) ;
+  if (d1 == 10 || d1== 11){
+      d1=0;
+  }
+  if(d1 != cpf_convertido[9]){
+      return 0;
+  }
+  //Cálculo para verificar o dígito verificador 2
+  soma = 0;
+  for (i = 0 ;i <= 9 ;i++){
+      soma= soma + (cpf_convertido[i]* (11-i));
+  }
+  d2 = 11- (soma %11);
+  if (d2==10 || d2==11){
+      d2=0;
+  }
+  if (d2 != cpf_convertido[10]){
+      return 0;
+      }
+  return 1;
+  }
