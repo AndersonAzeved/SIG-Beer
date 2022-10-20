@@ -131,3 +131,12 @@ void retira_pontoscpf(char *cpf){
   strcpy(cpf,cpf_novo);
   
 }
+int verifica_letracpf(char *cpf){
+  int tamanho = strlen(cpf);
+  for(int i = 0; i < tamanho; i++){
+    if((cpf[i] >= 'A' && cpf[i] <= 'Z') || (cpf[i] >= 'a' && cpf[i] <= 'z')){
+      return 1;
+    }
+  }
+  return 0;
+}
