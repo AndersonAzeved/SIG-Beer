@@ -74,6 +74,13 @@ void cadastrar_assinatura(void){
   printf("Email: ");
   scanf("%[A-z a-z.@0-9]",email);
   getchar();
+  while(!valida_email(email)){
+    printf("Email inválido, tente novamente!\n");
+    printf("Email: ");
+    scanf("%[A-z a-z.@0-9]",email);
+    getchar();
+  } 
+
   printf("Código da Cerveja: ");
   scanf("%[A-Za-z0-9]", codigo);
   getchar();
@@ -122,6 +129,13 @@ void atualizar_assinatura(void){
   printf("Email: ");
   scanf("%[A-z a-z.@0-9]",email);
   getchar();
+  while(!valida_email(email)){
+    printf("Email inválido, tente novamente!\n");
+    printf("Email: ");
+    scanf("%[A-z a-z.@0-9]",email);
+    getchar();
+  } 
+
   printf("Código da Cerveja: ");
   scanf("%[A-Za-z0-9]", codigo);
   getchar();
