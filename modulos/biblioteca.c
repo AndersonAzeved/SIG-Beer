@@ -29,26 +29,22 @@ int verifica_letra(char *cnpj){
 }
 
 int valida_cnpj(char *cnpj){
-
   // Função criada por Anderson Azevedo da Silva
   // Instagram: @anderson.azvd
   // GitHub: @andersonazeved
 
   // Retira pontos do CNPJ
   retira_pontos(cnpj);
-
   // Verifica se tem letras
   int validar = verifica_letra(cnpj);
   if(validar == 1){
     return 0;
   }
-
   // Verifica o tamanho e valida
   int tamanho = strlen(cnpj);
   if(tamanho != 14){
     return 0;
   }
-
   // Verifica se os números são todos iguais
   int cont = 0;
   for(int i = 0; i < 14; i++){
@@ -59,13 +55,11 @@ int valida_cnpj(char *cnpj){
   if(cont == 14){
     return 0;
   }
-
   // Converte para int
   int vetor_cnpj[14];
   for(int i = 0; i < tamanho; i++){
     vetor_cnpj[i] = cnpj[i] - 48;
   }
-
   // Desconbrindo o DV1
   int mult[12] = {5,4,3,2,9,8,7,6,5,4,3,2};
   int soma = 0;
@@ -82,7 +76,6 @@ int valida_cnpj(char *cnpj){
       return 0;
     }
   }
-
   // Desconbrindo o DV2
   int mult_2[13] = {6,5,4,3,2,9,8,7,6,5,4,3,2};
   soma = 0;
@@ -99,8 +92,6 @@ int valida_cnpj(char *cnpj){
       return 0;
     }
   }
-
-
   return 1;
 }
 
@@ -174,7 +165,6 @@ int valida_cpf(char *cpf){
 
 // Valida Email
 int valida_email(char *email){
-
   // Função criada por Anderson Azevedo da Silva
   // Instagram: @anderson.azvd
   // GitHub: @andersonazeved
