@@ -254,10 +254,10 @@ int valida_email(char *email){
       }
   }
   // Verifica se na posição inicial, final, antes e depois do @, é letra
-  if(!((email[0] >= 'A' && email[0] <= 'Z') || (email[0] >= 'a' && email[0] <= 'z'))
-      || !((email[tamanho] >= 'A' && email[tamanho] <= 'Z') || (email[tamanho] >= 'a' && email[tamanho] <= 'z'))
-          || !((email[aroba-1] >= 'A' && email[aroba-1] <= 'Z') || (email[aroba-1] >= 'a' && email[aroba-1] <= 'z'))
-              || !((email[aroba+1] >= 'A' && email[aroba+1] <= 'Z') || (email[aroba+1] >= 'a' && email[aroba+1] <= 'z'))){
+  if(!(((email[0] >= 'A' && email[0] <= 'Z') || (email[0] >= 'a' && email[0] <= 'z'))
+      || ((email[tamanho] >= 'A' && email[tamanho] <= 'Z') || (email[tamanho] >= 'a' && email[tamanho] <= 'z'))
+          || ((email[aroba-1] >= 'A' && email[aroba-1] <= 'Z') || (email[aroba-1] >= 'a' && email[aroba-1] <= 'z'))
+              || ((email[aroba+1] >= 'A' && email[aroba+1] <= 'Z') || (email[aroba+1] >= 'a' && email[aroba+1] <= 'z')))){
     return 0;
   }
   return 1;
