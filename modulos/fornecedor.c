@@ -25,6 +25,13 @@ void cadastrar_fornecedor(void){
   printf("E-mail da empresa : ");
   scanf("%[A-z a-z.@0-9]",emailempresa);
   getchar();
+  while(!valida_email(emailempresa)){
+    printf("Email inválido, tente novamente!\n");
+    printf("Email: ");
+    scanf("%[A-z a-z.@0-9]",emailempresa);
+    getchar();
+  } 
+
   printf("CNPJ da empresa : ");
   scanf("%c",cnpj);
   getchar();
@@ -66,6 +73,13 @@ void atualizar_fornecedor(void){
   printf("E-mail da empresa : ");
   scanf("%[A-z a-z.@0-9]",emailempresa);
   getchar();
+  while(!valida_email(emailempresa)){
+    printf("Email inválido, tente novamente!\n");
+    printf("Email: ");
+    scanf("%[A-z a-z.@0-9]",emailempresa);
+    getchar();
+  } 
+
   printf("CNPJ da empresa : ");
   scanf("%s",cnpj);
   getchar();
