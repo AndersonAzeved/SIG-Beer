@@ -51,8 +51,6 @@ void cadastrar_assinatura(void){
   printf("Nome do Cliente (APENAS LETRAS): ");
   scanf("%[A-Z a-z]",nome);
   getchar();
-  // printf("CPF: ");
-  printf("%s",cpf);
   do{
   // while (!valida_cpf(cpf)){
     printf("CPF: ");
