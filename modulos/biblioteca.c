@@ -30,6 +30,10 @@ int verifica_letra(char *cnpj){
 
 int valida_cnpj(char *cnpj){
 
+  // Função criada por Anderson Azevedo da Silva
+  // Instagram: @anderson.azvd
+  // GitHub: @andersonazeved
+
   // Retira pontos do CNPJ
   retira_pontos(cnpj);
 
