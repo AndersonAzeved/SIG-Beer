@@ -5,6 +5,8 @@
 #include "assinatura.h"
 #include "biblioteca.h"
 
+struct assinatura Assinatura;
+
 char tela_assinaturas(void){
   char op;
   system("clear||cls");
@@ -40,7 +42,6 @@ char tela_assinaturas(void){
 }
 
 void cadastrar_assinatura(void){
-  struct assinatura Assinatura;
 
   printf("Nome do Cliente (APENAS LETRAS): ");
   scanf("%[A-Z a-z]",Assinatura.nome);
@@ -72,8 +73,8 @@ void cadastrar_assinatura(void){
     getchar();
   } 
 
-  printf("Código da Cerveja: ");
-  scanf("%[A-Za-z0-9]", Assinatura.codigo);
+  printf("Código da Assinatura: ");
+  scanf("%[A-Za-z0-9]", Assinatura.assinatura);
   getchar();
 
   system("clear||cls");
@@ -93,42 +94,35 @@ void cadastrar_assinatura(void){
 }
 
 void atualizar_assinatura(void){
-  char nome[50];
-  char cpf[20];
-  char endereco[50]; 
-  char telefone[50];
-  char codigo[50]; //Código da cerveja
-  char email[30];
-  char assinatura[20];
 
   printf("Código da assinatura a atualizar: ");
-  scanf("%[A-Za-z0-9]", assinatura);
+  scanf("%[A-Za-z0-9]", Assinatura.assinatura);
   getchar();
 
   printf("Nome do Cliente (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]",nome);
+  scanf("%[A-Z a-z]",Assinatura.nome);
   getchar();
   printf("CPF: ");
-  scanf("%[0-9.-]",cpf);
+  scanf("%[0-9.-]",Assinatura.cpf);
   getchar();
   printf("Endereço: ");
-  scanf("%[A-z a-z., -0-9]",endereco);
+  scanf("%[A-z a-z., -0-9]",Assinatura.endereco);
   getchar();
   printf("Telefone: ");
-  scanf("%[0-9-]",telefone);
+  scanf("%[0-9-]",Assinatura.telefone);
   getchar();
   printf("Email: ");
-  scanf("%[A-z a-z.@0-9]",email);
+  scanf("%[A-z a-z.@0-9]",Assinatura.email);
   getchar();
-  while(!valida_email(email)){
+  while(!valida_email(Assinatura.email)){
     printf("Email inválido, tente novamente!\n");
     printf("Email: ");
-    scanf("%[A-z a-z.@0-9]",email);
+    scanf("%[A-z a-z.@0-9]",Assinatura.email);
     getchar();
   } 
 
-  printf("Código da Cerveja: ");
-  scanf("%[A-Za-z0-9]", codigo);
+  printf("Código da assinatura: ");
+  scanf("%[A-Za-z0-9]", Assinatura.assinatura);
   getchar();
 
   system("clear||cls");
@@ -148,27 +142,19 @@ void atualizar_assinatura(void){
 }
 
 void buscar_assinatura(void){
-  char nome[50];
 
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]",nome);
+  scanf("%[A-Z a-z]",Assinatura.nome);
   getchar();
 
-  printf("%s",nome);
+  printf("%s",Assinatura.nome);
   getchar();
 }
 
 void apagar_assinatura(void){
-  char nome[50];
-  //char cpf[20];
-  //char endereco[50]; 
-  //char telefone[50];
-  //char codigo[50]; //Código da cerveja
-  //char email[30];
-  //char assinatura[20];
 
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]",nome);
+  scanf("%[A-Z a-z]",Assinatura.nome);
   //fflush(stdin);
 
   printf("\n"
@@ -186,14 +172,13 @@ void apagar_assinatura(void){
 }
 
 void recuperar_assinatura(void){
-  char nome[50];
 
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]",nome);
+  scanf("%[A-Z a-z]",Assinatura.nome);
   getchar();
   system("clear||cls");
 
-  printf("%s",nome);
+  printf("%s",Assinatura.nome);
   printf("\nEM DESENVOLVIMENTO ...\n");
   getchar();
 }

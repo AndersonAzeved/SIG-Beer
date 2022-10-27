@@ -10,6 +10,6 @@ struct assinatura{
     char cpf[50];
     char endereco[50]; 
     char telefone[50];
-    char codigo[50];
     char email[50];
+    char assinatura[50];
 };
