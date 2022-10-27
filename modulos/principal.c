@@ -7,7 +7,7 @@
 
 char tela_principal(void) {
   char op;
-  //system("clear||cls");
+  system("clear||cls");
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
@@ -36,7 +36,6 @@ char tela_principal(void) {
   printf("Informe a opção: "); 
   scanf("%s",&op); 
   getchar();
-  //fflush(stdin);
   return op;
 }
 
@@ -68,8 +67,7 @@ void tela_equipe(void) {
   "//////////////////////////////////////////////////////////////////////////////\n"
   "\n");
   printf("\t\t>>> Pressione QUALQUER TECLA para continuar...\n");
-  getchar(); 
-  //fflush(stdin);
+  getchar();
 }
 
 void tela_sobre(void){
@@ -99,8 +97,7 @@ void tela_sobre(void){
   "//////////////////////////////////////////////////////////////////////////////\n"
   "\n");
   printf("\t\t>>> Pressione QUALQUER TECLA para continuar...\n");
-  getchar(); 
-  //fflush(stdin);
+  getchar();
 }
 
 char tela_lixeira(void){
@@ -133,14 +130,11 @@ char tela_lixeira(void){
   scanf("%s", &op);
   printf("\n Em DESENVOLVIMENTO...");
   getchar();
-  getchar();
-
-  //fflush(stdin);
   return op;
 }
 
 void tela_opcao_invalida(void){
-  // system("clear||cls");
+  system("clear||cls");
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
@@ -162,8 +156,7 @@ void tela_opcao_invalida(void){
   "//////////////////////////////////////////////////////////////////////////////\n"
   "\n");
   printf("\t\t>>> Pressione QUALQUER TECLA para continuar...\n");
-  getchar(); 
-  //fflush(stdin);
+  getchar();
 }
 
 void tela_encerramento(void){
