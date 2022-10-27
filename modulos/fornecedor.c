@@ -44,17 +44,7 @@ void cadastrar_fornecedor(void){
   printf("\nFornecedor cadastrado com sucesso ...\n");
   
   system("clear||cls");
-  printf("\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-  "///                                                                        ///\n"
-  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
-  "///                                                                        ///\n"
-  "///                                                                        ///\n"
-  "///                       Cadastrado com Sucesso                           ///\n"
-  "///                                                                        ///\n"
-  "///                                                                        ///\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-	"\n");
+  cadastrado_sucesso();
   getchar();
 }
 
@@ -94,22 +84,8 @@ void atualizar_fornecedor(void){
     getchar();
   } 
 
-  printf("\nCadastro atualizado com sucesso......\n");
-  getchar();
-  
-
   system("clear||cls");
-  printf("\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-  "///                                                                        ///\n"
-  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
-  "///                                                                        ///\n"
-  "///                                                                        ///\n"
-  "///                       Atualizado com Sucesso                           ///\n"
-  "///                                                                        ///\n"
-  "///                                                                        ///\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-	"\n");
+  atualizado_sucesso();
   getchar();
 }
 
@@ -120,18 +96,13 @@ void apagar_fornecedor(void){
   //char emailempresa[20];
   //char cnpj[15];
 
-
   printf("Nome a ser pesquisado : ");
   scanf("%[A-Z a-z]",empresa);
   getchar();
-  //fflush(stdin);
-  printf("\nCadastro apagado com sucesso ...\n");
-  getchar();
   
-
+  deletado_sucesso();
+  getchar();
 }
-
-
 
 void recuperar_fornecedor(void){
   char cnpj[50];
@@ -204,7 +175,6 @@ char tela_fornecedores(void){
   printf("Informe a opção: "); 
   scanf("%s", &op); 
   getchar();
-  //fflush(stdin);
   printf("\n");
   return op;
 }
