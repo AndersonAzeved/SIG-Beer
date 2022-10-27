@@ -6,3 +6,5 @@ void retira_pontoscpf(char *);
 int verifica_letracpf(char *);
 int valida_cpf(char *);
 int valida_email(char *);
+void cadastrado_sucesso(void);
+void atualizado_sucesso(void);

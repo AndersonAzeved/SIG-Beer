@@ -36,7 +36,6 @@ char tela_assinaturas(void){
   printf("Informe a opção: "); 
   scanf("%s", &op); 
   getchar();
-  //fflush(stdin);
   printf("\n");
   return op;
 }
@@ -78,18 +77,7 @@ void cadastrar_assinatura(void){
   getchar();
 
   system("clear||cls");
-
-  printf("\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-  "///                                                                        ///\n"
-  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
-  "///                                                                        ///\n"
-  "///                                                                        ///\n"
-  "///                       Cadastrado com Sucesso                           ///\n"
-  "///                                                                        ///\n"
-  "///                                                                        ///\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-	"\n");
+  cadastrado_sucesso();
   getchar();
 }
 
@@ -126,18 +114,7 @@ void atualizar_assinatura(void){
   getchar();
 
   system("clear||cls");
-
-  printf("\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-  "///                                                                        ///\n"
-  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
-  "///                                                                        ///\n"
-  "///                                                                        ///\n"
-  "///                       Atualizado com Sucesso                           ///\n"
-  "///                                                                        ///\n"
-  "///                                                                        ///\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-	"\n");
+  atualizado_sucesso();
   getchar();
 }
 
@@ -155,7 +132,6 @@ void apagar_assinatura(void){
 
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
   scanf("%[A-Z a-z]",Assinatura.nome);
-  //fflush(stdin);
 
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
