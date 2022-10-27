@@ -12,4 +12,5 @@ struct assinatura{
     char telefone[50];
     char email[50];
     char assinatura[50];
+    char nivel[10];
 };

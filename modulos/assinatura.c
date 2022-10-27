@@ -75,6 +75,13 @@ void cadastrar_assinatura(void){
   printf("Código da Assinatura: ");
   scanf("%[A-Za-z0-9]", Assinatura.assinatura);
   getchar();
+  printf("\nNível da Assinatura:\n");
+  printf("Nível 1. 2 Cervejas\n");
+  printf("Nível 2. 4 Cervejas\n");
+  printf("Nível 3. 8 Cervejas\n");
+  printf("Informe o nível (APENAS NÚMEROS): ");
+  scanf("%[0-9]",Assinatura.nivel);
+  getchar();
 
   system("clear||cls");
   cadastrado_sucesso();
@@ -111,6 +118,13 @@ void atualizar_assinatura(void){
 
   printf("Código da assinatura: ");
   scanf("%[A-Za-z0-9]", Assinatura.assinatura);
+  getchar();
+  printf("\nNível da Assinatura:\n");
+  printf("Nível 1. 2 Cervejas\n");
+  printf("Nível 2. 4 Cervejas\n");
+  printf("Nível 3. 8 Cervejas\n");
+  printf("Informe o nível (APENAS NÚMEROS): ");
+  scanf("%[0-9]",Assinatura.nivel);
   getchar();
 
   system("clear||cls");
