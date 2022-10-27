@@ -33,13 +33,11 @@ char tela_cervejas(void) {
   printf("Informe a opção: "); 
   scanf("%s", &op); 
   getchar();
-  //fflush(stdin);
   printf("\n");
   return op;
 }
 
 void cadastrar_cerveja(){
-  //fflush(stdin);
   char nome[20];
   char codigo[50]; //Código da cerveja
   char fornecedor[20];
@@ -55,17 +53,7 @@ void cadastrar_cerveja(){
   getchar();
 
   system("clear||cls");
-  printf("\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-  "///                                                                        ///\n"
-  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
-  "///                                                                        ///\n"
-  "///                                                                        ///\n"
-  "///                       Cadastrado com Sucesso                           ///\n"
-  "///                                                                        ///\n"
-  "///                                                                        ///\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-  "\n");
+  cadastrado_sucesso();
   getchar();
   
 }
@@ -87,17 +75,7 @@ void atualizar_cerveja(void){
   
 
   system("clear||cls");
-  printf("\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-  "///                                                                        ///\n"
-  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
-  "///                                                                        ///\n"
-  "///                                                                        ///\n"
-  "///                       Atualizado com Sucesso                           ///\n"
-  "///                                                                        ///\n"
-  "///                                                                        ///\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-  "\n");
+  atualizado_sucesso();
   getchar();
 }
 
@@ -109,19 +87,8 @@ void apagar_cerveja(void){
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
   scanf("%[A-Z a-z]",nome);
   getchar();
-  ////fflush(stdin);
 
-  printf("\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-  "///                                                                        ///\n"
-  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
-  "///                                                                        ///\n"
-  "///                                                                        ///\n"
-  "///                        Deletado com Sucesso                            ///\n"
-  "///                                                                        ///\n"
-  "///                                                                        ///\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-  "\n");
+  deletado_sucesso();
   getchar();
 }
 
