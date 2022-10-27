@@ -7,7 +7,7 @@
 
 char tela_principal(void) {
   char op;
-  system("clear||cls");
+  //system("clear||cls");
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"

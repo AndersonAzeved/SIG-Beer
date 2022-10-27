@@ -28,6 +28,25 @@ int verifica_letra(char *cnpj){
   return 0;
 }
 
+int verifica_espaco(char *variavel){
+  int tamanho = strlen(variavel);
+  for(int i = 0; i < tamanho; i++){
+    if(variavel[i] == ' '){
+      return 1;
+    }
+  }
+  return 0;
+}
+
+int valida_nome(char *variavel){
+  int x = verifica_espaco(variavel);
+  int y = verifica_espaco(variavel);
+  if((x && y) || (y && !x)){
+    return 1;
+  }
+  return 0;
+}
+
 int valida_cnpj(char *cnpj){
   // Função criada por Anderson Azevedo da Silva
   // Instagram: @anderson.azvd

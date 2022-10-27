@@ -9,3 +9,5 @@ int valida_email(char *);
 void cadastrado_sucesso(void);
 void atualizado_sucesso(void);
 void deletado_sucesso(void);
+int verifica_espaco(char *);
+int valida_nome(char *);
