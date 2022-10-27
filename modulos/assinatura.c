@@ -40,47 +40,40 @@ char tela_assinaturas(void){
 }
 
 void cadastrar_assinatura(void){
-  char nome[50];
-  char cpf[20];
-  char endereco[50]; 
-  char telefone[50];
-  char codigo[50]; //Código da cerveja
-  char email[30];
-  //char cod_assinatura[20]; //Criar algum meio para a cada assinatura, criar um código diferente
+  struct assinatura Assinatura;
 
   printf("Nome do Cliente (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]",nome);
+  scanf("%[A-Z a-z]",Assinatura.nome);
   getchar();
   do{
-  // while (!valida_cpf(cpf)){
     printf("CPF: ");
-    scanf("%[0-9.-]",cpf);
+    scanf("%[0-9.-]",Assinatura.cpf);
     getchar();
-    retira_pontoscpf(cpf);
-    verifica_letracpf(cpf);
-    valida_cpf(cpf);
-    if (!valida_cpf(cpf)){
+    retira_pontoscpf(Assinatura.cpf);
+    verifica_letracpf(Assinatura.cpf);
+    valida_cpf(Assinatura.cpf);
+    if (!valida_cpf(Assinatura.cpf)){
       printf("\nCPF inválido, digite novamente.\n");
     }
-  } while (!valida_cpf(cpf));
+  } while (!valida_cpf(Assinatura.cpf));
   printf("Endereço: ");
-  scanf("%[A-z a-z., -0-9]",endereco);
+  scanf("%[A-z a-z., -0-9]",Assinatura.endereco);
   getchar();
   printf("Telefone: ");
-  scanf("%[0-9-]",telefone);
+  scanf("%[0-9-]",Assinatura.telefone);
   getchar();
   printf("Email: ");
-  scanf("%[A-z a-z.@0-9]",email);
+  scanf("%[A-z a-z.@0-9]",Assinatura.email);
   getchar();
-  while(!valida_email(email)){
+  while(!valida_email(Assinatura.email)){
     printf("Email inválido, tente novamente!\n");
     printf("Email: ");
-    scanf("%[A-z a-z.@0-9]",email);
+    scanf("%[A-z a-z.@0-9]",Assinatura.email);
     getchar();
   } 
 
   printf("Código da Cerveja: ");
-  scanf("%[A-Za-z0-9]", codigo);
+  scanf("%[A-Za-z0-9]", Assinatura.codigo);
   getchar();
 
   system("clear||cls");
