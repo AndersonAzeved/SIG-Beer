@@ -8,3 +8,4 @@ int valida_cpf(char *);
 int valida_email(char *);
 void cadastrado_sucesso(void);
 void atualizado_sucesso(void);
+void deletado_sucesso(void);
