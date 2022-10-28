@@ -40,7 +40,7 @@ int verifica_espaco(char *variavel){
 
 int valida_nome(char *variavel){
   int x = verifica_espaco(variavel);
-  int y = verifica_espaco(variavel);
+  int y = verifica_letra(variavel);
   if((x && y) || (y && !x)){
     return 1;
   }
