@@ -6,38 +6,40 @@
 #include "fornecedor.h"
 #include "biblioteca.h"
 
+struct fornecedor Fornecedor;
+
 void cadastrar_fornecedor(void){
-  char empresa[20];
-  char cpfempresa[12];
-  char telefoneempresa[10];
-  char emailempresa[20];
-  char cnpj[15];
+  // char empresa[20];
+  // char cpfempresa[12];
+  // char telefoneempresa[10];
+  // char emailempresa[20];
+  // char cnpj[15];
 
   printf("Nome jurídico da empresa : ");
-  scanf("%[A-Z a-z]",empresa);
+  scanf("%[A-Z a-z]",Fornecedor.empresa);
   getchar();
   printf("CPF do dono da empresa : ");
-  scanf("%[A-Za-z0-9]", cpfempresa);
+  scanf("%[A-Za-z0-9]", Fornecedor.cpfempresa);
   getchar();
   printf("Telefone: ");
-  scanf("%[A-Za-z0-9]", telefoneempresa);
+  scanf("%[A-Za-z0-9]", Fornecedor.telefoneempresa);
   getchar();
   printf("E-mail da empresa : ");
-  scanf("%[A-z a-z.@0-9]",emailempresa);
+  scanf("%[A-Z a-z.@0-9]",Fornecedor.emailempresa);
   getchar();
-  while(!valida_email(emailempresa)){
+  while(!valida_email(Fornecedor.emailempresa)){
     printf("Email inválido, tente novamente!\n");
     printf("Email: ");
-    scanf("%[A-z a-z.@0-9]",emailempresa);
+    scanf("%[A-z a-z.@0-9]",Fornecedor.emailempresa);
     getchar();
   } 
   printf("CNPJ da empresa : ");
-  scanf("%c",cnpj);
+  scanf("%c",Fornecedor.cnpj);
   getchar();
-  while(!valida_cnpj(cnpj)){
+  while(!valida_cnpj(Fornecedor.cnpj)){
     printf("CNPJ inválido, tente novamente!\n");
     printf("CNPJ da empresa : ");
-    scanf("%c",cnpj);
+    scanf("%c",Fornecedor.cnpj);
     getchar();
   } 
 
@@ -50,37 +52,37 @@ void cadastrar_fornecedor(void){
 
 
 void atualizar_fornecedor(void){
-  char empresa[20];
-  char cpfempresa[12];
-  char telefoneempresa[10];
-  char emailempresa[20];
-  char cnpj[15];
+  // char empresa[20];
+  // char cpfempresa[12];
+  // char telefoneempresa[10];
+  // char emailempresa[20];
+  // char cnpj[15];
 
   printf("Nome jurídico da empresa : ");
-  scanf("%[A-Za-z0-9]", empresa);
+  scanf("%[A-Za-z0-9]", Fornecedor.empresa);
   getchar();
   printf("CPF do dono da empresa : ");
-  scanf("%[A-Za-z0-9]", cpfempresa);
+  scanf("%[A-Za-z0-9]", Fornecedor.cpfempresa);
   getchar();
   printf("Telefone: ");
-  scanf("%[A-Za-z0-9]", telefoneempresa);
+  scanf("%[A-Za-z0-9]", Fornecedor.telefoneempresa);
   getchar();
   printf("E-mail da empresa : ");
-  scanf("%[A-z a-z.@0-9]",emailempresa);
+  scanf("%[A-z a-z.@0-9]", Fornecedor.emailempresa);
   getchar();
-  while(!valida_email(emailempresa)){
+  while(!valida_email( Fornecedor.emailempresa)){
     printf("Email inválido, tente novamente!\n");
     printf("Email: ");
-    scanf("%[A-z a-z.@0-9]",emailempresa);
+    scanf("%[A-z a-z.@0-9]",Fornecedor.emailempresa);
     getchar();
   } 
   printf("CNPJ da empresa : ");
-  scanf("%s",cnpj);
+  scanf("%s",Fornecedor.cnpj);
   getchar();
-  while(!valida_cnpj(cnpj)){
+  while(!valida_cnpj(Fornecedor.cnpj)){
     printf("CNPJ inválido, tente novamente!\n");
     printf("CNPJ da empresa : ");
-    scanf("%c",cnpj);
+    scanf("%c",Fornecedor.cnpj);
     getchar();
   } 
 
@@ -90,14 +92,14 @@ void atualizar_fornecedor(void){
 }
 
 void apagar_fornecedor(void){
-  char empresa[20];
+  // char empresa[20];
   //char cpfempresa[12];
   //char telefoneempresa[10];
   //char emailempresa[20];
   //char cnpj[15];
 
   printf("Nome a ser pesquisado : ");
-  scanf("%[A-Z a-z]",empresa);
+  scanf("%[A-Z a-z]",Fornecedor.empresa);
   getchar();
   
   deletado_sucesso();
@@ -105,21 +107,21 @@ void apagar_fornecedor(void){
 }
 
 void recuperar_fornecedor(void){
-  char cnpj[50];
+  // char cnpj[50];
 
   printf("CNPJ a ser pesquisado : ");
-  scanf("%[A-Za-z0-9]",cnpj);
+  scanf("%[A-Za-z0-9]",Fornecedor.cnpj);
   getchar();
-  while(!valida_cnpj(cnpj)){
+  while(!valida_cnpj(Fornecedor.cnpj)){
     printf("CNPJ inválido, tente novamente!\n");
     printf("CNPJ da empresa : ");
-    scanf("%c",cnpj);
+    scanf("%c",Fornecedor.cnpj);
     getchar();
   } 
 
   system("clear||cls");
 
-  printf("%s",cnpj);
+  printf("%s",Fornecedor.cnpj);
   printf("\nEM DESENVOLVIMENTO ...\n");
   getchar();
   
@@ -127,19 +129,19 @@ void recuperar_fornecedor(void){
 
 
 void buscar_fornecedor(void){
-  char cnpj[0];
+  // char cnpj[0];
 
   printf("CNPJ a ser pesquisado : ");
-  scanf("%[A-Z a-z]",cnpj);
+  scanf("%[A-Z a-z]",Fornecedor.cnpj);
   getchar();
-  while(!valida_cnpj(cnpj)){
+  while(!valida_cnpj(Fornecedor.cnpj)){
     printf("CNPJ inválido, tente novamente!\n");
     printf("CNPJ da empresa : ");
-    scanf("%c",cnpj);
+    scanf("%c",Fornecedor.cnpj);
     getchar();
   } 
 
-  printf("%s",cnpj);
+  printf("%s",Fornecedor.cnpj);
   printf("\nEM DESENVOLVIMENTO ...\n");
   getchar();
 
