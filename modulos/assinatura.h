@@ -11,6 +11,8 @@ struct assinatura{
     char endereco[50]; 
     char telefone[50];
     char email[50];
-    char assinatura[50];
+    char assinatura[50]; // trocar nome
     char nivel[10];
 };
+
+typedef struct assinatura Assinatura;

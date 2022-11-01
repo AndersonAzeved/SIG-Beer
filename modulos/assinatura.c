@@ -5,7 +5,7 @@
 #include "assinatura.h"
 #include "biblioteca.h"
 
-struct assinatura Assinatura;
+typedef struct assinatura Assinatura;
 
 char tela_assinaturas(void){
   char op;
@@ -41,56 +41,56 @@ char tela_assinaturas(void){
 }
 
 void cadastrar_assinatura(void){
-
+  Assinatura ass;
   printf("Nome do Cliente (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]",Assinatura.nome);
+  scanf("%[A-Z a-z]",ass.nome);
   getchar();
-  while(!valida_nome(Assinatura.nome)){
+  while(!valida_nome(ass.nome)){
     printf("Nome inválido, tente novamente!\n");
     printf("Nome: ");
-    scanf("%[A-Z a-z]",Assinatura.nome);
+    scanf("%[A-Z a-z]",ass.nome);
     getchar();
   } 
 
   do{
     printf("CPF: ");
-    scanf("%[0-9.-]",Assinatura.cpf);
+    scanf("%[0-9.-]",ass.cpf);
     getchar();
-    retira_pontoscpf(Assinatura.cpf);
-    verifica_letracpf(Assinatura.cpf);
-    valida_cpf(Assinatura.cpf);
-    if (!valida_cpf(Assinatura.cpf)){
+    retira_pontoscpf(ass.cpf);
+    verifica_letracpf(ass.cpf);
+    valida_cpf(ass.cpf);
+    if (!valida_cpf(ass.cpf)){
       printf("\nCPF inválido, digite novamente.\n");
     }
-  } while (!valida_cpf(Assinatura.cpf));
+  } while (!valida_cpf(ass.cpf));
 
   printf("Endereço: ");
-  scanf("%[A-z a-z., -0-9]",Assinatura.endereco);
+  scanf("%[A-z a-z., -0-9]",ass.endereco);
   getchar();
 
   printf("Telefone: ");
-  scanf("%[0-9-]",Assinatura.telefone);
+  scanf("%[0-9-]",ass.telefone);
   getchar();
 
   printf("Email: ");
-  scanf("%[A-z a-z.@0-9]",Assinatura.email);
+  scanf("%[A-z a-z.@0-9]",ass.email);
   getchar();
-  while(!valida_email(Assinatura.email)){
+  while(!valida_email(ass.email)){
     printf("Email inválido, tente novamente!\n");
     printf("Email: ");
-    scanf("%[A-z a-z.@0-9]",Assinatura.email);
+    scanf("%[A-z a-z.@0-9]",ass.email);
     getchar();
   } 
 
   printf("Código da Assinatura: ");
-  scanf("%[A-Za-z0-9]", Assinatura.assinatura);
+  scanf("%[A-Za-z0-9]", ass.assinatura);
   getchar();
   printf("\nNível da Assinatura:\n");
   printf("Nível 1. 2 Cervejas\n");
   printf("Nível 2. 4 Cervejas\n");
   printf("Nível 3. 8 Cervejas\n");
   printf("Informe o nível (APENAS NÚMEROS): ");
-  scanf("%[0-9]",Assinatura.nivel);
+  scanf("%[0-9]",ass.nivel);
   getchar();
 
   system("clear||cls");
