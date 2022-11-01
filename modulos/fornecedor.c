@@ -19,10 +19,10 @@ void cadastrar_fornecedor(void){
   scanf("%[A-Z a-z]",Fornecedor.empresa);
   getchar();
   printf("CPF do dono da empresa : ");
-  scanf("%[A-Za-z0-9]", Fornecedor.cpfempresa);
+  scanf("%[A-Z a-z0-9]", Fornecedor.cpfempresa);
   getchar();
   printf("Telefone: ");
-  scanf("%[A-Za-z0-9]", Fornecedor.telefoneempresa);
+  scanf("%[A-Z a-z0-9]", Fornecedor.telefoneempresa);
   getchar();
   printf("E-mail da empresa : ");
   scanf("%[A-Z a-z.@0-9]",Fornecedor.emailempresa);
@@ -34,12 +34,12 @@ void cadastrar_fornecedor(void){
     getchar();
   } 
   printf("CNPJ da empresa : ");
-  scanf("%c",Fornecedor.cnpj);
+  scanf("%[0-9 .-]",Fornecedor.cnpj);
   getchar();
   while(!valida_cnpj(Fornecedor.cnpj)){
     printf("CNPJ inválido, tente novamente!\n");
     printf("CNPJ da empresa : ");
-    scanf("%c",Fornecedor.cnpj);
+    scanf("%[0-9 .-]",Fornecedor.cnpj);
     getchar();
   } 
 
