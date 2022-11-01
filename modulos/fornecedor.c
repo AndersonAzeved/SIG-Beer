@@ -18,9 +18,19 @@ void cadastrar_fornecedor(void){
   printf("Nome jurídico da empresa : ");
   scanf("%[A-Z a-z]",Fornecedor.empresa);
   getchar();
-  printf("CPF do dono da empresa : ");
-  scanf("%[A-Z a-z0-9]", Fornecedor.cpfempresa);
-  getchar();
+
+  do{
+    printf("CPF: ");
+    scanf("%[0-9.-]",Fornecedor.cpfempresa);
+    getchar();
+    retira_pontoscpf(Fornecedor.cpfempresa);
+    verifica_letracpf(Fornecedor.cpfempresa);
+    valida_cpf(Fornecedor.cpfempresa);
+    if (!valida_cpf(Fornecedor.cpfempresa)){
+      printf("\nCPF inválido, digite novamente.\n");
+    }
+  } while (!valida_cpf(Fornecedor.cpfempresa));
+
   printf("Telefone: ");
   scanf("%[A-Z a-z0-9]", Fornecedor.telefoneempresa);
   getchar();
