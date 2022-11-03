@@ -12,3 +12,5 @@ struct fornecedor{
   char emailempresa[20];
   char cnpj[15];
 };
+
+typedef struct fornecedor Fornecedor;
