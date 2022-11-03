@@ -196,9 +196,14 @@ int valida_email(char *email){
   if(qunt_aroba > 1){
       return 0;
   }
+  // Verifica a posição do @
+  int aroba = 0;
+  for(int i = 0; email[i] != '@'; i++){
+      aroba++;
+  }
   // Tamanho do email e verifica se as primeiras e últimas posições, começam com @, pontos ou espaços
   int tamanho = strlen(email);
-  if(email[0] == '@' || email[tamanho-1] == '@' || email[0] == '.' || email[tamanho-1] == '.' || email[0] == ' ' || email[tamanho-1] == ' '){
+  if(email[aroba-1] == '.' || email[aroba+1] == '.' || email[0] == '@' || email[tamanho-1] == '@' || email[0] == '.' || email[tamanho-1] == '.' || email[0] == ' ' || email[tamanho-1] == ' '){
       return 0;
   }
   // No email são aceitos apenas pontos, @, letras e números
@@ -213,11 +218,7 @@ int valida_email(char *email){
           return 0;
       }
   }
-  // Verifica a posição do @
-  int aroba = 0;
-  for(int i = 0; email[i] != '@'; i++){
-      aroba++;
-  }
+
   // Verifica a quantidade de caracteres do usuário
   int num_usuario = 0;
   for(int i = 0; i < aroba; i++){
