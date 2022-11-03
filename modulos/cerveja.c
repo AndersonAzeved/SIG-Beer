@@ -4,7 +4,9 @@
 #include <stdlib.h>
 #include "cerveja.h"
 #include "biblioteca.h"
-struct cerveja Cerveja;
+
+typedef struct cerveja Cerveja;
+Cerveja cer;
 
 char tela_cervejas(void) {
   char op;
@@ -39,20 +41,15 @@ char tela_cervejas(void) {
 }
 
 void cadastrar_cerveja(){
-  // char nome[20];
-  // char codigo[50]; //Código da cerveja
-  // char fornecedor[20];
-
   printf("Nome da cerveja (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]",Cerveja.nome);
+  scanf("%[A-Z a-z]",cer.nome);
   getchar();
   printf("Código da Cerveja: ");
-  scanf("%[A-Za-z0-9]", Cerveja.codigo);
+  scanf("%[A-Za-z0-9]", cer.codigo);
   getchar();
   printf("Fornecedor: ");
-  scanf("%[A-Za-z0-9]", Cerveja.fornecedor);
+  scanf("%[A-Za-z0-9]", cer.fornecedor);
   getchar();
-
   system("clear||cls");
   cadastrado_sucesso();
   getchar();
@@ -60,62 +57,44 @@ void cadastrar_cerveja(){
 }
 
 void atualizar_cerveja(void){
-  // char nome[20];
-  // char codigo[50]; //Código da cerveja
-  // char fornecedor[20];
-
   printf("Nome da cerveja (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]",Cerveja.nome);
+  scanf("%[A-Z a-z]",cer.nome);
   getchar();
   printf("Código da Cerveja: ");
-  scanf("%[A-Za-z0-9]", Cerveja.codigo);
+  scanf("%[A-Za-z0-9]", cer.codigo);
   getchar();
   printf("Fornecedor: ");
-  scanf("%[A-Za-z0-9]", Cerveja.fornecedor);
+  scanf("%[A-Za-z0-9]", cer.fornecedor);
   getchar();
-  
-
   system("clear||cls");
   atualizado_sucesso();
   getchar();
 }
 
 void apagar_cerveja(void){
-  // char nome[20];
-  //char codigo[50]; //Código da cerveja
-  //char fornecedor[20];
-
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]",Cerveja.nome);
+  scanf("%[A-Z a-z]",cer.nome);
   getchar();
-
   deletado_sucesso();
   getchar();
 }
 
 void recuperar_cerveja(void){
-  // char codigo[50];
-
   printf("Codigo da cerveja a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Za-z0-9]",Cerveja.codigo);
+  scanf("%[A-Za-z0-9]",cer.codigo);
   getchar();
   system("clear||cls");
-
-  printf("%s",Cerveja.codigo);
+  printf("%s",cer.codigo);
   printf("\nEM DESENVOLVIMENTO ...\n");
   getchar();
   
 }
 
 void buscar_cerveja(void){
-  // char nome[0];
-
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]",Cerveja.nome);
+  scanf("%[A-Z a-z]",cer.nome);
   getchar();
-
-  printf("%s",Cerveja.nome);
+  printf("%s",cer.nome);
   printf("\nEM DESENVOLVIMENTO ...\n");
   getchar();
-  
 }

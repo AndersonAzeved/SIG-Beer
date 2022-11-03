@@ -12,3 +12,5 @@ struct cerveja{
   char codigo[50];
   char fornecedor[20];
 };
+
+typedef struct cerveja Cerveja;
