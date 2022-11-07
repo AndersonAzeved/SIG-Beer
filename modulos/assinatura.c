@@ -8,6 +8,16 @@
 typedef struct assinatura Assinatura;
 Assinatura ass;
 
+void grava_assinatura(Assinatura* ass){
+    FILE* fp;
+    fp = fopen("files/assinatura.dat","ab");
+    if(fp == NULL){
+      fp = fopen("files/assinatura.dat","a");
+    }
+    fwrite(ass, sizeof(Assinatura), 1, fp);
+    fclose(fp);
+}
+
 char tela_assinaturas(void){
   char op;
   system("clear||cls");
@@ -92,6 +102,9 @@ void cadastrar_assinatura(void){
   printf("Nível 3. 8 Cervejas\n");
   printf("Informe o nível (APENAS NÚMEROS): ");
   fgets(ass->nivel, 10, stdin);
+  ass->status = 'a'; // a = ATIVADO e d = DESATIVADO
+
+  grava_assinatura(ass);
 
   system("clear||cls");
   cadastrado_sucesso();
@@ -99,42 +112,62 @@ void cadastrar_assinatura(void){
 }
 
 void atualizar_assinatura(void){
+  Assinatura* ass;
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
   printf("Código da assinatura a atualizar: ");
-  scanf("%[A-Za-z0-9]", ass.codigo);
+  scanf("%[A-Za-z0-9]", ass->codigo);
   getchar();
 
   printf("Nome do Cliente (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]",ass.nome);
-  getchar();
-  printf("CPF: ");
-  scanf("%[0-9.-]",ass.cpf);
-  getchar();
-  printf("Endereço: ");
-  scanf("%[A-z a-z., -0-9]",ass.endereco);
-  getchar();
-  printf("Telefone: ");
-  scanf("%[0-9-]",ass.telefone);
-  getchar();
-  printf("Email: ");
-  scanf("%[A-z a-z.@0-9]",ass.email);
-  getchar();
-  while(!valida_email(ass.email)){
-    printf("Email inválido, tente novamente!\n");
-    printf("Email: ");
-    scanf("%[A-z a-z.@0-9]",ass.email);
-    getchar();
+  fgets(ass->nome, 100, stdin);
+  remove_enter(ass->nome);
+  while(!valida_nome(ass->nome)){
+    printf("Nome inválido, tente novamente!\n");
+    printf("Nome: ");
+    fgets(ass->nome, 100, stdin);
+    remove_enter(ass->nome);
   } 
 
-  printf("Código da assinatura: ");
-  scanf("%[A-Za-z0-9]", ass.codigo);
-  getchar();
+  do{
+    printf("CPF: ");
+    fgets(ass->cpf, 50, stdin);
+    remove_enter(ass->cpf);
+    retira_pontoscpf(ass->cpf);
+    verifica_letracpf(ass->cpf);
+    valida_cpf(ass->cpf);
+    if (!valida_cpf(ass->cpf)){
+      printf("\nCPF inválido, digite novamente.\n");
+    }
+  } while (!valida_cpf(ass->cpf));
+
+  printf("Endereço: ");  
+  fgets(ass->endereco, 100, stdin);
+
+  printf("Telefone: ");
+  fgets(ass->telefone, 50, stdin);
+
+  printf("Email: ");
+  fgets(ass->email, 50, stdin);
+  remove_enter(ass->email);
+  while(!valida_email(ass->email)){
+    printf("Email inválido, tente novamente!\n");
+    printf("Email: ");
+    fgets(ass->email, 50, stdin);
+    remove_enter(ass->email);
+  } 
+
+  printf("Código da Assinatura: ");
+  fgets(ass->codigo, 50, stdin);
+
   printf("\nNível da Assinatura:\n");
   printf("Nível 1. 2 Cervejas\n");
   printf("Nível 2. 4 Cervejas\n");
   printf("Nível 3. 8 Cervejas\n");
   printf("Informe o nível (APENAS NÚMEROS): ");
-  scanf("%[0-9]",ass.nivel);
-  getchar();
+  fgets(ass->nivel, 10, stdin);
+  ass->status = 'a'; // a = ATIVADO e d = DESATIVADO
+
+  grava_assinatura(ass);
 
   system("clear||cls");
   atualizado_sucesso();
@@ -142,32 +175,60 @@ void atualizar_assinatura(void){
 }
 
 void buscar_assinatura(void){
-
+  Assinatura* ass;
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]",ass.nome);
-  getchar();
+  fgets(ass->nome, 100, stdin);
+  remove_enter(ass->nome);
+  while(!valida_nome(ass->nome)){
+    printf("Nome inválido, tente novamente!\n");
+    printf("Nome: ");
+    fgets(ass->nome, 100, stdin);
+    remove_enter(ass->nome);
+  } 
 
-  printf("%s",ass.nome);
+  printf("%s",ass->nome);
   getchar();
 }
 
 void apagar_assinatura(void){
+  Assinatura* ass;
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  fgets(ass->nome, 100, stdin);
+  remove_enter(ass->nome);
+  while(!valida_nome(ass->nome)){
+    printf("Nome inválido, tente novamente!\n");
+    printf("Nome: ");
+    fgets(ass->nome, 100, stdin);
+    remove_enter(ass->nome);
+  } 
 
-  printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]",ass.nome);
+  ass->status = 'd';
+  grava_assinatura(ass);
 
   deletado_sucesso();
   getchar();
 }
 
 void recuperar_assinatura(void){
-
+  Assinatura* ass;
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]",ass.nome);
-  getchar();
+  fgets(ass->nome, 100, stdin);
+  remove_enter(ass->nome);
+  while(!valida_nome(ass->nome)){
+    printf("Nome inválido, tente novamente!\n");
+    printf("Nome: ");
+    fgets(ass->nome, 100, stdin);
+    remove_enter(ass->nome);
+  } 
+  
+  ass->status = 'a';
+  grava_assinatura(ass);
+
   system("clear||cls");
 
-  printf("%s",ass.nome);
+  printf("%s",ass->nome);
   printf("\nEM DESENVOLVIMENTO ...\n");
   getchar();
 }
