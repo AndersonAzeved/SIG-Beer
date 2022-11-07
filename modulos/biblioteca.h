@@ -11,3 +11,4 @@ void atualizado_sucesso(void);
 void deletado_sucesso(void);
 int verifica_espaco(char *);
 int valida_nome(char *);
+void remove_enter(char *);

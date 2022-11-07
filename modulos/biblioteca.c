@@ -141,6 +141,7 @@ int verifica_letracpf(char *cpf){
 
 int valida_cpf(char *cpf){
   // \\* FEITA POR ERICLEISON CAMILO ᕦ( ͡° ͜ʖ ͡°)ᕤ  *//
+  remove_enter(cpf);
   int i;
   int len= strlen(cpf);
   int cpf_convertido[11];
@@ -188,6 +189,7 @@ int valida_email(char *email){
   // Instagram: @anderson.azvd
   // GitHub: @andersonazeved
 
+  //remove_enter(email);
   // Verifica a quantidade de @
   int qunt_aroba = 0;
   for(int i = 0; email[i] == '@'; i++){
@@ -297,4 +299,9 @@ void deletado_sucesso(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
+}
+
+void remove_enter(char *var){
+    char *ponteiro = strtok(var, "\n");
+    strcpy(ponteiro,var);
 }
