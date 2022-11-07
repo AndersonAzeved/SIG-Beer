@@ -6,13 +6,14 @@ void apagar_assinatura(void);
 void recuperar_assinatura(void);
 
 struct assinatura{
-    char nome[100];
-    char cpf[50];
-    char endereco[50]; 
-    char telefone[50];
-    char email[50];
-    char codigo[50];
-    char nivel[10];
+    char nome[101];
+    char cpf[51];
+    char endereco[101]; 
+    char telefone[51];
+    char email[51];
+    char codigo[51];
+    char nivel[11];
+    char status;
 };
 
 typedef struct assinatura Assinatura;
