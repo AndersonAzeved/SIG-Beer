@@ -6,11 +6,12 @@ void recuperar_fornecedor(void);
 void buscar_fornecedor(void);
 
 struct fornecedor{
-  char empresa[20];
-  char cpfempresa[12];
-  char telefoneempresa[10];
-  char emailempresa[20];
-  char cnpj[15];
+  char empresa[51];
+  char cpfempresa[51];
+  char telefoneempresa[51];
+  char emailempresa[51];
+  char cnpj[51];
+  char status;
 };
 
 typedef struct fornecedor Fornecedor;

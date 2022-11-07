@@ -42,68 +42,51 @@ char tela_assinaturas(void){
 }
 
 void cadastrar_assinatura(void){
-  char nome[101];
-  char cpf[51];
-  char endereco[101]; 
-  char telefone[51];
-  char email[51];
-  char codigo[51];
-  char nivel[11];
-
+  Assinatura* ass;
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
   printf("Nome do Cliente (APENAS LETRAS): ");
-  fgets(nome, 100, stdin);
-  while(!valida_nome(nome)){
+  fgets(ass->nome, 100, stdin);
+  while(!valida_nome(ass->nome)){
     printf("Nome inválido, tente novamente!\n");
     printf("Nome: ");
-    fgets(nome, 100, stdin);
+    fgets(ass->nome, 100, stdin);
   } 
-
+  
   do{
     printf("CPF: ");
-    fgets(cpf, 50, stdin);
-    retira_pontoscpf(cpf);
-    verifica_letracpf(cpf);
-    valida_cpf(cpf);
-    if (!valida_cpf(cpf)){
-      printf("\nCPF inválido, digite novamente.\n");
-    }
-  } while (!valida_cpf(cpf));
+    fgets(ass->cpf, 50, stdin);
+    retira_pontoscpf(ass->cpf);
+    verifica_letracpf(ass->cpf);
+    valida_cpf(ass->cpf);
 
-  /*do{
-    printf("CPF: ");
-    scanf("%[0-9.-]",ass.cpf);
-    getchar();
-    retira_pontoscpf(ass.cpf);
-    verifica_letracpf(ass.cpf);
-    valida_cpf(ass.cpf);
-    if (!valida_cpf(ass.cpf)){
+    if (!valida_cpf(ass->cpf)){
       printf("\nCPF inválido, digite novamente.\n");
     }
-  } while (!valida_cpf(ass.cpf));*/
+  } while (!valida_cpf(ass->cpf));
 
   printf("Endereço: ");
-  fgets(endereco, 100, stdin);
+  fgets(ass->endereco, 100, stdin);
 
   printf("Telefone: ");
-  fgets(telefone, 50, stdin);
+  fgets(ass->telefone, 50, stdin);
 
   printf("Email: ");
-  fgets(email, 50, stdin);
-  while(!valida_email(email)){
+  fgets(ass->email, 50, stdin);
+  while(!valida_email(ass->email)){
     printf("Email inválido, tente novamente!\n");
     printf("Email: ");
-    fgets(email, 50, stdin);
+    fgets(ass->email, 50, stdin);
   } 
 
   printf("Código da Assinatura: ");
-  fgets(codigo, 50, stdin);
+  fgets(ass->codigo, 50, stdin);
 
   printf("\nNível da Assinatura:\n");
   printf("Nível 1. 2 Cervejas\n");
   printf("Nível 2. 4 Cervejas\n");
   printf("Nível 3. 8 Cervejas\n");
   printf("Informe o nível (APENAS NÚMEROS): ");
-  fgets(nivel, 10, stdin);
+  fgets(ass->nivel, 10, stdin);
 
   system("clear||cls");
   cadastrado_sucesso();
