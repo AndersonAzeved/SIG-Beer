@@ -69,6 +69,17 @@ void cadastrar_assinatura(void){
     }
   } while (!valida_cpf(cpf));
 
+  /*do{
+    printf("CPF: ");
+    scanf("%[0-9.-]",ass.cpf);
+    getchar();
+    retira_pontoscpf(ass.cpf);
+    verifica_letracpf(ass.cpf);
+    valida_cpf(ass.cpf);
+    if (!valida_cpf(ass.cpf)){
+      printf("\nCPF inválido, digite novamente.\n");
+    }
+  } while (!valida_cpf(ass.cpf));*/
 
   printf("Endereço: ");
   fgets(endereco, 100, stdin);
