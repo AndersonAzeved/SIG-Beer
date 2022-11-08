@@ -52,6 +52,7 @@ char tela_assinaturas(void){
   return op;
 }
 
+
 void cadastrar_assinatura(void){
   Assinatura* ass;
   ass = (Assinatura*) malloc(sizeof(Assinatura));
@@ -91,8 +92,7 @@ void cadastrar_assinatura(void){
     printf("Email: ");
     fgets(ass->email, 50, stdin);
     remove_enter(ass->email);
-  } 
-
+  }
 
   printf("Código da Assinatura: ");
   fgets(ass->codigo, 50, stdin);
