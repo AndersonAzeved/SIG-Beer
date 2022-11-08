@@ -5,6 +5,16 @@
 #include "cerveja.h"
 #include "biblioteca.h"
 
+void arquivo_assinatura(Cerveja* ass){
+    FILE* fp;
+    fp = fopen("files/cerveja.dat","ab");
+    if(fp == NULL){
+      fp = fopen("files/cerveja.dat","a");
+    }
+    fwrite(ass, sizeof(Cerveja), 1, fp);
+    fclose(fp);
+}
+
 typedef struct cerveja Cerveja;
 Cerveja cer;
 
@@ -56,6 +66,7 @@ void cadastrar_cerveja(){
   fgets(cer->fornecedor, 20, stdin);
   remove_enter(cer->fornecedor);
 
+  arquivo_assinatura(cer);
 
   system("clear||cls");
   cadastrado_sucesso();
