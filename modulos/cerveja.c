@@ -99,29 +99,32 @@ void atualizar_cerveja(void){
 }
 
 void apagar_cerveja(void){
-  printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]",cer.nome);
-  getchar();
-  deletado_sucesso();
+  Cerveja* cer;
+  cer = (Cerveja*) malloc(sizeof(Cerveja));
+  printf("NOME: ");
+  fgets(cer->nome, 20, stdin);
+  remove_enter(cer->nome);
+  printf("\n\n\n\n\tEM DESENVOLVIMENTO.\n\n\n\n");
   getchar();
 }
 
 void recuperar_cerveja(void){
-  printf("Codigo da cerveja a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Za-z0-9]",cer.codigo);
-  getchar();
-  system("clear||cls");
-  printf("%s",cer.codigo);
-  printf("\nEM DESENVOLVIMENTO ...\n");
+
+  Cerveja* cer;
+  cer = (Cerveja*) malloc(sizeof(Cerveja));
+  printf("Nome a ser pesquisado (APENAS LETRAS): ");
+  fgets(cer->nome, 20, stdin);
+  remove_enter(cer->nome);
+  printf("\n\n\n\n\tEM DESENVOLVIMENTO.\n\n\n\n");
   getchar();
   
 }
 
 void buscar_cerveja(void){
+  Cerveja* cer;
+  cer = (Cerveja*) malloc(sizeof(Cerveja));
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]",cer.nome);
-  getchar();
-  printf("%s",cer.nome);
-  printf("\nEM DESENVOLVIMENTO ...\n");
+  fgets(cer->nome, 20, stdin);
+  printf("\n\n\n\n\tEM DESENVOLVIMENTO.\n\n\n\n");
   getchar();
 }
