@@ -193,9 +193,13 @@ Assinatura* buscar_ass(char *busca){
   Assinatura *ass;
   arq = fopen("files/assinatura.dat", "rb");
   if(arq == NULL){
+<<<<<<< HEAD
     printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
     printf("Não é possível continuar este programa...\n");
     exit(1);
+=======
+    arq = fopen("files/assinatura.dat", "a");
+>>>>>>> c3c985b (função buscar_ass criada)
   }
   ass = (Assinatura*) malloc(sizeof(Assinatura));
   while(!feof(arq)){
@@ -209,6 +213,7 @@ Assinatura* buscar_ass(char *busca){
   return NULL;
 }
 
+<<<<<<< HEAD
 void exibe_assinatura(Assinatura* ass){
   if((ass == NULL) || (ass->status == 'i')){
         printf("\n= = = Assinatura Inexistente = = =\n");
@@ -224,10 +229,13 @@ void exibe_assinatura(Assinatura* ass){
   }
 }
 
+=======
+>>>>>>> c3c985b (função buscar_ass criada)
 
 void buscar_assinatura(void){
   Assinatura* ass;
   ass = (Assinatura*) malloc(sizeof(Assinatura));
+<<<<<<< HEAD
   char cpf[51];
   printf("CPF a ser pesquisado: ");
   fgets(cpf, 50, stdin);
@@ -239,6 +247,18 @@ void buscar_assinatura(void){
   } 
   ass = buscar_ass(cpf);
   exibe_assinatura(ass);
+=======
+  printf("CPF a ser pesquisado: ");
+  fgets(ass->cpf, 50, stdin);
+  remove_enter(ass->cpf);
+  while(!valida_cpf(ass->cpf)){
+    printf("CPF inválido, tente novamente: ");
+    fgets(ass->cpf, 50, stdin);
+  remove_enter(ass->cpf);
+  } 
+
+  
+>>>>>>> c3c985b (função buscar_ass criada)
   getchar();
 }
 
