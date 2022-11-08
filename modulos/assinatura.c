@@ -194,19 +194,42 @@ Assinatura* buscar_ass(char *busca){
   return NULL;
 }
 
+void exibe_assinatura(Assinatura* ass){
+  char situacao[20];
+  if((ass == NULL) || (ass->status == 'i')){
+        printf("\n= = = Assinatura Inexistente = = =\n");
+    }else{
+        printf("\n= = = Assinatura Cadastrada = = =\n");
+        printf("Nome: %s\n", ass->nome);
+        printf("CPF: %s\n", ass->cpf);
+        printf("Endereço: %s\n", ass->endereco);
+        printf("Telefone: %s\n", ass->telefone);
+        printf("Email: %s\n", ass->email);
+        printf("Código: %s\n", ass->codigo);
+        printf("Nível: %s\n", ass->nivel);
+        if(ass->status == 'a'){
+            strcpy(situacao, "Cadastrado");
+        }else{
+            strcpy(situacao, "Não informada");
+        }
+        printf("Situação da pessoa: %s\n", situacao);
+    }
+}
+
 
 void buscar_assinatura(void){
   Assinatura* ass;
-  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  char cpf[51];
   printf("CPF a ser pesquisado: ");
-  fgets(ass->cpf, 50, stdin);
-  remove_enter(ass->cpf);
-  while(!valida_cpf(ass->cpf)){
+  fgets(cpf, 50, stdin);
+  remove_enter(cpf);
+  while(!valida_cpf(cpf)){
     printf("CPF inválido, tente novamente: ");
-    fgets(ass->cpf, 50, stdin);
-  remove_enter(ass->cpf);
+    fgets(cpf, 50, stdin);
+    remove_enter(cpf);
   } 
-
+  ass = buscar_ass(cpf);
+  exibe_assinatura(ass);
   
   getchar();
 }
