@@ -8,9 +8,10 @@ void recuperar_cerveja(void);
 void buscar_cerveja(void);
 
 struct cerveja{
-  char nome[20];
-  char codigo[50];
-  char fornecedor[20];
+  char nome[21];
+  char codigo[51];
+  char fornecedor[21];
+  char status;
 };
 
 typedef struct cerveja Cerveja;

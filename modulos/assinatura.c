@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "assinatura.h"
 #include "biblioteca.h"
 
@@ -165,7 +166,6 @@ void atualizar_assinatura(void){
   printf("Nível 3. 8 Cervejas\n");
   printf("Informe o nível (APENAS NÚMEROS): ");
   fgets(ass->nivel, 10, stdin);
-  ass->status = 'a'; // a = ATIVADO e d = DESATIVADO
 
   grava_assinatura(ass);
 
@@ -203,7 +203,7 @@ void apagar_assinatura(void){
     remove_enter(ass->nome);
   } 
 
-  ass->status = 'd';
+  ass->status = 'i';
   grava_assinatura(ass);
 
   deletado_sucesso();

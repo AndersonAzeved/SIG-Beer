@@ -66,6 +66,7 @@ void cadastrar_cerveja(){
   fgets(cer->fornecedor, 20, stdin);
   remove_enter(cer->fornecedor);
 
+  cer->status = 'a';
   arquivo_cerveja(cer);
 
   system("clear||cls");
@@ -104,6 +105,8 @@ void apagar_cerveja(void){
   printf("NOME: ");
   fgets(cer->nome, 20, stdin);
   remove_enter(cer->nome);
+  cer->status = 'i';
+  arquivo_cerveja(cer);
   printf("\n\n\n\n\tEM DESENVOLVIMENTO.\n\n\n\n");
   getchar();
 }
@@ -115,6 +118,8 @@ void recuperar_cerveja(void){
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
   fgets(cer->nome, 20, stdin);
   remove_enter(cer->nome);
+  cer->status = 'a';
+  arquivo_cerveja(cer);
   printf("\n\n\n\n\tEM DESENVOLVIMENTO.\n\n\n\n");
   getchar();
   
