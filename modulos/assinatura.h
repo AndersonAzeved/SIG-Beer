@@ -19,6 +19,7 @@ void buscar_assinatura(void);
 void apagar_assinatura(void);
 void recuperar_assinatura(void);
 <<<<<<< HEAD
+<<<<<<< HEAD
 Assinatura* buscar_ass(char *);
 void exibe_assinatura(Assinatura* );
 int cpf_esta(char *);
@@ -26,3 +27,7 @@ char escolhe_nivel(void);
 =======
 Assinatura* buscar_ass(char *);
 >>>>>>> c3c985b (função buscar_ass criada)
+=======
+Assinatura* buscar_ass(char *);
+void exibe_assinatura(Assinatura* );
+>>>>>>> 01a62b4 (função exibe_assinatura criada)
