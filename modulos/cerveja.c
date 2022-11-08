@@ -75,18 +75,27 @@ void cadastrar_cerveja(){
 }
 
 void atualizar_cerveja(void){
+  Cerveja* cer;
+  cer = (Cerveja*) malloc(sizeof(Cerveja));
   printf("Nome da cerveja (APENAS LETRAS): ");
-  scanf("%[A-Z a-z]",cer.nome);
-  getchar();
+  // scanf("%[A-Z a-z]",cer.nome);
+  fgets(cer->nome, 20, stdin);
+  remove_enter(cer->nome);
+
   printf("Código da Cerveja: ");
-  scanf("%[A-Za-z0-9]", cer.codigo);
-  getchar();
+  fgets(cer->codigo, 50, stdin);
+  remove_enter(cer->codigo);
+
   printf("Fornecedor: ");
-  scanf("%[A-Za-z0-9]", cer.fornecedor);
-  getchar();
+  fgets(cer->fornecedor, 20, stdin);
+  remove_enter(cer->fornecedor);
+
+  arquivo_cerveja(cer);
+
   system("clear||cls");
   atualizado_sucesso();
   getchar();
+  
 }
 
 void apagar_cerveja(void){
