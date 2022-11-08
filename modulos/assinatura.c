@@ -19,6 +19,7 @@ void grava_assinatura(Assinatura* ass){
     fclose(fp);
 }
 
+
 char tela_assinaturas(void){
   char op;
   system("clear||cls");
@@ -174,20 +175,39 @@ void atualizar_assinatura(void){
   getchar();
 }
 
+Assinatura* buscar_ass(char *busca){
+  FILE* arq;
+  Assinatura *ass;
+  arq = fopen("files/assinatura.dat", "rb");
+  if(arq == NULL){
+    arq = fopen("files/assinatura.dat", "a");
+  }
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  while(!feof(arq)){
+    if(fread(ass, sizeof(Assinatura), 1, arq)){
+      if(((strcmp(ass->cpf,busca)) == 0) && ass->status == 'a'){
+        return ass;
+      }
+    }
+  }
+  fclose(arq);
+  return NULL;
+}
+
+
 void buscar_assinatura(void){
   Assinatura* ass;
   ass = (Assinatura*) malloc(sizeof(Assinatura));
-  printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  fgets(ass->nome, 100, stdin);
-  remove_enter(ass->nome);
-  while(!valida_nome(ass->nome)){
-    printf("Nome inválido, tente novamente!\n");
-    printf("Nome: ");
-    fgets(ass->nome, 100, stdin);
-    remove_enter(ass->nome);
+  printf("CPF a ser pesquisado: ");
+  fgets(ass->cpf, 50, stdin);
+  remove_enter(ass->cpf);
+  while(!valida_cpf(ass->cpf)){
+    printf("CPF inválido, tente novamente: ");
+    fgets(ass->cpf, 50, stdin);
+  remove_enter(ass->cpf);
   } 
 
-  printf("%s",ass->nome);
+  
   getchar();
 }
 

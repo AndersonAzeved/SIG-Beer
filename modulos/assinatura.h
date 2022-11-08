@@ -1,10 +1,3 @@
-char tela_assinaturas(void);
-void cadastrar_assinatura(void);
-void atualizar_assinatura(void);
-void buscar_assinatura(void);
-void apagar_assinatura(void);
-void recuperar_assinatura(void);
-
 struct assinatura{
     char nome[101];
     char cpf[51];
@@ -17,3 +10,12 @@ struct assinatura{
 };
 
 typedef struct assinatura Assinatura;
+
+
+char tela_assinaturas(void);
+void cadastrar_assinatura(void);
+void atualizar_assinatura(void);
+void buscar_assinatura(void);
+void apagar_assinatura(void);
+void recuperar_assinatura(void);
+Assinatura* buscar_ass(char *);
