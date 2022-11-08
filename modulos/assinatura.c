@@ -49,11 +49,7 @@ char tela_assinaturas(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
-<<<<<<< HEAD
   scanf("%s", op);
-=======
-  scanf("%s", &op);
->>>>>>> 29a4564 (atualização)
   getchar();
   printf("\n");
   return op[0];

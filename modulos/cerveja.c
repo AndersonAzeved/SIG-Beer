@@ -133,3 +133,6 @@ void buscar_cerveja(void){
   printf("\n\n\n\n\tEM DESENVOLVIMENTO.\n\n\n\n");
   getchar();
 }
+
+
+

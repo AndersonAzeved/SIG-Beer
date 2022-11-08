@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "locale.h": "c",
-        "assinatura.h": "c",
-        "relatorio.h": "c"
-    }
-}
