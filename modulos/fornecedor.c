@@ -8,44 +8,54 @@
 typedef struct fornecedor Fornecedor;
 Fornecedor forne;
 
+
+void arquivo_fornecedor(Fornecedor* forne){
+    FILE* fp;
+    fp = fopen("files/fornecedor.dat","ab");
+    if(fp == NULL){
+      fp = fopen("files/fornecedor.dat","a");
+    }
+    fwrite(forne, sizeof(Fornecedor), 1, fp);
+    fclose(fp);
+}
+
 void cadastrar_fornecedor(void){
+
+  Fornecedor* forne;
+  forne = (Fornecedor*) malloc(sizeof(Fornecedor));
+
   printf("Nome jurídico da empresa : ");
-  scanf("%[A-Z a-z]",forne.empresa);
-  getchar();
+  remove_enter(fgets(forne->empresa, 51, stdin));  
+  // remove_enter(forne->empresa);
 
   do{
-    printf("CPF: ");
-    scanf("%[0-9.-]",forne.cpfempresa);
-    getchar();
-    retira_pontoscpf(forne.cpfempresa);
-    verifica_letracpf(forne.cpfempresa);
-    valida_cpf(forne.cpfempresa);
-    if (!valida_cpf(forne.cpfempresa)){
+    printf("CPF: "); 
+    remove_enter(fgets(forne->cpfempresa, 51, stdin));  
+    retira_pontoscpf(forne->cpfempresa);
+    verifica_letracpf(forne->cpfempresa);
+    valida_cpf(forne->cpfempresa);
+    if (!valida_cpf(forne->cpfempresa)){
       printf("\nCPF inválido, digite novamente.\n");
     }
-  } while (!valida_cpf(forne.cpfempresa));
+  } while (!valida_cpf(forne->cpfempresa));
 
   printf("Telefone: ");
-  scanf("%[A-Z a-z0-9]", forne.telefoneempresa);
-  getchar();
-  printf("E-mail da empresa : ");
-  scanf("%[A-Z a-z.@0-9]",forne.emailempresa);
-  getchar();
-  while(!valida_email(forne.emailempresa)){
-    printf("Email inválido, tente novamente!\n");
-    printf("Email: ");
-    scanf("%[A-z a-z.@0-9]",forne.emailempresa);
-    getchar();
-  } 
+  remove_enter(fgets(forne->telefoneempresa, 51, stdin));  
+  do{
+    printf("E-mail da empresa : ");
+    remove_enter(fgets(forne->emailempresa, 51, stdin));
+    if(!valida_email(forne->emailempresa)){
+      printf("Email inválido, tente novamente!\n");
+  } }
+  while(!valida_email(forne->emailempresa));
+  do{
   printf("CNPJ da empresa : ");
-  scanf("%[0-9 .-]",forne.cnpj);
-  getchar();
-  while(!valida_cnpj(forne.cnpj)){
+  remove_enter(fgets(forne->cnpj, 51, stdin)); 
+  if(!valida_cnpj(forne->cnpj)){
     printf("CNPJ inválido, tente novamente!\n");
-    printf("CNPJ da empresa : ");
-    scanf("%[0-9 .-]",forne.cnpj);
-    getchar();
-  } 
+  } }
+  while (!valida_cnpj(forne->cnpj));
+
   system("clear||cls");
   cadastrado_sucesso();
   getchar();
