@@ -183,3 +183,5 @@ void tela_encerramento(void){
   "\n");
   getchar();
 }
+
+
