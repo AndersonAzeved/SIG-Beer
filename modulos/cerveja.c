@@ -5,7 +5,7 @@
 #include "cerveja.h"
 #include "biblioteca.h"
 
-void arquivo_assinatura(Cerveja* ass){
+void arquivo_cerveja(Cerveja* ass){
     FILE* fp;
     fp = fopen("files/cerveja.dat","ab");
     if(fp == NULL){
@@ -66,7 +66,7 @@ void cadastrar_cerveja(){
   fgets(cer->fornecedor, 20, stdin);
   remove_enter(cer->fornecedor);
 
-  arquivo_assinatura(cer);
+  arquivo_cerveja(cer);
 
   system("clear||cls");
   cadastrado_sucesso();
