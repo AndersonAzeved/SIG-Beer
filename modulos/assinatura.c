@@ -57,20 +57,16 @@ char tela_assinaturas(void){
 void cadastrar_assinatura(void){
   Assinatura* ass;
   ass = (Assinatura*) malloc(sizeof(Assinatura));
+  do{
   printf("Nome do Cliente (APENAS LETRAS): ");
-  fgets(ass->nome, 100, stdin);
-  remove_enter(ass->nome);
-  while(!valida_nome(ass->nome)){
-    printf("Nome inválido, tente novamente!\n");
-    printf("Nome: ");
-    fgets(ass->nome, 100, stdin);
-    remove_enter(ass->nome);
-  } 
-  
+  remove_enter(fgets(ass->nome, 100, stdin));
+  if(!valida_nome(ass->nome)){
+    printf("Nome inválido, tente novamente!\n");}
+  }
+  while(!valida_nome(ass->nome));
   do{
     printf("CPF: ");
-    fgets(ass->cpf, 50, stdin);
-    remove_enter(ass->cpf);
+    remove_enter(fgets(ass->cpf, 50, stdin));
     retira_pontoscpf(ass->cpf);
     verifica_letracpf(ass->cpf);
     valida_cpf(ass->cpf);
@@ -85,15 +81,12 @@ void cadastrar_assinatura(void){
   printf("Telefone: ");
   fgets(ass->telefone, 50, stdin);
 
+  do{
   printf("Email: ");
-  fgets(ass->email, 50, stdin);
-  remove_enter(ass->email);
-  while(!valida_email(ass->email)){
-    printf("Email inválido, tente novamente!\n");
-    printf("Email: ");
-    fgets(ass->email, 50, stdin);
-    remove_enter(ass->email);
-  }
+  remove_enter(fgets(ass->email, 50, stdin));
+  if(!valida_email(ass->email)){
+    printf("Email inválido, tente novamente!\n");}
+  }while(!valida_email(ass->email));
 
   printf("Código da Assinatura: ");
   fgets(ass->codigo, 50, stdin);
