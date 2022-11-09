@@ -144,19 +144,38 @@ void cadastrar_assinatura(void){
 void atualizar_assinatura(void){
   Assinatura* ass;
   ass = (Assinatura*) malloc(sizeof(Assinatura));
+<<<<<<< HEAD
   char cpf[51];
   do{
     printf("CPF: ");
     fgets(ass->cpf, 50, stdin);
     remove_enter(ass->cpf);
+=======
+  printf("Código da assinatura a atualizar: ");
+  scanf("%[A-Za-z0-9]", ass->codigo);
+  getchar();
+
+  do{
+    printf("Nome do Cliente (APENAS LETRAS): ");
+    remove_enter(fgets(ass->nome, 100, stdin));
+    if(!valida_nome(ass->nome)){
+      printf("Nome inválido, tente novamente!\n");}
+  }while(!valida_nome(ass->nome));
+
+  do{
+    printf("CPF: ");
+    remove_enter(fgets(ass->cpf, 50, stdin));
+    retira_pontoscpf(ass->cpf);
+    verifica_letracpf(ass->cpf);
+>>>>>>> 03272c6 (Optimização)
     valida_cpf(ass->cpf);
     if (!valida_cpf(ass->cpf)){
-      printf("\nCPF inválido, digite novamente.\n");
-    }
+      printf("\nCPF inválido, digite novamente.\n");}
   } while (!valida_cpf(ass->cpf));
 
   strcpy(cpf, ass->cpf);
 
+<<<<<<< HEAD
   if(cpf_esta(ass->cpf)){
     FILE* arq;
     int achou = 0;
@@ -197,6 +216,16 @@ void atualizar_assinatura(void){
       fgets(ass->email, 50, stdin);
       remove_enter(ass->email);
     } 
+=======
+  printf("Telefone: ");
+  fgets(ass->telefone, 50, stdin);
+  do{
+    printf("Email: ");
+    remove_enter(fgets(ass->email, 50, stdin));
+    if(!valida_email(ass->email)){
+      printf("Email inválido, tente novamente!\n");}
+  }while(!valida_email(ass->email)); 
+>>>>>>> 03272c6 (Optimização)
 
     printf("Código da Assinatura: ");
     remove_enter(fgets(ass->codigo, 50, stdin));
@@ -474,3 +503,5 @@ char escolhe_nivel(void){
   }while(!ok);
   return nivel[0];
 }
+
+
