@@ -60,21 +60,28 @@ void cadastrar_assinatura(void){
   Assinatura* ass;
   ass = (Assinatura*) malloc(sizeof(Assinatura));
 <<<<<<< HEAD
+<<<<<<< HEAD
   do{
     printf("CPF: ");
     fgets(ass->cpf, 50, stdin);
     remove_enter(ass->cpf);
 =======
   do{
+=======
+>>>>>>> 693bb85 (função apagar_assinatura criada)
   printf("Nome do Cliente (APENAS LETRAS): ");
-  remove_enter(fgets(ass->nome, 100, stdin));
-  if(!valida_nome(ass->nome)){
-    printf("Nome inválido, tente novamente!\n");}
-  }
-  while(!valida_nome(ass->nome));
-
+  fgets(ass->nome, 100, stdin);
+  remove_enter(ass->nome);
+  while(!valida_nome(ass->nome)){
+    printf("Nome inválido, tente novamente!\n");
+    printf("Nome: ");
+    fgets(ass->nome, 100, stdin);
+    remove_enter(ass->nome);
+  } 
+  
   do{
     printf("CPF: ");
+<<<<<<< HEAD
     remove_enter(fgets(ass->cpf, 50, stdin));
 <<<<<<< HEAD
     retira_pontoscpf(ass->cpf);
@@ -82,6 +89,12 @@ void cadastrar_assinatura(void){
 >>>>>>> aadf71c (Atualização (optmização))
 =======
 >>>>>>> 06c02cd (Exclusão de funções inutilizadas)
+=======
+    fgets(ass->cpf, 50, stdin);
+    remove_enter(ass->cpf);
+    //retira_pontoscpf(ass->cpf);
+    //verifica_letracpf(ass->cpf);
+>>>>>>> 693bb85 (função apagar_assinatura criada)
     valida_cpf(ass->cpf);
     if (!valida_cpf(ass->cpf)){
       printf("\nCPF inválido, digite novamente.\n");
@@ -133,13 +146,23 @@ void cadastrar_assinatura(void){
   printf("Telefone: ");
   fgets(ass->telefone, 50, stdin);
 
-  do{
   printf("Email: ");
+<<<<<<< HEAD
   remove_enter(fgets(ass->email, 50, stdin));
   if(!valida_email(ass->email)){
     printf("Email inválido, tente novamente!\n");}
   }while(!valida_email(ass->email));
 >>>>>>> aadf71c (Atualização (optmização))
+=======
+  fgets(ass->email, 50, stdin);
+  remove_enter(ass->email);
+  while(!valida_email(ass->email)){
+    printf("Email inválido, tente novamente!\n");
+    printf("Email: ");
+    fgets(ass->email, 50, stdin);
+    remove_enter(ass->email);
+  }
+>>>>>>> 693bb85 (função apagar_assinatura criada)
 
   free(ass);
   getchar();
@@ -159,15 +182,19 @@ void atualizar_assinatura(void){
   scanf("%[A-Za-z0-9]", ass->codigo);
   getchar();
 
-  do{
-    printf("Nome do Cliente (APENAS LETRAS): ");
-    remove_enter(fgets(ass->nome, 100, stdin));
-    if(!valida_nome(ass->nome)){
-      printf("Nome inválido, tente novamente!\n");}
-  }while(!valida_nome(ass->nome));
+  printf("Nome do Cliente (APENAS LETRAS): ");
+  fgets(ass->nome, 100, stdin);
+  remove_enter(ass->nome);
+  while(!valida_nome(ass->nome)){
+    printf("Nome inválido, tente novamente!\n");
+    printf("Nome: ");
+    fgets(ass->nome, 100, stdin);
+    remove_enter(ass->nome);
+  } 
 
   do{
     printf("CPF: ");
+<<<<<<< HEAD
     remove_enter(fgets(ass->cpf, 50, stdin));
 <<<<<<< HEAD
     retira_pontoscpf(ass->cpf);
@@ -175,9 +202,16 @@ void atualizar_assinatura(void){
 >>>>>>> 03272c6 (Optimização)
 =======
 >>>>>>> 06c02cd (Exclusão de funções inutilizadas)
+=======
+    fgets(ass->cpf, 50, stdin);
+    remove_enter(ass->cpf);
+    //retira_pontoscpf(ass->cpf);
+    //verifica_letracpf(ass->cpf);
+>>>>>>> 693bb85 (função apagar_assinatura criada)
     valida_cpf(ass->cpf);
     if (!valida_cpf(ass->cpf)){
-      printf("\nCPF inválido, digite novamente.\n");}
+      printf("\nCPF inválido, digite novamente.\n");
+    }
   } while (!valida_cpf(ass->cpf));
 
   strcpy(cpf, ass->cpf);
@@ -226,13 +260,24 @@ void atualizar_assinatura(void){
 =======
   printf("Telefone: ");
   fgets(ass->telefone, 50, stdin);
-  do{
+
+  printf("Email: ");
+  fgets(ass->email, 50, stdin);
+  remove_enter(ass->email);
+  while(!valida_email(ass->email)){
+    printf("Email inválido, tente novamente!\n");
     printf("Email: ");
+<<<<<<< HEAD
     remove_enter(fgets(ass->email, 50, stdin));
     if(!valida_email(ass->email)){
       printf("Email inválido, tente novamente!\n");}
   }while(!valida_email(ass->email)); 
 >>>>>>> 03272c6 (Optimização)
+=======
+    fgets(ass->email, 50, stdin);
+    remove_enter(ass->email);
+  } 
+>>>>>>> 693bb85 (função apagar_assinatura criada)
 
     printf("Código da Assinatura: ");
     remove_enter(fgets(ass->codigo, 50, stdin));
@@ -257,12 +302,19 @@ Assinatura* buscar_ass(char *busca){
   arq = fopen("files/assinatura.dat", "rb");
   if(arq == NULL){
 <<<<<<< HEAD
+<<<<<<< HEAD
     printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
     printf("Não é possível continuar este programa...\n");
     exit(1);
 =======
     arq = fopen("files/assinatura.dat", "a");
 >>>>>>> c3c985b (função buscar_ass criada)
+=======
+    //arq = fopen("files/assinatura.dat", "a");
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+>>>>>>> 693bb85 (função apagar_assinatura criada)
   }
   ass = (Assinatura*) malloc(sizeof(Assinatura));
   while(!feof(arq)){
@@ -350,9 +402,16 @@ void buscar_assinatura(void){
 }
 
 void apagar_assinatura(void){
+<<<<<<< HEAD
   FILE* arq;
   Assinatura* ass;
   int achou = 0;
+=======
+
+  FILE* arq;
+  Assinatura* ass;
+  int achou;
+>>>>>>> 693bb85 (função apagar_assinatura criada)
   char resposta;
   char apagar[51];
   arq = fopen("files/assinatura.dat", "r+b");
@@ -372,12 +431,16 @@ void apagar_assinatura(void){
   } while (!valida_cpf(apagar));
   ass = (Assinatura*) malloc(sizeof(Assinatura));
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 693bb85 (função apagar_assinatura criada)
   achou = 0;
   while((!achou) && (fread(ass, sizeof(Assinatura), 1, arq))) {
    if ((strcmp(ass->cpf, apagar) == 0) && (ass->status == 'a')) {
      achou = 1;
    }
   }
+<<<<<<< HEAD
 =======
   char cpf[51];
   printf("CPF a ser pesquisado: ");
@@ -391,6 +454,8 @@ void apagar_assinatura(void){
   ass = buscar_ass(cpf);
   exibe_assinatura(ass);
 >>>>>>> 08a5bca (atualização)
+=======
+>>>>>>> 693bb85 (função apagar_assinatura criada)
 
   if(achou){
     exibe_assinatura(ass);
@@ -410,6 +475,30 @@ void apagar_assinatura(void){
   }
   fclose(arq);
   free(ass);
+<<<<<<< HEAD
+=======
+
+
+  // Assinatura* ass;
+  // ass = (Assinatura*) malloc(sizeof(Assinatura));
+  // char cpf[51];
+  // printf("CPF a ser pesquisado: ");
+  // fgets(cpf, 50, stdin);
+  // remove_enter(cpf);
+  // while(!valida_cpf(cpf)){
+  //   printf("CPF inválido, tente novamente: ");
+  //   fgets(cpf, 50, stdin);
+  //   remove_enter(cpf);
+  // } 
+  // ass = buscar_ass(cpf);
+  // exibe_assinatura(ass);
+
+  // ass->status = 'i';
+  // grava_assinatura(ass);
+
+  // deletado_sucesso();
+  // getchar();
+>>>>>>> 693bb85 (função apagar_assinatura criada)
 }
 
 void recuperar_assinatura(void){ // FUNÇÃO COM BUGS, NÃO SEI SE TÁ RECUPERANDO MESMO
@@ -510,5 +599,3 @@ char escolhe_nivel(void){
   }while(!ok);
   return nivel[0];
 }
-
-
