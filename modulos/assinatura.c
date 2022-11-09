@@ -59,10 +59,25 @@ char tela_assinaturas(void){
 void cadastrar_assinatura(void){
   Assinatura* ass;
   ass = (Assinatura*) malloc(sizeof(Assinatura));
+<<<<<<< HEAD
   do{
     printf("CPF: ");
     fgets(ass->cpf, 50, stdin);
     remove_enter(ass->cpf);
+=======
+  do{
+  printf("Nome do Cliente (APENAS LETRAS): ");
+  remove_enter(fgets(ass->nome, 100, stdin));
+  if(!valida_nome(ass->nome)){
+    printf("Nome inválido, tente novamente!\n");}
+  }
+  while(!valida_nome(ass->nome));
+  do{
+    printf("CPF: ");
+    remove_enter(fgets(ass->cpf, 50, stdin));
+    retira_pontoscpf(ass->cpf);
+    verifica_letracpf(ass->cpf);
+>>>>>>> aadf71c (Atualização (optmização))
     valida_cpf(ass->cpf);
     if (!valida_cpf(ass->cpf)){
       printf("\nCPF inválido, digite novamente.\n");
@@ -87,6 +102,7 @@ void cadastrar_assinatura(void){
     printf("Telefone: ");
     remove_enter(fgets(ass->telefone, 50, stdin));
 
+<<<<<<< HEAD
     printf("Email: ");
     fgets(ass->email, 50, stdin);
     remove_enter(ass->email);
@@ -109,6 +125,17 @@ void cadastrar_assinatura(void){
     system("clear||cls");
     cadastrado_sucesso();
   }
+=======
+  printf("Telefone: ");
+  fgets(ass->telefone, 50, stdin);
+
+  do{
+  printf("Email: ");
+  remove_enter(fgets(ass->email, 50, stdin));
+  if(!valida_email(ass->email)){
+    printf("Email inválido, tente novamente!\n");}
+  }while(!valida_email(ass->email));
+>>>>>>> aadf71c (Atualização (optmização))
 
   free(ass);
   getchar();
