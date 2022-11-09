@@ -57,17 +57,22 @@ char tela_assinaturas(void){
 void cadastrar_assinatura(void){
   Assinatura* ass;
   ass = (Assinatura*) malloc(sizeof(Assinatura));
-  do{
   printf("Nome do Cliente (APENAS LETRAS): ");
-  remove_enter(fgets(ass->nome, 100, stdin));
-  if(!valida_nome(ass->nome)){
-    printf("Nome inválido, tente novamente!\n");}
-  }
-  while(!valida_nome(ass->nome));
-
+  fgets(ass->nome, 100, stdin);
+  remove_enter(ass->nome);
+  while(!valida_nome(ass->nome)){
+    printf("Nome inválido, tente novamente!\n");
+    printf("Nome: ");
+    fgets(ass->nome, 100, stdin);
+    remove_enter(ass->nome);
+  } 
+  
   do{
     printf("CPF: ");
-    remove_enter(fgets(ass->cpf, 50, stdin));
+    fgets(ass->cpf, 50, stdin);
+    remove_enter(ass->cpf);
+    //retira_pontoscpf(ass->cpf);
+    //verifica_letracpf(ass->cpf);
     valida_cpf(ass->cpf);
     if (!valida_cpf(ass->cpf)){
       printf("\nCPF inválido, digite novamente.\n");
@@ -80,12 +85,15 @@ void cadastrar_assinatura(void){
   printf("Telefone: ");
   fgets(ass->telefone, 50, stdin);
 
-  do{
   printf("Email: ");
-  remove_enter(fgets(ass->email, 50, stdin));
-  if(!valida_email(ass->email)){
-    printf("Email inválido, tente novamente!\n");}
-  }while(!valida_email(ass->email));
+  fgets(ass->email, 50, stdin);
+  remove_enter(ass->email);
+  while(!valida_email(ass->email)){
+    printf("Email inválido, tente novamente!\n");
+    printf("Email: ");
+    fgets(ass->email, 50, stdin);
+    remove_enter(ass->email);
+  }
 
   printf("Código da Assinatura: ");
   fgets(ass->codigo, 50, stdin);
@@ -112,19 +120,26 @@ void atualizar_assinatura(void){
   scanf("%[A-Za-z0-9]", ass->codigo);
   getchar();
 
-  do{
-    printf("Nome do Cliente (APENAS LETRAS): ");
-    remove_enter(fgets(ass->nome, 100, stdin));
-    if(!valida_nome(ass->nome)){
-      printf("Nome inválido, tente novamente!\n");}
-  }while(!valida_nome(ass->nome));
+  printf("Nome do Cliente (APENAS LETRAS): ");
+  fgets(ass->nome, 100, stdin);
+  remove_enter(ass->nome);
+  while(!valida_nome(ass->nome)){
+    printf("Nome inválido, tente novamente!\n");
+    printf("Nome: ");
+    fgets(ass->nome, 100, stdin);
+    remove_enter(ass->nome);
+  } 
 
   do{
     printf("CPF: ");
-    remove_enter(fgets(ass->cpf, 50, stdin));
+    fgets(ass->cpf, 50, stdin);
+    remove_enter(ass->cpf);
+    //retira_pontoscpf(ass->cpf);
+    //verifica_letracpf(ass->cpf);
     valida_cpf(ass->cpf);
     if (!valida_cpf(ass->cpf)){
-      printf("\nCPF inválido, digite novamente.\n");}
+      printf("\nCPF inválido, digite novamente.\n");
+    }
   } while (!valida_cpf(ass->cpf));
 
   printf("Endereço: ");  
@@ -132,12 +147,16 @@ void atualizar_assinatura(void){
 
   printf("Telefone: ");
   fgets(ass->telefone, 50, stdin);
-  do{
+
+  printf("Email: ");
+  fgets(ass->email, 50, stdin);
+  remove_enter(ass->email);
+  while(!valida_email(ass->email)){
+    printf("Email inválido, tente novamente!\n");
     printf("Email: ");
-    remove_enter(fgets(ass->email, 50, stdin));
-    if(!valida_email(ass->email)){
-      printf("Email inválido, tente novamente!\n");}
-  }while(!valida_email(ass->email)); 
+    fgets(ass->email, 50, stdin);
+    remove_enter(ass->email);
+  } 
 
   printf("Código da Assinatura: ");
   fgets(ass->codigo, 50, stdin);
@@ -161,7 +180,10 @@ Assinatura* buscar_ass(char *busca){
   Assinatura *ass;
   arq = fopen("files/assinatura.dat", "rb");
   if(arq == NULL){
-    arq = fopen("files/assinatura.dat", "a");
+    //arq = fopen("files/assinatura.dat", "a");
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
   }
   ass = (Assinatura*) malloc(sizeof(Assinatura));
   while(!feof(arq)){
@@ -210,25 +232,74 @@ void buscar_assinatura(void){
 }
 
 void apagar_assinatura(void){
+
+  FILE* arq;
   Assinatura* ass;
+  int achou;
+  char resposta;
+  char apagar[51];
+  arq = fopen("files/assinatura.dat", "r+b");
+  if(arq == NULL){
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar o programa...\n");
+    exit(1);
+  }
+    do{
+    printf("\n\nInforme o CPF a ser apagado: ");
+    fgets(apagar, 50, stdin);
+    remove_enter(apagar);
+    valida_cpf(apagar);
+    if (!valida_cpf(apagar)){
+      printf("\nCPF inválido, digite novamente.\n");
+    }
+  } while (!valida_cpf(apagar));
   ass = (Assinatura*) malloc(sizeof(Assinatura));
-  char cpf[51];
-  printf("CPF a ser pesquisado: ");
-  fgets(cpf, 50, stdin);
-  remove_enter(cpf);
-  while(!valida_cpf(cpf)){
-    printf("CPF inválido, tente novamente: ");
-    fgets(cpf, 50, stdin);
-    remove_enter(cpf);
-  } 
-  ass = buscar_ass(cpf);
-  exibe_assinatura(ass);
+  achou = 0;
+  while((!achou) && (fread(ass, sizeof(Assinatura), 1, arq))) {
+   if ((strcmp(ass->cpf, apagar) == 0) && (ass->status == 'a')) {
+     achou = 1;
+   }
+  }
 
-  ass->status = 'i';
-  grava_assinatura(ass);
+  if(achou){
+    exibe_assinatura(ass);
+    getchar();
+    printf("Desejar apagar a assinatura (s/n)? ");
+    scanf("%c", &resposta);
+    if(resposta == 's' || resposta == 'S'){
+      ass->status = 'i';
+      fseek(arq, -1*sizeof(Assinatura), SEEK_CUR);
+      fwrite(ass, sizeof(Assinatura), 1, arq);
+      deletado_sucesso();
+    }else{
+      printf("\nOs dados não foram alterados\n");
+    }
+  }else{
+    printf("A assinatura %s não foi encontrada!\n", apagar);
+  }
+  fclose(arq);
+  free(ass);
 
-  deletado_sucesso();
-  getchar();
+
+  // Assinatura* ass;
+  // ass = (Assinatura*) malloc(sizeof(Assinatura));
+  // char cpf[51];
+  // printf("CPF a ser pesquisado: ");
+  // fgets(cpf, 50, stdin);
+  // remove_enter(cpf);
+  // while(!valida_cpf(cpf)){
+  //   printf("CPF inválido, tente novamente: ");
+  //   fgets(cpf, 50, stdin);
+  //   remove_enter(cpf);
+  // } 
+  // ass = buscar_ass(cpf);
+  // exibe_assinatura(ass);
+
+  // ass->status = 'i';
+  // grava_assinatura(ass);
+
+  // deletado_sucesso();
+  // getchar();
 }
 
 void recuperar_assinatura(void){
@@ -253,5 +324,3 @@ void recuperar_assinatura(void){
   printf("\nEM DESENVOLVIMENTO ...\n");
   getchar();
 }
-
-
