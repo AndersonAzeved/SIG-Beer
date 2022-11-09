@@ -3,25 +3,25 @@
 #include <string.h>
 #include "biblioteca.h"
 
-void retira_pontos(char *cnpj){
+void retira_pontos(char *var){
 
   // Retirando os ./-
   char *pt;
-  pt = strtok(cnpj,".-/");
-  char cnpj_novo[25] = {""};
+  pt = strtok(var,".-/");
+  char var_novo[25] = {""};
   while(pt){
-      strcat(cnpj_novo, pt);
+      strcat(var_novo, pt);
       pt = strtok(NULL, ".-/");
   }
   
-  strcpy(cnpj,cnpj_novo);
+  strcpy(var,var_novo);
   
 }
 
-int verifica_letra(char *cnpj){
-  int tamanho = strlen(cnpj);
+int verifica_letra(char *var){
+  int tamanho = strlen(var);
   for(int i = 0; i < tamanho; i++){
-    if((cnpj[i] >= 'A' && cnpj[i] <= 'Z') || (cnpj[i] >= 'a' && cnpj[i] <= 'z')){
+    if((var[i] >= 'A' && var[i] <= 'Z') || (var[i] >= 'a' && var[i] <= 'z')){
       return 1;
     }
   }
@@ -114,34 +114,10 @@ int valida_cnpj(char *cnpj){
   return 1;
 }
 
-
-void retira_pontoscpf(char *cpf){
-
-  // Retirando os ./-
-  char *pt;
-  pt = strtok(cpf,".-/");
-  char cpf_novo[25] = {""};
-  while(pt){
-      strcat(cpf_novo, pt);
-      pt = strtok(NULL, ".-/");
-  }
-  
-  strcpy(cpf,cpf_novo);
-  
-}
-int verifica_letracpf(char *cpf){
-  int tamanho = strlen(cpf);
-  for(int i = 0; i < tamanho; i++){
-    if((cpf[i] >= 'A' && cpf[i] <= 'Z') || (cpf[i] >= 'a' && cpf[i] <= 'z')){
-      return 1;
-    }
-  }
-  return 0;
-}
-
 int valida_cpf(char *cpf){
   // \\* FEITA POR ERICLEISON CAMILO ᕦ( ͡° ͜ʖ ͡°)ᕤ  *//
-  remove_enter(cpf);
+  retira_pontos(cpf);
+  verifica_letra(cpf);
   int i;
   int len= strlen(cpf);
   int cpf_convertido[11];

@@ -30,9 +30,7 @@ void cadastrar_fornecedor(void){
 
   do{
     printf("CPF: "); 
-    remove_enter(fgets(forne->cpfempresa, 51, stdin));  
-    retira_pontoscpf(forne->cpfempresa);
-    verifica_letracpf(forne->cpfempresa);
+    remove_enter(fgets(forne->cpfempresa, 51, stdin));
     valida_cpf(forne->cpfempresa);
     if (!valida_cpf(forne->cpfempresa)){
       printf("\nCPF inválido, digite novamente.\n");
