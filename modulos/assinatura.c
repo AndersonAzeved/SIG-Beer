@@ -113,26 +113,21 @@ void atualizar_assinatura(void){
   scanf("%[A-Za-z0-9]", ass->codigo);
   getchar();
 
-  printf("Nome do Cliente (APENAS LETRAS): ");
-  fgets(ass->nome, 100, stdin);
-  remove_enter(ass->nome);
-  while(!valida_nome(ass->nome)){
-    printf("Nome inválido, tente novamente!\n");
-    printf("Nome: ");
-    fgets(ass->nome, 100, stdin);
-    remove_enter(ass->nome);
-  } 
+  do{
+    printf("Nome do Cliente (APENAS LETRAS): ");
+    remove_enter(fgets(ass->nome, 100, stdin));
+    if(!valida_nome(ass->nome)){
+      printf("Nome inválido, tente novamente!\n");}
+  }while(!valida_nome(ass->nome));
 
   do{
     printf("CPF: ");
-    fgets(ass->cpf, 50, stdin);
-    remove_enter(ass->cpf);
+    remove_enter(fgets(ass->cpf, 50, stdin));
     retira_pontoscpf(ass->cpf);
     verifica_letracpf(ass->cpf);
     valida_cpf(ass->cpf);
     if (!valida_cpf(ass->cpf)){
-      printf("\nCPF inválido, digite novamente.\n");
-    }
+      printf("\nCPF inválido, digite novamente.\n");}
   } while (!valida_cpf(ass->cpf));
 
   printf("Endereço: ");  
@@ -140,16 +135,12 @@ void atualizar_assinatura(void){
 
   printf("Telefone: ");
   fgets(ass->telefone, 50, stdin);
-
-  printf("Email: ");
-  fgets(ass->email, 50, stdin);
-  remove_enter(ass->email);
-  while(!valida_email(ass->email)){
-    printf("Email inválido, tente novamente!\n");
+  do{
     printf("Email: ");
-    fgets(ass->email, 50, stdin);
-    remove_enter(ass->email);
-  } 
+    remove_enter(fgets(ass->email, 50, stdin));
+    if(!valida_email(ass->email)){
+      printf("Email inválido, tente novamente!\n");}
+  }while(!valida_email(ass->email)); 
 
   printf("Código da Assinatura: ");
   fgets(ass->codigo, 50, stdin);
@@ -265,3 +256,5 @@ void recuperar_assinatura(void){
   printf("\nEM DESENVOLVIMENTO ...\n");
   getchar();
 }
+
+
