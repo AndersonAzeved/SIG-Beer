@@ -72,12 +72,16 @@ void cadastrar_assinatura(void){
     printf("Nome inválido, tente novamente!\n");}
   }
   while(!valida_nome(ass->nome));
+
   do{
     printf("CPF: ");
     remove_enter(fgets(ass->cpf, 50, stdin));
+<<<<<<< HEAD
     retira_pontoscpf(ass->cpf);
     verifica_letracpf(ass->cpf);
 >>>>>>> aadf71c (Atualização (optmização))
+=======
+>>>>>>> 06c02cd (Exclusão de funções inutilizadas)
     valida_cpf(ass->cpf);
     if (!valida_cpf(ass->cpf)){
       printf("\nCPF inválido, digite novamente.\n");
@@ -165,9 +169,12 @@ void atualizar_assinatura(void){
   do{
     printf("CPF: ");
     remove_enter(fgets(ass->cpf, 50, stdin));
+<<<<<<< HEAD
     retira_pontoscpf(ass->cpf);
     verifica_letracpf(ass->cpf);
 >>>>>>> 03272c6 (Optimização)
+=======
+>>>>>>> 06c02cd (Exclusão de funções inutilizadas)
     valida_cpf(ass->cpf);
     if (!valida_cpf(ass->cpf)){
       printf("\nCPF inválido, digite novamente.\n");}
