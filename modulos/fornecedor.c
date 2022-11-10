@@ -55,7 +55,7 @@ void cadastrar_fornecedor(void){
         printf("Email inválido, tente novamente!\n");
     } }
     while(!valida_email(forne->emailempresa));
-
+    forne->status = 'a';
     system("clear||cls");
     cadastrado_sucesso();
     grava_fornecedor(forne);
@@ -98,8 +98,10 @@ void atualizar_fornecedor(void){
       printf("Email inválido, tente novamente: ");
       remove_enter(fgets(forne->emailempresa, 50, stdin));
     } 
+    forne->status = 'a';
     system("clear||cls");
     atualizado_sucesso();
+    grava_fornecedor(forne);
   }else{
     printf("\nCNPJ não cadastrado!\n");
   }
@@ -312,6 +314,5 @@ Fornecedor* buscar_forne(char *busca){
     }
   }
   fclose(arq);
-  free(forne);
   return NULL;
 }
