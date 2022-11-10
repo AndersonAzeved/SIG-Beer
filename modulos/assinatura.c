@@ -24,10 +24,14 @@ void grava_assinatura(Assinatura* ass){
 
 char tela_assinaturas(void){
 <<<<<<< HEAD
+<<<<<<< HEAD
   char op[11];
 =======
   char op;
 >>>>>>> 8f0cdbc (função recuperar_assinatura criada)
+=======
+  char op[11];
+>>>>>>> 03ac2b5 (atualizações nos módulos)
   //system("clear||cls");
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -207,6 +211,7 @@ void cadastrar_assinatura(void){
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   free(ass);
 =======
   printf("Código da Assinatura: ");
@@ -228,6 +233,8 @@ void cadastrar_assinatura(void){
 >>>>>>> 8f0cdbc (função recuperar_assinatura criada)
 =======
 
+=======
+>>>>>>> 03ac2b5 (atualizações nos módulos)
   free(ass);
 >>>>>>> a11a0ff (atualização em cadastrar_assinatura)
   getchar();
