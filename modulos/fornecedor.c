@@ -138,7 +138,7 @@ void buscar_fornecedor(void){
 }
 
 char tela_fornecedores(void){
-  char op;
+  char op[11];
   system("clear||cls");
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -164,8 +164,8 @@ char tela_fornecedores(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
-  scanf("%s", &op); 
+  scanf("%s", op); 
   getchar();
   printf("\n");
-  return op;
+  return op[0];
 }

@@ -6,7 +6,7 @@
 #include "biblioteca.h"
 
 char tela_principal(void) {
-  char op;
+  char op[11];
   //system("clear||cls");
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -34,9 +34,9 @@ char tela_principal(void) {
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
-  scanf("%s",&op); 
+  scanf("%s",op); 
   getchar();
-  return op;
+  return op[0];
 }
 
 void tela_equipe(void) {
@@ -102,7 +102,7 @@ void tela_sobre(void){
 
 char tela_lixeira(void){
   system("clear||cls");
-  char op;
+  char op[11];
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
@@ -127,10 +127,10 @@ char tela_lixeira(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
-  scanf("%s", &op);
+  scanf("%s", op);
   printf("\n Em DESENVOLVIMENTO...");
   getchar();
-  return op;
+  return op[0];
 }
 
 void tela_opcao_invalida(void){

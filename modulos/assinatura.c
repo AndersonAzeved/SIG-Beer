@@ -21,7 +21,7 @@ void grava_assinatura(Assinatura* ass){
 
 
 char tela_assinaturas(void){
-  char op;
+  char op[11];
   //system("clear||cls");
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -47,10 +47,10 @@ char tela_assinaturas(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
-  scanf("%s", &op);
+  scanf("%s", op);
   getchar();
   printf("\n");
-  return op;
+  return op[0];
 }
 
 
@@ -112,7 +112,6 @@ void cadastrar_assinatura(void){
     system("clear||cls");
     cadastrado_sucesso();
   }
-
 
   free(ass);
   getchar();
