@@ -30,6 +30,7 @@ void cadastrar_fornecedor(void){
   forne = (Fornecedor*) malloc(sizeof(Fornecedor));
   do{
   printf("CNPJ da empresa: ");
+<<<<<<< HEAD
   remove_enter(fgets(forne->cnpj, 51, stdin)); 
   if(!valida_cnpj(forne->cnpj)){
     printf("CNPJ inválido, tente novamente!\n");
@@ -88,6 +89,8 @@ void cadastrar_fornecedor(void){
   forne = (Fornecedor*) malloc(sizeof(Fornecedor));
   do{
   printf("CNPJ da empresa : ");
+=======
+>>>>>>> d09a6a5 (atualização em atualizar_fornecedor)
   remove_enter(fgets(forne->cnpj, 51, stdin)); 
   if(!valida_cnpj(forne->cnpj)){
     printf("CNPJ inválido, tente novamente!\n");
@@ -96,7 +99,7 @@ void cadastrar_fornecedor(void){
   if(cnpj_esta(forne->cnpj)){
     printf("\nCNPJ já cadastrado!\n");
   }else{
-    printf("Nome jurídico da empresa : ");
+    printf("Nome jurídico da empresa: ");
     remove_enter(fgets(forne->empresa, 51, stdin)); 
     do{
       printf("CPF: "); 
@@ -124,6 +127,7 @@ void cadastrar_fornecedor(void){
 
     system("clear||cls");
     cadastrado_sucesso();
+    grava_fornecedor(forne);
   }
   free(forne);
 >>>>>>> a5cb62f (atualização em fornecedor)
@@ -219,18 +223,27 @@ void atualizar_fornecedor(void){
 =======
     system("clear||cls");
     atualizado_sucesso();
+<<<<<<< HEAD
   }   
 >>>>>>> a5cb62f (atualização em fornecedor)
+=======
+  }else{
+    printf("\nCNPJ não cadastrado!\n");
+  }
+>>>>>>> d09a6a5 (atualização em atualizar_fornecedor)
   getchar();
 }
 
 void apagar_fornecedor(void){
+<<<<<<< HEAD
 <<<<<<< HEAD
   FILE* arq;
   Fornecedor* forne;
   int encontrar = 0;
 =======
 
+=======
+>>>>>>> d09a6a5 (atualização em atualizar_fornecedor)
   FILE* arq;
   Fornecedor* forne;
   int achou = 0;
@@ -358,6 +371,7 @@ void recuperar_fornecedor(void){
   // getchar();
 
 void buscar_fornecedor(void){
+<<<<<<< HEAD
   Fornecedor* forne;
   forne = (Fornecedor*) malloc(sizeof(Fornecedor));
   char cnpj[51];
@@ -372,6 +386,9 @@ void buscar_fornecedor(void){
   forne = buscar_forne(cnpj);
   exibe_fornecedor(forne);
   free(forne);
+=======
+  
+>>>>>>> d09a6a5 (atualização em atualizar_fornecedor)
   getchar();
 }
 
@@ -444,6 +461,7 @@ char tela_fornecedores(void){
       remove_enter(op);
     }    
   }while(!ok);
+<<<<<<< HEAD
 <<<<<<< HEAD
   printf("\n");
   return op[0];
@@ -539,6 +557,8 @@ Fornecedor* buscar_forne(char *busca){
 =======
 >>>>>>> d2be5b9 (atualização)
   getchar();
+=======
+>>>>>>> d09a6a5 (atualização em atualizar_fornecedor)
   printf("\n");
   return op[0];
 }
