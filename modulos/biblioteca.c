@@ -297,6 +297,7 @@ void remove_enter(char *var){
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 void criando_arquivo(char *arquivo){
   FILE* arq;
@@ -306,3 +307,5 @@ void criando_arquivo(char *arquivo){
   }
 }
 >>>>>>> ec6b06c (função criando_arquivo criada)
+=======
+>>>>>>> 971783f (atualização)
