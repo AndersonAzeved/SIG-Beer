@@ -277,6 +277,20 @@ void deletado_sucesso(void){
 	"\n");
 }
 
+void recuperado_sucesso(void){
+  printf("\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "///                        Recuperado com Sucesso                          ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+	"\n");
+}
+
 void remove_enter(char *var){
     char *ponteiro = strtok(var, "\n");
     strcpy(ponteiro,var);
