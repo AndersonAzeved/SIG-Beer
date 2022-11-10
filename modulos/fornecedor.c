@@ -311,6 +311,9 @@ void buscar_fornecedor(void){
 char tela_fornecedores(void){
   char op[11];
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d2be5b9 (atualização)
   int ok = 0;
   do{
     system("clear||cls");
@@ -374,6 +377,7 @@ char tela_fornecedores(void){
       remove_enter(op);
     }    
   }while(!ok);
+<<<<<<< HEAD
   printf("\n");
   return op[0];
 }
@@ -465,6 +469,8 @@ Fornecedor* buscar_forne(char *busca){
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
   scanf("%s", op); 
+=======
+>>>>>>> d2be5b9 (atualização)
   getchar();
   printf("\n");
   return op[0];
