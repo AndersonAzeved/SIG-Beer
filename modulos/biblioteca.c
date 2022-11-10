@@ -296,10 +296,3 @@ void remove_enter(char *var){
     strcpy(ponteiro,var);
 }
 
-void criando_arquivo(char *arquivo){
-  FILE* arq;
-  arq = fopen(arquivo, "rb");
-  if(arq == NULL){
-    arq = fopen(arquivo, "a");
-  }
-}

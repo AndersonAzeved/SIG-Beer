@@ -19,6 +19,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// CRIANDO OS ARQUIVOS
+
+
 char op; 
 char op2; 
 
