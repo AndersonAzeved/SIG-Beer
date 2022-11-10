@@ -25,6 +25,9 @@ char op2;
 int main() {
   setlocale(LC_ALL, "Portuguese");
   criando_arquivo("files/assinatura.dat");
+  criando_arquivo("files/cerveja.dat");
+  criando_arquivo("files/fornecedor.dat");
+  criando_arquivo("files/relatorio.dat");
 
   do {
 	op = tela_principal();
