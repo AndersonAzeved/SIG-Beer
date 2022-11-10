@@ -184,8 +184,8 @@ void buscar_fornecedor(void){
     fgets(cnpj, 50, stdin);
     remove_enter(cnpj);
   } 
-  forne = buscar_ass(cnpj);
-  exibe_Fornecedor(forne);
+  forne = buscar_forne(cnpj);
+  exibe_fornecedor(forne);
   getchar();
 }
 
