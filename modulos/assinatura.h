@@ -25,6 +25,7 @@ void exibe_assinatura(Assinatura* );
 <<<<<<< HEAD
 <<<<<<< HEAD
 int cpf_esta(char *);
+<<<<<<< HEAD
 char escolhe_nivel(void);
 <<<<<<< HEAD
 =======
@@ -44,3 +45,6 @@ char escolhe_nivel(void);
 =======
 void arq_assinatura(void);
 >>>>>>> 7681c53 (função arq_assinatura criada)
+=======
+char escolhe_nivel(void);
+>>>>>>> 5922c0f (função criando_arquivo criada)
