@@ -172,9 +172,20 @@ void recuperar_fornecedor(void){
   
 }
 
-
 void buscar_fornecedor(void){
-  
+  Fornecedor* forne;
+  forne = (Fornecedor*) malloc(sizeof(Fornecedor));
+  char cnpj[51];
+  printf("CNPJ a ser pesquisado: ");
+  fgets(cnpj, 50, stdin);
+  remove_enter(cnpj);
+  while(!valida_cnpj(cnpj)){
+    printf("CNPJ inválido, tente novamente: ");
+    fgets(cnpj, 50, stdin);
+    remove_enter(cnpj);
+  } 
+  forne = buscar_ass(cnpj);
+  exibe_Fornecedor(forne);
   getchar();
 }
 
@@ -281,4 +292,26 @@ void exibe_fornecedor(Fornecedor* forne){
       printf("Email: %s\n", forne->emailempresa);
       
   }
+}
+
+Fornecedor* buscar_forne(char *busca){
+  FILE* arq;
+  Fornecedor *forne;
+  arq = fopen("files/fornecedor.dat", "rb");
+  if(arq == NULL){
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+  }
+  forne = (Fornecedor*) malloc(sizeof(Fornecedor));
+  while(!feof(arq)){
+    if(fread(forne, sizeof(Fornecedor), 1, arq)){
+      if(((strcmp(forne->cnpj,busca)) == 0) && forne->status == 'a'){
+        return forne;
+      }
+    }
+  }
+  fclose(arq);
+  free(forne);
+  return NULL;
 }

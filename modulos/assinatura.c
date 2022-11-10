@@ -222,7 +222,6 @@ void buscar_assinatura(void){
   } 
   ass = buscar_ass(cpf);
   exibe_assinatura(ass);
-  
   getchar();
 }
 
