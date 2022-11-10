@@ -22,6 +22,7 @@ void recuperar_assinatura(void);
 <<<<<<< HEAD
 Assinatura* buscar_ass(char *);
 void exibe_assinatura(Assinatura* );
+<<<<<<< HEAD
 int cpf_esta(char *);
 char escolhe_nivel(void);
 =======
@@ -31,3 +32,6 @@ Assinatura* buscar_ass(char *);
 Assinatura* buscar_ass(char *);
 void exibe_assinatura(Assinatura* );
 >>>>>>> 01a62b4 (função exibe_assinatura criada)
+=======
+int cpf_esta(char *);
+>>>>>>> a11a0ff (atualização em cadastrar_assinatura)

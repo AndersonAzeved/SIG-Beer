@@ -65,6 +65,7 @@ void cadastrar_assinatura(void){
   ass = (Assinatura*) malloc(sizeof(Assinatura));
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   do{
     printf("CPF: ");
     fgets(ass->cpf, 50, stdin);
@@ -83,6 +84,8 @@ void cadastrar_assinatura(void){
     remove_enter(ass->nome);
   } 
   
+=======
+>>>>>>> a11a0ff (atualização em cadastrar_assinatura)
   do{
     printf("CPF: ");
 <<<<<<< HEAD
@@ -121,6 +124,7 @@ void cadastrar_assinatura(void){
     } 
     
     printf("Endereço: ");  
+<<<<<<< HEAD
     remove_enter(fgets(ass->endereco, 100, stdin));
 
     printf("Telefone: ");
@@ -165,12 +169,43 @@ void cadastrar_assinatura(void){
   remove_enter(ass->email);
   while(!valida_email(ass->email)){
     printf("Email inválido, tente novamente!\n");
+=======
+    fgets(ass->endereco, 100, stdin);
+
+    printf("Telefone: ");
+    fgets(ass->telefone, 50, stdin);
+
+>>>>>>> a11a0ff (atualização em cadastrar_assinatura)
     printf("Email: ");
     fgets(ass->email, 50, stdin);
     remove_enter(ass->email);
+    while(!valida_email(ass->email)){
+      printf("Email inválido, tente novamente!\n");
+      printf("Email: ");
+      fgets(ass->email, 50, stdin);
+      remove_enter(ass->email);
+    }
+
+    printf("Código da Assinatura: ");
+    fgets(ass->codigo, 50, stdin);
+
+    printf("\nNível da Assinatura:\n");
+    printf("Nível 1. 2 Cervejas\n");
+    printf("Nível 2. 4 Cervejas\n");
+    printf("Nível 3. 8 Cervejas\n");
+    printf("Informe o nível (APENAS NÚMEROS): ");
+    fgets(ass->nivel, 10, stdin);
+
+    ass->status = 'a'; // a = ATIVADO e i = INATIVO
+
+    grava_assinatura(ass);
+
+    system("clear||cls");
+    cadastrado_sucesso();
   }
 >>>>>>> 693bb85 (função apagar_assinatura criada)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   free(ass);
 =======
@@ -191,6 +226,10 @@ void cadastrar_assinatura(void){
   system("clear||cls");
   cadastrado_sucesso();
 >>>>>>> 8f0cdbc (função recuperar_assinatura criada)
+=======
+
+  free(ass);
+>>>>>>> a11a0ff (atualização em cadastrar_assinatura)
   getchar();
 }
 
@@ -654,3 +693,25 @@ char escolhe_nivel(void){
 >>>>>>> 8f0cdbc (função recuperar_assinatura criada)
 }
 
+int cpf_esta(char *cpf){
+  FILE* arq;
+  Assinatura *ass;
+  arq = fopen("files/assinatura.dat", "rb");
+  if(arq == NULL){
+    //arq = fopen("files/assinatura.dat", "a");
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+  }
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  while(!feof(arq)){
+    if(fread(ass, sizeof(Assinatura), 1, arq)){
+      if(((strcmp(ass->cpf,cpf)) == 0) && ass->status == 'a'){
+        return 1;
+      }
+    }
+  }
+  fclose(arq);
+  free(ass);
+  return 0;
+}
