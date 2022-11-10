@@ -295,3 +295,11 @@ void remove_enter(char *var){
     char *ponteiro = strtok(var, "\n");
     strcpy(ponteiro,var);
 }
+
+void criando_arquivo(char *arquivo){
+  FILE* arq;
+  arq = fopen(arquivo, "rb");
+  if(arq == NULL){
+    arq = fopen(arquivo, "a");
+  }
+}
