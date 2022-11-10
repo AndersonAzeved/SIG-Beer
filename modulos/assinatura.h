@@ -20,3 +20,4 @@ void apagar_assinatura(void);
 void recuperar_assinatura(void);
 Assinatura* buscar_ass(char *);
 void exibe_assinatura(Assinatura* );
+int cpf_esta(char *);
