@@ -393,6 +393,7 @@ void buscar_fornecedor(void){
     remove_enter(cnpj);
   } 
 <<<<<<< HEAD
+<<<<<<< HEAD
   forne = buscar_forne(cnpj);
   exibe_fornecedor(forne);
   free(forne);
@@ -403,6 +404,10 @@ void buscar_fornecedor(void){
   forne = buscar_ass(cnpj);
   exibe_Fornecedor(forne);
 >>>>>>> c41d87c (função buscar_forne criada)
+=======
+  forne = buscar_forne(cnpj);
+  exibe_fornecedor(forne);
+>>>>>>> 1e3d165 (função buscar_fornecedor criada)
   getchar();
 }
 
