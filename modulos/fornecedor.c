@@ -355,6 +355,7 @@ void recuperar_fornecedor(void){
   getchar();
 }
 
+<<<<<<< HEAD
   // printf("CNPJ a ser pesquisado : ");
   // remove_enter(fgets(forne->cnpj, 50,stdin));
   // if()
@@ -372,23 +373,36 @@ void recuperar_fornecedor(void){
 
 void buscar_fornecedor(void){
 <<<<<<< HEAD
+=======
+void buscar_fornecedor(void){
+>>>>>>> c41d87c (função buscar_forne criada)
   Fornecedor* forne;
   forne = (Fornecedor*) malloc(sizeof(Fornecedor));
   char cnpj[51];
   printf("CNPJ a ser pesquisado: ");
+<<<<<<< HEAD
   remove_enter(fgets(cnpj, 50, stdin));
   // remove_enter(cnpj);
+=======
+  fgets(cnpj, 50, stdin);
+  remove_enter(cnpj);
+>>>>>>> c41d87c (função buscar_forne criada)
   while(!valida_cnpj(cnpj)){
     printf("CNPJ inválido, tente novamente: ");
     fgets(cnpj, 50, stdin);
     remove_enter(cnpj);
   } 
+<<<<<<< HEAD
   forne = buscar_forne(cnpj);
   exibe_fornecedor(forne);
   free(forne);
 =======
   
 >>>>>>> d09a6a5 (atualização em atualizar_fornecedor)
+=======
+  forne = buscar_ass(cnpj);
+  exibe_Fornecedor(forne);
+>>>>>>> c41d87c (função buscar_forne criada)
   getchar();
 }
 
@@ -604,4 +618,29 @@ void exibe_fornecedor(Fornecedor* forne){
       
   }
 }
+<<<<<<< HEAD
 >>>>>>> 9fc05c0 (função exibe_fornecedor criada)
+=======
+
+Fornecedor* buscar_forne(char *busca){
+  FILE* arq;
+  Fornecedor *forne;
+  arq = fopen("files/fornecedor.dat", "rb");
+  if(arq == NULL){
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+  }
+  forne = (Fornecedor*) malloc(sizeof(Fornecedor));
+  while(!feof(arq)){
+    if(fread(forne, sizeof(Fornecedor), 1, arq)){
+      if(((strcmp(forne->cnpj,busca)) == 0) && forne->status == 'a'){
+        return forne;
+      }
+    }
+  }
+  fclose(arq);
+  free(forne);
+  return NULL;
+}
+>>>>>>> c41d87c (função buscar_forne criada)

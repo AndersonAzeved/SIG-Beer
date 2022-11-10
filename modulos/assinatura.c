@@ -489,8 +489,11 @@ void buscar_assinatura(void){
   } 
   ass = buscar_ass(cpf);
   exibe_assinatura(ass);
+<<<<<<< HEAD
   
 >>>>>>> c3c985b (função buscar_ass criada)
+=======
+>>>>>>> c41d87c (função buscar_forne criada)
   getchar();
 }
 
