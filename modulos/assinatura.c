@@ -376,3 +376,27 @@ int cpf_esta(char *cpf){
   free(ass);
   return 0;
 }
+
+char escolhe_nivel(void){
+  char nivel[11];
+  int ok = 0;
+  do{
+    printf("\nNível da Assinatura:\n");
+    printf("Nível 1. 2 Cervejas\n");
+    printf("Nível 2. 4 Cervejas\n");
+    printf("Nível 3. 8 Cervejas\n");
+    printf("Informe o nível (APENAS NÚMEROS): ");
+    fgets(nivel, 10, stdin);
+    if(nivel[0] != '1' || nivel[0] != '2' || nivel[0] != '3'){
+      printf("\nNível Inválido!");
+      printf("\nNível da Assinatura:\n");
+      printf("Nível 1. 2 Cervejas\n");
+      printf("Nível 2. 4 Cervejas\n");
+      printf("Nível 3. 8 Cervejas\n");
+      printf("Informe o nível (APENAS NÚMEROS): ");
+      fgets(nivel, 10, stdin);
+    }
+    ok = 1;
+  }while(!ok);
+  return nivel[0];
+}
