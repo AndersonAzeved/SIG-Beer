@@ -13,7 +13,9 @@ void grava_assinatura(Assinatura* ass){
     FILE* fp;
     fp = fopen("files/assinatura.dat","ab");
     if(fp == NULL){
-      fp = fopen("files/assinatura.dat","a");
+      printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+      printf("Não é possível continuar este programa...\n");
+      exit(1);
     }
     fwrite(ass, sizeof(Assinatura), 1, fp);
     fclose(fp);
@@ -174,7 +176,6 @@ Assinatura* buscar_ass(char *busca){
   Assinatura *ass;
   arq = fopen("files/assinatura.dat", "rb");
   if(arq == NULL){
-    //arq = fopen("files/assinatura.dat", "a");
     printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
     printf("Não é possível continuar este programa...\n");
     exit(1);
@@ -194,16 +195,16 @@ Assinatura* buscar_ass(char *busca){
 void exibe_assinatura(Assinatura* ass){
   if((ass == NULL) || (ass->status == 'i')){
         printf("\n= = = Assinatura Inexistente = = =\n");
-    }else{
-        printf("\n= = = Assinatura Cadastrada = = =\n");
-        printf("Nome: %s\n", ass->nome);
-        printf("CPF: %s\n", ass->cpf);
-        printf("Endereço: %s\n", ass->endereco);
-        printf("Telefone: %s\n", ass->telefone);
-        printf("Email: %s\n", ass->email);
-        printf("Código: %s\n", ass->codigo);
-        printf("Nível: %c\n", ass->nivel);
-    }
+  }else{
+      printf("\n= = = Assinatura Cadastrada = = =\n");
+      printf("Nome: %s\n", ass->nome);
+      printf("CPF: %s\n", ass->cpf);
+      printf("Endereço: %s\n", ass->endereco);
+      printf("Telefone: %s\n", ass->telefone);
+      printf("Email: %s\n", ass->email);
+      printf("Código: %s\n", ass->codigo);
+      printf("Nível: %c\n", ass->nivel);
+  }
 }
 
 

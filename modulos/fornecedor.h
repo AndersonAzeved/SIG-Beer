@@ -15,3 +15,5 @@ void apagar_fornecedor(void);
 void recuperar_fornecedor(void);
 void buscar_fornecedor(void);
 int cnpj_esta(char *);
+void grava_fornecedor(Fornecedor*);
+void exibe_fornecedor(Fornecedor*);
