@@ -22,3 +22,4 @@ Assinatura* buscar_ass(char *);
 void exibe_assinatura(Assinatura* );
 int cpf_esta(char *);
 char escolhe_nivel(void);
+void arq_assinatura(void);
