@@ -26,6 +26,7 @@ void exibe_assinatura(Assinatura* );
 <<<<<<< HEAD
 int cpf_esta(char *);
 char escolhe_nivel(void);
+<<<<<<< HEAD
 =======
 Assinatura* buscar_ass(char *);
 >>>>>>> c3c985b (função buscar_ass criada)
@@ -40,3 +41,6 @@ int cpf_esta(char *);
 int cpf_esta(char *);
 char escolhe_nivel(void);
 >>>>>>> a56263d (função escolhe_nivel criada)
+=======
+void arq_assinatura(void);
+>>>>>>> 7681c53 (função arq_assinatura criada)

@@ -759,3 +759,11 @@ char escolhe_nivel(void){
   }while(!ok);
   return nivel[0];
 }
+
+void arq_assinatura(void){
+  FILE* arq;
+  arq = fopen("files/assinatura", "rb");
+  if(arq == NULL){
+    arq = fopen("files/assinatura", "ab");
+  }
+}
