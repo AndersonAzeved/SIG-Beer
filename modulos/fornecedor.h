@@ -20,6 +20,7 @@ int cnpj_esta(char *);
 void grava_fornecedor(Fornecedor*);
 void exibe_fornecedor(Fornecedor*);
 <<<<<<< HEAD
+<<<<<<< HEAD
 Fornecedor* buscar_forne(char *);
 =======
 int cnpj_esta(char *);
@@ -32,3 +33,7 @@ void exibe_fornecedor(Fornecedor*);
 =======
 Fornecedor* buscar_forne(char *);
 >>>>>>> c41d87c (função buscar_forne criada)
+=======
+Fornecedor* buscar_forne(char *);
+void apagar_forne_auto(char *);
+>>>>>>> 067f0ec (função apagar_forne_auto criada)

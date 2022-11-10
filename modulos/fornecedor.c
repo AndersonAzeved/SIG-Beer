@@ -215,6 +215,7 @@ void atualizar_fornecedor(void){
 <<<<<<< HEAD
 <<<<<<< HEAD
     forne->status = 'a';
+<<<<<<< HEAD
     fseek(arq, -1*sizeof(Fornecedor), SEEK_CUR);
     fwrite(forne, sizeof(Fornecedor), 1, arq);
     fclose(arq);
@@ -222,9 +223,11 @@ void atualizar_fornecedor(void){
 =======
     forne->status = 'a';
 >>>>>>> e186622 (atualizações)
+=======
+    grava_fornecedor(forne);
+>>>>>>> 067f0ec (função apagar_forne_auto criada)
     system("clear||cls");
     atualizado_sucesso();
-    grava_fornecedor(forne);
   }else{
     printf("\nCNPJ não cadastrado!\n");
   }
@@ -655,4 +658,53 @@ Fornecedor* buscar_forne(char *busca){
   fclose(arq);
   return NULL;
 }
+<<<<<<< HEAD
 >>>>>>> c41d87c (função buscar_forne criada)
+=======
+
+void apagar_forne_auto(char *cnpj){
+  FILE* arq;
+  Fornecedor* forne;
+  int achou = 0;
+  char resposta;
+  arq = fopen("files/fornecedor.dat", "r+b");
+  if(arq == NULL){
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar o programa...\n");
+    exit(1);
+  }
+
+  forne = (Fornecedor*) malloc(sizeof(Fornecedor));
+  achou = 0;
+  while((!achou) && (fread(forne, sizeof(Fornecedor), 1, arq))) {
+   if ((strcmp(forne->cnpj, cnpj) == 0) && (forne->status == 'a')) {
+     achou = 1;
+   }
+  }
+
+  if(achou){
+    fseek(arq, -1*sizeof(Fornecedor), SEEK_CUR);
+    fwrite(forne, sizeof(Fornecedor), 1, arq);
+  }
+  fclose(arq);
+  free(forne);
+}
+
+void recuperar_fornecedor(void){
+  printf("CNPJ a ser pesquisado : ");
+  scanf("%[A-Za-z0-9]",forne.cnpj);
+  getchar();
+  while(!valida_cnpj(forne.cnpj)){
+    printf("CNPJ inválido, tente novamente!\n");
+    printf("CNPJ da empresa : ");
+    scanf("%c",forne.cnpj);
+    getchar();
+  } 
+
+  system("clear||cls");
+  printf("%s",forne.cnpj);
+  printf("\nEM DESENVOLVIMENTO ...\n");
+  getchar();
+  
+}
+>>>>>>> 067f0ec (função apagar_forne_auto criada)
