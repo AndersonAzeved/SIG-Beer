@@ -193,12 +193,14 @@ void cadastrar_assinatura(void){
     printf("Código da Assinatura: ");
     fgets(ass->codigo, 50, stdin);
 
-    printf("\nNível da Assinatura:\n");
-    printf("Nível 1. 2 Cervejas\n");
-    printf("Nível 2. 4 Cervejas\n");
-    printf("Nível 3. 8 Cervejas\n");
-    printf("Informe o nível (APENAS NÚMEROS): ");
-    fgets(ass->nivel, 10, stdin);
+    // printf("\nNível da Assinatura:\n");
+    // printf("Nível 1. 2 Cervejas\n");
+    // printf("Nível 2. 4 Cervejas\n");
+    // printf("Nível 3. 8 Cervejas\n");
+    // printf("Informe o nível (APENAS NÚMEROS): ");
+    // fgets(ass->nivel, 10, stdin);
+
+    ass->nivel = escolhe_nivel();
 
     ass->status = 'a'; // a = ATIVADO e i = INATIVO
 
@@ -357,7 +359,18 @@ void atualizar_assinatura(void){
     printf("Código da Assinatura: ");
     remove_enter(fgets(ass->codigo, 50, stdin));
 
+<<<<<<< HEAD
     ass->nivel = escolhe_nivel();
+=======
+  // printf("\nNível da Assinatura:\n");
+  // printf("Nível 1. 2 Cervejas\n");
+  // printf("Nível 2. 4 Cervejas\n");
+  // printf("Nível 3. 8 Cervejas\n");
+  // printf("Informe o nível (APENAS NÚMEROS): ");
+  // fgets(ass->nivel, 10, stdin);
+
+  ass->nivel = escolhe_nivel();
+>>>>>>> ec6b06c (função criando_arquivo criada)
 
 <<<<<<< HEAD
     ass->status = 'a';
@@ -457,7 +470,7 @@ void exibe_assinatura(Assinatura* ass){
         printf("Telefone: %s\n", ass->telefone);
         printf("Email: %s\n", ass->email);
         printf("Código: %s\n", ass->codigo);
-        printf("Nível: %s\n", ass->nivel);
+        printf("Nível: %c\n", ass->nivel);
     }
 }
 

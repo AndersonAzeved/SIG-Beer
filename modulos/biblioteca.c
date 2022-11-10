@@ -296,3 +296,13 @@ void remove_enter(char *var){
     strcpy(ponteiro,var);
 }
 
+<<<<<<< HEAD
+=======
+void criando_arquivo(char *arquivo){
+  FILE* arq;
+  arq = fopen(arquivo, "rb");
+  if(arq == NULL){
+    arq = fopen(arquivo, "a");
+  }
+}
+>>>>>>> ec6b06c (função criando_arquivo criada)
