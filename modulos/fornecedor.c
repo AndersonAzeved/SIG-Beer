@@ -10,7 +10,6 @@
 typedef struct fornecedor Fornecedor;
 Fornecedor forne;
 
-
 void arquivo_fornecedor(Fornecedor* forne){
     FILE* fp;
     fp = fopen("files/fornecedor.dat","ab");
@@ -22,32 +21,8 @@ void arquivo_fornecedor(Fornecedor* forne){
 }
 
 void cadastrar_fornecedor(void){
-
   Fornecedor* forne;
   forne = (Fornecedor*) malloc(sizeof(Fornecedor));
-
-  printf("Nome jurídico da empresa : ");
-  remove_enter(fgets(forne->empresa, 51, stdin));  
-  // remove_enter(forne->empresa);
-
-  do{
-    printf("CPF: "); 
-    remove_enter(fgets(forne->cpfempresa, 51, stdin));
-    valida_cpf(forne->cpfempresa);
-    if (!valida_cpf(forne->cpfempresa)){
-      printf("\nCPF inválido, digite novamente.\n");
-    }
-  } while (!valida_cpf(forne->cpfempresa));
-
-  printf("Telefone: ");
-  remove_enter(fgets(forne->telefoneempresa, 51, stdin));  
-  do{
-    printf("E-mail da empresa : ");
-    remove_enter(fgets(forne->emailempresa, 51, stdin));
-    if(!valida_email(forne->emailempresa)){
-      printf("Email inválido, tente novamente!\n");
-  } }
-  while(!valida_email(forne->emailempresa));
   do{
   printf("CNPJ da empresa : ");
   remove_enter(fgets(forne->cnpj, 51, stdin)); 
@@ -55,44 +30,73 @@ void cadastrar_fornecedor(void){
     printf("CNPJ inválido, tente novamente!\n");
   } }
   while (!valida_cnpj(forne->cnpj));
+  if(cnpj_esta(forne->cnpj)){
+    printf("\nCNPJ já cadastrado!\n");
+  }else{
+    printf("Nome jurídico da empresa : ");
+    remove_enter(fgets(forne->empresa, 51, stdin)); 
+    do{
+      printf("CPF: "); 
+      remove_enter(fgets(forne->cpfempresa, 51, stdin));
+      valida_cpf(forne->cpfempresa);
+      if (!valida_cpf(forne->cpfempresa)){
+        printf("\nCPF inválido, digite novamente.\n");
+      }
+    } while (!valida_cpf(forne->cpfempresa));
 
-  system("clear||cls");
-  cadastrado_sucesso();
+    printf("Telefone: ");
+    remove_enter(fgets(forne->telefoneempresa, 51, stdin));  
+    do{
+      printf("E-mail da empresa : ");
+      remove_enter(fgets(forne->emailempresa, 51, stdin));
+      if(!valida_email(forne->emailempresa)){
+        printf("Email inválido, tente novamente!\n");
+    } }
+    while(!valida_email(forne->emailempresa));
+
+    system("clear||cls");
+    cadastrado_sucesso();
+  }
+  free(forne);
   getchar();
 }
 
 
 void atualizar_fornecedor(void){
-  printf("Nome jurídico da empresa : ");
-  scanf("%[A-Za-z0-9]", forne.empresa);
-  getchar();
-  printf("CPF do dono da empresa : ");
-  scanf("%[A-Za-z0-9]", forne.cpfempresa);
-  getchar();
-  printf("Telefone: ");
-  scanf("%[A-Za-z0-9]", forne.telefoneempresa);
-  getchar();
-  printf("E-mail da empresa : ");
-  scanf("%[A-z a-z.@0-9]", forne.emailempresa);
-  getchar();
-  while(!valida_email( forne.emailempresa)){
-    printf("Email inválido, tente novamente!\n");
-    printf("Email: ");
-    scanf("%[A-z a-z.@0-9]",forne.emailempresa);
-    getchar();
-  } 
+  Fornecedor* forne;
+  forne = (Fornecedor*) malloc(sizeof(Fornecedor));
+  do{
   printf("CNPJ da empresa : ");
-  scanf("%s",forne.cnpj);
-  getchar();
-  while(!valida_cnpj(forne.cnpj)){
+  remove_enter(fgets(forne->cnpj, 50, stdin)); 
+  if(!valida_cnpj(forne->cnpj)){
     printf("CNPJ inválido, tente novamente!\n");
-    printf("CNPJ da empresa : ");
-    scanf("%c",forne.cnpj);
-    getchar();
-  } 
+  } }
+  while (!valida_cnpj(forne->cnpj));
+  if(cnpj_esta(forne->cnpj)){
+    printf("Nome jurídico da empresa : ");
+    remove_enter(fgets(forne->empresa, 50, stdin));
+    
+    do{
+      printf("CPF do dono da empresa: "); 
+      remove_enter(fgets(forne->cpfempresa, 50, stdin));
+      valida_cpf(forne->cpfempresa);
+      if (!valida_cpf(forne->cpfempresa)){
+        printf("\nCPF inválido, digite novamente.\n");
+      }
+    } while (!valida_cpf(forne->cpfempresa));
 
-  system("clear||cls");
-  atualizado_sucesso();
+    printf("Telefone: ");
+    remove_enter(fgets(forne->telefoneempresa, 50, stdin));
+
+    printf("E-mail da empresa : ");
+    remove_enter(fgets(forne->emailempresa, 50, stdin));
+    while(!valida_email( forne->emailempresa)){
+      printf("Email inválido, tente novamente: ");
+      remove_enter(fgets(forne->emailempresa, 50, stdin));
+    } 
+    system("clear||cls");
+    atualizado_sucesso();
+  }   
   getchar();
 }
 
@@ -207,4 +211,26 @@ char tela_fornecedores(void){
   getchar();
   printf("\n");
   return op[0];
+}
+
+int cnpj_esta(char *cnpj){
+  FILE* arq;
+  Fornecedor *forne;
+  arq = fopen("files/fornecedor.dat", "rb");
+  if(arq == NULL){
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+  }
+  forne = (Fornecedor*) malloc(sizeof(Fornecedor));
+  while(!feof(arq)){
+    if(fread(forne, sizeof(Fornecedor), 1, arq)){
+      if(((strcmp(forne->cnpj,cnpj)) == 0) && forne->status == 'a'){
+        return 1;
+      }
+    }
+  }
+  fclose(arq);
+  free(forne);
+  return 0;
 }
