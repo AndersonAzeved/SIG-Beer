@@ -60,6 +60,7 @@ void cadastrar_fornecedor(void){
     } }
     while(!valida_email(forne->emailempresa));
     forne->status = 'a';
+<<<<<<< HEAD
     system("clear||cls");
     cadastrado_sucesso();
     grava_fornecedor(forne);
@@ -125,6 +126,8 @@ void cadastrar_fornecedor(void){
     } }
     while(!valida_email(forne->emailempresa));
 
+=======
+>>>>>>> e186622 (atualizações)
     system("clear||cls");
     cadastrado_sucesso();
     grava_fornecedor(forne);
@@ -210,13 +213,18 @@ void atualizar_fornecedor(void){
       remove_enter(fgets(forne->emailempresa, 50, stdin));
     } 
 <<<<<<< HEAD
+<<<<<<< HEAD
     forne->status = 'a';
     fseek(arq, -1*sizeof(Fornecedor), SEEK_CUR);
     fwrite(forne, sizeof(Fornecedor), 1, arq);
     fclose(arq);
     free(forne);
+=======
+    forne->status = 'a';
+>>>>>>> e186622 (atualizações)
     system("clear||cls");
     atualizado_sucesso();
+    grava_fornecedor(forne);
   }else{
     printf("\nCNPJ não cadastrado!\n");
   }
@@ -645,7 +653,6 @@ Fornecedor* buscar_forne(char *busca){
     }
   }
   fclose(arq);
-  free(forne);
   return NULL;
 }
 >>>>>>> c41d87c (função buscar_forne criada)
