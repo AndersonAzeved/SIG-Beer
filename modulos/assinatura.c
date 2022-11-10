@@ -23,7 +23,11 @@ void grava_assinatura(Assinatura* ass){
 
 
 char tela_assinaturas(void){
+<<<<<<< HEAD
   char op[11];
+=======
+  char op;
+>>>>>>> 8f0cdbc (função recuperar_assinatura criada)
   //system("clear||cls");
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -92,9 +96,12 @@ void cadastrar_assinatura(void){
 =======
     fgets(ass->cpf, 50, stdin);
     remove_enter(ass->cpf);
+<<<<<<< HEAD
     //retira_pontoscpf(ass->cpf);
     //verifica_letracpf(ass->cpf);
 >>>>>>> 693bb85 (função apagar_assinatura criada)
+=======
+>>>>>>> 8f0cdbc (função recuperar_assinatura criada)
     valida_cpf(ass->cpf);
     if (!valida_cpf(ass->cpf)){
       printf("\nCPF inválido, digite novamente.\n");
@@ -164,7 +171,26 @@ void cadastrar_assinatura(void){
   }
 >>>>>>> 693bb85 (função apagar_assinatura criada)
 
+<<<<<<< HEAD
   free(ass);
+=======
+  printf("Código da Assinatura: ");
+  fgets(ass->codigo, 50, stdin);
+
+  printf("\nNível da Assinatura:\n");
+  printf("Nível 1. 2 Cervejas\n");
+  printf("Nível 2. 4 Cervejas\n");
+  printf("Nível 3. 8 Cervejas\n");
+  printf("Informe o nível (APENAS NÚMEROS): ");
+  fgets(ass->nivel, 10, stdin);
+
+  ass->status = 'a'; // a = ATIVADO e i = INATIVO
+
+  grava_assinatura(ass);
+
+  system("clear||cls");
+  cadastrado_sucesso();
+>>>>>>> 8f0cdbc (função recuperar_assinatura criada)
   getchar();
 }
 
@@ -205,9 +231,12 @@ void atualizar_assinatura(void){
 =======
     fgets(ass->cpf, 50, stdin);
     remove_enter(ass->cpf);
+<<<<<<< HEAD
     //retira_pontoscpf(ass->cpf);
     //verifica_letracpf(ass->cpf);
 >>>>>>> 693bb85 (função apagar_assinatura criada)
+=======
+>>>>>>> 8f0cdbc (função recuperar_assinatura criada)
     valida_cpf(ass->cpf);
     if (!valida_cpf(ass->cpf)){
       printf("\nCPF inválido, digite novamente.\n");
@@ -284,7 +313,13 @@ void atualizar_assinatura(void){
 
     ass->nivel = escolhe_nivel();
 
+<<<<<<< HEAD
     ass->status = 'a';
+=======
+  ass->status = 'a';
+
+  grava_assinatura(ass);
+>>>>>>> 8f0cdbc (função recuperar_assinatura criada)
 
     fseek(arq, -1*sizeof(Assinatura), SEEK_CUR);
     fwrite(ass, sizeof(Assinatura), 1, arq);
@@ -403,6 +438,7 @@ void buscar_assinatura(void){
 
 void apagar_assinatura(void){
 <<<<<<< HEAD
+<<<<<<< HEAD
   FILE* arq;
   Assinatura* ass;
   int achou = 0;
@@ -412,6 +448,11 @@ void apagar_assinatura(void){
   Assinatura* ass;
   int achou;
 >>>>>>> 693bb85 (função apagar_assinatura criada)
+=======
+  FILE* arq;
+  Assinatura* ass;
+  int achou = 0;
+>>>>>>> 8f0cdbc (função recuperar_assinatura criada)
   char resposta;
   char apagar[51];
   arq = fopen("files/assinatura.dat", "r+b");
@@ -476,33 +517,43 @@ void apagar_assinatura(void){
   fclose(arq);
   free(ass);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+}
+>>>>>>> 8f0cdbc (função recuperar_assinatura criada)
 
-
+void recuperar_assinatura(void){ // FUNÇÃO COM BUGS, NÃO SEI SE TÁ RECUPERANDO MESMO
+                                // E MOSTRANDO MENSAGEM QUE NÃO ESTÁ, MESMO ESTANDO
   // Assinatura* ass;
   // ass = (Assinatura*) malloc(sizeof(Assinatura));
-  // char cpf[51];
-  // printf("CPF a ser pesquisado: ");
-  // fgets(cpf, 50, stdin);
-  // remove_enter(cpf);
-  // while(!valida_cpf(cpf)){
-  //   printf("CPF inválido, tente novamente: ");
-  //   fgets(cpf, 50, stdin);
-  //   remove_enter(cpf);
+  // printf("Nome a ser pesquisado (APENAS LETRAS): ");
+  // fgets(ass->nome, 100, stdin);
+  // remove_enter(ass->nome);
+  // while(!valida_nome(ass->nome)){
+  //   printf("Nome inválido, tente novamente!\n");
+  //   printf("Nome: ");
+  //   fgets(ass->nome, 100, stdin);
+  //   remove_enter(ass->nome);
   // } 
-  // ass = buscar_ass(cpf);
-  // exibe_assinatura(ass);
-
-  // ass->status = 'i';
+  
+  // ass->status = 'a';
   // grava_assinatura(ass);
 
-  // deletado_sucesso();
+  // system("clear||cls");
+
+  // printf("%s",ass->nome);
+  // printf("\nEM DESENVOLVIMENTO ...\n");
   // getchar();
+<<<<<<< HEAD
 >>>>>>> 693bb85 (função apagar_assinatura criada)
 }
 
 void recuperar_assinatura(void){ // FUNÇÃO COM BUGS, NÃO SEI SE TÁ RECUPERANDO MESMO
                                 // E MOSTRANDO MENSAGEM QUE NÃO ESTÁ, MESMO ESTANDO
+=======
+
+>>>>>>> 8f0cdbc (função recuperar_assinatura criada)
   FILE* arq;
   Assinatura* ass;
   int achou = 0;
@@ -548,6 +599,7 @@ void recuperar_assinatura(void){ // FUNÇÃO COM BUGS, NÃO SEI SE TÁ RECUPERAN
   }
   fclose(arq);
   free(ass);
+<<<<<<< HEAD
 }
 
 int cpf_esta(char *cpf){
@@ -598,4 +650,7 @@ char escolhe_nivel(void){
     }    
   }while(!ok);
   return nivel[0];
+=======
+>>>>>>> 8f0cdbc (função recuperar_assinatura criada)
 }
+
