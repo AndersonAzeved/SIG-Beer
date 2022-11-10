@@ -14,7 +14,11 @@ void atualizar_fornecedor(void);
 void apagar_fornecedor(void);
 void recuperar_fornecedor(void);
 void buscar_fornecedor(void);
+<<<<<<< HEAD
 int cnpj_esta(char *);
 void grava_fornecedor(Fornecedor*);
 void exibe_fornecedor(Fornecedor*);
 Fornecedor* buscar_forne(char *);
+=======
+int cnpj_esta(char *);
+>>>>>>> a5cb62f (atualização em fornecedor)
