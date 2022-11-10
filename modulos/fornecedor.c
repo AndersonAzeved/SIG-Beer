@@ -26,7 +26,7 @@ void cadastrar_fornecedor(void){
   Fornecedor* forne;
   forne = (Fornecedor*) malloc(sizeof(Fornecedor));
   do{
-  printf("CNPJ da empresa : ");
+  printf("CNPJ da empresa: ");
   remove_enter(fgets(forne->cnpj, 51, stdin)); 
   if(!valida_cnpj(forne->cnpj)){
     printf("CNPJ inválido, tente novamente!\n");
@@ -35,7 +35,7 @@ void cadastrar_fornecedor(void){
   if(cnpj_esta(forne->cnpj)){
     printf("\nCNPJ já cadastrado!\n");
   }else{
-    printf("Nome jurídico da empresa : ");
+    printf("Nome jurídico da empresa: ");
     remove_enter(fgets(forne->empresa, 51, stdin)); 
     do{
       printf("CPF: "); 
@@ -58,6 +58,7 @@ void cadastrar_fornecedor(void){
 
     system("clear||cls");
     cadastrado_sucesso();
+    grava_fornecedor(forne);
   }
   free(forne);
   getchar();
@@ -99,12 +100,13 @@ void atualizar_fornecedor(void){
     } 
     system("clear||cls");
     atualizado_sucesso();
-  }   
+  }else{
+    printf("\nCNPJ não cadastrado!\n");
+  }
   getchar();
 }
 
 void apagar_fornecedor(void){
-
   FILE* arq;
   Fornecedor* forne;
   int achou = 0;
@@ -172,18 +174,7 @@ void recuperar_fornecedor(void){
 
 
 void buscar_fornecedor(void){
-  printf("CNPJ a ser pesquisado : ");
-  scanf("%[A-Z a-z]",forne.cnpj);
-  getchar();
-  while(!valida_cnpj(forne.cnpj)){
-    printf("CNPJ inválido, tente novamente!\n");
-    printf("CNPJ da empresa : ");
-    scanf("%c",forne.cnpj);
-    getchar();
-  } 
-
-  printf("%s",forne.cnpj);
-  printf("\nEM DESENVOLVIMENTO ...\n");
+  
   getchar();
 }
 
@@ -252,7 +243,6 @@ char tela_fornecedores(void){
       remove_enter(op);
     }    
   }while(!ok);
-  getchar();
   printf("\n");
   return op[0];
 }
