@@ -19,14 +19,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// CRIANDO OS ARQUIVOS
-
-
 char op; 
 char op2; 
 
 int main() {
   setlocale(LC_ALL, "Portuguese");
+  criando_arquivo("files/assinatura.dat");
 
   do {
 	op = tela_principal();

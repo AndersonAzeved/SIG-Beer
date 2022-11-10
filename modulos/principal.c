@@ -183,3 +183,11 @@ void tela_encerramento(void){
   "\n");
   getchar();
 }
+
+void criando_arquivo(char *arquivo){
+  FILE* arq;
+  arq = fopen(arquivo, "rb");
+  if(arq == NULL){
+    arq = fopen(arquivo, "ab");
+  }
+}
