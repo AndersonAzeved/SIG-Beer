@@ -393,6 +393,7 @@ Assinatura* buscar_ass(char *busca){
   if(arq == NULL){
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
     printf("Não é possível continuar este programa...\n");
     exit(1);
@@ -401,6 +402,8 @@ Assinatura* buscar_ass(char *busca){
 >>>>>>> c3c985b (função buscar_ass criada)
 =======
     //arq = fopen("files/assinatura.dat", "a");
+=======
+>>>>>>> 9fc05c0 (função exibe_fornecedor criada)
     printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
     printf("Não é possível continuar este programa...\n");
     exit(1);
@@ -458,16 +461,16 @@ void buscar_assinatura(void){
 void exibe_assinatura(Assinatura* ass){
   if((ass == NULL) || (ass->status == 'i')){
         printf("\n= = = Assinatura Inexistente = = =\n");
-    }else{
-        printf("\n= = = Assinatura Cadastrada = = =\n");
-        printf("Nome: %s\n", ass->nome);
-        printf("CPF: %s\n", ass->cpf);
-        printf("Endereço: %s\n", ass->endereco);
-        printf("Telefone: %s\n", ass->telefone);
-        printf("Email: %s\n", ass->email);
-        printf("Código: %s\n", ass->codigo);
-        printf("Nível: %c\n", ass->nivel);
-    }
+  }else{
+      printf("\n= = = Assinatura Cadastrada = = =\n");
+      printf("Nome: %s\n", ass->nome);
+      printf("CPF: %s\n", ass->cpf);
+      printf("Endereço: %s\n", ass->endereco);
+      printf("Telefone: %s\n", ass->telefone);
+      printf("Email: %s\n", ass->email);
+      printf("Código: %s\n", ass->codigo);
+      printf("Nível: %c\n", ass->nivel);
+  }
 }
 
 

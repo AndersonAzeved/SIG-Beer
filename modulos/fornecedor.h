@@ -15,6 +15,7 @@ void apagar_fornecedor(void);
 void recuperar_fornecedor(void);
 void buscar_fornecedor(void);
 <<<<<<< HEAD
+<<<<<<< HEAD
 int cnpj_esta(char *);
 void grava_fornecedor(Fornecedor*);
 void exibe_fornecedor(Fornecedor*);
@@ -22,3 +23,8 @@ Fornecedor* buscar_forne(char *);
 =======
 int cnpj_esta(char *);
 >>>>>>> a5cb62f (atualização em fornecedor)
+=======
+int cnpj_esta(char *);
+void grava_fornecedor(Fornecedor*);
+void exibe_fornecedor(Fornecedor*);
+>>>>>>> 9fc05c0 (função exibe_fornecedor criada)
