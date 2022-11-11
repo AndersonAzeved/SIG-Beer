@@ -131,7 +131,7 @@ void atualizar_fornecedor(void){
 void apagar_fornecedor(void){
   FILE* arq;
   Fornecedor* forne;
-  int achou = 0;
+  int encontrar = 0;
   char resposta;
   char apagar[51];
   arq = fopen("files/fornecedor.dat", "r+b");
@@ -149,22 +149,22 @@ void apagar_fornecedor(void){
   }while (!valida_cnpj(apagar));
 
   forne = (Fornecedor*) malloc(sizeof(Fornecedor));
-  achou = 0;
-  while((!achou) && (fread(forne, sizeof(Fornecedor), 1, arq))) {
+  encontrar = 0;
+  while((!encontrar) && (fread(forne, sizeof(Fornecedor), 1, arq))) {
    if ((strcmp(forne->cnpj, apagar) == 0) && (forne->status == 'a')) {
-     achou = 1;
+     encontrar = 1;
    }
   }
 
-  if(achou){
+  if(encontrar){
     exibe_fornecedor(forne);
-    printf("Desejar apagar o fornecedor (s/n)? ");
+    printf("Desejar recuperar o fornecedor (s/n)? ");
     scanf("%c", &resposta);
     if(resposta == 's' || resposta == 'S'){
       forne->status = 'i';
       fseek(arq, -1*sizeof(Fornecedor), SEEK_CUR);
       fwrite(forne, sizeof(Fornecedor), 1, arq);
-      deletado_sucesso();
+      recuperado_sucesso();
     }else{
       printf("\nOs dados não foram alterados\n");
     }
@@ -177,22 +177,67 @@ void apagar_fornecedor(void){
 }
 
 void recuperar_fornecedor(void){
-  printf("CNPJ a ser pesquisado : ");
-  scanf("%[A-Za-z0-9]",forne.cnpj);
-  getchar();
-  while(!valida_cnpj(forne.cnpj)){
-    printf("CNPJ inválido, tente novamente!\n");
+ FILE* arq;
+  Fornecedor* forne;
+  int encontrar = 0;
+  char resposta;
+  char apagar[51];
+  arq = fopen("files/fornecedor.dat", "r+b");
+  if(arq == NULL){
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar o programa...\n");
+    exit(1);
+  }
+  do{
     printf("CNPJ da empresa : ");
-    scanf("%c",forne.cnpj);
-    getchar();
-  } 
+    remove_enter(fgets(apagar, 50, stdin)); 
+    if(!valida_cnpj(apagar)){
+      printf("CNPJ inválido, tente novamente!\n");
+    } 
+  }while (!valida_cnpj(apagar));
 
-  system("clear||cls");
-  printf("%s",forne.cnpj);
-  printf("\nEM DESENVOLVIMENTO ...\n");
+  forne = (Fornecedor*) malloc(sizeof(Fornecedor));
+  encontrar = 0;
+  while((!encontrar) && (fread(forne, sizeof(Fornecedor), 1, arq))) {
+   if ((strcmp(forne->cnpj, apagar) == 0) && (forne->status == 'i')) {
+     encontrar = 1;
+   }
+  }
+
+  if(encontrar){
+    exibe_fornecedor(forne);
+    printf("Desejar apagar o fornecedor (s/n)? ");
+    scanf("%c", &resposta);
+    if(resposta == 's' || resposta == 'S'){
+      forne->status = 'a';
+      fseek(arq, -1*sizeof(Fornecedor), SEEK_CUR);
+      fwrite(forne, sizeof(Fornecedor), 1, arq);
+      recuperado_sucesso();
+    }else{
+      printf("\nOs dados não foram alterados\n");
+    }
+  }else{
+    printf("O fornecedor %s não foi encontrado!\n",apagar);
+  }
+  fclose(arq);
+  free(forne);
   getchar();
-  
 }
+
+  // printf("CNPJ a ser pesquisado : ");
+  // remove_enter(fgets(forne->cnpj, 50,stdin));
+  // if()
+  // while(!valida_cnpj(forne.cnpj)){
+  //   printf("CNPJ inválido, tente novamente!\n");
+  //   printf("CNPJ da empresa : ");
+  //   scanf("%c",forne.cnpj);
+  //   getchar();
+  // } 
+
+  // system("clear||cls");
+  // printf("%s",forne.cnpj);
+  // printf("\nEM DESENVOLVIMENTO ...\n");
+  // getchar();
 
 void buscar_fornecedor(void){
   Fornecedor* forne;
