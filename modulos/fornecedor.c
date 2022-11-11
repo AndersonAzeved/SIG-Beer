@@ -335,7 +335,7 @@ void apagar_fornecedor(void){
   if(encontrar){
 >>>>>>> 496148a (Atualização na função recuperar fornecedor)
     exibe_fornecedor(forne);
-    printf("Desejar recuperar o fornecedor (s/n)? ");
+    printf("Desejar apagar o fornecedor (s/n)? ");
     scanf("%c", &resposta);
     if(resposta == 's' || resposta == 'S'){
       forne->status = 'i';
@@ -392,10 +392,14 @@ void recuperar_fornecedor(void){
   if(encontrar){
     exibe_fornecedor(forne);
 <<<<<<< HEAD
+<<<<<<< HEAD
     printf("Desejar recuperar o fornecedor (s/n)? ");
 =======
     printf("Desejar apagar o fornecedor (s/n)? ");
 >>>>>>> 496148a (Atualização na função recuperar fornecedor)
+=======
+    printf("Desejar recuperar o fornecedor (s/n)? ");
+>>>>>>> 4f14f89 (Atualização)
     scanf("%c", &resposta);
     if(resposta == 's' || resposta == 'S'){
       forne->status = 'a';
@@ -442,12 +446,17 @@ void buscar_fornecedor(void){
   char cnpj[51];
   printf("CNPJ a ser pesquisado: ");
 <<<<<<< HEAD
+<<<<<<< HEAD
   remove_enter(fgets(cnpj, 50, stdin));
   // remove_enter(cnpj);
 =======
   fgets(cnpj, 50, stdin);
   remove_enter(cnpj);
 >>>>>>> c41d87c (função buscar_forne criada)
+=======
+  remove_enter(fgets(cnpj, 50, stdin));
+  // remove_enter(cnpj);
+>>>>>>> 4f14f89 (Atualização)
   while(!valida_cnpj(cnpj)){
     printf("CNPJ inválido, tente novamente: ");
     fgets(cnpj, 50, stdin);
