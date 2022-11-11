@@ -30,7 +30,7 @@ void cadastrar_fornecedor(void){
   remove_enter(fgets(forne->cnpj, 51, stdin)); 
   if(!valida_cnpj(forne->cnpj)){
     printf("CNPJ inválido, tente novamente!\n");
-  } }
+  }}
   while (!valida_cnpj(forne->cnpj));
   if(cnpj_esta(forne->cnpj)){
     printf("\nCNPJ já cadastrado!\n");
@@ -158,7 +158,7 @@ void apagar_fornecedor(void){
 
   if(encontrar){
     exibe_fornecedor(forne);
-    printf("Desejar recuperar o fornecedor (s/n)? ");
+    printf("Desejar apagar o fornecedor (s/n)? ");
     scanf("%c", &resposta);
     if(resposta == 's' || resposta == 'S'){
       forne->status = 'i';
@@ -206,7 +206,7 @@ void recuperar_fornecedor(void){
 
   if(encontrar){
     exibe_fornecedor(forne);
-    printf("Desejar apagar o fornecedor (s/n)? ");
+    printf("Desejar recuperar o fornecedor (s/n)? ");
     scanf("%c", &resposta);
     if(resposta == 's' || resposta == 'S'){
       forne->status = 'a';
@@ -244,8 +244,8 @@ void buscar_fornecedor(void){
   forne = (Fornecedor*) malloc(sizeof(Fornecedor));
   char cnpj[51];
   printf("CNPJ a ser pesquisado: ");
-  fgets(cnpj, 50, stdin);
-  remove_enter(cnpj);
+  remove_enter(fgets(cnpj, 50, stdin));
+  // remove_enter(cnpj);
   while(!valida_cnpj(cnpj)){
     printf("CNPJ inválido, tente novamente: ");
     fgets(cnpj, 50, stdin);
@@ -338,7 +338,7 @@ int cnpj_esta(char *cnpj){
   forne = (Fornecedor*) malloc(sizeof(Fornecedor));
   while(!feof(arq)){
     if(fread(forne, sizeof(Fornecedor), 1, arq)){
-      if(((strcmp(forne->cnpj,cnpj)) == 0) && forne->status == 'a'){
+      if((strcmp(forne->cnpj,cnpj)) == 0){
         return 1;
       }
     }
@@ -358,9 +358,12 @@ void exibe_fornecedor(Fornecedor* forne){
       printf("CPF do dono da empresa: %s\n", forne->cpfempresa);
       printf("Telefone: %s\n", forne->telefoneempresa);
       printf("Email: %s\n", forne->emailempresa);
-      
-  }
-}
+      if(forne->status =='a'){
+        printf("Status: ativo\n");
+      }else{
+      printf("Status: Inativo");
+      }}}
+
 
 Fornecedor* buscar_forne(char *busca){
   FILE* arq;
