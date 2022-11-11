@@ -129,6 +129,7 @@ void cadastrar_assinatura(void){
     
     printf("Endereço: ");  
 <<<<<<< HEAD
+<<<<<<< HEAD
     remove_enter(fgets(ass->endereco, 100, stdin));
 
     printf("Telefone: ");
@@ -175,9 +176,12 @@ void cadastrar_assinatura(void){
     printf("Email inválido, tente novamente!\n");
 =======
     fgets(ass->endereco, 100, stdin);
+=======
+    remove_enter(fgets(ass->endereco, 100, stdin));
+>>>>>>> 6c03b36 (atualização em assinatura.c)
 
     printf("Telefone: ");
-    fgets(ass->telefone, 50, stdin);
+    remove_enter(fgets(ass->telefone, 50, stdin));
 
 >>>>>>> a11a0ff (atualização em cadastrar_assinatura)
     printf("Email: ");
@@ -191,7 +195,7 @@ void cadastrar_assinatura(void){
     }
 
     printf("Código da Assinatura: ");
-    fgets(ass->codigo, 50, stdin);
+    remove_enter(fgets(ass->codigo, 50, stdin));
 
     ass->nivel = escolhe_nivel();
 
@@ -239,6 +243,7 @@ void atualizar_assinatura(void){
   Assinatura* ass;
   ass = (Assinatura*) malloc(sizeof(Assinatura));
 <<<<<<< HEAD
+<<<<<<< HEAD
   char cpf[51];
   do{
     printf("CPF: ");
@@ -259,6 +264,9 @@ void atualizar_assinatura(void){
     remove_enter(ass->nome);
   } 
 
+=======
+  char cpf[51];
+>>>>>>> 6c03b36 (atualização em assinatura.c)
   do{
     printf("CPF: ");
 <<<<<<< HEAD
@@ -287,6 +295,9 @@ void atualizar_assinatura(void){
   strcpy(cpf, ass->cpf);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6c03b36 (atualização em assinatura.c)
   if(cpf_esta(ass->cpf)){
     FILE* arq;
     int achou = 0;
@@ -317,6 +328,7 @@ void atualizar_assinatura(void){
 
     printf("Telefone: ");
     remove_enter(fgets(ass->telefone, 50, stdin));
+<<<<<<< HEAD
 
     printf("Email: ");
     fgets(ass->email, 50, stdin);
@@ -330,12 +342,9 @@ void atualizar_assinatura(void){
 =======
   printf("Telefone: ");
   fgets(ass->telefone, 50, stdin);
+=======
+>>>>>>> 6c03b36 (atualização em assinatura.c)
 
-  printf("Email: ");
-  fgets(ass->email, 50, stdin);
-  remove_enter(ass->email);
-  while(!valida_email(ass->email)){
-    printf("Email inválido, tente novamente!\n");
     printf("Email: ");
 <<<<<<< HEAD
     remove_enter(fgets(ass->email, 50, stdin));
@@ -346,12 +355,22 @@ void atualizar_assinatura(void){
 =======
     fgets(ass->email, 50, stdin);
     remove_enter(ass->email);
+<<<<<<< HEAD
   } 
 >>>>>>> 693bb85 (função apagar_assinatura criada)
+=======
+    while(!valida_email(ass->email)){
+      printf("Email inválido, tente novamente!\n");
+      printf("Email: ");
+      fgets(ass->email, 50, stdin);
+      remove_enter(ass->email);
+    } 
+>>>>>>> 6c03b36 (atualização em assinatura.c)
 
     printf("Código da Assinatura: ");
     remove_enter(fgets(ass->codigo, 50, stdin));
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     ass->nivel = escolhe_nivel();
@@ -375,6 +394,11 @@ void atualizar_assinatura(void){
 
   grava_assinatura(ass);
 >>>>>>> 8f0cdbc (função recuperar_assinatura criada)
+=======
+    ass->nivel = escolhe_nivel();
+
+    ass->status = 'a';
+>>>>>>> 6c03b36 (atualização em assinatura.c)
 
     fseek(arq, -1*sizeof(Assinatura), SEEK_CUR);
     fwrite(ass, sizeof(Assinatura), 1, arq);
@@ -586,6 +610,7 @@ void apagar_assinatura(void){
 
 void recuperar_assinatura(void){ // FUNÇÃO COM BUGS, NÃO SEI SE TÁ RECUPERANDO MESMO
                                 // E MOSTRANDO MENSAGEM QUE NÃO ESTÁ, MESMO ESTANDO
+<<<<<<< HEAD
   // Assinatura* ass;
   // ass = (Assinatura*) malloc(sizeof(Assinatura));
   // printf("Nome a ser pesquisado (APENAS LETRAS): ");
@@ -615,6 +640,8 @@ void recuperar_assinatura(void){ // FUNÇÃO COM BUGS, NÃO SEI SE TÁ RECUPERAN
 =======
 
 >>>>>>> 8f0cdbc (função recuperar_assinatura criada)
+=======
+>>>>>>> 6c03b36 (atualização em assinatura.c)
   FILE* arq;
   Assinatura* ass;
   int achou = 0;

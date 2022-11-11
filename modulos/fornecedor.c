@@ -434,6 +434,7 @@ void buscar_fornecedor(void){
   forne = buscar_forne(cnpj);
   exibe_fornecedor(forne);
   free(forne);
+<<<<<<< HEAD
 =======
   
 >>>>>>> d09a6a5 (atualização em atualizar_fornecedor)
@@ -445,6 +446,8 @@ void buscar_fornecedor(void){
   forne = buscar_forne(cnpj);
   exibe_fornecedor(forne);
 >>>>>>> 1e3d165 (função buscar_fornecedor criada)
+=======
+>>>>>>> 6c03b36 (atualização em assinatura.c)
   getchar();
 }
 
@@ -682,6 +685,7 @@ Fornecedor* buscar_forne(char *busca){
     }
   }
   fclose(arq);
+  free(forne);
   return NULL;
 }
 <<<<<<< HEAD
