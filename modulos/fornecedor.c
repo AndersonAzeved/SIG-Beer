@@ -68,6 +68,7 @@ void cadastrar_fornecedor(void){
 void atualizar_fornecedor(void){
   Fornecedor* forne;
   forne = (Fornecedor*) malloc(sizeof(Fornecedor));
+  char cnpj[51];
   do{
     printf("CNPJ da empresa : ");
     remove_enter(fgets(forne->cnpj, 50, stdin)); 
@@ -76,7 +77,23 @@ void atualizar_fornecedor(void){
     } 
   }while (!valida_cnpj(forne->cnpj));
 
+  strcpy(cnpj, forne->cnpj);
+
   if(cnpj_esta(forne->cnpj)){
+    FILE* arq;
+    int achou = 0;
+    arq = fopen("files/fornecedor.dat", "r+b");
+    if(arq == NULL){
+      printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+      printf("Não é possível continuar o programa...\n");
+      exit(1);
+    }
+    while((!achou) && (fread(forne, sizeof(Fornecedor), 1, arq))) {
+      if ((strcmp(forne->cnpj, cnpj) == 0) && (forne->status == 'a')) {
+        achou = 1;
+      }
+    }
+
     printf("Nome jurídico da empresa : ");
     remove_enter(fgets(forne->empresa, 50, stdin));
     
@@ -99,7 +116,10 @@ void atualizar_fornecedor(void){
       remove_enter(fgets(forne->emailempresa, 50, stdin));
     } 
     forne->status = 'a';
-    grava_fornecedor(forne);
+    fseek(arq, -1*sizeof(Fornecedor), SEEK_CUR);
+    fwrite(forne, sizeof(Fornecedor), 1, arq);
+    fclose(arq);
+    free(forne);
     system("clear||cls");
     atualizado_sucesso();
   }else{
