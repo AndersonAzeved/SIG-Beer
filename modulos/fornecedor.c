@@ -659,6 +659,7 @@ Fornecedor* buscar_forne(char *busca){
   return NULL;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> c41d87c (função buscar_forne criada)
 =======
 
@@ -708,3 +709,5 @@ void recuperar_fornecedor(void){
   
 }
 >>>>>>> 067f0ec (função apagar_forne_auto criada)
+=======
+>>>>>>> 1c410c6 (atualização)
