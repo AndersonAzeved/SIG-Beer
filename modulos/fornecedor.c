@@ -283,8 +283,12 @@ void apagar_fornecedor(void){
 >>>>>>> d09a6a5 (atualização em atualizar_fornecedor)
   FILE* arq;
   Fornecedor* forne;
+<<<<<<< HEAD
   int achou = 0;
 >>>>>>> 9fc05c0 (função exibe_fornecedor criada)
+=======
+  int encontrar = 0;
+>>>>>>> 496148a (Atualização na função recuperar fornecedor)
   char resposta;
   char apagar[51];
   arq = fopen("files/fornecedor.dat", "r+b");
@@ -303,6 +307,7 @@ void apagar_fornecedor(void){
 
   forne = (Fornecedor*) malloc(sizeof(Fornecedor));
 <<<<<<< HEAD
+<<<<<<< HEAD
   encontrar = 0;
   while((!encontrar) && (fread(forne, sizeof(Fornecedor), 1, arq))) {
    if ((strcmp(forne->cnpj, apagar) == 0) && (forne->status == 'a')) {
@@ -314,25 +319,37 @@ void apagar_fornecedor(void){
 =======
   achou = 0;
   while((!achou) && (fread(forne, sizeof(Fornecedor), 1, arq))) {
+=======
+  encontrar = 0;
+  while((!encontrar) && (fread(forne, sizeof(Fornecedor), 1, arq))) {
+>>>>>>> 496148a (Atualização na função recuperar fornecedor)
    if ((strcmp(forne->cnpj, apagar) == 0) && (forne->status == 'a')) {
-     achou = 1;
+     encontrar = 1;
    }
   }
 
+<<<<<<< HEAD
   if(achou){
 >>>>>>> 9fc05c0 (função exibe_fornecedor criada)
+=======
+  if(encontrar){
+>>>>>>> 496148a (Atualização na função recuperar fornecedor)
     exibe_fornecedor(forne);
-    printf("Desejar apagar o fornecedor (s/n)? ");
+    printf("Desejar recuperar o fornecedor (s/n)? ");
     scanf("%c", &resposta);
     if(resposta == 's' || resposta == 'S'){
       forne->status = 'i';
       fseek(arq, -1*sizeof(Fornecedor), SEEK_CUR);
       fwrite(forne, sizeof(Fornecedor), 1, arq);
 <<<<<<< HEAD
+<<<<<<< HEAD
       recuperado_sucesso();
 =======
       deletado_sucesso();
 >>>>>>> 9fc05c0 (função exibe_fornecedor criada)
+=======
+      recuperado_sucesso();
+>>>>>>> 496148a (Atualização na função recuperar fornecedor)
     }else{
       printf("\nOs dados não foram alterados\n");
     }
@@ -374,7 +391,11 @@ void recuperar_fornecedor(void){
 
   if(encontrar){
     exibe_fornecedor(forne);
+<<<<<<< HEAD
     printf("Desejar recuperar o fornecedor (s/n)? ");
+=======
+    printf("Desejar apagar o fornecedor (s/n)? ");
+>>>>>>> 496148a (Atualização na função recuperar fornecedor)
     scanf("%c", &resposta);
     if(resposta == 's' || resposta == 'S'){
       forne->status = 'a';
@@ -393,6 +414,9 @@ void recuperar_fornecedor(void){
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 496148a (Atualização na função recuperar fornecedor)
   // printf("CNPJ a ser pesquisado : ");
   // remove_enter(fgets(forne->cnpj, 50,stdin));
   // if()
