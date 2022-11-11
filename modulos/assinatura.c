@@ -82,10 +82,10 @@ void cadastrar_assinatura(void){
     } 
     
     printf("Endereço: ");  
-    fgets(ass->endereco, 100, stdin);
+    remove_enter(fgets(ass->endereco, 100, stdin));
 
     printf("Telefone: ");
-    fgets(ass->telefone, 50, stdin);
+    remove_enter(fgets(ass->telefone, 50, stdin));
 
     printf("Email: ");
     fgets(ass->email, 50, stdin);
@@ -98,7 +98,7 @@ void cadastrar_assinatura(void){
     }
 
     printf("Código da Assinatura: ");
-    fgets(ass->codigo, 50, stdin);
+    remove_enter(fgets(ass->codigo, 50, stdin));
 
     ass->nivel = escolhe_nivel();
 
@@ -117,20 +117,7 @@ void cadastrar_assinatura(void){
 void atualizar_assinatura(void){
   Assinatura* ass;
   ass = (Assinatura*) malloc(sizeof(Assinatura));
-  printf("Código da assinatura a atualizar: ");
-  scanf("%[A-Za-z0-9]", ass->codigo);
-  getchar();
-
-  printf("Nome do Cliente (APENAS LETRAS): ");
-  fgets(ass->nome, 100, stdin);
-  remove_enter(ass->nome);
-  while(!valida_nome(ass->nome)){
-    printf("Nome inválido, tente novamente!\n");
-    printf("Nome: ");
-    fgets(ass->nome, 100, stdin);
-    remove_enter(ass->nome);
-  } 
-
+  char cpf[51];
   do{
     printf("CPF: ");
     fgets(ass->cpf, 50, stdin);
@@ -141,33 +128,63 @@ void atualizar_assinatura(void){
     }
   } while (!valida_cpf(ass->cpf));
 
-  printf("Endereço: ");  
-  fgets(ass->endereco, 100, stdin);
+  strcpy(cpf, ass->cpf);
 
-  printf("Telefone: ");
-  fgets(ass->telefone, 50, stdin);
+  if(cpf_esta(ass->cpf)){
+    FILE* arq;
+    int achou = 0;
+    arq = fopen("files/assinatura.dat", "r+b");
+    if(arq == NULL){
+      printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+      printf("Não é possível continuar o programa...\n");
+      exit(1);
+    }
+    while((!achou) && (fread(ass, sizeof(Assinatura), 1, arq))) {
+      if ((strcmp(ass->cpf, cpf) == 0) && (ass->status == 'a')) {
+        achou = 1;
+      }
+    }
 
-  printf("Email: ");
-  fgets(ass->email, 50, stdin);
-  remove_enter(ass->email);
-  while(!valida_email(ass->email)){
-    printf("Email inválido, tente novamente!\n");
+    printf("Nome do Cliente (APENAS LETRAS): ");
+    fgets(ass->nome, 100, stdin);
+    remove_enter(ass->nome);
+    while(!valida_nome(ass->nome)){
+      printf("Nome inválido, tente novamente!\n");
+      printf("Nome: ");
+      fgets(ass->nome, 100, stdin);
+      remove_enter(ass->nome);
+    } 
+
+    printf("Endereço: ");  
+    remove_enter(fgets(ass->endereco, 100, stdin));
+
+    printf("Telefone: ");
+    remove_enter(fgets(ass->telefone, 50, stdin));
+
     printf("Email: ");
     fgets(ass->email, 50, stdin);
     remove_enter(ass->email);
-  } 
+    while(!valida_email(ass->email)){
+      printf("Email inválido, tente novamente!\n");
+      printf("Email: ");
+      fgets(ass->email, 50, stdin);
+      remove_enter(ass->email);
+    } 
 
-  printf("Código da Assinatura: ");
-  fgets(ass->codigo, 50, stdin);
+    printf("Código da Assinatura: ");
+    remove_enter(fgets(ass->codigo, 50, stdin));
 
-  ass->nivel = escolhe_nivel();
+    ass->nivel = escolhe_nivel();
 
-  ass->status = 'a';
+    ass->status = 'a';
 
-  grava_assinatura(ass);
-
+    fseek(arq, -1*sizeof(Assinatura), SEEK_CUR);
+    fwrite(ass, sizeof(Assinatura), 1, arq);
+    fclose(arq);
+    free(ass);
+    atualizado_sucesso();
+  }
   system("clear||cls");
-  atualizado_sucesso();
   getchar();
 }
 
@@ -276,27 +293,6 @@ void apagar_assinatura(void){
 
 void recuperar_assinatura(void){ // FUNÇÃO COM BUGS, NÃO SEI SE TÁ RECUPERANDO MESMO
                                 // E MOSTRANDO MENSAGEM QUE NÃO ESTÁ, MESMO ESTANDO
-  // Assinatura* ass;
-  // ass = (Assinatura*) malloc(sizeof(Assinatura));
-  // printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  // fgets(ass->nome, 100, stdin);
-  // remove_enter(ass->nome);
-  // while(!valida_nome(ass->nome)){
-  //   printf("Nome inválido, tente novamente!\n");
-  //   printf("Nome: ");
-  //   fgets(ass->nome, 100, stdin);
-  //   remove_enter(ass->nome);
-  // } 
-  
-  // ass->status = 'a';
-  // grava_assinatura(ass);
-
-  // system("clear||cls");
-
-  // printf("%s",ass->nome);
-  // printf("\nEM DESENVOLVIMENTO ...\n");
-  // getchar();
-
   FILE* arq;
   Assinatura* ass;
   int achou = 0;

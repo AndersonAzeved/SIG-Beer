@@ -208,6 +208,7 @@ void buscar_fornecedor(void){
   } 
   forne = buscar_forne(cnpj);
   exibe_fornecedor(forne);
+  free(forne);
   getchar();
 }
 
@@ -334,5 +335,6 @@ Fornecedor* buscar_forne(char *busca){
     }
   }
   fclose(arq);
+  free(forne);
   return NULL;
 }
