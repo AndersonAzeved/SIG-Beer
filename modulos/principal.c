@@ -8,44 +8,35 @@
 
 char tela_principal(void) {
   char op[11];
-  int ok = 0;
-  do{
-    //system("clear||cls");
-    printf("\n"
-    "//////////////////////////////////////////////////////////////////////////////\n"
-    "///                                                                        ///\n"
-    "///             Universidade Federal do Rio Grande do Norte                ///\n"
-    "///                 Centro de Ensino Superior do Seridó                    ///\n"
-    "///               Departamento de Computação e Tecnologia                  ///\n"
-    "///                  Disciplina DCT1106 -- Programação                     ///\n"
-    "///                SIG - Beer: Assinatura de Cervejas                      ///\n"
-    "///    Developed by @andersonazeved and @ericleisonn -- since Aug, 2022    ///\n"
-    "///                                                                        ///\n"
-    "//////////////////////////////////////////////////////////////////////////////\n"
-    "///                                                                        ///\n"
-    "///            = = = = Sistema de Assinatura de Cervejas = = = =           ///\n"
-    "///                      = = = = Menu Principal = = = =                    ///\n"
-    "///                                                                        ///\n"
-    "///            1. Módulo Assinaturas                                       ///\n"
-    "///            2. Módulo Cervejas                                          ///\n"
-    "///            3. Módulo Fornecedores                                      ///\n"
-    "///            4. Módulo Relatórios                                        ///\n"
-    "///            5. Equipe                                                   ///\n"
-    "///            6. Sobre                                                    ///\n"
-    "///            7. Lixeira                                                  ///\n"
-    "///            0. Sair                                                     ///\n"
-    "///                                                                        ///\n"
-    "//////////////////////////////////////////////////////////////////////////////\n");
-    printf("Informe a opção: "); 
-    fgets(op, 10, stdin);
-    remove_enter(op);
-    if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '5')){
-      ok = 1;
-    }else{
-      ok = 0;
-      tela_opcao_invalida();
-    }    
-  }while(!ok);
+  //system("clear||cls");
+  printf("\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///             Universidade Federal do Rio Grande do Norte                ///\n"
+  "///                 Centro de Ensino Superior do Seridó                    ///\n"
+  "///               Departamento de Computação e Tecnologia                  ///\n"
+  "///                  Disciplina DCT1106 -- Programação                     ///\n"
+  "///                SIG - Beer: Assinatura de Cervejas                      ///\n"
+  "///    Developed by @andersonazeved and @ericleisonn -- since Aug, 2022    ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///            = = = = Sistema de Assinatura de Cervejas = = = =           ///\n"
+  "///                      = = = = Menu Principal = = = =                    ///\n"
+  "///                                                                        ///\n"
+  "///            1. Módulo Assinaturas                                       ///\n"
+  "///            2. Módulo Cervejas                                          ///\n"
+  "///            3. Módulo Fornecedores                                      ///\n"
+  "///            4. Módulo Relatórios                                        ///\n"
+  "///            5. Equipe                                                   ///\n"
+  "///            6. Sobre                                                    ///\n"
+  "///            7. Lixeira                                                  ///\n"
+  "///            0. Sair                                                     ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n");
+  printf("Informe a opção: "); 
+  scanf("%s",op); 
+  getchar();
   printf("\n");
   return op[0];
 }
@@ -112,43 +103,35 @@ void tela_sobre(void){
 }
 
 char tela_lixeira(void){
+  system("clear||cls");
   char op[11];
-  int ok = 0;
-  do{
-    //system("clear||cls");
-    printf("\n"
-    "//////////////////////////////////////////////////////////////////////////////\n"
-    "///                                                                        ///\n"
-    "///             Universidade Federal do Rio Grande do Norte                ///\n"
-    "///                 Centro de Ensino Superior do Seridó                    ///\n"
-    "///               Departamento de Computação e Tecnologia                  ///\n"
-    "///                  Disciplina DCT1106 -- Programação                     ///\n"
-    "///                SIG - Beer: Assinatura de Cervejas                      ///\n"
-    "///    Developed by @andersonazeved and @ericleisonn -- since Aug,2022     ///\n"
-    "///                                                                        ///\n"
-    "//////////////////////////////////////////////////////////////////////////////\n"
-    "///                                                                        ///\n"
-    "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
-    "///                        = = = =  Lixeira = = = =                        ///\n"       
-    "///                                                                        ///\n"
-    "///             1. Lixeira de assinaturas                                  ///\n"
-    "///             2. Lixeira das cervejas                                    ///\n"
-    "///             3. Lixeira de fornecedores                                 ///\n"
-    "///             4. Lixeira de relatórios                                   ///\n"
-    "///             0. Voltar                                                  ///\n"
-    "///                                                                        ///\n"
-    "///                                                                        ///\n"
-    "//////////////////////////////////////////////////////////////////////////////\n");
-    printf("Informe a opção: "); 
-      fgets(op, 10, stdin);
-      remove_enter(op);
-      if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '5')){
-        ok = 1;
-      }else{
-        ok = 0;
-        tela_opcao_invalida();
-      }    
-    }while(!ok);
+  printf("\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///             Universidade Federal do Rio Grande do Norte                ///\n"
+  "///                 Centro de Ensino Superior do Seridó                    ///\n"
+  "///               Departamento de Computação e Tecnologia                  ///\n"
+  "///                  Disciplina DCT1106 -- Programação                     ///\n"
+  "///                SIG - Beer: Assinatura de Cervejas                      ///\n"
+  "///    Developed by @andersonazeved and @ericleisonn -- since Aug,2022     ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///                        = = = =  Lixeira = = = =                        ///\n"       
+  "///                                                                        ///\n"
+  "///             1. Lixeira de assinaturas                                  ///\n"
+  "///             2. Lixeira das cervejas                                    ///\n"
+  "///             3. Lixeira de fornecedores                                 ///\n"
+  "///             4. Lixeira de relatórios                                   ///\n"
+  "///             0. Voltar                                                  ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n");
+  printf("Informe a opção: "); 
+  scanf("%s", op);
+  printf("\n Em DESENVOLVIMENTO...");
+  getchar();
   printf("\n");
   return op[0];
 }
