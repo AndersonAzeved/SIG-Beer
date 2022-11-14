@@ -525,32 +525,6 @@ char tela_fornecedores(void){
       system("clear||cls");
       tela_opcao_invalida();
       system("clear||cls");
-      printf("\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///                                                                        ///\n"
-      "///             Universidade Federal do Rio Grande do Norte                ///\n"
-      "///                 Centro de Ensino Superior do Seridó                    ///\n"
-      "///               Departamento de Computação e Tecnologia                  ///\n"
-      "///                  Disciplina DCT1106 -- Programação                     ///\n"
-      "///                SIG - Beer: Assinatura de Cervejas                      ///\n"
-      "///    Developed by @andersonazeved and @ericleisonn -- since Aug,2022     ///\n"
-      "///                                                                        ///\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///                                                                        ///\n"
-      "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
-      "///               = = = = Módulo de Fornecedores = = = =                   ///\n"
-      "///                                                                        ///\n"
-      "///             1. Cadastrar Fornecedores                                  ///\n"
-      "///             2. Atualizar Fornecedores                                  ///\n"
-      "///             3. Deletar Fornecedores                                    ///\n"
-      "///             4. Recuperar Fornecedores                                  ///\n"
-      "///             5. Pesquisar Fornecedores                                  ///\n"
-      "///             0. Voltar                                                  ///\n"
-      "///                                                                        ///\n"
-      "//////////////////////////////////////////////////////////////////////////////\n");
-      printf("Informe a opção: "); 
-      fgets(op, 10, stdin);
-      remove_enter(op);
     }
   }while(!ok);
 <<<<<<< HEAD

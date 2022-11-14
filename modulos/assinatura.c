@@ -29,6 +29,7 @@ char tela_assinaturas(void){
   char op[11];
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   char op;
 >>>>>>> 8f0cdbc (função recuperar_assinatura criada)
@@ -66,6 +67,8 @@ char tela_assinaturas(void){
   getchar();
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> caae71c (atualização)
   int ok = 0;
   do{
     //system("clear||cls");
@@ -98,6 +101,7 @@ char tela_assinaturas(void){
     if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '5')){
       ok = 1;
     }else{
+<<<<<<< HEAD
       ok = 0;
       tela_opcao_invalida();
     }    
@@ -105,6 +109,13 @@ char tela_assinaturas(void){
 >>>>>>> c62d2e8 (atualização)
 =======
 >>>>>>> 3fe1d3a (atualização)
+=======
+      system("clear||cls");
+      tela_opcao_invalida();
+      system("clear||cls");
+    }
+  }while(!ok);
+>>>>>>> caae71c (atualização)
   printf("\n");
   return op[0];
 }
@@ -853,14 +864,7 @@ char escolhe_nivel(void){
     if((strlen(nivel) == 1) && (nivel[0] >= '1' && nivel[0] <= '3')){
       ok = 1;
     }else{
-      printf("\nNível Inválido!");
-      printf("\nNível da Assinatura:\n");
-      printf("Nível 1. 2 Cervejas\n");
-      printf("Nível 2. 4 Cervejas\n");
-      printf("Nível 3. 8 Cervejas\n");
-      printf("Informe o nível (APENAS NÚMEROS): ");
-      fgets(nivel, 10, stdin);
-      remove_enter(nivel);
+      ok = 0;
     }    
   }while(!ok);
   return nivel[0];
