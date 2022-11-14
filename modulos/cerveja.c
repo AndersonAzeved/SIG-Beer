@@ -137,19 +137,6 @@ void recuperar_cerveja(void){
   
 }
 
-void buscar_cerveja(void){
-  Cerveja* cer;
-  cer = (Cerveja*) malloc(sizeof(Cerveja));
-  char codigo[51];
-  printf("Código a ser pesquisado: ");
-  remove_enter(fgets(codigo, 50, stdin));
-  // cer = buscar__cer(codigo);     NÃO ESTÁ FUNCIONANDO
-  // exibe_cerveja(cer);            NÃO ESTÁ FUNCIONANDO
-  free(cer);
-  printf("\n EM DESENVOLVIMENTO ... \n");
-  getchar();
-}
-
 
 void exibe_cerveja(Cerveja* cer){
   if((cer == NULL) || (cer->status == 'i')){
@@ -209,3 +196,18 @@ int cer_esta(char *codigo){
   free(cer);
   return 0;
 }
+
+void buscar_cerveja(void){
+  Cerveja* cer;
+  cer = (Cerveja*) malloc(sizeof(Cerveja));
+  char codigo[51];
+  printf("Código a ser pesquisado: ");
+  remove_enter(fgets(codigo, 50, stdin)); //VERIFICAÇÃO SE EXISTE NO ARQUIVO OU NÃO
+  cer = buscar__cer(codigo);
+  exibe_cerveja(cer);  
+  // cer = buscar__cer(codigo);
+  // exibe_cerveja(cer);     
+  free(cer);
+  getchar();
+}
+
