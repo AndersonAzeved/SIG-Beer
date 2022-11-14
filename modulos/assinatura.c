@@ -28,12 +28,15 @@ char tela_assinaturas(void){
 <<<<<<< HEAD
   char op[11];
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   char op;
 >>>>>>> 8f0cdbc (função recuperar_assinatura criada)
 =======
   char op[11];
 >>>>>>> 03ac2b5 (atualizações nos módulos)
+=======
+>>>>>>> 3fe1d3a (atualização)
   //system("clear||cls");
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -61,6 +64,7 @@ char tela_assinaturas(void){
   printf("Informe a opção: "); 
   scanf("%s", op);
   getchar();
+<<<<<<< HEAD
 =======
   int ok = 0;
   do{
@@ -99,6 +103,8 @@ char tela_assinaturas(void){
     }    
   }while(!ok);
 >>>>>>> c62d2e8 (atualização)
+=======
+>>>>>>> 3fe1d3a (atualização)
   printf("\n");
   return op[0];
 }
