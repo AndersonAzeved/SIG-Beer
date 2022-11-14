@@ -6,6 +6,7 @@ void atualizar_cerveja(void);
 void apagar_cerveja(void);
 void recuperar_cerveja(void);
 void buscar_cerveja(void);
+// Cerveja* buscar__cer(char *); VERIFICAR BUG
 
 struct cerveja{
   char nome[21];

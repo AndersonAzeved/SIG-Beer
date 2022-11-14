@@ -140,23 +140,72 @@ void recuperar_cerveja(void){
 void buscar_cerveja(void){
   Cerveja* cer;
   cer = (Cerveja*) malloc(sizeof(Cerveja));
-  printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  remove_enter(fgets(cer->nome, 20, stdin));
+  char codigo[51];
+  printf("Código a ser pesquisado: ");
+  remove_enter(fgets(codigo, 50, stdin));
+  // cer = buscar__cer(codigo);     NÃO ESTÁ FUNCIONANDO
+  // exibe_cerveja(cer);            NÃO ESTÁ FUNCIONANDO
+  free(cer);
+  printf("\n EM DESENVOLVIMENTO ... \n");
+  getchar();
 }
 
 
-void exibe_cerveja(Cerveja* cer, char status){ // status = status contrário
-  if((cer == NULL) || (cer->status == status)){ // ex.: status = 'i', a função só 
-                                                //exibe os cadastros ativos
-        printf("\n= = = Cerveja informada não cadastrada = = =\n");
+void exibe_cerveja(Cerveja* cer){
+  if((cer == NULL) || (cer->status == 'i')){
+    printf("\n= = = Cerveja não cadastrada = = =\n");
   }else{
       printf("\n= = = Cerveja Cadastrada = = =\n");
-      printf("Nome: %s\n", cer->nome);
-      printf("Código: %s\n", cer->codigo);
-      printf("Fornecedor: %s\n", cer->fornecedor);
+      printf("CNPJ: %s\n", cer->nome);
+      printf("Nome da empresa: %s\n", cer->codigo);
+      printf("CPF do dono da empresa: %s\n", cer->fornecedor);
       if(cer->status =='a'){
         printf("Status: ativo\n");
       }else{
       printf("Status: Inativo");
+      }}}
+
+Cerveja* buscar__cer(char *busca){
+  FILE* arq;
+  Cerveja *cer;
+  arq = fopen("files/cerveja.dat", "rb");
+  if(arq == NULL){
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
   }
+  cer = (Cerveja*) malloc(sizeof(Cerveja));
+  while(!feof(arq)){
+    if(fread(cer, sizeof(Cerveja), 1, arq)){
+      if(((strcmp(cer->codigo,busca)) == 0) && cer->status == 'a'){
+        return cer;
+      }
+    }
+  }
+  fclose(arq);
+  free(cer);
+  return NULL;
+}
+
+
+int cer_esta(char *codigo){
+  FILE* arq;
+  Cerveja *cer;
+  arq = fopen("files/cerveja.dat", "rb");
+  if(arq == NULL){
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+  }
+  cer = (Cerveja*) malloc(sizeof(Cerveja));
+  while(!feof(arq)){
+    if(fread(cer, sizeof(Cerveja), 1, arq)){
+      if((strcmp(cer->codigo,codigo)) == 0){
+        return 1;
+      }
+    }
+  }
+  fclose(arq);
+  free(cer);
+  return 0;
 }
