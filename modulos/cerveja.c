@@ -141,7 +141,22 @@ void buscar_cerveja(void){
   Cerveja* cer;
   cer = (Cerveja*) malloc(sizeof(Cerveja));
   printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  fgets(cer->nome, 20, stdin);
-  printf("\n\n\n\n\tEM DESENVOLVIMENTO.\n\n\n\n");
-  getchar();
+  remove_enter(fgets(cer->nome, 20, stdin));
+}
+
+
+void exibe_cerveja(Cerveja* cer, char status){ // status = status contrário
+  if((cer == NULL) || (cer->status == status)){ // ex.: status = 'i', a função só 
+                                                //exibe os cadastros ativos
+        printf("\n= = = Cerveja informada não cadastrada = = =\n");
+  }else{
+      printf("\n= = = Cerveja Cadastrada = = =\n");
+      printf("Nome: %s\n", cer->nome);
+      printf("Código: %s\n", cer->codigo);
+      printf("Fornecedor: %s\n", cer->fornecedor);
+      if(cer->status =='a'){
+        printf("Status: ativo\n");
+      }else{
+      printf("Status: Inativo");
+  }
 }
