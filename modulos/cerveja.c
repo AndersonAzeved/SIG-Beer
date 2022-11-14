@@ -166,7 +166,7 @@ do{
       cer->status = 'i';
       fseek(arq, -1*sizeof(Cerveja), SEEK_CUR);
       fwrite(cer, sizeof(Cerveja), 1, arq);
-      // recuperado_sucesso();}
+      // recuperado_sucesso();} consertar
       printf("Recuperado ok");
   }
   else{
