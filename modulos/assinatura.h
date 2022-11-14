@@ -21,9 +21,13 @@ void recuperar_assinatura(void);
 <<<<<<< HEAD
 <<<<<<< HEAD
 Assinatura* buscar_ass(char *);
+<<<<<<< HEAD
 void exibe_assinatura(Assinatura* );
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+void exibe_assinatura(Assinatura*, char );
+>>>>>>> 370a4b0 (corrigido bug em recuperar assinatura)
 int cpf_esta(char *);
 <<<<<<< HEAD
 char escolhe_nivel(void);
