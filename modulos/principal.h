@@ -6,3 +6,4 @@ void tela_sobre(void);
 char tela_lixeira(void);
 void tela_opcao_invalida(void);
 void tela_encerramento(void);
+void criando_arquivo(char *);

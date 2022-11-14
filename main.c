@@ -24,6 +24,10 @@ char op2;
 
 int main() {
   setlocale(LC_ALL, "Portuguese");
+  criando_arquivo("files/assinatura.dat");
+  criando_arquivo("files/cerveja.dat");
+  criando_arquivo("files/fornecedor.dat");
+  criando_arquivo("files/relatorio.dat");
 
   do {
 	op = tela_principal();
@@ -48,7 +52,7 @@ int main() {
 				tela_opcao_invalida();
 			}
 
-			//op2 = tela_assinaturas();
+			// op2 = tela_assinaturas();
 
 		}while(op2 != '0');	
 	}
@@ -74,7 +78,7 @@ int main() {
 				tela_opcao_invalida();
 			}
 
-			//op2 = tela_cervejas();
+			// op2 = tela_cervejas();
 
 		}while(op2 != '0');
 	}
@@ -100,7 +104,7 @@ int main() {
 				tela_opcao_invalida();
 			}
 
-			//op2 = tela_fornecedores();
+			// op2 = tela_fornecedores();
 		
 		}while(op2 != '0');
 	}
@@ -122,7 +126,7 @@ int main() {
 				tela_opcao_invalida();
 			}
 
-			//op2 = tela_relatorio();
+			// op2 = tela_relatorio();
 
 		}while(op2 != '0');
 		
@@ -155,7 +159,7 @@ int main() {
 				tela_opcao_invalida();
 			}
 
-			//op2 = tela_lixeira();
+			// op2 = tela_lixeira();
 
 		}while(op2 != '0');
 	}
@@ -171,5 +175,3 @@ int main() {
   } while (op != '0');
   return 0;
 }
-
-

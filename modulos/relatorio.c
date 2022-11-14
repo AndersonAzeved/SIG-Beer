@@ -7,7 +7,7 @@
 
 char tela_relatorio(void) {
   system("clear||cls");
-  char op;
+  char op[11];
   printf("\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
   "///                                                                        ///\n"
@@ -30,10 +30,10 @@ char tela_relatorio(void) {
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n");
   printf("Informe a opção: "); 
-  scanf("%s", &op); 
+  scanf("%s", op); 
   getchar();
   printf("\n");
   printf("\nEM DESENVOLVIMENTO ...\n");
   getchar();
-  return op;
+  return op[0];
   }
