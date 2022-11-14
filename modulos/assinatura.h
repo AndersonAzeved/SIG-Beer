@@ -19,6 +19,6 @@ void buscar_assinatura(void);
 void apagar_assinatura(void);
 void recuperar_assinatura(void);
 Assinatura* buscar_ass(char *);
-void exibe_assinatura(Assinatura* );
+void exibe_assinatura(Assinatura*, char );
 int cpf_esta(char *);
 char escolhe_nivel(void);

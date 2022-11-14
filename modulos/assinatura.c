@@ -69,8 +69,10 @@ void cadastrar_assinatura(void){
       printf("\nCPF inválido, digite novamente.\n");
     }
   } while (!valida_cpf(ass->cpf));
-  if(cpf_esta(ass->cpf)){
+  if(cpf_esta(ass->cpf) == 1){
     printf("\nCPF já cadastrado!\n");
+  }else if(cpf_esta(ass->cpf) == 2){
+    printf("\nCPF cadastrado, porém inativo, recupere-o no módulo de recuperação.\n");
   }else{
     printf("Nome do Cliente (APENAS LETRAS): ");
     fgets(ass->nome, 100, stdin);
@@ -131,7 +133,7 @@ void atualizar_assinatura(void){
 
   strcpy(cpf, ass->cpf);
 
-  if(cpf_esta(ass->cpf)){
+  if(cpf_esta(ass->cpf) == 1){
     FILE* arq;
     int achou = 0;
     arq = fopen("files/assinatura.dat", "r+b");
@@ -182,9 +184,13 @@ void atualizar_assinatura(void){
     fseek(arq, -1*sizeof(Assinatura), SEEK_CUR);
     fwrite(ass, sizeof(Assinatura), 1, arq);
     fclose(arq);
-    free(ass);
     atualizado_sucesso();
+  }else if(cpf_esta(ass->cpf) == 2){
+    printf("\nCPF cadastrado, porém inativo, recupere-o no módulo de recuperação.\n");
+  }else{
+    printf("A assinatura %s não foi encontrada!\n", ass->cpf);
   }
+  free(ass);
   system("clear||cls");
   getchar();
 }
@@ -210,8 +216,9 @@ Assinatura* buscar_ass(char *busca){
   return NULL;
 }
 
-void exibe_assinatura(Assinatura* ass){
-  if((ass == NULL) || (ass->status == 'i')){
+void exibe_assinatura(Assinatura* ass, char status){ // status = status contrário
+  if((ass == NULL) || (ass->status == status)){ // ex.: status = 'i', a função só 
+                                                //exibe os cadastros ativos
         printf("\n= = = Assinatura Inexistente = = =\n");
   }else{
       printf("\n= = = Assinatura Cadastrada = = =\n");
@@ -239,7 +246,7 @@ void buscar_assinatura(void){
     remove_enter(cpf);
   } 
   ass = buscar_ass(cpf);
-  exibe_assinatura(ass);
+  exibe_assinatura(ass, 'i');
   getchar();
 }
 
@@ -273,7 +280,7 @@ void apagar_assinatura(void){
   }
 
   if(achou){
-    exibe_assinatura(ass);
+    exibe_assinatura(ass, 'i');
     getchar();
     printf("Desejar apagar a assinatura (s/n)? ");
     scanf("%c", &resposta);
@@ -323,13 +330,14 @@ void recuperar_assinatura(void){ // FUNÇÃO COM BUGS, NÃO SEI SE TÁ RECUPERAN
   }
 
   if(achou){
-    exibe_assinatura(ass);
+    exibe_assinatura(ass, 'a');
     getchar();
     printf("Desejar recuperar a assinatura (s/n)? ");
     scanf("%c", &resposta);
     if(resposta == 's' || resposta == 'S'){
       ass->status = 'a';
-      grava_assinatura(ass);
+      fseek(arq, -1*sizeof(Assinatura), SEEK_CUR);
+      fwrite(ass, sizeof(Assinatura), 1, arq);
       recuperado_sucesso();
     }else{
       printf("\nOs dados não foram alterados\n");
@@ -338,7 +346,6 @@ void recuperar_assinatura(void){ // FUNÇÃO COM BUGS, NÃO SEI SE TÁ RECUPERAN
     printf("A assinatura %s não foi encontrada!\n", recuperar);
   }
   fclose(arq);
-  free(ass);
 }
 
 int cpf_esta(char *cpf){
@@ -346,7 +353,6 @@ int cpf_esta(char *cpf){
   Assinatura *ass;
   arq = fopen("files/assinatura.dat", "rb");
   if(arq == NULL){
-    //arq = fopen("files/assinatura.dat", "a");
     printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
     printf("Não é possível continuar este programa...\n");
     exit(1);
@@ -354,8 +360,13 @@ int cpf_esta(char *cpf){
   ass = (Assinatura*) malloc(sizeof(Assinatura));
   while(!feof(arq)){
     if(fread(ass, sizeof(Assinatura), 1, arq)){
-      if(((strcmp(ass->cpf,cpf)) == 0) && ass->status == 'a'){
-        return 1;
+      if(((strcmp(ass->cpf,cpf)) == 0)){
+        if(ass->status == 'a'){
+          return 1;
+        }else if(ass->status == 'i'){
+          return 2;
+        }
+        
       }
     }
   }
