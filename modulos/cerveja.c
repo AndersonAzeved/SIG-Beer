@@ -240,8 +240,12 @@ void buscar_cerveja(void){
   char codigo[51];
   printf("Código a ser pesquisado: ");
   remove_enter(fgets(codigo, 50, stdin)); //VERIFICAÇÃO SE EXISTE NO ARQUIVO OU NÃO
-  cer = buscar__cer(codigo);
-  exibe_cerveja(cer);  
+  if (buscar__cer(codigo) != NULL){
+    cer=buscar__cer(codigo);
+    exibe_cerveja(cer);}
+    else{
+      printf("Não encontrado.\n");}
+  // exibe_cerveja(cer);  
   // cer = buscar__cer(codigo);
   // exibe_cerveja(cer);     
   free(cer);
