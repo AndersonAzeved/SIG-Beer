@@ -65,18 +65,16 @@ char tela_cervejas(void) {
 void cadastrar_cerveja(){
   Cerveja* cer;
   cer = (Cerveja*) malloc(sizeof(Cerveja));
-  printf("Código da cerveja (APENAS LETRAS): ");
-  // scanf("%[A-Z a-z]",cer.nome);
-  fgets(cer->codigo, 20, stdin);
-  remove_enter(cer->nome);
+  printf("Nome da cerveja (APENAS LETRAS): ");
 
+  remove_enter(fgets(cer->nome, 20, stdin));
+// BUG DE CADASTRAR E APAGAR E CADASTRAR NOVAMENTE COM MESMO CODIGO
   printf("Código da Cerveja: ");
-  fgets(cer->codigo, 50, stdin);
-  remove_enter(cer->codigo);
+  remove_enter(fgets(cer->codigo, 50, stdin));
 
   printf("Fornecedor: ");
-  fgets(cer->fornecedor, 20, stdin);
-  remove_enter(cer->fornecedor);
+  remove_enter(fgets(cer->fornecedor, 20, stdin));
+
 
   cer->status = 'a';
   arquivo_cerveja(cer);
@@ -92,13 +90,12 @@ void atualizar_cerveja(void){
   cer = (Cerveja*) malloc(sizeof(Cerveja));
   FILE* arq;
   arq = fopen("files/cerveja.dat", "r+b");
-  char codigo[51];
   do{
   printf("Código da cerveja a ser atualizada: ");
   remove_enter(fgets(cer->codigo, 50, stdin));
-  if(buscar__cer(cer->codigo) == NULL){
+  if(buscar__cer(cer->codigo) == NULL && (cer->status == 'i')){
     printf("Cerveja não encontrada em nosso sistema.\n");}
-  }while (buscar__cer(cer->codigo) == NULL);
+  }while (buscar__cer(cer->codigo) == NULL && cer->status == 'i');
   // else{
     printf("Achou");
     getchar();
@@ -107,37 +104,44 @@ void atualizar_cerveja(void){
     printf("Código da cerveja (atualizar): ");
     remove_enter(fgets(cer->codigo,50,stdin));
     printf("Nome do fornecedor(atualizar): ");
-    remove_enter(fgets(cer->fornecedor,20,stdin));
+    remove_enter(fgets(cer->fornecedor,20,stdin)); // VERIFICAR SE FORNECEDOR EXISTE
     cer->status = 'a';
     fseek(arq, -1*sizeof(Cerveja), SEEK_CUR);
     fwrite(cer, sizeof(Cerveja), 1, arq);
     fclose(arq);
     free(cer);
     system("clear||cls");
-    atualizado_sucesso();//}
+    atualizado_sucesso();
     }
-
-//   printf("Fornecedor: ");
-//   fgets(cer->fornecedor, 20, stdin);
-//   remove_enter(cer->fornecedor);
-
-//   arquivo_cerveja(cer);
-
-//   system("clear||cls");
-//   atualizado_sucesso();
-//   getchar();
-  
-// }
 
 void apagar_cerveja(void){
   Cerveja* cer;
   cer = (Cerveja*) malloc(sizeof(Cerveja));
-  printf("NOME: ");
-  fgets(cer->nome, 20, stdin);
-  remove_enter(cer->nome);
-  cer->status = 'i';
-  arquivo_cerveja(cer);
-  printf("\n\n\n\n\tEM DESENVOLVIMENTO.\n\n\n\n");
+  FILE* arq;
+  arq = fopen("files/cerveja.dat", "r+b");
+  char resposta;
+do{
+  printf("Código da cerveja a ser deletada: ");
+  remove_enter(fgets(cer->codigo, 50, stdin));
+  if(buscar__cer(cer->codigo) == NULL && (cer->status = 'i')){
+    printf("Cerveja não encontrada em nosso sistema.\n");}
+  }while ((buscar__cer(cer->codigo) == NULL && (cer->status = 'a')));
+  // cer=buscar__cer(codigo);  Exibir cerveja com bug, resolver
+  // exibe_cerveja(cer);
+   printf("Desejar apagar a cerveja (s/n)? ");
+  scanf("%c", &resposta);
+  if(resposta == 's' || resposta == 'S'){
+      cer->status = 'i';
+      fseek(arq, -1*sizeof(Cerveja), SEEK_CUR);
+      fwrite(cer, sizeof(Cerveja), 1, arq);
+      // apagado_sucesso();}
+      printf("Apagado ok");
+  }
+  else{
+      printf("\nOs dados não foram alterados\n");}
+      getchar();
+  fclose(arq);
+  free(cer);
   getchar();
 }
 
@@ -145,15 +149,34 @@ void recuperar_cerveja(void){
 
   Cerveja* cer;
   cer = (Cerveja*) malloc(sizeof(Cerveja));
-  printf("Nome a ser pesquisado (APENAS LETRAS): ");
-  fgets(cer->nome, 20, stdin);
-  remove_enter(cer->nome);
-  cer->status = 'a';
-  arquivo_cerveja(cer);
-  printf("\n\n\n\n\tEM DESENVOLVIMENTO.\n\n\n\n");
+  FILE* arq;
+  arq = fopen("files/cerveja.dat", "r+b");
+  char resposta;
+do{
+  printf("Código da cerveja a ser recuperada: ");
+  remove_enter(fgets(cer->codigo, 50, stdin));
+  if(buscar__cer(cer->codigo) == NULL){
+    printf("Cerveja não encontrada em nosso sistema.\n");}
+  }while ((buscar__cer(cer->codigo) == NULL && (cer->status = 'i')));
+  // cer=buscar__cer(codigo);  Exibir cerveja com bug, resolver
+  // exibe_cerveja(cer);
+   printf("Desejar recuperar a cerveja (s/n)? ");
+  scanf("%c", &resposta);
+  if(resposta == 's' || resposta == 'S'){
+      cer->status = 'i';
+      fseek(arq, -1*sizeof(Cerveja), SEEK_CUR);
+      fwrite(cer, sizeof(Cerveja), 1, arq);
+      // recuperado_sucesso();}
+      printf("Recuperado ok");
+  }
+  else{
+      printf("\nOs dados não foram alterados\n");}
+      getchar();
+  fclose(arq);
+  free(cer);
   getchar();
-  
 }
+
 
 
 void exibe_cerveja(Cerveja* cer){
@@ -167,7 +190,7 @@ void exibe_cerveja(Cerveja* cer){
       if(cer->status =='a'){
         printf("Status: ativo\n");
       }else{
-      printf("Status: Inativo");
+      printf("Status: Inativo\n");
       }}}
 
 Cerveja* buscar__cer(char *busca){
@@ -221,7 +244,7 @@ void buscar_cerveja(void){
   char codigo[51];
   printf("Código a ser pesquisado: ");
   remove_enter(fgets(codigo, 50, stdin)); //VERIFICAÇÃO SE EXISTE NO ARQUIVO OU NÃO
-  if (buscar__cer(codigo) != NULL){
+  if ((buscar__cer(codigo) != NULL && (cer->status == 'i'))){
     cer=buscar__cer(codigo);
     exibe_cerveja(cer);}
     else{
