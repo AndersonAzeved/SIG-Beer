@@ -25,33 +25,43 @@ void grava_assinatura(Assinatura* ass){
 
 char tela_assinaturas(void){
   char op[11];
-  //system("clear||cls");
-  printf("\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-  "///                                                                        ///\n"
-  "///             Universidade Federal do Rio Grande do Norte                ///\n"
-  "///                 Centro de Ensino Superior do Seridó                    ///\n"
-  "///               Departamento de Computação e Tecnologia                  ///\n"
-  "///                  Disciplina DCT1106 -- Programação                     ///\n"
-  "///                SIG - Beer: Assinatura de Cervejas                      ///\n"
-  "///    Developed by @andersonazeved and @ericleisonn -- since Aug,2022     ///\n"
-  "///                                                                        ///\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-  "///                                                                        ///\n"
-  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
-  "///               = = = = Módulo de Assinaturas = = = =                    ///\n"
-  "///                                                                        ///\n"
-  "///             1. Cadastrar Assinatura                                    ///\n"
-  "///             2. Atualizar Assinatura                                    ///\n"
-  "///             3. Deletar Assinatura                                      ///\n"
-  "///             4. Recuperar Assinatura                                    ///\n"
-  "///             5. Pesquisar Assinatura                                    ///\n"
-  "///             0. Voltar                                                  ///\n"
-  "///                                                                        ///\n"
-  "//////////////////////////////////////////////////////////////////////////////\n");
-  printf("Informe a opção: "); 
-  scanf("%s", op);
-  getchar();
+  int ok = 0;
+  do{
+    //system("clear||cls");
+    printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///             Universidade Federal do Rio Grande do Norte                ///\n"
+    "///                 Centro de Ensino Superior do Seridó                    ///\n"
+    "///               Departamento de Computação e Tecnologia                  ///\n"
+    "///                  Disciplina DCT1106 -- Programação                     ///\n"
+    "///                SIG - Beer: Assinatura de Cervejas                      ///\n"
+    "///    Developed by @andersonazeved and @ericleisonn -- since Aug,2022     ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+    "///               = = = = Módulo de Assinaturas = = = =                    ///\n"
+    "///                                                                        ///\n"
+    "///             1. Cadastrar Assinatura                                    ///\n"
+    "///             2. Atualizar Assinatura                                    ///\n"
+    "///             3. Deletar Assinatura                                      ///\n"
+    "///             4. Recuperar Assinatura                                    ///\n"
+    "///             5. Pesquisar Assinatura                                    ///\n"
+    "///             0. Voltar                                                  ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n");
+    printf("Informe a opção: "); 
+    fgets(op, 10, stdin);
+    remove_enter(op);
+    if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '5')){
+      ok = 1;
+    }else{
+      system("clear||cls");
+      tela_opcao_invalida();
+      system("clear||cls");
+    }
+  }while(!ok);
   printf("\n");
   return op[0];
 }
@@ -389,14 +399,7 @@ char escolhe_nivel(void){
     if((strlen(nivel) == 1) && (nivel[0] >= '1' && nivel[0] <= '3')){
       ok = 1;
     }else{
-      printf("\nNível Inválido!");
-      printf("\nNível da Assinatura:\n");
-      printf("Nível 1. 2 Cervejas\n");
-      printf("Nível 2. 4 Cervejas\n");
-      printf("Nível 3. 8 Cervejas\n");
-      printf("Informe o nível (APENAS NÚMEROS): ");
-      fgets(nivel, 10, stdin);
-      remove_enter(nivel);
+      ok = 0;
     }    
   }while(!ok);
   return nivel[0];
