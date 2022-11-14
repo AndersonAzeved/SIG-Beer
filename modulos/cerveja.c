@@ -65,9 +65,9 @@ char tela_cervejas(void) {
 void cadastrar_cerveja(){
   Cerveja* cer;
   cer = (Cerveja*) malloc(sizeof(Cerveja));
-  printf("Nome da cerveja (APENAS LETRAS): ");
+  printf("Código da cerveja (APENAS LETRAS): ");
   // scanf("%[A-Z a-z]",cer.nome);
-  fgets(cer->nome, 20, stdin);
+  fgets(cer->codigo, 20, stdin);
   remove_enter(cer->nome);
 
   printf("Código da Cerveja: ");
@@ -90,26 +90,44 @@ void cadastrar_cerveja(){
 void atualizar_cerveja(void){
   Cerveja* cer;
   cer = (Cerveja*) malloc(sizeof(Cerveja));
-  printf("Nome da cerveja (APENAS LETRAS): ");
-  // scanf("%[A-Z a-z]",cer.nome);
-  fgets(cer->nome, 20, stdin);
-  remove_enter(cer->nome);
+  FILE* arq;
+  arq = fopen("files/cerveja.dat", "r+b");
+  char codigo[51];
+  do{
+  printf("Código da cerveja a ser atualizada: ");
+  remove_enter(fgets(cer->codigo, 50, stdin));
+  if(buscar__cer(cer->codigo) == NULL){
+    printf("Cerveja não encontrada em nosso sistema.\n");}
+  }while (buscar__cer(cer->codigo) == NULL);
+  // else{
+    printf("Achou");
+    getchar();
+    printf("Nome da cerveja (atualizar): ");
+    remove_enter(fgets(cer->nome, 20, stdin));
+    printf("Código da cerveja (atualizar): ");
+    remove_enter(fgets(cer->codigo,50,stdin));
+    printf("Nome do fornecedor(atualizar): ");
+    remove_enter(fgets(cer->fornecedor,20,stdin));
+    cer->status = 'a';
+    fseek(arq, -1*sizeof(Cerveja), SEEK_CUR);
+    fwrite(cer, sizeof(Cerveja), 1, arq);
+    fclose(arq);
+    free(cer);
+    system("clear||cls");
+    atualizado_sucesso();//}
+    }
 
-  printf("Código da Cerveja: ");
-  fgets(cer->codigo, 50, stdin);
-  remove_enter(cer->codigo);
+//   printf("Fornecedor: ");
+//   fgets(cer->fornecedor, 20, stdin);
+//   remove_enter(cer->fornecedor);
 
-  printf("Fornecedor: ");
-  fgets(cer->fornecedor, 20, stdin);
-  remove_enter(cer->fornecedor);
+//   arquivo_cerveja(cer);
 
-  arquivo_cerveja(cer);
-
-  system("clear||cls");
-  atualizado_sucesso();
-  getchar();
+//   system("clear||cls");
+//   atualizado_sucesso();
+//   getchar();
   
-}
+// }
 
 void apagar_cerveja(void){
   Cerveja* cer;
@@ -143,9 +161,9 @@ void exibe_cerveja(Cerveja* cer){
     printf("\n= = = Cerveja não cadastrada = = =\n");
   }else{
       printf("\n= = = Cerveja Cadastrada = = =\n");
-      printf("CNPJ: %s\n", cer->nome);
-      printf("Nome da empresa: %s\n", cer->codigo);
-      printf("CPF do dono da empresa: %s\n", cer->fornecedor);
+      printf("Nome da cerveja: %s\n", cer->nome);
+      printf("Código da cerveja: %s\n", cer->codigo);
+      printf("Fornecedor da cerveja: %s\n",cer->fornecedor);
       if(cer->status =='a'){
         printf("Status: ativo\n");
       }else{
