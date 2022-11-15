@@ -25,19 +25,10 @@ char op2;
 int main() {
   setlocale(LC_ALL, "Portuguese");
   criando_arquivo("files/assinatura.dat");
-<<<<<<< HEAD
-<<<<<<< HEAD
   criando_arquivo("files/cerveja.dat");
   criando_arquivo("files/fornecedor.dat");
   criando_arquivo("files/relatorio.dat");
-=======
->>>>>>> 5922c0f (função criando_arquivo criada)
-=======
-  criando_arquivo("files/cerveja.dat");
-  criando_arquivo("files/fornecedor.dat");
-  criando_arquivo("files/relatorio.dat");
->>>>>>> 29958ed (atualização)
-
+  
   do {
 	op = tela_principal();
 

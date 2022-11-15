@@ -17,5 +17,3 @@ struct cerveja{
   char fornecedor[21];
   char status;
 };
-
-

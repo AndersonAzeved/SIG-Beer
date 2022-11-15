@@ -177,36 +177,6 @@ do{
   getchar();
 }
 
-<<<<<<< HEAD
-void buscar_cerveja(void){
-  Cerveja* cer;
-  cer = (Cerveja*) malloc(sizeof(Cerveja));
-<<<<<<< HEAD
-  printf("Nome a ser pesquisado (APENAS LETRAS): ");
-<<<<<<< HEAD
-  fgets(cer->nome, 20, stdin);
-  printf("\n\n\n\n\tEM DESENVOLVIMENTO.\n\n\n\n");
-  getchar();
-}
-
-
-
-=======
-  remove_enter(fgets(cer->nome, 20, stdin));
-=======
-  char codigo[51];
-  printf("Código a ser pesquisado: ");
-  remove_enter(fgets(codigo, 50, stdin));
-  // cer = buscar__cer(codigo);     NÃO ESTÁ FUNCIONANDO
-  // exibe_cerveja(cer);            NÃO ESTÁ FUNCIONANDO
-  free(cer);
-  printf("\n EM DESENVOLVIMENTO ... \n");
-  getchar();
->>>>>>> a4cd5c3 (Atualização)
-}
-
-=======
->>>>>>> 5a2109a (Atualização em funções)
 
 
 void exibe_cerveja(Cerveja* cer){
@@ -232,10 +202,6 @@ Cerveja* buscar__cer(char *busca){
     printf("Não é possível continuar este programa...\n");
     exit(1);
   }
-<<<<<<< HEAD
-}
->>>>>>> 6ea1ece (Criação da função exibe cerveja)
-=======
   cer = (Cerveja*) malloc(sizeof(Cerveja));
   while(!feof(arq)){
     if(fread(cer, sizeof(Cerveja), 1, arq)){
@@ -271,9 +237,6 @@ int cer_esta(char *codigo){
   free(cer);
   return 0;
 }
-<<<<<<< HEAD
->>>>>>> a4cd5c3 (Atualização)
-=======
 
 void buscar_cerveja(void){
   Cerveja* cer;
@@ -292,5 +255,3 @@ void buscar_cerveja(void){
   free(cer);
   getchar();
 }
-
->>>>>>> 5a2109a (Atualização em funções)
