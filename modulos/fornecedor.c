@@ -360,3 +360,6 @@ Fornecedor* buscar_forne(char *busca){
   free(forne);
   return NULL;
 }
+
+
+

@@ -13,3 +13,5 @@ int verifica_espaco(char *);
 int valida_nome(char *);
 void remove_enter(char *);
 void recuperado_sucesso(void);
+
+

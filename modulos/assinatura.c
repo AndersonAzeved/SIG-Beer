@@ -404,3 +404,6 @@ char escolhe_nivel(void){
   }while(!ok);
   return nivel[0];
 }
+
+
+

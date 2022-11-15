@@ -214,3 +214,5 @@ void criando_arquivo(char *arquivo){
     arq = fopen(arquivo, "ab");
   }
 }
+
+

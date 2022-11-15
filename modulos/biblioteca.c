@@ -296,3 +296,6 @@ void remove_enter(char *var){
     strcpy(ponteiro,var);
 }
 
+
+
+

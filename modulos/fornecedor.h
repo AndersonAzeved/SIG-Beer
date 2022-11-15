@@ -18,3 +18,5 @@ int cnpj_esta(char *);
 void grava_fornecedor(Fornecedor*);
 void exibe_fornecedor(Fornecedor*);
 Fornecedor* buscar_forne(char *);
+
+
