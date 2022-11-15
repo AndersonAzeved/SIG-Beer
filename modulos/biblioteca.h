@@ -15,3 +15,5 @@ void remove_enter(char *);
 void recuperado_sucesso(void);
 
 
+
+

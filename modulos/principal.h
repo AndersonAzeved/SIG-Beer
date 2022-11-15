@@ -12,3 +12,6 @@ void criando_arquivo(char *);
 
 
 
+
+
+
