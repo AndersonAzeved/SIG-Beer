@@ -8,13 +8,13 @@
 #include "principal.h"
 #include "fornecedor.h"
 
-void arquivo_cerveja(Cerveja* ass){
+void arquivo_cerveja(Cerveja* cer){
     FILE* fp;
     fp = fopen("files/cerveja.dat","ab");
     if(fp == NULL){
       fp = fopen("files/cerveja.dat","a");
     }
-    fwrite(ass, sizeof(Cerveja), 1, fp);
+    fwrite(cer, sizeof(Cerveja), 1, fp);
     fclose(fp);
 }
 
@@ -274,3 +274,4 @@ void buscar_cerveja(void){
   free(cer);
   getchar();
 }
+
