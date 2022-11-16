@@ -293,6 +293,7 @@ void apagar_assinatura(void){
     exibe_assinatura(ass, 'i');
     printf("Desejar apagar a assinatura (s/n)? ");
     scanf("%c", &resposta);
+    getchar();
     if(resposta == 's' || resposta == 'S'){
       ass->status = 'i';
       fseek(arq, -1*sizeof(Assinatura), SEEK_CUR);
@@ -306,6 +307,7 @@ void apagar_assinatura(void){
   }
   fclose(arq);
   free(ass);
+  getchar();
 }
 
 void recuperar_assinatura(void){ // FUNÇÃO COM BUGS, NÃO SEI SE TÁ RECUPERANDO MESMO
@@ -342,6 +344,7 @@ void recuperar_assinatura(void){ // FUNÇÃO COM BUGS, NÃO SEI SE TÁ RECUPERAN
     exibe_assinatura(ass, 'a');
     printf("Desejar recuperar a assinatura (s/n)? ");
     scanf("%c", &resposta);
+    getchar();
     if(resposta == 's' || resposta == 'S'){
       ass->status = 'a';
       fseek(arq, -1*sizeof(Assinatura), SEEK_CUR);
@@ -354,6 +357,7 @@ void recuperar_assinatura(void){ // FUNÇÃO COM BUGS, NÃO SEI SE TÁ RECUPERAN
     printf("A assinatura %s não foi encontrada!\n", recuperar);
   }
   fclose(arq);
+  getchar();
 }
 
 int cpf_esta(char *cpf){
