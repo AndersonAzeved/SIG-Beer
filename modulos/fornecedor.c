@@ -308,7 +308,7 @@ int cnpj_esta(char *cnpj){
 }
 
 void exibe_fornecedor(Fornecedor* forne){
-  if((forne == NULL) || (forne->status == 'i')){
+  if((forne == NULL) || (forne->status == 'i')){   //RETIRAR O STATUS 'i' RESOLVE BUG DO RECUPERAR FORNECEDOR
     printf("\n= = = Fornecedor Inexistente = = =\n");
   }else{
       printf("\n= = = Fornecedor Cadastrada = = =\n");
