@@ -224,21 +224,6 @@ void recuperar_fornecedor(void){
   getchar();
 }
 
-  // printf("CNPJ a ser pesquisado : ");
-  // remove_enter(fgets(forne->cnpj, 50,stdin));
-  // if()
-  // while(!valida_cnpj(forne.cnpj)){
-  //   printf("CNPJ inválido, tente novamente!\n");
-  //   printf("CNPJ da empresa : ");
-  //   scanf("%c",forne.cnpj);
-  //   getchar();
-  // } 
-
-  // system("clear||cls");
-  // printf("%s",forne.cnpj);
-  // printf("\nEM DESENVOLVIMENTO ...\n");
-  // getchar();
-
 void buscar_fornecedor(void){
   Fornecedor* forne;
   forne = (Fornecedor*) malloc(sizeof(Fornecedor));
