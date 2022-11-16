@@ -291,7 +291,6 @@ void apagar_assinatura(void){
 
   if(achou){
     exibe_assinatura(ass, 'i');
-    getchar();
     printf("Desejar apagar a assinatura (s/n)? ");
     scanf("%c", &resposta);
     if(resposta == 's' || resposta == 'S'){
@@ -341,7 +340,6 @@ void recuperar_assinatura(void){ // FUNÇÃO COM BUGS, NÃO SEI SE TÁ RECUPERAN
 
   if(achou){
     exibe_assinatura(ass, 'a');
-    getchar();
     printf("Desejar recuperar a assinatura (s/n)? ");
     scanf("%c", &resposta);
     if(resposta == 's' || resposta == 'S'){
