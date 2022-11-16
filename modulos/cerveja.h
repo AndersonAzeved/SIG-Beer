@@ -12,8 +12,8 @@ Cerveja* buscar__cer(char *);
 
 
 struct cerveja{
-  char nome[21];
+  char nome[51];
   char codigo[51];
-  char fornecedor[21];
+  char fornecedor[51];
   char status;
 };

@@ -67,13 +67,13 @@ void cadastrar_cerveja(){
   cer = (Cerveja*) malloc(sizeof(Cerveja));
   printf("Nome da cerveja (APENAS LETRAS): ");
 
-  remove_enter(fgets(cer->nome, 20, stdin));
+  remove_enter(fgets(cer->nome, 50, stdin));
 // BUG DE CADASTRAR E APAGAR E CADASTRAR NOVAMENTE COM MESMO CODIGO
   printf("Código da Cerveja: ");
   remove_enter(fgets(cer->codigo, 50, stdin));
 
-  printf("Fornecedor: ");
-  remove_enter(fgets(cer->fornecedor, 20, stdin));
+  printf("CNPJ do fornecedor: ");
+  remove_enter(fgets(cer->fornecedor, 50, stdin));
 
 
   cer->status = 'a';
@@ -100,11 +100,11 @@ void atualizar_cerveja(void){
     printf("Achou");
     getchar();
     printf("Nome da cerveja (atualizar): ");
-    remove_enter(fgets(cer->nome, 20, stdin));
+    remove_enter(fgets(cer->nome, 50, stdin));
     printf("Código da cerveja (atualizar): ");
     remove_enter(fgets(cer->codigo,50,stdin));
-    printf("Nome do fornecedor(atualizar): ");
-    remove_enter(fgets(cer->fornecedor,20,stdin)); // VERIFICAR SE FORNECEDOR EXISTE
+    printf("CNPJ do fornecedor(atualizar): ");
+    remove_enter(fgets(cer->fornecedor,50,stdin)); // VERIFICAR SE FORNECEDOR EXISTE
     cer->status = 'a';
     fseek(arq, -1*sizeof(Cerveja), SEEK_CUR);
     fwrite(cer, sizeof(Cerveja), 1, arq);
