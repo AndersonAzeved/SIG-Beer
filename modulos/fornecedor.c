@@ -233,8 +233,7 @@ void buscar_fornecedor(void){
   // remove_enter(cnpj);
   while(!valida_cnpj(cnpj)){
     printf("CNPJ inválido, tente novamente: ");
-    fgets(cnpj, 50, stdin);
-    remove_enter(cnpj);
+    remove_enter(fgets(cnpj, 50, stdin));
   } 
   forne = buscar_forne(cnpj);
   exibe_fornecedor(forne);

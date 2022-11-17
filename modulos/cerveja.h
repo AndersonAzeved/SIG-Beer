@@ -8,6 +8,7 @@ void apagar_cerveja(void);
 void recuperar_cerveja(void);
 void buscar_cerveja(void);
 int cer_esta(char *);
+void exibe_cerveja(Cerveja* cer,char );
 Cerveja* buscar__cer(char *); 
 
 
