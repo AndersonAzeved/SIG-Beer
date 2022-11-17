@@ -88,7 +88,6 @@ void cadastrar_cerveja(){
     else if((buscar__cer(cer->codigo)) != NULL && (cer->status =='i')){
       printf("Código encontrado em nosso sistema, porém inativo\nUtilize a área de recuperar cadastro.\n");}
   }while ((buscar__cer(cer->codigo) != NULL));
-// BUG DE CADASTRAR E APAGAR E CADASTRAR NOVAMENTE COM MESMO CODIGO
   do{
     printf("CNPJ do fornecedor: ");
     remove_enter(fgets(cer->fornecedor, 50, stdin));
@@ -305,22 +304,6 @@ int cer_esta(char *codigo){
   free(cer);
   return 0;
 }
-
-// void buscar_cerveja(void){
-//   Cerveja* cer;
-//   cer = (Cerveja*) malloc(sizeof(Cerveja));
-//   char codigo[51];
-//   printf("Código a ser pesquisado: ");
-//   remove_enter(fgets(codigo, 50, stdin)); //VERIFICAÇÃO SE EXISTE NO ARQUIVO OU NÃO
-//   // if ((buscar__cer(codigo) != NULL && cer->status == 'a')){
-//     if (buscar__cer(codigo) != NULL){
-//     cer=buscar__cer(codigo);
-//     exibe_cerveja(cer,cer->status);}
-//     else{
-//       printf("Não encontrado.\n");}
-//   getchar();   
-//   free(cer);
-// }
 
 void buscar_cerveja(void){
   Cerveja* cer;
