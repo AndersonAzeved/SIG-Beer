@@ -416,12 +416,8 @@ void preenche_data_sorteio(void){
   data[0] = tm.tm_year + 1900;
   data[1] = tm.tm_mon + 1;
   data[2] =tm.tm_mday;
-  data[3] = tm.tm_hour;
-  data[4] = tm.tm_min;
-  data[5] = tm.tm_sec;
 
-  // int mes_atual = data[1];
-  int mes_atual = 9;
+  int mes_atual = data[1];
 
   FILE* arq;
   Data_sorteio *dts;
@@ -455,36 +451,30 @@ void preenche_data_sorteio(void){
         while(fread(cer, sizeof(Cerveja), 1, arqcer) != 0) { 
           // LÊ A QUANTIDADE DE STRUCTS DO ARQUIVO CERVEJA
           cont_cer++;
+          printf("\n%s\n", cer->nome);
         }
-        printf("\nFIM. Eu li %i structs do arquivo.\n", cont_cer);
-
-        // while(!feof(arqcer)){
-        //   cont_cer++;
-        //   printf("\n\n\nTÁ NO CONT_CER\n\n\n");
-        // }
-
-        // char *cerveja;
-        // int num = sorteio_numero(cont_cer);
-        // for(int i = 1; i <= num; i++){
-        //   printf("\n\n\n\nTÁ NO FOR\n\n\n");
-        //   if(i == num){
-        //     cerveja = cer->nome; 
-        //   }
-        // }
-        // printf("\n\n\n\nCERVEJA SORTEADA: %s\n", cerveja);
-        
-        // char *cervejas[50];
-        // // NÚMERO DO SORTEIO, SERÁ A QUANTIDADE DE VEZES QUE O WHILE IRÁ RODAR
-        // // E ONDE PARAR, SERÁ A CERVEJA DO MÊS
-        // for(int i = 0; !feof(arqcer); i++){
-        //   cervejas[i] = cer->nome;
-        // }
         fclose(arqcer);
-        free(cer); 
-        //strcpy(dts->cerveja_mes, cerveja);
-        printf("\n\n\n\nFOIIIIIIIIIIIII\n\n\n");
+
+        arqcer = fopen("files/cerveja.dat","r+b");
+        if(arqcer == NULL){
+          printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+          printf("Não é possível continuar este programa...\n");
+          exit(1);
+        }
+
+        char *cerveja;
+        int num = sorteio_numero(cont_cer);
+        int cont2 = 0;        
+        while(cont2 != num){
+          fread(cer, sizeof(Cerveja), 1, arqcer);
+          cont2++;
+        }
+        cerveja = cer->nome;
+        strcpy(dts->cerveja_mes, cerveja);
         fseek(arq, -1*sizeof(Data_sorteio), SEEK_CUR);
         fwrite(dts, sizeof(Data_sorteio), 1, arq);
+        fclose(arqcer);
+        free(cer); 
         cont++;
       }
     }
@@ -497,61 +487,7 @@ int sorteio_numero(int tam){
     int num;
     do{
       srand(time(NULL));
-        num = 0 + rand()%tam;
+      num = 0 + rand()%tam;
     }while(num < 0);
     return num;
 }
-
-
-// void sorteio_cerveja(void){
-//     int data[6];
-//     int num;
-
-    
-
-//     FILE* arq;
-//     Data_sorteio *dts;
-//     arq = fopen("files/data_sorteio.dat", "rb");
-//     if(arq == NULL){
-//       printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-//       printf("Não é possível continuar este programa...\n");
-//       exit(1);
-//     }
-//     dts = (Data_sorteio*) malloc(sizeof(Data_sorteio));
-//     while(!feof(arq)){
-//       if(fread(dts, sizeof(Data_sorteio), 1, arq)){
-//         if(((strcmp(dts->cpf,cpf)) == 0)){
-//           if(dts->status == 'a'){
-//             return 1;
-//           }else if(dts->status == 'i'){
-//             return 2;
-//           }
-          
-//         }
-//       }
-//     }
-//     fclose(arq);
-//     free(ass);
-
-//     time_t t = time(NULL);
-//     struct tm tm = *localtime(&t);
-//     data[0] = tm.tm_year + 1900;
-//     data[1] = tm.tm_mon + 1;
-//     data[2] =tm.tm_mday;
-//     data[3] = tm.tm_hour;
-//     data[4] = tm.tm_min;
-//     data[5] = tm.tm_sec;
-
-//     if(data[1] != 10){
-//         srand(time(NULL));
-//         num = 0 + rand()%tam;
-//     }
-//     while(num < 0){
-//         srand(time(NULL));
-//         num = 0 + rand()%tam;
-//     }
-//     return num;
-// }
-
-
-
