@@ -87,11 +87,6 @@ void cadastrar_cerveja(){
     fclose(arq);
     free(cer);
     system("clear||cls");
-    atualizado_sucesso();
-    getchar();
-    // arquivo_cerveja(cer);
-
-    system("clear||cls");
     cadastrado_sucesso();
   }else{
     printf("\nFornecedor não cadastrado, retorne e realize o cadastro!");
@@ -111,31 +106,32 @@ void atualizar_cerveja(void){
     remove_enter(fgets(cer->codigo, 50, stdin));
     if(buscar__cer(cer->codigo) == NULL && (cer->status == 'i')){
       printf("Cerveja não encontrada em nosso sistema.\n");}
-  }while (buscar__cer(cer->codigo) == NULL && cer->status == 'i');
-  // else{
-    printf("Achou");
+    else if((buscar__cer(cer->codigo)) != NULL && (cer->status =='i')){
+      printf("Código encontrado em nosso sitema, porém inativo");}
+  }while ((buscar__cer(cer->codigo) == NULL) || (cer->status == 'i'));
+  printf("Achou");
+  getchar();
+  printf("Nome da cerveja (atualizar): ");
+  remove_enter(fgets(cer->nome, 50, stdin));
+  do{
+    printf("CNPJ do fornecedor (atualizar): ");
+    remove_enter(fgets(cer->fornecedor, 50, stdin));
+    if(!valida_cnpj(cer->fornecedor)){
+      printf("CNPJ inválido, tente novamente!\n");
+    }}
+  while (!valida_cnpj(cer->fornecedor));
+  if(cnpj_esta(cer->fornecedor)){
+    cer->status = 'a';
+    fseek(arq, -1*sizeof(Cerveja), SEEK_CUR);
+    fwrite(cer, sizeof(Cerveja), 1, arq);
+    fclose(arq);
+    free(cer);
+    system("clear||cls");
+    atualizado_sucesso();
     getchar();
-    printf("Nome da cerveja (atualizar): ");
-    remove_enter(fgets(cer->nome, 50, stdin));
-    do{
-      printf("CNPJ do fornecedor (atualizar): ");
-      remove_enter(fgets(cer->fornecedor, 50, stdin));
-      if(!valida_cnpj(cer->fornecedor)){
-        printf("CNPJ inválido, tente novamente!\n");
-      }}
-    while (!valida_cnpj(cer->fornecedor));
-    if(cnpj_esta(cer->fornecedor)){
-      cer->status = 'a';
-      fseek(arq, -1*sizeof(Cerveja), SEEK_CUR);
-      fwrite(cer, sizeof(Cerveja), 1, arq);
-      fclose(arq);
-      free(cer);
-      system("clear||cls");
-      atualizado_sucesso();
-      getchar();
-    }else{
-      printf("\nFornecedor não cadastrado, retorne e realize o cadastro!");
-    }
+  }else{
+    printf("\nFornecedor não cadastrado, retorne e realize o cadastro!");
+  }
 }
 
 void apagar_cerveja(void){
@@ -167,7 +163,7 @@ void apagar_cerveja(void){
     scanf("%c", &resposta);
     if(resposta == 's' || resposta == 'S'){
       cer->status = 'i';
-      fseek(arq, -1*sizeof(Cerveja), SEEK_CUR);
+      fseek(arq, (-1)*sizeof(Cerveja), SEEK_CUR);
       fwrite(cer, sizeof(Cerveja), 1, arq);
       recuperado_sucesso();
     }else{
@@ -210,8 +206,8 @@ void recuperar_cerveja(void){
     scanf("%c", &resposta);
     if(resposta == 's' || resposta == 'S'){
       cer->status = 'a';
-      fseek(arq, -1*sizeof(Fornecedor), SEEK_CUR);
-      fwrite(cer, sizeof(Fornecedor), 1, arq);
+      fseek(arq, (-1)*sizeof(Cerveja), SEEK_CUR);
+      fwrite(cer, sizeof(Cerveja), 1, arq);
       recuperado_sucesso();
     }else{
       printf("\nOs dados não foram alterados\n");
@@ -262,7 +258,8 @@ Cerveja* buscar__cer(char *busca){
   cer = (Cerveja*) malloc(sizeof(Cerveja));
   while(!feof(arq)){
     if(fread(cer, sizeof(Cerveja), 1, arq)){
-      if(((strcmp(cer->codigo,busca)) == 0) && cer->status == 'a'){
+      if((strcmp(cer->codigo,busca)) == 0){
+        // .....
         return cer;
       }
     }
