@@ -28,6 +28,7 @@ int main() {
   criando_arquivo("files/cerveja.dat");
   criando_arquivo("files/fornecedor.dat");
   criando_arquivo("files/relatorio.dat");
+  criando_arquivo("files/data_sorteio.dat");
   
   do {
 	op = tela_principal();

@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "assinatura.h"
 #include "biblioteca.h"
 #include "principal.h"
@@ -407,7 +408,84 @@ char escolhe_nivel(void){
   return nivel[0];
 }
 
+void preenche_data_sorteio(void){
+  int data[6];
+  time_t t = time(NULL);
+  struct tm tm = *localtime(&t);
+  data[0] = tm.tm_year + 1900;
+  data[1] = tm.tm_mon + 1;
+  data[2] =tm.tm_mday;
+  data[3] = tm.tm_hour;
+  data[4] = tm.tm_min;
+  data[5] = tm.tm_sec;
+  
+  FILE* arq;
+  Data_sorteio *dts;
+  arq = fopen("files/data_sorteio.dat","r+b");
+  if(arq == NULL){
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+  }
+  dts = (Data_sorteio*) malloc(sizeof(Data_sorteio));
+  dts->ano = data[0];
+  dts->mes = data[1];
+  dts->dia = data[2];
+  dts->codigo = 1;
+  fwrite(dts, sizeof(Data_sorteio), 1, arq);
+  fclose(arq);
+  free(dts);
+}
 
+// void sorteio_cerveja(void){
+//     int data[6];
+//     int num;
+
+    
+
+//     FILE* arq;
+//     Data_sorteio *dts;
+//     arq = fopen("files/data_sorteio.dat", "rb");
+//     if(arq == NULL){
+//       printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+//       printf("Não é possível continuar este programa...\n");
+//       exit(1);
+//     }
+//     dts = (Data_sorteio*) malloc(sizeof(Data_sorteio));
+//     while(!feof(arq)){
+//       if(fread(dts, sizeof(Data_sorteio), 1, arq)){
+//         if(((strcmp(dts->cpf,cpf)) == 0)){
+//           if(dts->status == 'a'){
+//             return 1;
+//           }else if(dts->status == 'i'){
+//             return 2;
+//           }
+          
+//         }
+//       }
+//     }
+//     fclose(arq);
+//     free(ass);
+
+//     time_t t = time(NULL);
+//     struct tm tm = *localtime(&t);
+//     data[0] = tm.tm_year + 1900;
+//     data[1] = tm.tm_mon + 1;
+//     data[2] =tm.tm_mday;
+//     data[3] = tm.tm_hour;
+//     data[4] = tm.tm_min;
+//     data[5] = tm.tm_sec;
+
+//     if(data[1] != 10){
+//         srand(time(NULL));
+//         num = 0 + rand()%tam;
+//     }
+//     while(num < 0){
+//         srand(time(NULL));
+//         num = 0 + rand()%tam;
+//     }
+//     return num;
+// }
 
 
 
