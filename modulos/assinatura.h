@@ -17,6 +17,7 @@ struct data_sorteio{
     int mes;
     int dia;
     int ano;
+    char cerveja_mes[21];
 };
 
 typedef struct data_sorteio Data_sorteio;
@@ -34,3 +35,4 @@ int cpf_esta(char *);
 char escolhe_nivel(void);
 
 void preenche_data_sorteio(void);
+int sorteio_numero(int );

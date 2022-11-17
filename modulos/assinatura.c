@@ -7,6 +7,7 @@
 #include "assinatura.h"
 #include "biblioteca.h"
 #include "principal.h"
+#include "cerveja.h"
 
 typedef struct assinatura Assinatura;
 Assinatura ass;
@@ -419,6 +420,7 @@ void preenche_data_sorteio(void){
   data[4] = tm.tm_min;
   data[5] = tm.tm_sec;
 
+  // int mes_atual = data[1];
   int mes_atual = 9;
 
   FILE* arq;
@@ -439,6 +441,48 @@ void preenche_data_sorteio(void){
         dts->ano = data[0];
         dts->mes = data[1];
         dts->dia = data[2];
+
+        FILE* arqcer;
+        Cerveja *cer;
+        arqcer = fopen("files/cerveja.dat","r+b");
+        if(arqcer == NULL){
+          printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+          printf("Não é possível continuar este programa...\n");
+          exit(1);
+        }
+        cer = (Cerveja*) malloc(sizeof(Cerveja));
+        int cont_cer = 0;
+        while(fread(cer, sizeof(Cerveja), 1, arqcer) != 0) { 
+          // LÊ A QUANTIDADE DE STRUCTS DO ARQUIVO CERVEJA
+          cont_cer++;
+        }
+        printf("\nFIM. Eu li %i structs do arquivo.\n", cont_cer);
+
+        // while(!feof(arqcer)){
+        //   cont_cer++;
+        //   printf("\n\n\nTÁ NO CONT_CER\n\n\n");
+        // }
+
+        // char *cerveja;
+        // int num = sorteio_numero(cont_cer);
+        // for(int i = 1; i <= num; i++){
+        //   printf("\n\n\n\nTÁ NO FOR\n\n\n");
+        //   if(i == num){
+        //     cerveja = cer->nome; 
+        //   }
+        // }
+        // printf("\n\n\n\nCERVEJA SORTEADA: %s\n", cerveja);
+        
+        // char *cervejas[50];
+        // // NÚMERO DO SORTEIO, SERÁ A QUANTIDADE DE VEZES QUE O WHILE IRÁ RODAR
+        // // E ONDE PARAR, SERÁ A CERVEJA DO MÊS
+        // for(int i = 0; !feof(arqcer); i++){
+        //   cervejas[i] = cer->nome;
+        // }
+        fclose(arqcer);
+        free(cer); 
+        //strcpy(dts->cerveja_mes, cerveja);
+        printf("\n\n\n\nFOIIIIIIIIIIIII\n\n\n");
         fseek(arq, -1*sizeof(Data_sorteio), SEEK_CUR);
         fwrite(dts, sizeof(Data_sorteio), 1, arq);
         cont++;
@@ -447,6 +491,15 @@ void preenche_data_sorteio(void){
   }
   fclose(arq);
   free(dts);    
+}
+
+int sorteio_numero(int tam){
+    int num;
+    do{
+      srand(time(NULL));
+        num = 0 + rand()%tam;
+    }while(num < 0);
+    return num;
 }
 
 
