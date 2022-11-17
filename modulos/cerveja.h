@@ -9,6 +9,7 @@ void recuperar_cerveja(void);
 void buscar_cerveja(void);
 int cer_esta(char *);
 void exibe_cerveja(Cerveja* cer,char );
+void grava_cerveja(Cerveja* cer);
 Cerveja* buscar__cer(char *); 
 
 

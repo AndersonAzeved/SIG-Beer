@@ -63,16 +63,32 @@ char tela_cervejas(void) {
   return op[0];
 }
 
+void grava_cerveja(Cerveja* cer){
+    FILE* fp;
+    fp = fopen("files/cerveja.dat","ab");
+    if(fp == NULL){
+      printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+      printf("Não é possível continuar este programa...\n");
+      exit(1);
+    }
+    fwrite(cer, sizeof(Cerveja), 1, fp);
+    fclose(fp);
+}
+
 void cadastrar_cerveja(){
   Cerveja* cer;
-  FILE* arq;
-  arq = fopen("files/cerveja.dat", "r+b");
   cer = (Cerveja*) malloc(sizeof(Cerveja));
-  printf("Nome da cerveja (APENAS LETRAS): ");
+  printf("Nome da Cerveja (APENAS LETRAS): ");
   remove_enter(fgets(cer->nome, 50, stdin));
+  do{
+    printf("Código da cerveja para cadastro: ");
+    remove_enter(fgets(cer->codigo, 50, stdin));
+    if(buscar__cer(cer->codigo) == NULL){
+      printf("Cerveja não encontrada em nosso sistema.\n");}
+    else if((buscar__cer(cer->codigo)) != NULL && (cer->status =='i')){
+      printf("Código encontrado em nosso sistema, porém inativo\nUtilize a área de recuperar cadastro.\n");}
+  }while ((buscar__cer(cer->codigo) != NULL));
 // BUG DE CADASTRAR E APAGAR E CADASTRAR NOVAMENTE COM MESMO CODIGO
-  printf("Código da Cerveja: ");
-  remove_enter(fgets(cer->codigo, 50, stdin));
   do{
     printf("CNPJ do fornecedor: ");
     remove_enter(fgets(cer->fornecedor, 50, stdin));
@@ -82,9 +98,7 @@ void cadastrar_cerveja(){
   while (!valida_cnpj(cer->fornecedor));
   if(cnpj_esta(cer->fornecedor)){
     cer->status = 'a';
-    fseek(arq, -1*sizeof(Cerveja), SEEK_CUR);
-    fwrite(cer, sizeof(Cerveja), 1, arq);
-    fclose(arq);
+    grava_cerveja(cer);
     free(cer);
     system("clear||cls");
     cadastrado_sucesso();
@@ -165,7 +179,7 @@ void apagar_cerveja(void){
       cer->status = 'i';
       fseek(arq, (-1)*sizeof(Cerveja), SEEK_CUR);
       fwrite(cer, sizeof(Cerveja), 1, arq);
-      recuperado_sucesso();
+      deletado_sucesso();
     }else{
       printf("\nOs dados não foram alterados\n");
     }
@@ -225,7 +239,7 @@ void exibe_cerveja(Cerveja* cer, char status){
   if(cer == NULL){
     printf("\n= = = Cerveja não cadastrada = = =\n");}
   else if((cer != NULL) && (cer->status == 'i')){
-    printf("\n = = =Cadastro encontrado, porém inativo = = =\n");
+    printf("\n = = = Cadastro encontrado, porém inativo = = =\n = = = Utilize a área de recuperar = = =\n = = = Caso queira recuperálo = = =\n");
       printf("Nome da cerveja: %s\n", cer->nome);
       printf("Código da cerveja: %s\n", cer->codigo);
       printf("Fornecedor da cerveja: %s\n",cer->fornecedor);
