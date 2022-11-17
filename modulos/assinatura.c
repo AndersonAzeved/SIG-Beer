@@ -418,7 +418,9 @@ void preenche_data_sorteio(void){
   data[3] = tm.tm_hour;
   data[4] = tm.tm_min;
   data[5] = tm.tm_sec;
-  
+
+  int mes_atual = 9;
+
   FILE* arq;
   Data_sorteio *dts;
   arq = fopen("files/data_sorteio.dat","r+b");
@@ -428,14 +430,25 @@ void preenche_data_sorteio(void){
     exit(1);
   }
   dts = (Data_sorteio*) malloc(sizeof(Data_sorteio));
-  dts->ano = data[0];
-  dts->mes = data[1];
-  dts->dia = data[2];
-  dts->codigo = 1;
-  fwrite(dts, sizeof(Data_sorteio), 1, arq);
+  int cont = 0;
+  while(!feof(arq) && cont == 0){
+    fread(dts, sizeof(Data_sorteio), 1, arq);
+    if(dts->codigo == 1){
+      if(mes_atual != dts->mes){
+        dts->codigo = 1;
+        dts->ano = data[0];
+        dts->mes = data[1];
+        dts->dia = data[2];
+        fseek(arq, -1*sizeof(Data_sorteio), SEEK_CUR);
+        fwrite(dts, sizeof(Data_sorteio), 1, arq);
+        cont++;
+      }
+    }
+  }
   fclose(arq);
-  free(dts);
+  free(dts);    
 }
+
 
 // void sorteio_cerveja(void){
 //     int data[6];
