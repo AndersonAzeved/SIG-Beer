@@ -470,7 +470,7 @@ void preenche_data_sorteio(void){
           cont2++;
         }
         cerveja = cer->nome;
-        strcpy(dts->cerveja_mes, cerveja);
+        strcpy(dts->cerveja_sort, cerveja);
         fseek(arq, -1*sizeof(Data_sorteio), SEEK_CUR);
         fwrite(dts, sizeof(Data_sorteio), 1, arq);
         fclose(arqcer);
@@ -481,6 +481,65 @@ void preenche_data_sorteio(void){
   }
   fclose(arq);
   free(dts);    
+}
+
+void preenche_assinaturas(void){
+  char *cerveja_ass;
+  char *cerveja_sorteada;
+
+  FILE* arqdts;
+  Data_sorteio *dts;
+  arqdts = fopen("files/data_sorteio.dat","r+b");
+  if(arqdts == NULL){
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+  }
+  dts = (Data_sorteio*) malloc(sizeof(Data_sorteio));
+  int i = 0;
+  while(i != 1){
+    fread(dts, sizeof(Data_sorteio), 1, arqdts);
+    i++;
+  }
+  cerveja_sorteada = (char*) malloc(sizeof(char)*strlen(dts->cerveja_sort));
+  cerveja_sorteada = dts->cerveja_sort;
+  printf("CERVEJA: %s\n", cerveja_sorteada);
+  printf("DTS->CERVEJA: %s\n", dts->cerveja_sort);
+  fclose(arqdts);
+  free(dts);
+  
+  FILE* arqass;
+  Assinatura *ass;
+  arqass = fopen("files/assinatura.dat","r+b");
+  if(arqass == NULL){
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+  }
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  int j = 0;
+  while(j != 1){
+    fread(ass, sizeof(Data_sorteio), 1, arqass);
+    j++;
+  }
+  cerveja_ass = (char*) malloc(sizeof(char)*strlen(ass->cerveja_mes));
+  cerveja_ass = ass->cerveja_mes;
+  printf("CERVEJA: %s\n", cerveja_ass);
+  printf("ASS->CERVEJA: %s\n", ass->cerveja_mes);
+  fclose(arqass);
+  free(ass);
+
+  printf(""
+  "CERVEJA DO MÊS: %s\n"
+  "CERVEJA SORTEDA: %s\n"
+  "", ass->cerveja_mes, dts->cerveja_sort);
+  if(cerveja_sorteada != cerveja_ass){
+    printf("\n\n\nÉÉÉÉÉÉÉÉ\n\n\n");
+  }
+  
+  
+  
+  
 }
 
 int sorteio_numero(int tam){
