@@ -203,8 +203,9 @@ void atualizar_assinatura(void){
     printf("A assinatura %s não foi encontrada!\n", ass->cpf);
   }
   free(ass);
-  system("clear||cls");
   getchar();
+  system("clear||cls");
+  
 }
 
 Assinatura* buscar_ass(char *busca){
@@ -410,16 +411,57 @@ char escolhe_nivel(void){
   return nivel[0];
 }
 
+char* sortear_cerveja(void){
+  FILE* arqcer;
+  Cerveja *cer;
+  cer = (Cerveja*) malloc(sizeof(Cerveja));
+  arqcer = fopen("files/cerveja.dat","r+b");
+  if(arqcer == NULL){
+    exit(1);
+  }
+  int num = sorteio_numero(quant_cervejas_cadas());
+  int cont2 = 0;        
+  while(cont2 != num){
+    fread(cer, sizeof(Cerveja), 1, arqcer);
+    cont2++;
+  }
+  char* cerveja;
+  cerveja = (char*) malloc(sizeof(char)*(strlen(cer->nome)));
+  cerveja = cer->nome;  
+  return cerveja;
+  free(cer);
+}
+
+int quant_cervejas_cadas(void){
+  FILE* arqcer;
+  Cerveja *cer;
+  arqcer = fopen("files/cerveja.dat","r+b");
+  if(arqcer == NULL){
+    exit(1);
+  }
+  cer = (Cerveja*) malloc(sizeof(Cerveja));
+  int cont_cer = 0;
+  while(fread(cer, sizeof(Cerveja), 1, arqcer) != 0){// LÊ A QUANTIDADE DE STRUCTS DO ARQUIVO CERVEJA
+    cont_cer++;
+  }
+  fclose(arqcer);
+  return cont_cer;
+}
+
+// Arquivo Data_sorteio Vazio: Add a data e faço o sorteio
+// Arquivo Data_sorteio preenchido: Comparar data, ver se é pra atualizar, atualize e realizar sorteio 
+// Arquivo Assinatura: Atualizar a cerveja do mês
+
 void preenche_data_sorteio(void){
-  int data[6];
+  int data[3];
   time_t t = time(NULL);
   struct tm tm = *localtime(&t);
   data[0] = tm.tm_year + 1900;
   data[1] = tm.tm_mon + 1;
   data[2] =tm.tm_mday;
 
-  // int mes_atual = data[1];
-  int mes_atual = 1;
+  int mes_atual = data[1];
+  //int mes_atual = 2;
 
   FILE* arq;
   Data_sorteio *dts;
@@ -430,65 +472,43 @@ void preenche_data_sorteio(void){
     exit(1);
   }
   dts = (Data_sorteio*) malloc(sizeof(Data_sorteio));
-  int cont = 0;
-  while(!feof(arq) && cont == 0){
-    fread(dts, sizeof(Data_sorteio), 1, arq);
+  char *cerveja;
+  cerveja = sortear_cerveja();
+  if(fread(dts, sizeof(Data_sorteio), 1, arq) == 1){
     if(dts->codigo == 1){
       if(mes_atual != dts->mes){
         dts->codigo = 1;
         dts->ano = data[0];
         dts->mes = data[1];
         dts->dia = data[2];
-
-        FILE* arqcer;
-        Cerveja *cer;
-        arqcer = fopen("files/cerveja.dat","r+b");
-        if(arqcer == NULL){
-          printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-          printf("Não é possível continuar este programa...\n");
-          exit(1);
-        }
-        cer = (Cerveja*) malloc(sizeof(Cerveja));
-        int cont_cer = 0;
-        while(fread(cer, sizeof(Cerveja), 1, arqcer) != 0) { 
-          // LÊ A QUANTIDADE DE STRUCTS DO ARQUIVO CERVEJA
-          cont_cer++;
-          printf("\n%s\n", cer->nome);
-        }
-        fclose(arqcer);
-
-        arqcer = fopen("files/cerveja.dat","r+b");
-        if(arqcer == NULL){
-          printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-          printf("Não é possível continuar este programa...\n");
-          exit(1);
-        }
-
-        char *cerveja;
-        int num = sorteio_numero(cont_cer);
-        int cont2 = 0;        
-        while(cont2 != num){
-          fread(cer, sizeof(Cerveja), 1, arqcer);
-          cont2++;
-        }
-        cerveja = cer->nome;
         strcpy(dts->cerveja_sort, cerveja);
         fseek(arq, -1*sizeof(Data_sorteio), SEEK_CUR);
         fwrite(dts, sizeof(Data_sorteio), 1, arq);
-        fclose(arqcer);
-        free(cer); 
-        cont++;
       }
     }
+  }else{
+    fclose(arq);
+    arq = fopen("files/data_sorteio.dat","r+b");
+    if(arq == NULL){
+      printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+      printf("Não é possível continuar este programa...\n");
+      exit(1);
+    }
+    dts->codigo = 1;
+    dts->ano = data[0];
+    dts->mes = data[1];
+    dts->dia = data[2];
+    strcpy(dts->cerveja_sort, cerveja);
+    fwrite(dts, sizeof(Data_sorteio), 1, arq);
   }
   fclose(arq);
   free(dts);    
 }
 
+
 void preenche_assinaturas(void){
   char *cerveja_ass;
   char *cerveja_sorteada;
-
   FILE* arqass;
   Assinatura *ass;
   arqass = fopen("files/assinatura.dat","r+b");
@@ -506,7 +526,7 @@ void preenche_assinaturas(void){
   cerveja_ass = (char*) malloc(sizeof(char)*strlen(ass->cerveja_mes));
   cerveja_ass = ass->cerveja_mes;
   fclose(arqass);
-
+  
   FILE* arqdts;
   Data_sorteio *dts;
   arqdts = fopen("files/data_sorteio.dat","r+b");
@@ -523,8 +543,6 @@ void preenche_assinaturas(void){
   }
   cerveja_sorteada = (char*) malloc(sizeof(char)*strlen(dts->cerveja_sort));
   cerveja_sorteada = dts->cerveja_sort;
-
-  printf("\nPAROU ANTES\n");
   
   arqass = fopen("files/assinatura.dat","r+b");
   if(arqass == NULL){
@@ -533,34 +551,23 @@ void preenche_assinaturas(void){
     exit(1);
   }
   if(cerveja_sorteada != cerveja_ass){
-    printf("\nENTROU NO IF\n");
-    while(fread(ass, sizeof(Assinatura), 1, arqass)){
-      printf("\nENTROU NO WHILE\n");
-      
-
-      
+    while(fread(ass, sizeof(Assinatura), 1, arqass)){      
       fseek(arqass, -1*sizeof(Assinatura), SEEK_CUR);
       strcpy(ass->cerveja_mes, cerveja_sorteada);
       fwrite(ass, sizeof(Assinatura), 1, arqass);
     }
-    printf("\nSAIU DO WHILE\n");
   }
-  printf("\nSAIU DO IF\n");
-  
   fclose(arqdts);
   free(dts);
-
-
   fclose(arqass);
   free(ass);
-  
 }
 
 int sorteio_numero(int tam){
-    int num;
-    do{
-      srand(time(NULL));
-      num = 0 + rand()%tam;
-    }while(num < 0);
-    return num;
+  int num;
+  do{
+    srand(time(NULL));
+    num = 0 + rand()%tam;
+  }while(num < 0);
+  return num;
 }
