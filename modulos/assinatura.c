@@ -241,6 +241,7 @@ void exibe_assinatura(Assinatura* ass, char status){ // status = status contrár
       printf("Email: %s\n", ass->email);
       printf("Código: %s\n", ass->codigo);
       printf("Nível: %c\n", ass->nivel);
+      printf("Cerveja do Mês: %s\n", ass->cerveja_mes);
   }
 }
 
@@ -417,7 +418,8 @@ void preenche_data_sorteio(void){
   data[1] = tm.tm_mon + 1;
   data[2] =tm.tm_mday;
 
-  int mes_atual = data[1];
+  // int mes_atual = data[1];
+  int mes_atual = 1;
 
   FILE* arq;
   Data_sorteio *dts;
@@ -487,27 +489,6 @@ void preenche_assinaturas(void){
   char *cerveja_ass;
   char *cerveja_sorteada;
 
-  FILE* arqdts;
-  Data_sorteio *dts;
-  arqdts = fopen("files/data_sorteio.dat","r+b");
-  if(arqdts == NULL){
-    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-    printf("Não é possível continuar este programa...\n");
-    exit(1);
-  }
-  dts = (Data_sorteio*) malloc(sizeof(Data_sorteio));
-  int i = 0;
-  while(i != 1){
-    fread(dts, sizeof(Data_sorteio), 1, arqdts);
-    i++;
-  }
-  cerveja_sorteada = (char*) malloc(sizeof(char)*strlen(dts->cerveja_sort));
-  cerveja_sorteada = dts->cerveja_sort;
-  printf("CERVEJA: %s\n", cerveja_sorteada);
-  printf("DTS->CERVEJA: %s\n", dts->cerveja_sort);
-  fclose(arqdts);
-  free(dts);
-  
   FILE* arqass;
   Assinatura *ass;
   arqass = fopen("files/assinatura.dat","r+b");
@@ -524,21 +505,54 @@ void preenche_assinaturas(void){
   }
   cerveja_ass = (char*) malloc(sizeof(char)*strlen(ass->cerveja_mes));
   cerveja_ass = ass->cerveja_mes;
-  printf("CERVEJA: %s\n", cerveja_ass);
-  printf("ASS->CERVEJA: %s\n", ass->cerveja_mes);
+  fclose(arqass);
+
+  FILE* arqdts;
+  Data_sorteio *dts;
+  arqdts = fopen("files/data_sorteio.dat","r+b");
+  if(arqdts == NULL){
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+  }
+  dts = (Data_sorteio*) malloc(sizeof(Data_sorteio));
+  int i = 0;
+  while(i != 1){
+    fread(dts, sizeof(Data_sorteio), 1, arqdts);
+    i++;
+  }
+  cerveja_sorteada = (char*) malloc(sizeof(char)*strlen(dts->cerveja_sort));
+  cerveja_sorteada = dts->cerveja_sort;
+
+  printf("\nPAROU ANTES\n");
+  
+  arqass = fopen("files/assinatura.dat","r+b");
+  if(arqass == NULL){
+    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+    printf("Não é possível continuar este programa...\n");
+    exit(1);
+  }
+  if(cerveja_sorteada != cerveja_ass){
+    printf("\nENTROU NO IF\n");
+    while(fread(ass, sizeof(Assinatura), 1, arqass)){
+      printf("\nENTROU NO WHILE\n");
+      
+
+      
+      fseek(arqass, -1*sizeof(Assinatura), SEEK_CUR);
+      strcpy(ass->cerveja_mes, cerveja_sorteada);
+      fwrite(ass, sizeof(Assinatura), 1, arqass);
+    }
+    printf("\nSAIU DO WHILE\n");
+  }
+  printf("\nSAIU DO IF\n");
+  
+  fclose(arqdts);
+  free(dts);
+
+
   fclose(arqass);
   free(ass);
-
-  printf(""
-  "CERVEJA DO MÊS: %s\n"
-  "CERVEJA SORTEDA: %s\n"
-  "", ass->cerveja_mes, dts->cerveja_sort);
-  if(cerveja_sorteada != cerveja_ass){
-    printf("\n\n\nÉÉÉÉÉÉÉÉ\n\n\n");
-  }
-  
-  
-  
   
 }
 
