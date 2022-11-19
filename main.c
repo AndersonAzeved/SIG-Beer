@@ -34,10 +34,14 @@ int main() {
   
   do {
 	op = tela_principal();
+	preenche_data_sorteio();
+  	preenche_assinaturas();
 
 	if (op == '1'){ //Módulo Assinaturas
 		do{
 			op2 = tela_assinaturas();
+			preenche_data_sorteio();
+  			preenche_assinaturas();
 
 			if(op2 == '1'){
 				cadastrar_assinatura();
@@ -64,6 +68,8 @@ int main() {
 		do{
 
 			op2 = tela_cervejas();
+			preenche_data_sorteio();
+  			preenche_assinaturas();
 
 			if(op2 == '1'){
 				cadastrar_cerveja();

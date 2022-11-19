@@ -198,7 +198,18 @@ void atualizar_assinatura(void){
   }else if(cpf_esta(ass->cpf) == 2){
     cdt_mas_inativo();
   }else{
-    printf("A assinatura %s não foi encontrada!\n", ass->cpf);
+    system("clear||cls");
+    printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+    "///                                                                        ///\n"
+    "///                                                                        ///\n"
+    "///         A assinatura %s não foi encontrada                    ///\n"
+    "///                                                                        ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "\n", ass->cpf);
   }
   free(ass);
   getchar();
@@ -441,6 +452,7 @@ char* sortear_cerveja(void){
   free(cer);
 }
 
+
 int quant_cervejas_cadas(void){
   FILE* arqcer;
   Cerveja *cer;
@@ -451,7 +463,9 @@ int quant_cervejas_cadas(void){
   cer = (Cerveja*) malloc(sizeof(Cerveja));
   int cont_cer = 0;
   while(fread(cer, sizeof(Cerveja), 1, arqcer) != 0){// LÊ A QUANTIDADE DE STRUCTS DO ARQUIVO CERVEJA
-    cont_cer++;
+    if(cer->status != 'i'){
+      cont_cer++;
+    }
   }
   fclose(arqcer);
   return cont_cer;
@@ -460,6 +474,7 @@ int quant_cervejas_cadas(void){
 // Arquivo Data_sorteio Vazio: Add a data e faço o sorteio
 // Arquivo Data_sorteio preenchido: Comparar data, ver se é pra atualizar, atualize e realizar sorteio 
 // Arquivo Assinatura: Atualizar a cerveja do mês
+// Verificar se a cerveja sorteada está ativa
 
 void preenche_data_sorteio(void){
   int status = quant_cervejas_cadas();
