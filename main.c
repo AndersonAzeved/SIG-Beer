@@ -126,6 +126,7 @@ int main() {
 				printf("\nRelatório de Cervejas\n");
 			}else if(op2 == '2'){
 				printf("\nRelatório de Assinaturas\n");
+				lista_dinamica();
 			}else if(op2 == '3'){
 				printf("\nRelatório de Fornecedores\n");
 			}else if(op2 == '0'){
