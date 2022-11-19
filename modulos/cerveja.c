@@ -102,11 +102,11 @@ void cadastrar_cerveja(){
     system("clear||cls");
     cadastrado_sucesso();
   }else{
-    printf("\nFornecedor não cadastrado, retorne e realize o cadastro!");
+    fornecedor_ncadastrado();
   }
-  
+  printf("APERTE QUALQUER TECLA");
   getchar();
-  
+  system("clear||cls");
 }
 
 void atualizar_cerveja(void){

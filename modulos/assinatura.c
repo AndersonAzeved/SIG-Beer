@@ -122,7 +122,7 @@ void cadastrar_assinatura(void){
     system("clear||cls");
     cadastrado_sucesso();
   }
-
+  printf("APERTE QUALQUER TECLA\n");
   free(ass);
   preenche_data_sorteio();
   preenche_assinaturas();
@@ -205,12 +205,13 @@ void atualizar_assinatura(void){
     "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
     "///                                                                        ///\n"
     "///                                                                        ///\n"
-    "///         A assinatura %s não foi encontrada                    ///\n"
+    "///            A assinatura %s não foi encontrada                    \n"
     "///                                                                        ///\n"
     "///                                                                        ///\n"
     "//////////////////////////////////////////////////////////////////////////////\n"
     "\n", ass->cpf);
   }
+  printf("APERTE QUALQUER TECLA\n");
   free(ass);
   getchar();
   system("clear||cls");
@@ -276,7 +277,6 @@ void exibe_assinatura(Assinatura* ass, char status){ // status = status contrár
     printf("///                                                                        ///\n");
     printf("//////////////////////////////////////////////////////////////////////////////\n");
   }
-  printf("APERTE QUALQUER TECLA\n");
 }
 
 
@@ -296,7 +296,9 @@ void buscar_assinatura(void){
   } 
   ass = buscar_ass(cpf);
   exibe_assinatura(ass, 'i');
+  printf("APERTE QUALQUER TECLA\n");
   getchar();
+  system("clear||cls");
 }
 
 void apagar_assinatura(void){
@@ -312,7 +314,7 @@ void apagar_assinatura(void){
     exit(1);
   }
     do{
-    printf("\n\nInforme o CPF a ser apagado: ");
+    printf("Informe o CPF a ser apagado: ");
     fgets(apagar, 50, stdin);
     remove_enter(apagar);
     valida_cpf(apagar);
@@ -339,14 +341,27 @@ void apagar_assinatura(void){
       fwrite(ass, sizeof(Assinatura), 1, arq);
       deletado_sucesso();
     }else{
-      printf("\nOs dados não foram alterados\n");
+      dados_nalterados();
     }
   }else{
-    printf("A assinatura %s não foi encontrada!\n", apagar);
+    system("clear||cls");
+    printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+    "///                                                                        ///\n"
+    "///                                                                        ///\n"
+    "///            A assinatura %s não foi encontrada                    \n"
+    "///                                                                        ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "\n", apagar);
   }
   fclose(arq);
   free(ass);
+  printf("APERTE QUALQUER TECLA\n");
   getchar();
+  system("clear||cls");
 }
 
 void recuperar_assinatura(void){ // FUNÇÃO COM BUGS, NÃO SEI SE TÁ RECUPERANDO MESMO
@@ -363,7 +378,7 @@ void recuperar_assinatura(void){ // FUNÇÃO COM BUGS, NÃO SEI SE TÁ RECUPERAN
     exit(1);
   }
   do{
-    printf("\n\nInforme o CPF a ser recuperado: ");
+    printf("Informe o CPF a ser recuperado: ");
     fgets(recuperar, 50, stdin);
     remove_enter(recuperar);
     valida_cpf(recuperar);
@@ -390,13 +405,26 @@ void recuperar_assinatura(void){ // FUNÇÃO COM BUGS, NÃO SEI SE TÁ RECUPERAN
       fwrite(ass, sizeof(Assinatura), 1, arq);
       recuperado_sucesso();
     }else{
-      printf("\nOs dados não foram alterados\n");
+      dados_nalterados();
     }
   }else{
-    printf("A assinatura %s não foi encontrada!\n", recuperar);
+    system("clear||cls");
+    printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+    "///                                                                        ///\n"
+    "///                                                                        ///\n"
+    "///            A assinatura %s não foi encontrada                    \n"
+    "///                                                                        ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "\n", recuperar);
   }
   fclose(arq);
+  printf("APERTE QUALQUER TECLA\n");
   getchar();
+  system("clear||cls");
 }
 
 int cpf_esta(char *cpf){

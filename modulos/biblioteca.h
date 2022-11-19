@@ -16,3 +16,5 @@ void recuperado_sucesso(void);
 void erro_cadastre_cerveja(void);
 void cdt_mas_inativo(void);
 void ja_cadastrado(void);
+void dados_nalterados(void);
+void fornecedor_ncadastrado(void);
