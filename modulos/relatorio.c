@@ -68,8 +68,10 @@ void lista_dinamica(void){
     lista = assd;
     }
   }
+  
+
   assd = lista;
-  while(lista != NULL){
+  while(assd != NULL){
     printf("\n"
     "//////////////////////////////////////////////////////////////////////////////\n"
     "///                                                                        ///\n"
@@ -88,4 +90,13 @@ void lista_dinamica(void){
     printf("//////////////////////////////////////////////////////////////////////////////\n");
     assd = assd->prox;
   }
+  assd = lista;
+  while(lista != NULL){
+    lista = lista->prox;
+    free(assd);
+  }
+
+  fclose(arq);
+  free(ass);
+  getchar();
 }
