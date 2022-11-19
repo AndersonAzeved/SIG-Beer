@@ -126,6 +126,8 @@ void cadastrar_assinatura(void){
   }
 
   free(ass);
+  preenche_data_sorteio();
+  preenche_assinaturas();
   getchar();
 }
 
@@ -242,12 +244,18 @@ void exibe_assinatura(Assinatura* ass, char status){ // status = status contrár
       printf("Email: %s\n", ass->email);
       printf("Código: %s\n", ass->codigo);
       printf("Nível: %c\n", ass->nivel);
+      if(quant_cervejas_cadas() == 0){
+        printf("Cerveja do Mês: A DEFINIR\n");
+      }else{
       printf("Cerveja do Mês: %s\n", ass->cerveja_mes);
+      }
   }
 }
 
 
 void buscar_assinatura(void){
+  preenche_data_sorteio();
+  preenche_assinaturas();
   Assinatura* ass;
   ass = (Assinatura*) malloc(sizeof(Assinatura));
   char cpf[51];
