@@ -419,7 +419,12 @@ char* sortear_cerveja(void){
   if(arqcer == NULL){
     exit(1);
   }
-  int num = sorteio_numero(quant_cervejas_cadas());
+  int num = 0;
+  if(quant_cervejas_cadas() == 1){
+    num = 1;
+  }else{
+    num = sorteio_numero(quant_cervejas_cadas());
+  }
   int cont2 = 0;        
   while(cont2 != num){
     fread(cer, sizeof(Cerveja), 1, arqcer);
@@ -453,56 +458,61 @@ int quant_cervejas_cadas(void){
 // Arquivo Assinatura: Atualizar a cerveja do mês
 
 void preenche_data_sorteio(void){
-  int data[3];
-  time_t t = time(NULL);
-  struct tm tm = *localtime(&t);
-  data[0] = tm.tm_year + 1900;
-  data[1] = tm.tm_mon + 1;
-  data[2] =tm.tm_mday;
-
-  int mes_atual = data[1];
-  //int mes_atual = 2;
-
-  FILE* arq;
-  Data_sorteio *dts;
-  arq = fopen("files/data_sorteio.dat","r+b");
-  if(arq == NULL){
-    printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
-    printf("Não é possível continuar este programa...\n");
-    exit(1);
-  }
-  dts = (Data_sorteio*) malloc(sizeof(Data_sorteio));
-  char *cerveja;
-  cerveja = sortear_cerveja();
-  if(fread(dts, sizeof(Data_sorteio), 1, arq) == 1){
-    if(dts->codigo == 1){
-      if(mes_atual != dts->mes){
-        dts->codigo = 1;
-        dts->ano = data[0];
-        dts->mes = data[1];
-        dts->dia = data[2];
-        strcpy(dts->cerveja_sort, cerveja);
-        fseek(arq, -1*sizeof(Data_sorteio), SEEK_CUR);
-        fwrite(dts, sizeof(Data_sorteio), 1, arq);
-      }
-    }
+  int status = quant_cervejas_cadas();
+  if(status == 0){
+    printf("POR FAVOR, REALIZE O CADASTRO DE CERVEJAS\n");
   }else{
-    fclose(arq);
+    int data[3];
+    time_t t = time(NULL);
+    struct tm tm = *localtime(&t);
+    data[0] = tm.tm_year + 1900;
+    data[1] = tm.tm_mon + 1;
+    data[2] =tm.tm_mday;
+
+    //int mes_atual = data[1];
+    int mes_atual = 2;
+
+    FILE* arq;
+    Data_sorteio *dts;
     arq = fopen("files/data_sorteio.dat","r+b");
     if(arq == NULL){
       printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
       printf("Não é possível continuar este programa...\n");
       exit(1);
     }
-    dts->codigo = 1;
-    dts->ano = data[0];
-    dts->mes = data[1];
-    dts->dia = data[2];
-    strcpy(dts->cerveja_sort, cerveja);
-    fwrite(dts, sizeof(Data_sorteio), 1, arq);
-  }
-  fclose(arq);
-  free(dts);    
+    dts = (Data_sorteio*) malloc(sizeof(Data_sorteio));
+    char *cerveja;
+    cerveja = sortear_cerveja();
+    if(fread(dts, sizeof(Data_sorteio), 1, arq) == 1){
+      if(dts->codigo == 1){
+        if(mes_atual != dts->mes){
+          dts->codigo = 1;
+          dts->ano = data[0];
+          dts->mes = data[1];
+          dts->dia = data[2];
+          strcpy(dts->cerveja_sort, cerveja);
+          fseek(arq, -1*sizeof(Data_sorteio), SEEK_CUR);
+          fwrite(dts, sizeof(Data_sorteio), 1, arq);
+        }
+      }
+    }else{
+      fclose(arq);
+      arq = fopen("files/data_sorteio.dat","r+b");
+      if(arq == NULL){
+        printf("Ops! Ocorreu um erro na abertura do arquivo!\n");
+        printf("Não é possível continuar este programa...\n");
+        exit(1);
+      }
+      dts->codigo = 1;
+      dts->ano = data[0];
+      dts->mes = data[1];
+      dts->dia = data[2];
+      strcpy(dts->cerveja_sort, cerveja);
+      fwrite(dts, sizeof(Data_sorteio), 1, arq);
+    }
+    fclose(arq);
+    free(dts);
+  }    
 }
 
 
