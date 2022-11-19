@@ -29,7 +29,7 @@ char tela_assinaturas(void){
   char op[11];
   int ok = 0;
   do{
-    //system("clear||cls");
+    system("clear||cls");
     printf("\n"
     "//////////////////////////////////////////////////////////////////////////////\n"
     "///                                                                        ///\n"
@@ -239,24 +239,44 @@ Assinatura* buscar_ass(char *busca){
 }
 
 void exibe_assinatura(Assinatura* ass, char status){ // status = status contrário
+  system("clear||cls");
   if((ass == NULL) || (ass->status == status)){ // ex.: status = 'i', a função só 
                                                 //exibe os cadastros ativos
-        printf("\n= = = Assinatura Inexistente = = =\n");
+        
+    printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+    "///                                                                        ///\n"
+    "///                                                                        ///\n"
+    "///                  A assinatura não foi encontrada                       ///\n"
+    "///                                                                        ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "\n");
   }else{
-      printf("\n= = = Assinatura Cadastrada = = =\n");
-      printf("Nome: %s\n", ass->nome);
-      printf("CPF: %s\n", ass->cpf);
-      printf("Endereço: %s\n", ass->endereco);
-      printf("Telefone: %s\n", ass->telefone);
-      printf("Email: %s\n", ass->email);
-      printf("Código: %s\n", ass->codigo);
-      printf("Nível: %c\n", ass->nivel);
-      if(quant_cervejas_cadas() == 0){
-        printf("Cerveja do Mês: A DEFINIR\n");
-      }else{
-      printf("Cerveja do Mês: %s\n", ass->cerveja_mes);
-      }
+    printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+    "///                  = = = Assinatura Cadastrada = = =                     ///\n"
+    "///                                                                        ///\n");
+    printf("///         Nome: %s\n", ass->nome);
+    printf("///         CPF: %s\n", ass->cpf);
+    printf("///         Endereço: %s\n", ass->endereco);
+    printf("///         Telefone: %s\n", ass->telefone);
+    printf("///         Email: %s\n", ass->email);
+    printf("///         Código: %s\n", ass->codigo);
+    printf("///         Nível: %c\n", ass->nivel);
+    if(quant_cervejas_cadas() == 0){
+      printf("///         Cerveja do Mês: A DEFINIR\n");
+    }else{
+    printf("///         Cerveja do Mês: %s\n", ass->cerveja_mes);
+    }
+    printf("///                                                                        ///\n");
+    printf("//////////////////////////////////////////////////////////////////////////////\n");
   }
+  printf("APERTE QUALQUER TECLA\n");
 }
 
 
