@@ -295,3 +295,57 @@ void remove_enter(char *var){
     char *ponteiro = strtok(var, "\n");
     strcpy(ponteiro,var);
 }
+
+void erro_cadastre_cerveja(void){ 
+  // Quando não existir nenhuma cerveja cadastrada no sistema, ele informa pra cadastrar, pois 
+  // precisa de pelo menos uma pra realizar o sorteio, mas o sistema funciona normal
+  printf("\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "///      ATENÇÃO: Realize o cadastro de cerveja(s), para que seja          ///\n"
+  "///                   possível a entrega das assinaturas                   ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+	"\n");
+}
+
+void cdt_mas_inativo(void){
+  // Caso o usuário queira realizar um cadastro em determinado módulo e este estiver apenas inativo,
+  // informa pra retornar ao módulo de recuperação e recuperar
+  printf("\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "///      Cadastro já presente no sistema, porém inativo, retorne ao        ///\n"
+  "///                        Módulo de Recuperação                           ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+	"\n");
+}
+
+void ja_cadastrado(void){
+  // Caso os dados já estejam cadastrados
+  printf("\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "///                  Cadastro já presente no sistema                       ///\n"
+  "///                    Tente com novas informações                         ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+	"\n");
+}
+

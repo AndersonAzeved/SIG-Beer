@@ -82,16 +82,15 @@ void cadastrar_assinatura(void){
     }
   } while (!valida_cpf(ass->cpf));
   if(cpf_esta(ass->cpf) == 1){
-    printf("\nCPF já cadastrado!\n");
+    ja_cadastrado();
   }else if(cpf_esta(ass->cpf) == 2){
-    printf("\nCPF cadastrado, porém inativo, recupere-o no módulo de recuperação.\n");
+    cdt_mas_inativo();
   }else{
     printf("Nome do Cliente (APENAS LETRAS): ");
     fgets(ass->nome, 100, stdin);
     remove_enter(ass->nome);
     while(!valida_nome(ass->nome)){
-      printf("Nome inválido, tente novamente!\n");
-      printf("Nome: ");
+      printf("Nome inválido, tente novamente: ");
       fgets(ass->nome, 100, stdin);
       remove_enter(ass->nome);
     } 
@@ -106,8 +105,7 @@ void cadastrar_assinatura(void){
     fgets(ass->email, 50, stdin);
     remove_enter(ass->email);
     while(!valida_email(ass->email)){
-      printf("Email inválido, tente novamente!\n");
-      printf("Email: ");
+      printf("Email inválido, tente novamente: ");
       fgets(ass->email, 50, stdin);
       remove_enter(ass->email);
     }
@@ -166,8 +164,7 @@ void atualizar_assinatura(void){
     fgets(ass->nome, 100, stdin);
     remove_enter(ass->nome);
     while(!valida_nome(ass->nome)){
-      printf("Nome inválido, tente novamente!\n");
-      printf("Nome: ");
+      printf("Nome inválido, tente novamente: ");
       fgets(ass->nome, 100, stdin);
       remove_enter(ass->nome);
     } 
@@ -182,8 +179,7 @@ void atualizar_assinatura(void){
     fgets(ass->email, 50, stdin);
     remove_enter(ass->email);
     while(!valida_email(ass->email)){
-      printf("Email inválido, tente novamente!\n");
-      printf("Email: ");
+      printf("Email inválido, tente novamente: ");
       fgets(ass->email, 50, stdin);
       remove_enter(ass->email);
     } 
@@ -200,7 +196,7 @@ void atualizar_assinatura(void){
     fclose(arq);
     atualizado_sucesso();
   }else if(cpf_esta(ass->cpf) == 2){
-    printf("\nCPF cadastrado, porém inativo, recupere-o no módulo de recuperação.\n");
+    cdt_mas_inativo();
   }else{
     printf("A assinatura %s não foi encontrada!\n", ass->cpf);
   }
@@ -468,7 +464,7 @@ int quant_cervejas_cadas(void){
 void preenche_data_sorteio(void){
   int status = quant_cervejas_cadas();
   if(status == 0){
-    printf("POR FAVOR, REALIZE O CADASTRO DE CERVEJAS\n");
+    erro_cadastre_cerveja();
   }else{
     int data[3];
     time_t t = time(NULL);
@@ -477,8 +473,7 @@ void preenche_data_sorteio(void){
     data[1] = tm.tm_mon + 1;
     data[2] =tm.tm_mday;
 
-    //int mes_atual = data[1];
-    int mes_atual = 2;
+    int mes_atual = data[1];
 
     FILE* arq;
     Data_sorteio *dts;
