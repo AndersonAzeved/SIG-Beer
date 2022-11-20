@@ -308,11 +308,12 @@ int cnpj_esta(char *cnpj){
 
 
 void exibe_fornecedor(Fornecedor* forne, char status){
-  if((forne == NULL) || (forne->status =='i')){
+  if(forne == NULL){
     printf("\n= = = Fornecedor não encontrado no sistema = = =\n");}
   else if((forne != NULL) && (forne->status == 'i')){
-    printf("\n = = = Cadastro encontrado, porém inativo = = =\n = = = Utilize a área de recuperar = = =\n = = = Caso queira recuperálo = = =\n");
-    printf("\n= = = Fornecedor Cadastrado = = =\n");
+    printf("\n = = = Cadastro encontrado, porém inativo = = =");
+    printf("\n = = =    Utilize a área de recuperar     = = =");
+    printf("\n = = =    Caso deseja recuperá-lo         = = =");
     printf("CNPJ: %s\n", forne->cnpj);
     printf("Nome da empresa: %s\n", forne->empresa);
     printf("CPF do dono da empresa: %s\n", forne->cpfempresa);

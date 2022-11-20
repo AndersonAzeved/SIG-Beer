@@ -7,7 +7,6 @@ struct fornecedor{
   char cnpj[51];
   char status;
 };
-// typedef struct fornecedor Fornecedor;
 
 char tela_fornecedores(void);
 void cadastrar_fornecedor(void);
