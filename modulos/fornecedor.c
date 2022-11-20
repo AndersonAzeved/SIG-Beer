@@ -313,7 +313,7 @@ void exibe_fornecedor(Fornecedor* forne, char status){
   else if((forne != NULL) && (forne->status == 'i')){
     printf("\n = = = Cadastro encontrado, porém inativo = = =");
     printf("\n = = =    Utilize a área de recuperar     = = =");
-    printf("\n = = =    Caso deseja recuperá-lo         = = =");
+    printf("\n = = =    Caso deseja recuperá-lo         = = =\n");
     printf("CNPJ: %s\n", forne->cnpj);
     printf("Nome da empresa: %s\n", forne->empresa);
     printf("CPF do dono da empresa: %s\n", forne->cpfempresa);
