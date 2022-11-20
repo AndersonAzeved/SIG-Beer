@@ -157,7 +157,7 @@ void apagar_fornecedor(void){
   }
 
   if(encontrar){
-    exibe_fornecedor(forne);
+    exibe_fornecedor(forne, forne->status);
     printf("Desejar apagar o fornecedor (s/n)? ");
     scanf("%c", &resposta);
     if(resposta == 's' || resposta == 'S'){
@@ -205,7 +205,7 @@ void recuperar_fornecedor(void){
   }
 
   if(encontrar){
-    exibe_fornecedor(forne);
+    exibe_fornecedor(forne, forne->status);
     printf("Desejar recuperar o fornecedor (s/n)? ");
     scanf("%c", &resposta);
     if(resposta == 's' || resposta == 'S'){
@@ -236,7 +236,7 @@ void buscar_fornecedor(void){
     remove_enter(fgets(cnpj, 50, stdin));
   } 
   forne = buscar_forne(cnpj);
-  exibe_fornecedor(forne);
+  exibe_fornecedor(forne, forne->status);
   free(forne);
   getchar();
 }
@@ -306,21 +306,36 @@ int cnpj_esta(char *cnpj){
   return 0;
 }
 
-void exibe_fornecedor(Fornecedor* forne){
-  if((forne == NULL) || (forne->status == 'i')){   //RETIRAR O STATUS 'i' RESOLVE BUG DO RECUPERAR FORNECEDOR
-    printf("\n= = = Fornecedor Inexistente = = =\n");
-  }else{
-      printf("\n= = = Fornecedor Cadastrada = = =\n");
-      printf("CNPJ: %s\n", forne->cnpj);
-      printf("Nome da empresa: %s\n", forne->empresa);
-      printf("CPF do dono da empresa: %s\n", forne->cpfempresa);
-      printf("Telefone: %s\n", forne->telefoneempresa);
-      printf("Email: %s\n", forne->emailempresa);
-      if(forne->status =='a'){
-        printf("Status: ativo\n");
-      }else{
-      printf("Status: Inativo");
-      }}}
+
+void exibe_fornecedor(Fornecedor* forne, char status){
+  if((forne == NULL) || (forne->status =='i')){
+    printf("\n= = = Fornecedor não encontrado no sistema = = =\n");}
+  else if((forne != NULL) && (forne->status == 'i')){
+    printf("\n = = = Cadastro encontrado, porém inativo = = =\n = = = Utilize a área de recuperar = = =\n = = = Caso queira recuperálo = = =\n");
+    printf("\n= = = Fornecedor Cadastrado = = =\n");
+    printf("CNPJ: %s\n", forne->cnpj);
+    printf("Nome da empresa: %s\n", forne->empresa);
+    printf("CPF do dono da empresa: %s\n", forne->cpfempresa);
+    printf("Telefone: %s\n", forne->telefoneempresa);
+    printf("Email: %s\n", forne->emailempresa);
+    if(forne->status == 'a'){
+      printf("Status: ativo\n");}
+    else{
+      printf("Status: inativo\n");
+    }
+  }
+  else{
+    printf("\n= = = Fornecedor Cadastrado = = =\n");
+    printf("CNPJ: %s\n", forne->cnpj);
+    printf("Nome da empresa: %s\n", forne->empresa);
+    printf("CPF do dono da empresa: %s\n", forne->cpfempresa);
+    printf("Telefone: %s\n", forne->telefoneempresa);
+    printf("Email: %s\n", forne->emailempresa);
+    if(forne->status == 'a'){
+      printf("Status: ativo\n");}
+    else{
+      printf("Status: inativo\n");} 
+  }}
 
 
 Fornecedor* buscar_forne(char *busca){
@@ -335,7 +350,7 @@ Fornecedor* buscar_forne(char *busca){
   forne = (Fornecedor*) malloc(sizeof(Fornecedor));
   while(!feof(arq)){
     if(fread(forne, sizeof(Fornecedor), 1, arq)){
-      if(((strcmp(forne->cnpj,busca)) == 0) && forne->status == 'a'){
+      if((strcmp(forne->cnpj,busca)) == 0){
         return forne;
       }
     }
