@@ -452,3 +452,18 @@ void cadastro_jaapagado(void){
     "//////////////////////////////////////////////////////////////////////////////\n"
     "\n");
 }
+
+void cadastro_jarecuperado(void){
+  printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+    "///                                                                        ///\n"
+    "///                                  ERRO                                  ///\n"
+    "///            Esse cadastro já se encontra ativo, retorne                 ///\n"
+    "///              e tente novamente, ou caso queira atualizá-lo             ///\n"
+    "///                   utilize a área de atualizar cadastro                 ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "\n");
+}
