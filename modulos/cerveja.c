@@ -124,8 +124,8 @@ void atualizar_cerveja(void){
   do{
     printf("Código da cerveja a ser atualizada: ");
     remove_enter(fgets(cer->codigo, 50, stdin));
-    if(buscar__cer(cer->codigo) == NULL && (cer->status == 'i')){
-      printf("Cerveja não encontrada em nosso sistema.\n");}
+    if(cer_esta(cer->codigo) == 0){
+      cadastro_nencontrado();}
     else if((buscar__cer(cer->codigo)) != NULL && (cer->status =='i')){
       printf("Código encontrado em nosso sitema, porém inativo");}
   }while ((buscar__cer(cer->codigo) == NULL) || (cer->status == 'i'));
