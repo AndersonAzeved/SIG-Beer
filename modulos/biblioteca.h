@@ -23,3 +23,4 @@ void fornecedor_inativo(void);
 void cadastro_nencontrado(void);
 void cadastro_nocorreu(void);
 void cerveja_nencontrada(void);
+void cadastro_jaapagado(void);

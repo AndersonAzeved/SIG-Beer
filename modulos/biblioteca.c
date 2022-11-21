@@ -437,3 +437,18 @@ void cerveja_nencontrada(void){
     "//////////////////////////////////////////////////////////////////////////////\n"
     "\n");
 }
+
+void cadastro_jaapagado(void){
+  printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+    "///                                                                        ///\n"
+    "///                                  ERRO                                  ///\n"
+    "///            Esse cadastro já se encontra apagado, retorne               ///\n"
+    "///              e tente novamente, ou caso queira recuperá-lo             ///\n"
+    "///                   utilize a área de recuperar cadastro                 ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "\n");
+}
