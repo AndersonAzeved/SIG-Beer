@@ -167,14 +167,17 @@ void apagar_cerveja(void){
     printf("Não é possível continuar o programa...\n");
     exit(1);
   }
-    printf("Código da cerveja : ");
-    remove_enter(fgets(apagar, 50, stdin)); 
-
+  printf("Código da cerveja : ");
+  remove_enter(fgets(apagar, 50, stdin)); 
   cer = (Cerveja*) malloc(sizeof(Cerveja));
   encontrar = 0;
   while((!encontrar) && (fread(cer, sizeof(Cerveja), 1, arq))) {
    if ((strcmp(cer->codigo, apagar) == 0) && (cer->status == 'a')) {
-     encontrar = 1;
+     encontrar = 1;}
+   else if((strcmp(cer->codigo, apagar) == 0) && (cer->status == 'i')){
+    cadastro_jaapagado();}
+   else{
+    cadastro_nencontrado();
    }
   }
 
@@ -190,8 +193,6 @@ void apagar_cerveja(void){
     }else{
       cadastro_nocorreu();
     }
-  }else{
-    cerveja_nencontrada();
   }
   fclose(arq);
   free(cer);
