@@ -236,10 +236,8 @@ void recuperar_cerveja(void){
       fwrite(cer, sizeof(Cerveja), 1, arq);
       recuperado_sucesso();
     }else{
-      printf("\nOs dados não foram alterados\n");
+      cadastro_nencontrado();
     }
-  }else{
-    printf("O fornecedor %s não foi encontrado!\n",apagar);
   }
   fclose(arq);
   free(cer);
@@ -249,28 +247,45 @@ void recuperar_cerveja(void){
 
 void exibe_cerveja(Cerveja* cer, char status){
   if(cer == NULL){
-    printf("\n= = = Cerveja não cadastrada = = =\n");}
+    cadastro_nencontrado();}
   else if((cer != NULL) && (cer->status == 'i')){
-    printf("\n = = = Cadastro encontrado, porém inativo = = =\n = = = Utilize a área de recuperar = = =\n = = = Caso queira recuperálo = = =\n");
-      printf("Nome da cerveja: %s\n", cer->nome);
-      printf("Código da cerveja: %s\n", cer->codigo);
-      printf("Fornecedor da cerveja: %s\n",cer->fornecedor);
-      if(cer->status == 'a'){
-        printf("Status: ativo\n");}
-      else{
-        printf("Status: inativo\n");
-      }
+    printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "                                                                              \n"
+    "          = = = = C A D A S T R O    E N C O N T R A D O = = = =              \n"
+    "                                                                              \n"
+    "            NOME : %s                                                         \n"
+    "            CÓDIGO : %s                                                       \n"
+    "            FORNECEDOR : %s                                                   \n"
+    "                                                                              \n"
+    "              ESSE CADASTRO ENCONTRA-SE ATUALMENTE INATIVO                    \n"
+    "                    CASO DESEJE REATIVÁ-LO, UTILIZE                           \n"
+    "                          A ÁREA DE RECUPERAR                                 \n"
+    "                                                                              \n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "\n",cer->nome,cer->codigo,cer->fornecedor);
   }
   else{
-      printf("\n= = = Cerveja Cadastrada = = =\n");
-      printf("Nome da cerveja: %s\n", cer->nome);
-      printf("Código da cerveja: %s\n", cer->codigo);
-      printf("Fornecedor da cerveja: %s\n",cer->fornecedor);
-      if(cer->status == 'a'){
-        printf("Status: ativo\n");}
-      else{
-       printf("Status: inativo\n");}
-      }}
+    printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "                                                                              \n"
+    "          = = = = C A D A S T R O    E N C O N T R A D O = = = =              \n"
+    "                                                                              \n"
+    "            NOME : %s                                                         \n"
+    "            CÓDIGO : %s                                                       \n"
+    "            FORNECEDOR : %s                                                   \n"
+    "                                                                              \n"
+    "              ESSE CADASTRO ENCONTRA-SE ATUALMENTE ATIVO                      \n"
+    "                                                                              \n"
+    "                                                                              \n"
+    "                                                                              \n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "\n",cer->nome,cer->codigo,cer->fornecedor);
+      }
+    system("clear||cls");
+    getchar();
+    fflush(stdin);
+    }
 
 Cerveja* buscar__cer(char *busca){
   FILE* arq;
