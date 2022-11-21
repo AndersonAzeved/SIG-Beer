@@ -6,34 +6,81 @@
 #include "biblioteca.h"
 
 char tela_relatorio(void) {
-  system("clear||cls");
   char op[11];
-  printf("\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-  "///                                                                        ///\n"
-  "///             Universidade Federal do Rio Grande do Norte                ///\n"
-  "///                 Centro de Ensino Superior do Seridó                    ///\n"
-  "///               Departamento de Computação e Tecnologia                  ///\n"
-  "///                  Disciplina DCT1106 -- Programação                     ///\n"
-  "///                SIG - Beer: Assinatura de Cervejas                      ///\n"
-  "///    Developed by @andersonazeved and @ericleisonn -- since Aug,2022     ///\n"
-  "///                                                                        ///\n"
-  "//////////////////////////////////////////////////////////////////////////////\n"
-  "///                                                                        ///\n"
-  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
-  "///                 = = = = Módulo relatórios = = = =                      ///\n"       
-  "///                                                                        ///\n"
-  "///             1. Relatório de cervejas                                   ///\n"
-  "///             2. Relatório de assinaturas                                ///\n"
-  "///             3. Relatório de fornecedores                               ///\n"
-  "///             0. Voltar                                                  ///\n"
-  "///                                                                        ///\n"
-  "//////////////////////////////////////////////////////////////////////////////\n");
-  printf("Informe a opção: "); 
-  scanf("%s", op); 
-  getchar();
-  printf("\n");
-  printf("\nEM DESENVOLVIMENTO ...\n");
-  getchar();
+  int ok = 0;
+  do{
+    system("clear||cls");
+    printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///             Universidade Federal do Rio Grande do Norte                ///\n"
+    "///                 Centro de Ensino Superior do Seridó                    ///\n"
+    "///               Departamento de Computação e Tecnologia                  ///\n"
+    "///                  Disciplina DCT1106 -- Programação                     ///\n"
+    "///                SIG - Beer: Assinatura de Cervejas                      ///\n"
+    "///    Developed by @andersonazeved and @ericleisonn -- since Aug,2022     ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+    "///                 = = = = Módulo relatórios = = = =                      ///\n"       
+    "///                                                                        ///\n"
+    "///             1. Relatório de cervejas                                   ///\n"
+    "///             2. Relatório de assinaturas                                ///\n"
+    "///             3. Relatório de fornecedores                               ///\n"
+    "///             0. Voltar                                                  ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n");
+    printf("Informe a opção: "); 
+    fgets(op, 10, stdin);
+      remove_enter(op);
+      if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '5')){
+        ok = 1;
+      }else{
+        system("clear||cls");
+        tela_opcao_invalida();
+        system("clear||cls");
+      }
+  }while(!ok);
   return op[0];
-  }
+}
+
+char relatorio_cerveja(void){ //Quiser adicionar mais filtros
+  char op[11];
+  int ok = 0;
+  do{
+    system("clear||cls");
+    printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///             Universidade Federal do Rio Grande do Norte                ///\n"
+    "///                 Centro de Ensino Superior do Seridó                    ///\n"
+    "///               Departamento de Computação e Tecnologia                  ///\n"
+    "///                  Disciplina DCT1106 -- Programação                     ///\n"
+    "///                SIG - Beer: Assinatura de Cervejas                      ///\n"
+    "///    Developed by @andersonazeved and @ericleisonn -- since Aug,2022     ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+    "///                 = = = = Módulo relatórios = = = =                      ///\n"       
+    "///                                                                        ///\n"
+    "///             1. Filtro 1                                                ///\n"
+    "///             2. Filtro 2                                                ///\n"
+    "///             3. Filtro 3                                                ///\n"
+    "///             0. Voltar                                                  ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n");
+    printf("Informe a opção: "); 
+    fgets(op, 10, stdin);
+      remove_enter(op);
+      if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '5')){
+        ok = 1;
+      }else{
+        system("clear||cls");
+        tela_opcao_invalida();
+        system("clear||cls");
+      }
+  }while(!ok);
+  return op[0];
+}
