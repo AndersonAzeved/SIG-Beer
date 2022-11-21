@@ -297,10 +297,14 @@ int cnpj_esta(char *cnpj){
   while(!feof(arq)){
     if(fread(forne, sizeof(Fornecedor), 1, arq)){
       if((strcmp(forne->cnpj,cnpj)) == 0){
-        return 1;
+        if (forne->status == 'a'){
+          return 1;}
+        else if (forne->status == 'i'){
+          return 2;}
+        }
       }
     }
-  }
+
   fclose(arq);
   free(forne);
   return 0;

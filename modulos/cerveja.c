@@ -83,16 +83,24 @@ void cadastrar_cerveja(){
   do{
     printf("Código da cerveja para cadastro: ");
     remove_enter(fgets(cer->codigo, 50, stdin));
-    if((buscar__cer(cer->codigo)) != NULL && (cer->status =='i')){
-      cdt_mas_inativo();}
-  }while ((buscar__cer(cer->codigo) != NULL));
+    if (cer_esta(cer->codigo) ==1){
+      ja_cadastrado();
+    }
+    else if(cer_esta(cer->codigo) == 2){
+      cdt_mas_inativo();
+      }
+  }while ((cer_esta(cer->codigo) != 0));
   do{
     printf("CNPJ do fornecedor: ");
     remove_enter(fgets(cer->fornecedor, 50, stdin));
     if(!valida_cnpj(cer->fornecedor)){
       printf("CNPJ inválido, tente novamente!\n");
+    if(cnpj_esta(cer->fornecedor) == 2){
+      fornecedor_inativo();}
+    else if(cnpj_esta(cer->fornecedor) ==0){
+      fornecedor_ncadastrado();}
     }}
-  while (!valida_cnpj(cer->fornecedor));
+  while ((!valida_cnpj(cer->fornecedor) || (cnpj_esta(cer->fornecedor) != 1)));
   if(cnpj_esta(cer->fornecedor)){
     cer->status = 'a';
     grava_cerveja(cer);
@@ -294,7 +302,11 @@ int cer_esta(char *codigo){
   while(!feof(arq)){
     if(fread(cer, sizeof(Cerveja), 1, arq)){
       if((strcmp(cer->codigo,codigo)) == 0){
-        return 1;
+        if(cer->status == 'a'){
+          return 1;}
+        else if(cer->status == 'i'){
+          return 2;;
+        }
       }
     }
   }
