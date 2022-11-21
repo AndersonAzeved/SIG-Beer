@@ -1,3 +1,4 @@
+
 void retira_pontos(char *);
 int verifica_letra(char *);
 int valida_cnpj(char *);
@@ -21,3 +22,4 @@ void fornecedor_ncadastrado(void);
 void fornecedor_inativo(void);
 void cadastro_nencontrado(void);
 void cadastro_nocorreu(void);
+void cerveja_nencontrada(void);

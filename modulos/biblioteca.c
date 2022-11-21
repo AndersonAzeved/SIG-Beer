@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "biblioteca.h"
+#include "cerveja.h"
 
 void retira_pontos(char *var){
 
@@ -420,4 +421,19 @@ void cadastro_nocorreu(void){
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
+}
+
+void cerveja_nencontrada(void){
+  printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+    "///                                                                        ///\n"
+    "///                                  ERRO                                  ///\n"
+    "///            Código da cerveja não foi encontrado no sistema             ///\n"
+    "///                       retorne e tente novamente.                       ///\n"
+    "///                                                                        ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "\n");
 }
