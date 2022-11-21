@@ -218,9 +218,13 @@ void recuperar_cerveja(void){
   encontrar = 0;
   while((!encontrar) && (fread(cer, sizeof(Cerveja), 1, arq))) {
    if ((strcmp(cer->codigo, apagar) == 0) && (cer->status == 'i')) {
-     encontrar = 1;
+     encontrar = 1;}
+   else if((strcmp(cer->codigo, apagar) == 0) && (cer->status == 'a')){
+    cadastro_jarecuperado();}
+   else{
+    cadastro_nencontrado();
    }
-  }
+   }
 
   if(encontrar){
     exibe_cerveja(cer,cer->status);
