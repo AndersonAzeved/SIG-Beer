@@ -2,3 +2,4 @@
 
 char tela_relatorio(void);
 char relatorio_cerveja(void);
+char relatorio_assinatura(void);
