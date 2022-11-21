@@ -20,3 +20,4 @@ void dados_nalterados(void);
 void fornecedor_ncadastrado(void);
 void fornecedor_inativo(void);
 void cadastro_nencontrado(void);
+void cadastro_nocorreu(void);
