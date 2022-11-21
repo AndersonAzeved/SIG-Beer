@@ -8,9 +8,9 @@ void apagar_cerveja(void);
 void recuperar_cerveja(void);
 void buscar_cerveja(void);
 int cer_esta(char *);
-void exibe_cerveja(Cerveja* cer,char );
-void grava_cerveja(Cerveja* cer);
-Cerveja* buscar__cer(char *); 
+void exibe_cerveja(Cerveja*,char );
+void grava_cerveja(Cerveja*);
+Cerveja* buscar__cer(char *);
 
 
 struct cerveja{
