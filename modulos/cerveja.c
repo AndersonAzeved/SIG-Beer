@@ -115,6 +115,7 @@ void cadastrar_cerveja(){
   system("clear||cls");
 }
 
+
 void atualizar_cerveja(void){
   Cerveja* cer;
   cer = (Cerveja*) malloc(sizeof(Cerveja));
