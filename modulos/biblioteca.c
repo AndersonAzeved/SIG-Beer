@@ -377,3 +377,18 @@ void fornecedor_ncadastrado(void){
 	"\n");
 }
 
+void fornecedor_inativo(void){
+  printf("\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "///      Fornecedor inativo, retorne e realize a recuperação do mesmo      ///\n"
+  "///          no Módulo de fornecedor, caso deseje utilizá-lo               ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+	"\n");
+}
+

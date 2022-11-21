@@ -18,3 +18,4 @@ void cdt_mas_inativo(void);
 void ja_cadastrado(void);
 void dados_nalterados(void);
 void fornecedor_ncadastrado(void);
+void fornecedor_inativo(void);
