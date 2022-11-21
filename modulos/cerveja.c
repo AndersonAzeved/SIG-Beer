@@ -83,10 +83,8 @@ void cadastrar_cerveja(){
   do{
     printf("Código da cerveja para cadastro: ");
     remove_enter(fgets(cer->codigo, 50, stdin));
-    if(buscar__cer(cer->codigo) == NULL){
-      printf("Cerveja não encontrada em nosso sistema.\n");}
-    else if((buscar__cer(cer->codigo)) != NULL && (cer->status =='i')){
-      printf("Código encontrado em nosso sistema, porém inativo\nUtilize a área de recuperar cadastro.\n");}
+    if((buscar__cer(cer->codigo)) != NULL && (cer->status =='i')){
+      cdt_mas_inativo();}
   }while ((buscar__cer(cer->codigo) != NULL));
   do{
     printf("CNPJ do fornecedor: ");

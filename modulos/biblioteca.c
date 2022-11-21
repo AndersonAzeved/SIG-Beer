@@ -323,9 +323,8 @@ void cdt_mas_inativo(void){
   "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
   "///                                                                        ///\n"
   "///                                                                        ///\n"
-  "///                                                                        ///\n"
-  "///      Cadastro já presente no sistema, porém inativo, retorne ao        ///\n"
-  "///                        Módulo de Recuperação                           ///\n"
+  "///      Cadastro encontrado no nosso sistema, porém encontra-se           ///\n"
+  "///      inativo, utilize a área de recuperar caso deseje utilizá-lo       ///\n"
   "///                                                                        ///\n"
   "///                                                                        ///\n"
   "//////////////////////////////////////////////////////////////////////////////\n"
@@ -377,3 +376,4 @@ void fornecedor_ncadastrado(void){
   "//////////////////////////////////////////////////////////////////////////////\n"
 	"\n");
 }
+
