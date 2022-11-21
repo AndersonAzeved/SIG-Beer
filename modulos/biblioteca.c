@@ -392,3 +392,17 @@ void fornecedor_inativo(void){
 	"\n");
 }
 
+void cadastro_nencontrado(void){
+  printf("\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+  "///                                                                        ///\n"
+  "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "///              Cadastro não encontrado no nosso sistema                  ///\n"
+  "///                      por favor, tente novamente                        ///\n"
+  "///                                                                        ///\n"
+  "///                                                                        ///\n"
+  "//////////////////////////////////////////////////////////////////////////////\n"
+	"\n");
+}
