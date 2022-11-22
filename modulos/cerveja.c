@@ -281,11 +281,10 @@ void exibe_cerveja(Cerveja* cer, char status){
     "                                                                              \n"
     "//////////////////////////////////////////////////////////////////////////////\n"
     "\n",cer->nome,cer->codigo,cer->fornecedor);
-      }
-    system("clear||cls");
     getchar();
-    fflush(stdin);
-    }
+      }
+    getchar();
+}
 
 Cerveja* buscar__cer(char *busca){
   FILE* arq;
@@ -352,6 +351,5 @@ void buscar_cerveja(void){
   cer = buscar__cer(codigo);
   exibe_cerveja(cer, cer->status);
   free(cer);
-  getchar();
 }
 
