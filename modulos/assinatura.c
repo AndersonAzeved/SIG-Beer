@@ -94,13 +94,10 @@ void cadastrar_assinatura(void){
       fgets(ass->nome, 100, stdin);
       remove_enter(ass->nome);
     } 
-    
     printf("Endereço: ");  
     remove_enter(fgets(ass->endereco, 100, stdin));
-
     printf("Telefone: ");
     remove_enter(fgets(ass->telefone, 50, stdin));
-
     printf("Email: ");
     fgets(ass->email, 50, stdin);
     remove_enter(ass->email);
@@ -109,16 +106,12 @@ void cadastrar_assinatura(void){
       fgets(ass->email, 50, stdin);
       remove_enter(ass->email);
     }
-
     printf("Código da Assinatura: ");
     remove_enter(fgets(ass->codigo, 50, stdin));
-
     ass->nivel = escolhe_nivel();
-
     ass->status = 'a'; // a = ATIVADO e i = INATIVO
-
+    pega_data(ass->data);
     grava_assinatura(ass);
-
     system("clear||cls");
     cadastrado_sucesso();
   }
@@ -142,9 +135,7 @@ void atualizar_assinatura(void){
       printf("\nCPF inválido, digite novamente.\n");
     }
   } while (!valida_cpf(ass->cpf));
-
   strcpy(cpf, ass->cpf);
-
   if(cpf_esta(ass->cpf) == 1){
     FILE* arq;
     int achou = 0;
@@ -159,7 +150,6 @@ void atualizar_assinatura(void){
         achou = 1;
       }
     }
-
     printf("Nome do Cliente (APENAS LETRAS): ");
     fgets(ass->nome, 100, stdin);
     remove_enter(ass->nome);
@@ -168,13 +158,10 @@ void atualizar_assinatura(void){
       fgets(ass->nome, 100, stdin);
       remove_enter(ass->nome);
     } 
-
     printf("Endereço: ");  
     remove_enter(fgets(ass->endereco, 100, stdin));
-
     printf("Telefone: ");
     remove_enter(fgets(ass->telefone, 50, stdin));
-
     printf("Email: ");
     fgets(ass->email, 50, stdin);
     remove_enter(ass->email);
@@ -183,14 +170,10 @@ void atualizar_assinatura(void){
       fgets(ass->email, 50, stdin);
       remove_enter(ass->email);
     } 
-
     printf("Código da Assinatura: ");
     remove_enter(fgets(ass->codigo, 50, stdin));
-
     ass->nivel = escolhe_nivel();
-
     ass->status = 'a';
-
     fseek(arq, -1*sizeof(Assinatura), SEEK_CUR);
     fwrite(ass, sizeof(Assinatura), 1, arq);
     fclose(arq);
@@ -215,7 +198,6 @@ void atualizar_assinatura(void){
   free(ass);
   getchar();
   system("clear||cls");
-  
 }
 
 Assinatura* buscar_ass(char *busca){
@@ -268,6 +250,12 @@ void exibe_assinatura(Assinatura* ass, char status){ // status = status contrár
     printf("///         Telefone: %s\n", ass->telefone);
     printf("///         Email: %s\n", ass->email);
     printf("///         Código: %s\n", ass->codigo);
+    if(ass->data[4] >= 0 && ass->data[4] <= 9){
+      printf("///         Data de adesão: %d/%d/%d/ às %dh0%d\n", ass->data[0],ass->data[1],ass->data[2],ass->data[3],ass->data[4]);
+    }else{
+      printf("///         Data de adesão: %d/%d/%d/ às %dh%d\n", ass->data[0],ass->data[1],ass->data[2],ass->data[3],ass->data[4]);
+    }
+    
     printf("///         Nível: %c\n", ass->nivel);
     if(quant_cervejas_cadas() == 0){
       printf("///         Cerveja do Mês: A DEFINIR\n");
@@ -401,6 +389,7 @@ void recuperar_assinatura(void){ // FUNÇÃO COM BUGS, NÃO SEI SE TÁ RECUPERAN
     getchar();
     if(resposta == 's' || resposta == 'S'){
       ass->status = 'a';
+      pega_data(ass->data);
       fseek(arq, -1*sizeof(Assinatura), SEEK_CUR);
       fwrite(ass, sizeof(Assinatura), 1, arq);
       recuperado_sucesso();
@@ -646,4 +635,14 @@ int sorteio_numero(int tam){
     num = 0 + rand()%tam;
   }while(num < 0);
   return num;
+}
+
+void pega_data(int *data){
+  time_t t = time(NULL);
+  struct tm tm = *localtime(&t);
+  data[0] = tm.tm_mday;
+  data[1] = tm.tm_mon + 1;
+  data[2] = tm.tm_year + 1900;
+  data[3] = tm.tm_hour;
+  data[4] = tm.tm_min;
 }
