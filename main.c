@@ -120,6 +120,7 @@ int main() {
 					op3 = relatorio_assinatura();
 					if(op3 == '1'){
 						printf("Listagem por ordem alfabética\n");
+						rela_ordem_alfa_ass();
 					}else if(op3 == '2'){
 						printf("Listagem por nível\n");
 					}else if(op3 == '3'){

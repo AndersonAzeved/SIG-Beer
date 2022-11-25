@@ -6,6 +6,7 @@
 #include "relatorio.h"
 #include "biblioteca.h"
 #include "principal.h"
+#include "assinatura.h"
 
 char tela_relatorio(void) {
   char op[11];
@@ -126,4 +127,44 @@ char relatorio_assinatura(void){ //Quiser adicionar mais filtros
       }
   }while(!ok);
   return op[0];
+}
+
+void rela_ordem_alfa_ass(void){
+  Assinatura* ass;
+  FILE* arq;
+  arq = fopen("files/assinatura.dat", "r+b");
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  while(!feof(arq)){
+    arq = fopen("files/assinatura.dat", "r+b");
+    while(!feof(arq)){
+      (fread(ass, sizeof(Assinatura), 1, arq));
+      if((ass->nome[0] >= 65 && ass->nome[0] <= 90) || (ass->nome[0] >= 97 && ass->nome[0] <= 122)){
+        printf("\n"
+        "//////////////////////////////////////////////////////////////////////////////\n"
+        "///                                                                        ///\n"
+        "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+        "///                  = = = Assinatura Cadastrada = = =                     ///\n"
+        "///                                                                        ///\n");
+        printf("///         Nome: %s\n", ass->nome);
+        printf("///         CPF: %s\n", ass->cpf);
+        printf("///         Endereço: %s\n", ass->endereco);
+        printf("///         Telefone: %s\n", ass->telefone);
+        printf("///         Email: %s\n", ass->email);
+        printf("///         Código: %s\n", ass->codigo);
+        printf("///         Nível: %c\n", ass->nivel);
+        if(quant_cervejas_cadas() == 0){
+          printf("///         Cerveja do Mês: A DEFINIR\n");
+        }else{
+        printf("///         Cerveja do Mês: %s\n", ass->cerveja_mes);
+        }
+        printf("///                                                                        ///\n");
+        printf("//////////////////////////////////////////////////////////////////////////////\n");
+      }
+    }
+    fclose(arq);
+  }
+  fclose(arq);
+  free(ass);
+  getchar();
+  system("clear || cls");
 }
