@@ -2,8 +2,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "relatorio.h"
 #include "biblioteca.h"
+#include "principal.h"
 
 char tela_relatorio(void) {
   char op[11];
@@ -25,8 +27,8 @@ char tela_relatorio(void) {
     "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
     "///                 = = = = Módulo relatórios = = = =                      ///\n"       
     "///                                                                        ///\n"
-    "///             1. Relatório de cervejas                                   ///\n"
-    "///             2. Relatório de assinaturas                                ///\n"
+    "///             1. Relatório de assinaturas                                ///\n"
+    "///             2. Relatório de cervejas                                   ///\n"
     "///             3. Relatório de fornecedores                               ///\n"
     "///             0. Voltar                                                  ///\n"
     "///                                                                        ///\n"
@@ -115,7 +117,7 @@ char relatorio_assinatura(void){ //Quiser adicionar mais filtros
     printf("Informe a opção: "); 
     fgets(op, 10, stdin);
       remove_enter(op);
-      if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '5')){
+      if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '4')){
         ok = 1;
       }else{
         system("clear||cls");

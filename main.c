@@ -21,6 +21,7 @@
 
 char op; 
 char op2; 
+char op3;
 
 int main() {
   setlocale(LC_ALL, "Portuguese");
@@ -58,9 +59,6 @@ int main() {
 			}else{
 				tela_opcao_invalida();
 			}
-
-			// op2 = tela_assinaturas();
-
 		}while(op2 != '0');	
 	}
 
@@ -86,9 +84,6 @@ int main() {
 			}else{
 				tela_opcao_invalida();
 			}
-
-			// op2 = tela_cervejas();
-
 		}while(op2 != '0');
 	}
 
@@ -112,9 +107,6 @@ int main() {
 			}else{
 				tela_opcao_invalida();
 			}
-
-			// op2 = tela_fornecedores();
-		
 		}while(op2 != '0');
 	}
 	else if (op == '4'){ //Módulo relatórios
@@ -123,9 +115,26 @@ int main() {
 			op2 = tela_relatorio();
 
 			if(op2 == '1'){
-				printf("\nRelatório de Cervejas\n");
-			}else if(op2 == '2'){
 				printf("\nRelatório de Assinaturas\n");
+				do{
+					op3 = relatorio_assinatura();
+					if(op3 == '1'){
+						printf("Listagem por ordem alfabética\n");
+					}else if(op3 == '2'){
+						printf("Listagem por nível\n");
+					}else if(op3 == '3'){
+						printf("Listagem por cadastro ativos\n");
+					}else if(op3 == '4'){
+						printf("Listagem por cadastro inativos\n");
+					}else if(op3 == '0'){
+						printf("Voltando\n");
+					}else{
+						tela_opcao_invalida();
+					}
+				}while(op3 != '0');
+
+			}else if(op2 == '2'){
+				printf("\nRelatório de Cervejas\n");
 			}else if(op2 == '3'){
 				printf("\nRelatório de Fornecedores\n");
 			}else if(op2 == '0'){
@@ -134,24 +143,17 @@ int main() {
 			else{
 				tela_opcao_invalida();
 			}
-
-			// op2 = tela_relatorio();
-
 		}while(op2 != '0');
 		
 	}
 	else if (op == '5') {
-		//printf("Sobre Equipe");
 		tela_equipe();
 	} 
 	else if (op == '6') {
-		//printf("Sobre Projeto");
 		tela_sobre();
 	} 
 	else if (op == '7') {
-		//printf("Lixeira");
 		do{
-
 			op2 = tela_lixeira();
 			
 			if(op2 == '1'){
@@ -167,17 +169,12 @@ int main() {
 			}else{
 				tela_opcao_invalida();
 			}
-
-			// op2 = tela_lixeira();
-
 		}while(op2 != '0');
 	}
 	else if(op == '0'){
-		//printf("Módulo de Encerramento");
 		tela_encerramento();
 	}
 	else{
-		//printf("Opção Invalída!");
 		tela_opcao_invalida();
 	}
 
