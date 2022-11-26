@@ -123,6 +123,7 @@ int main() {
 						rela_ordem_alfa_ass();
 					}else if(op3 == '2'){
 						printf("Listagem por nível\n");
+						rela_por_nivel_ass();
 					}else if(op3 == '3'){
 						printf("Listagem por cadastro ativos\n");
 					}else if(op3 == '4'){

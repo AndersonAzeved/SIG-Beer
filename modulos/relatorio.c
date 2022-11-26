@@ -153,3 +153,34 @@ void rela_ordem_alfa_ass(void){
   getchar();
   system("clear || cls");
 }
+
+void rela_por_nivel_ass(void){
+  int cont = 1;
+  FILE* arq;
+  Assinatura* ass;
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  for(int i = 1; i <= 3; i++){
+    arq = fopen("files/assinatura.dat", "r+b");
+    printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///                        Assinaturas com nível %i                        ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n", i);
+    while((fread(ass, sizeof(Assinatura), 1, arq))){
+      if(ass->nivel == (i+'0')){
+        printf("\n"
+        "//////////////////////////////////////////////////////////////////////////////\n"
+        "///  ASSINATURA %i                                                         ///", cont);
+        exibe_assinatura(ass, 'x');
+        printf("\n");
+        cont++;
+      }
+    }
+    fclose(arq);
+  }
+  free(ass);
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
+}
