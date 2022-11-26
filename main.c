@@ -21,13 +21,13 @@
 
 char op; 
 char op2; 
+char op3;
 
 int main() {
   setlocale(LC_ALL, "Portuguese");
   criando_arquivo("files/assinatura.dat");
   criando_arquivo("files/cerveja.dat");
   criando_arquivo("files/fornecedor.dat");
-  criando_arquivo("files/relatorio.dat");
   criando_arquivo("files/data_sorteio.dat");
   preenche_data_sorteio();
   preenche_assinaturas();
@@ -58,9 +58,6 @@ int main() {
 			}else{
 				tela_opcao_invalida();
 			}
-
-			// op2 = tela_assinaturas();
-
 		}while(op2 != '0');	
 	}
 
@@ -86,9 +83,6 @@ int main() {
 			}else{
 				tela_opcao_invalida();
 			}
-
-			// op2 = tela_cervejas();
-
 		}while(op2 != '0');
 	}
 
@@ -112,9 +106,6 @@ int main() {
 			}else{
 				tela_opcao_invalida();
 			}
-
-			// op2 = tela_fornecedores();
-		
 		}while(op2 != '0');
 	}
 	else if (op == '4'){ //Módulo relatórios
@@ -123,9 +114,26 @@ int main() {
 			op2 = tela_relatorio();
 
 			if(op2 == '1'){
-				printf("\nRelatório de Cervejas\n");
-			}else if(op2 == '2'){
 				printf("\nRelatório de Assinaturas\n");
+				do{
+					op3 = relatorio_assinatura();
+					if(op3 == '1'){
+						rela_ordem_alfa_ass();
+					}else if(op3 == '2'){
+						rela_por_nivel_ass();
+					}else if(op3 == '3'){
+						rela_ass_ativas();
+					}else if(op3 == '4'){
+						rela_ass_inativas();
+					}else if(op3 == '0'){
+						printf("Voltando\n");
+					}else{
+						tela_opcao_invalida();
+					}
+				}while(op3 != '0');
+
+			}else if(op2 == '2'){
+				printf("\nRelatório de Cervejas\n");
 			}else if(op2 == '3'){
 				printf("\nRelatório de Fornecedores\n");
 			}else if(op2 == '0'){
@@ -134,24 +142,17 @@ int main() {
 			else{
 				tela_opcao_invalida();
 			}
-
-			// op2 = tela_relatorio();
-
 		}while(op2 != '0');
 		
 	}
 	else if (op == '5') {
-		//printf("Sobre Equipe");
 		tela_equipe();
 	} 
 	else if (op == '6') {
-		//printf("Sobre Projeto");
 		tela_sobre();
 	} 
 	else if (op == '7') {
-		//printf("Lixeira");
 		do{
-
 			op2 = tela_lixeira();
 			
 			if(op2 == '1'){
@@ -167,17 +168,12 @@ int main() {
 			}else{
 				tela_opcao_invalida();
 			}
-
-			// op2 = tela_lixeira();
-
 		}while(op2 != '0');
 	}
 	else if(op == '0'){
-		//printf("Módulo de Encerramento");
 		tela_encerramento();
 	}
 	else{
-		//printf("Opção Invalída!");
 		tela_opcao_invalida();
 	}
 
