@@ -6,6 +6,7 @@ struct assinatura{
     char email[51];
     char codigo[51];
     char cerveja_mes[21];
+    int data[5];
     char nivel;
     char status;
 };
@@ -39,3 +40,4 @@ int sorteio_numero(int );
 void preenche_assinaturas(void);
 char* sortear_cerveja(void);
 int quant_cervejas_cadas(void);
+void pega_data(int*);
