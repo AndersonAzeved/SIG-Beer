@@ -184,3 +184,33 @@ void rela_por_nivel_ass(void){
   getchar();
   system("clear || cls");
 }
+
+void rela_ass_ativas(void){
+  int cont = 1;
+  FILE* arq;
+  Assinatura* ass;
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  arq = fopen("files/assinatura.dat", "r+b");
+  printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///                         Assinaturas Ativas                             ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n");
+  while(!feof(arq)){
+    (fread(ass, sizeof(Assinatura), 1, arq));
+      if(ass->status == 'a'){
+        printf("\n"
+        "//////////////////////////////////////////////////////////////////////////////\n"
+        "///  ASSINATURA %i                                                         ///", cont);
+        exibe_assinatura(ass, 'i');
+        printf("\n");
+        cont++;
+      }
+  }
+  fclose(arq);
+  free(ass);
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
+}

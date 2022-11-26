@@ -126,6 +126,7 @@ int main() {
 						rela_por_nivel_ass();
 					}else if(op3 == '3'){
 						printf("Listagem por cadastro ativos\n");
+						rela_ass_ativas();
 					}else if(op3 == '4'){
 						printf("Listagem por cadastro inativos\n");
 					}else if(op3 == '0'){
