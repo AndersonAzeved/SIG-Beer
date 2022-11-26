@@ -240,7 +240,6 @@ Assinatura* buscar_ass(char *busca){
 }
 
 void exibe_assinatura(Assinatura* ass, char status){ // status = status contrário
-  system("clear||cls");
   if((ass == NULL) || (ass->status == status)){ // ex.: status = 'i', a função só 
                                                 //exibe os cadastros ativos
         
