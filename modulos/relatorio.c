@@ -197,16 +197,44 @@ void rela_ass_ativas(void){
     "///                         Assinaturas Ativas                             ///\n"
     "///                                                                        ///\n"
     "//////////////////////////////////////////////////////////////////////////////\n");
-  while(!feof(arq)){
-    (fread(ass, sizeof(Assinatura), 1, arq));
-      if(ass->status == 'a'){
-        printf("\n"
-        "//////////////////////////////////////////////////////////////////////////////\n"
-        "///  ASSINATURA %i                                                         ///", cont);
-        exibe_assinatura(ass, 'i');
-        printf("\n");
-        cont++;
-      }
+  while((fread(ass, sizeof(Assinatura), 1, arq))){
+    if(ass->status == 'a'){
+      printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///  ASSINATURA %i                                                         ///", cont);
+      exibe_assinatura(ass, 'i');
+      printf("\n");
+      cont++;
+    }
+  }
+  fclose(arq);
+  free(ass);
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
+}
+
+void rela_ass_inativas(void){
+  int cont = 1;
+  FILE* arq;
+  Assinatura* ass;
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  arq = fopen("files/assinatura.dat", "r+b");
+  printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///                         Assinaturas Inativas                           ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n");
+  while((fread(ass, sizeof(Assinatura), 1, arq))){
+    if(ass->status == 'i'){
+      printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///  ASSINATURA %i                                                         ///", cont);
+      exibe_assinatura(ass, 'a');
+      printf("\n");
+      cont++;
+    }
   }
   fclose(arq);
   free(ass);
