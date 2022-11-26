@@ -106,8 +106,6 @@ void cadastrar_assinatura(void){
       fgets(ass->email, 50, stdin);
       remove_enter(ass->email);
     }
-    printf("Código da Assinatura: ");
-    remove_enter(fgets(ass->codigo, 50, stdin));
     ass->nivel = escolhe_nivel();
     ass->status = 'a'; // a = ATIVADO e i = INATIVO
     pega_data(ass->data);
@@ -170,8 +168,6 @@ void atualizar_assinatura(void){
       fgets(ass->email, 50, stdin);
       remove_enter(ass->email);
     } 
-    printf("Código da Assinatura: ");
-    remove_enter(fgets(ass->codigo, 50, stdin));
     ass->nivel = escolhe_nivel();
     ass->status = 'a';
     fseek(arq, -1*sizeof(Assinatura), SEEK_CUR);
@@ -248,7 +244,6 @@ void exibe_assinatura(Assinatura* ass, char status){ // status = status contrár
     printf("///         Endereço: %s\n", ass->endereco);
     printf("///         Telefone: %s\n", ass->telefone);
     printf("///         Email: %s\n", ass->email);
-    printf("///         Código: %s\n", ass->codigo);
     if(ass->data[4] >= 0 && ass->data[4] <= 9){
       printf("///         Data de adesão: %d/%d/%d/ às %dh0%d\n", ass->data[0],ass->data[1],ass->data[2],ass->data[3],ass->data[4]);
     }else{

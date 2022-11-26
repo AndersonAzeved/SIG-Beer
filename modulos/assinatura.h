@@ -4,7 +4,6 @@ struct assinatura{
     char endereco[101]; 
     char telefone[51];
     char email[51];
-    char codigo[51];
     char cerveja_mes[21];
     int data[5];
     char nivel;
