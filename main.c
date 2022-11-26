@@ -28,7 +28,6 @@ int main() {
   criando_arquivo("files/assinatura.dat");
   criando_arquivo("files/cerveja.dat");
   criando_arquivo("files/fornecedor.dat");
-  criando_arquivo("files/relatorio.dat");
   criando_arquivo("files/data_sorteio.dat");
   preenche_data_sorteio();
   preenche_assinaturas();
