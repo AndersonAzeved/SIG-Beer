@@ -388,21 +388,5 @@ int telefone_esta_forne(char *telefone){
 }
 
 int email_esta_forne(char *email){
-  FILE* arq;
-  Assinatura *ass;
-  arq = fopen("files/assinatura.dat", "rb");
-  if(arq == NULL){
-    exit(1);
-  }
-  ass = (Assinatura*) malloc(sizeof(Assinatura));
-  while(!feof(arq)){
-    if(fread(ass, sizeof(Assinatura), 1, arq)){
-      if(((strcmp(ass->email,email)) == 0)){
-        return 1;
-      }
-    }
-  }
-  fclose(arq);
-  free(ass);
-  return 0;
+  
 }
