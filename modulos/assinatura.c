@@ -667,3 +667,7 @@ int telefone_esta_ass(char *telefone){
   free(ass);
   return 0;
 }
+
+int email_esta_ass(char *telefone){
+
+}
