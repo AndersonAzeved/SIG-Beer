@@ -98,21 +98,20 @@ void cadastrar_assinatura(void){
     remove_enter(fgets(ass->endereco, 100, stdin));
 
     do{
-    printf("Telefone: ");
-    remove_enter(fgets(ass->telefone, 50, stdin));
-    if(telefone_esta_ass(ass->telefone)){
-      printf("\nTelefone já cadastrado, digite novamente.\n");
-    }
+      printf("Telefone: ");
+      remove_enter(fgets(ass->telefone, 50, stdin));
+      if(telefone_esta_ass(ass->telefone)){
+        printf("\nTelefone já cadastrado, digite novamente.\n");
+      }
     }while(telefone_esta_ass(ass->telefone));
-
-    printf("Email: ");
-    fgets(ass->email, 50, stdin);
-    remove_enter(ass->email);
-    while(!valida_email(ass->email)){
-      printf("Email inválido, tente novamente: ");
-      fgets(ass->email, 50, stdin);
-      remove_enter(ass->email);
-    }
+    do{
+      printf("Email: ");
+      remove_enter(fgets(ass->email, 50, stdin));
+      if(email_esta_ass(ass->email)){
+        printf("\nEmail já cadastrado, digite novamente.\n");
+      }
+    }while(email_esta_ass(ass->email));
+    
     ass->nivel = escolhe_nivel();
     ass->status = 'a'; // a = ATIVADO e i = INATIVO
     pega_data(ass->data);
@@ -166,20 +165,19 @@ void atualizar_assinatura(void){
     printf("Endereço: ");  
     remove_enter(fgets(ass->endereco, 100, stdin));
     do{
-    printf("Telefone: ");
-    remove_enter(fgets(ass->telefone, 50, stdin));
-    if(telefone_esta_ass(ass->telefone)){
-      printf("\nTelefone já cadastrado, digite novamente.\n");
-    }
+      printf("Telefone: ");
+      remove_enter(fgets(ass->telefone, 50, stdin));
+      if(telefone_esta_ass(ass->telefone)){
+        printf("\nTelefone já cadastrado, digite novamente.\n");
+      }
     }while(telefone_esta_ass(ass->telefone));
-    printf("Email: ");
-    fgets(ass->email, 50, stdin);
-    remove_enter(ass->email);
-    while(!valida_email(ass->email)){
-      printf("Email inválido, tente novamente: ");
-      fgets(ass->email, 50, stdin);
-      remove_enter(ass->email);
-    } 
+    do{
+      printf("Email: ");
+      remove_enter(fgets(ass->email, 50, stdin));
+      if(email_esta_ass(ass->email)){
+        printf("\nEmail já cadastrado, digite novamente.\n");
+      }
+    }while(email_esta_ass(ass->email));
     ass->nivel = escolhe_nivel();
     ass->status = 'a';
     fseek(arq, -1*sizeof(Assinatura), SEEK_CUR);
