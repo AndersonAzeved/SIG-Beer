@@ -502,11 +502,6 @@ int quant_cervejas_cadas(void){
   return cont_cer;
 }
 
-// Arquivo Data_sorteio Vazio: Add a data e faço o sorteio
-// Arquivo Data_sorteio preenchido: Comparar data, ver se é pra atualizar, atualize e realizar sorteio 
-// Arquivo Assinatura: Atualizar a cerveja do mês
-// Verificar se a cerveja sorteada está ativa
-
 void preenche_data_sorteio(void){
   int status = quant_cervejas_cadas();
   if(status == 0){
@@ -639,4 +634,24 @@ void pega_data(int *data){
   data[2] = tm.tm_year + 1900;
   data[3] = tm.tm_hour;
   data[4] = tm.tm_min;
+}
+
+int telefone_esta_ass(char *telefone){
+  FILE* arq;
+  Assinatura *ass;
+  arq = fopen("files/assinatura.dat", "rb");
+  if(arq == NULL){
+    exit(1);
+  }
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  while(!feof(arq)){
+    if(fread(ass, sizeof(Assinatura), 1, arq)){
+      if(((strcmp(ass->telefone,telefone)) == 0)){
+        return 1;
+      }
+    }
+  }
+  fclose(arq);
+  free(ass);
+  return 0;
 }
