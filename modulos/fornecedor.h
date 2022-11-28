@@ -18,3 +18,4 @@ int cnpj_esta(char *);
 void grava_fornecedor(Fornecedor*);
 void exibe_fornecedor(Fornecedor*, char);
 Fornecedor* buscar_forne(char *);
+int telefone_esta_forne(char *);
