@@ -32,8 +32,10 @@ void cadastrar_fornecedor(void){
     printf("CNPJ inválido, tente novamente!\n");
   }}
   while (!valida_cnpj(forne->cnpj));
-  if(cnpj_esta(forne->cnpj)){
+  if(cnpj_esta(forne->cnpj) == 1){
     printf("\nCNPJ já cadastrado!\n");
+  }else if(cnpj_esta(forne->cnpj) == 2){
+    printf("\nCNPJ cadastrado, porém inativo!\n");
   }else{
     printf("Nome jurídico da empresa: ");
     remove_enter(fgets(forne->empresa, 51, stdin)); 
