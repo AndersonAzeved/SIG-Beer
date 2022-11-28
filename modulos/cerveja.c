@@ -281,9 +281,7 @@ void exibe_cerveja(Cerveja* cer, char status){
     "                                                                              \n"
     "//////////////////////////////////////////////////////////////////////////////\n"
     "\n",cer->nome,cer->codigo,cer->fornecedor);
-    getchar();
-      }
-    getchar();
+  }
 }
 
 Cerveja* buscar__cer(char *busca){
