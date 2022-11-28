@@ -6,7 +6,7 @@
 ///               	SIG - Beer: Assinatura de Cervejas                      ///
 ///    Developed by @andersonazeved and @ericleisonn -- since Aug, 2022     ///
 ///////////////////////////////////////////////////////////////////////////////
-///                                Semana 10                                ///
+///                                Semana 13                                ///
 ///////////////////////////////////////////////////////////////////////////////
 
 // Importacao de bibliotecas
