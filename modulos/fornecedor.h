@@ -19,3 +19,4 @@ void grava_fornecedor(Fornecedor*);
 void exibe_fornecedor(Fornecedor*, char);
 Fornecedor* buscar_forne(char *);
 int telefone_esta_forne(char *);
+int email_esta_forne(char *);
