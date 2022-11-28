@@ -41,3 +41,4 @@ char* sortear_cerveja(void);
 int quant_cervejas_cadas(void);
 void pega_data(int*);
 int telefone_esta_ass(char *);
+int email_esta_ass(char *);
