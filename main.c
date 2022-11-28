@@ -139,8 +139,6 @@ int main() {
 				op3 = relatorio_cerveja();
 					if(op3 == '1'){
 						rela_ordem_alfa_cer();
-					// }else if(op3 == '2'){
-					// 	rela_por_nivel_cer();
 					}else{
 						tela_opcao_invalida();
 					}

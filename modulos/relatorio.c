@@ -332,7 +332,7 @@ void rela_ordem_alfa_cer(void){
         cont++;
         printf("\n"
         "//////////////////////////////////////////////////////////////////////////////\n"
-        "///  ASSINATURA %i                                                         ///", cont);
+        "///  Cerveja %i                                                            ///", cont);
         exibe_cerveja(cer, 'x');
         printf("\n");
       }
