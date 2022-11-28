@@ -388,5 +388,21 @@ int telefone_esta_forne(char *telefone){
 }
 
 int email_esta_forne(char *email){
-  
+  FILE* arq;
+  Fornecedor *forne;
+  arq = fopen("files/fornecedor.dat", "rb");
+  if(arq == NULL){
+    exit(1);
+  }
+  forne = (Fornecedor*) malloc(sizeof(Fornecedor));
+  while(!feof(arq)){
+    if(fread(forne, sizeof(Fornecedor), 1, arq)){
+      if(((strcmp(forne->emailempresa,email)) == 0)){
+        return 1;
+      }
+    }
+  }
+  fclose(arq);
+  free(forne);
+  return 0;
 }
