@@ -104,9 +104,15 @@ void cadastrar_assinatura(void){
         printf("\nTelefone já cadastrado, digite novamente.\n");
       }
     }while(telefone_esta_ass(ass->telefone));
+
     do{
-      printf("Email: ");
-      remove_enter(fgets(ass->email, 50, stdin));
+      do{
+        printf("Email: ");
+        remove_enter(fgets(ass->email, 50, stdin));
+        if(!valida_email(ass->email)){
+          printf("\nEmail Inválido, tente novamente!\n");
+        }
+      }while(!valida_email(ass->email));
       if(email_esta_ass(ass->email)){
         printf("\nEmail já cadastrado, digite novamente.\n");
       }
@@ -171,13 +177,20 @@ void atualizar_assinatura(void){
         printf("\nTelefone já cadastrado, digite novamente.\n");
       }
     }while(telefone_esta_ass(ass->telefone));
+
     do{
-      printf("Email: ");
-      remove_enter(fgets(ass->email, 50, stdin));
+      do{
+        printf("Email: ");
+        remove_enter(fgets(ass->email, 50, stdin));
+        if(!valida_email(ass->email)){
+          printf("\nEmail Inválido, tente novamente!\n");
+        }
+      }while(!valida_email(ass->email));
       if(email_esta_ass(ass->email)){
         printf("\nEmail já cadastrado, digite novamente.\n");
       }
     }while(email_esta_ass(ass->email));
+
     ass->nivel = escolhe_nivel();
     ass->status = 'a';
     fseek(arq, -1*sizeof(Assinatura), SEEK_CUR);

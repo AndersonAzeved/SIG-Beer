@@ -48,8 +48,14 @@ void cadastrar_fornecedor(void){
       }
     } while (!valida_cpf(forne->cpfempresa));
 
-    printf("Telefone: ");
-    remove_enter(fgets(forne->telefoneempresa, 51, stdin));  
+    do{
+      printf("Telefone: ");
+      remove_enter(fgets(forne->telefoneempresa, 50, stdin));
+      if(telefone_esta_forne(forne->telefoneempresa)){
+        printf("\nTelefone já cadastrado, digite novamente.\n");
+      }
+    }while(telefone_esta_forne(forne->telefoneempresa));
+
     do{
       printf("E-mail da empresa : ");
       remove_enter(fgets(forne->emailempresa, 51, stdin));
@@ -57,6 +63,7 @@ void cadastrar_fornecedor(void){
         printf("Email inválido, tente novamente!\n");
     } }
     while(!valida_email(forne->emailempresa));
+    
     forne->status = 'a';
     system("clear||cls");
     cadastrado_sucesso();
@@ -108,8 +115,13 @@ void atualizar_fornecedor(void){
       }
     } while (!valida_cpf(forne->cpfempresa));
 
-    printf("Telefone: ");
-    remove_enter(fgets(forne->telefoneempresa, 50, stdin));
+    do{
+      printf("Telefone: ");
+      remove_enter(fgets(forne->telefoneempresa, 50, stdin));
+      if(telefone_esta_forne(forne->telefoneempresa)){
+        printf("\nTelefone já cadastrado, digite novamente.\n");
+      }
+    }while(telefone_esta_forne(forne->telefoneempresa));
 
     printf("E-mail da empresa : ");
     remove_enter(fgets(forne->emailempresa, 50, stdin));
