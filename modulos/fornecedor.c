@@ -366,3 +366,7 @@ Fornecedor* buscar_forne(char *busca){
   free(forne);
   return NULL;
 }
+
+int telefone_esta_forne(char *telefone){
+  
+}
