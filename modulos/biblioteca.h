@@ -25,3 +25,4 @@ void cadastro_nocorreu(void);
 void cerveja_nencontrada(void);
 void cadastro_jaapagado(void);
 void cadastro_jarecuperado(void);
+void telefone_ja_cadastrado(void);
