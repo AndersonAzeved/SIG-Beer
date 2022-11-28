@@ -27,4 +27,3 @@ void cadastro_jaapagado(void);
 void cadastro_jarecuperado(void);
 void telefone_ja_cadastrado(void);
 void email_ja_cadastrado(void);
-void pega_data(int* );

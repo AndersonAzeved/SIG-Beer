@@ -1,19 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <time.h>
 #include "biblioteca.h"
 #include "cerveja.h"
-
-void pega_data(int* data){
-  int data[3];
-  time_t t = time(NULL);
-  struct tm tm = *localtime(&t);
-  data[0] = tm.tm_mday;
-  data[1] = tm.tm_mon + 1;
-  data[2] = tm.tm_year + 1900;
-}
-
 
 void retira_pontos(char *var){
 

@@ -279,8 +279,6 @@ void rela_ass_inativas(void){
 
 void rela_ass_ultmes(void){
   int cont = 0;
-  int data[3];
-  
   FILE* arq;
   Assinatura* ass;
   ass = (Assinatura*) malloc(sizeof(Assinatura));
