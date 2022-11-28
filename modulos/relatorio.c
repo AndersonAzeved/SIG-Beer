@@ -359,6 +359,7 @@ void rela_todas_cervejas(void){
   FILE* arq;
   Cerveja* cer;
   cer = (Cerveja*) malloc(sizeof(Cerveja));
+  arq = fopen("files/cerveja.dat", "r+b");
   while((fread(cer, sizeof(Cerveja), 1, arq))){
     cont++;
     printf("\n"
@@ -379,6 +380,7 @@ void rela_todas_ass(void){
   FILE* arq;
   Assinatura* ass;
   ass = (Assinatura*) malloc(sizeof(Assinatura));
+  arq = fopen("files/assinatura.dat", "r+b");
   while((fread(ass, sizeof(Assinatura), 1, arq))){
     cont++;
     printf("\n"
