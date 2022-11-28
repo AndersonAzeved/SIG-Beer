@@ -101,7 +101,7 @@ void cadastrar_assinatura(void){
       printf("Telefone: ");
       remove_enter(fgets(ass->telefone, 50, stdin));
       if(telefone_esta_ass(ass->telefone)){
-        printf("\nTelefone já cadastrado, digite novamente.\n");
+        telefone_ja_cadastrado();
       }
     }while(telefone_esta_ass(ass->telefone));
 
@@ -174,7 +174,7 @@ void atualizar_assinatura(void){
       printf("Telefone: ");
       remove_enter(fgets(ass->telefone, 50, stdin));
       if(telefone_esta_ass(ass->telefone)){
-        printf("\nTelefone já cadastrado, digite novamente.\n");
+        telefone_ja_cadastrado();
       }
     }while(telefone_esta_ass(ass->telefone));
 

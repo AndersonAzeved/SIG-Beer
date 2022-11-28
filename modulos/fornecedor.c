@@ -52,7 +52,7 @@ void cadastrar_fornecedor(void){
       printf("Telefone: ");
       remove_enter(fgets(forne->telefoneempresa, 50, stdin));
       if(telefone_esta_forne(forne->telefoneempresa)){
-        printf("\nTelefone já cadastrado, digite novamente.\n");
+        telefone_ja_cadastrado();
       }
     }while(telefone_esta_forne(forne->telefoneempresa));
 
@@ -65,7 +65,7 @@ void cadastrar_fornecedor(void){
         }
       }while(!valida_email(forne->emailempresa));
       if(email_esta_forne(forne->emailempresa)){
-        printf("\nEmail já cadastrado, digite novamente.\n");
+        email_ja_cadastrado();
       }
     }while(email_esta_forne(forne->emailempresa));
     
@@ -124,7 +124,7 @@ void atualizar_fornecedor(void){
       printf("Telefone: ");
       remove_enter(fgets(forne->telefoneempresa, 50, stdin));
       if(telefone_esta_forne(forne->telefoneempresa)){
-        printf("\nTelefone já cadastrado, digite novamente.\n");
+        telefone_ja_cadastrado();
       }
     }while(telefone_esta_forne(forne->telefoneempresa));
 
@@ -137,7 +137,7 @@ void atualizar_fornecedor(void){
         }
       }while(!valida_email(forne->emailempresa));
       if(email_esta_forne(forne->emailempresa)){
-        printf("\nEmail já cadastrado, digite novamente.\n");
+        email_ja_cadastrado();
       }
     }while(email_esta_forne(forne->emailempresa));
     forne->status = 'a';
