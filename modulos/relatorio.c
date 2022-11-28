@@ -71,8 +71,8 @@ char relatorio_cerveja(void){ //Quiser adicionar mais filtros
     "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
     "///               = = = = Relatórios Assinatura = = = =                    ///\n"       
     "///                                                                        ///\n"
-    "///             1. Ordem Alfabética                                        ///\n"
-    "///             2. Últimos Mês                                             ///\n"
+    "///             1. Cervejas                                                ///\n"
+    "///             2. Ordem Alfabética                                        ///\n"
     "///             3. Cadastros Ativos                                        ///\n"
     "///             4. Cadastros Inativos                                      ///\n"
     "///             0. Voltar                                                  ///\n"
@@ -347,6 +347,26 @@ void rela_ordem_alfa_cer(void){
     }
     fclose(arq);
   }
+  free(cer);
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
+}
+
+void rela_todas_cervejas(void){
+  int cont = 0;
+  FILE* arq;
+  Cerveja* cer;
+  cer = (Cerveja*) malloc(sizeof(Cerveja));
+  while((fread(cer, sizeof(Cerveja), 1, arq))){
+    cont++;
+    printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///  Cerveja %i                                                            ///", cont);
+    exibe_cerveja(cer, 'x');
+    printf("\n");
+  }
+  fclose(arq);
   free(cer);
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();

@@ -138,6 +138,8 @@ int main() {
 				printf("\nRelatório de Cervejas\n");
 				op3 = relatorio_cerveja();
 					if(op3 == '1'){
+						rela_todas_cervejas();
+					}else if(op3 == '2'){
 						rela_ordem_alfa_cer();
 					}else{
 						tela_opcao_invalida();
