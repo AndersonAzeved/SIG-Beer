@@ -57,12 +57,17 @@ void cadastrar_fornecedor(void){
     }while(telefone_esta_forne(forne->telefoneempresa));
 
     do{
-      printf("E-mail da empresa : ");
-      remove_enter(fgets(forne->emailempresa, 51, stdin));
-      if(!valida_email(forne->emailempresa)){
-        printf("Email inválido, tente novamente!\n");
-    } }
-    while(!valida_email(forne->emailempresa));
+      do{
+        printf("Email: ");
+        remove_enter(fgets(forne->emailempresa, 50, stdin));
+        if(!valida_email(forne->emailempresa)){
+          printf("\nEmail Inválido, tente novamente!\n");
+        }
+      }while(!valida_email(forne->emailempresa));
+      if(email_esta_forne(forne->emailempresa)){
+        printf("\nEmail já cadastrado, digite novamente.\n");
+      }
+    }while(email_esta_forne(forne->emailempresa));
     
     forne->status = 'a';
     system("clear||cls");
@@ -123,12 +128,18 @@ void atualizar_fornecedor(void){
       }
     }while(telefone_esta_forne(forne->telefoneempresa));
 
-    printf("E-mail da empresa : ");
-    remove_enter(fgets(forne->emailempresa, 50, stdin));
-    while(!valida_email( forne->emailempresa)){
-      printf("Email inválido, tente novamente: ");
-      remove_enter(fgets(forne->emailempresa, 50, stdin));
-    } 
+    do{
+      do{
+        printf("Email: ");
+        remove_enter(fgets(forne->emailempresa, 50, stdin));
+        if(!valida_email(forne->emailempresa)){
+          printf("\nEmail Inválido, tente novamente!\n");
+        }
+      }while(!valida_email(forne->emailempresa));
+      if(email_esta_forne(forne->emailempresa)){
+        printf("\nEmail já cadastrado, digite novamente.\n");
+      }
+    }while(email_esta_forne(forne->emailempresa));
     forne->status = 'a';
     fseek(arq, -1*sizeof(Fornecedor), SEEK_CUR);
     fwrite(forne, sizeof(Fornecedor), 1, arq);
