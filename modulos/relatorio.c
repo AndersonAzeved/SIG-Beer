@@ -112,11 +112,12 @@ char relatorio_assinatura(void){ //Quiser adicionar mais filtros
     "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
     "///               = = = = Relatórios Assinatura = = = =                    ///\n"       
     "///                                                                        ///\n"
-    "///             1. Ordem Alfabética                                        ///\n"
-    "///             2. Nível                                                   ///\n"
-    "///             3. Últimos Mês                                             ///\n"
-    "///             4. Cadastros Ativos                                        ///\n"
-    "///             5. Cadastros Inativos                                      ///\n"
+    "///             1. Assinaturas                                             ///\n"
+    "///             2. Ordem Alfabética                                        ///\n"
+    "///             3. Nível                                                   ///\n"
+    "///             4. Últimos Mês                                             ///\n"
+    "///             5. Cadastros Ativos                                        ///\n"
+    "///             6. Cadastros Inativos                                      ///\n"
     "///             0. Voltar                                                  ///\n"
     "///                                                                        ///\n"
     "//////////////////////////////////////////////////////////////////////////////\n");
@@ -368,6 +369,26 @@ void rela_todas_cervejas(void){
   }
   fclose(arq);
   free(cer);
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
+}
+
+void rela_todas_ass(void){
+  int cont = 0;
+  FILE* arq;
+  Assinatura* ass;
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  while((fread(ass, sizeof(Assinatura), 1, arq))){
+    cont++;
+    printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///  Assinatura %i                                                         ///", cont);
+    exibe_assinatura(ass, 'x');
+    printf("\n");
+  }
+  fclose(arq);
+  free(ass);
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();
   system("clear || cls");

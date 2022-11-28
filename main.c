@@ -118,14 +118,16 @@ int main() {
 				do{
 					op3 = relatorio_assinatura();
 					if(op3 == '1'){
-						rela_ordem_alfa_ass();
+						rela_todas_ass();
 					}else if(op3 == '2'){
-						rela_por_nivel_ass();
+						rela_ordem_alfa_ass();
 					}else if(op3 == '3'){
-						rela_ass_ultmes();
+						rela_por_nivel_ass();
 					}else if(op3 == '4'){
-						rela_ass_ativas();
+						rela_ass_ultmes();
 					}else if(op3 == '5'){
+						rela_ass_ativas();
+					}else if(op3 == '6'){
 						rela_ass_inativas();
 					}else if(op3 == '0'){
 						printf("Voltando\n");
