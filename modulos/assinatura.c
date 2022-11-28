@@ -96,8 +96,15 @@ void cadastrar_assinatura(void){
     } 
     printf("Endereço: ");  
     remove_enter(fgets(ass->endereco, 100, stdin));
+
+    do{
     printf("Telefone: ");
     remove_enter(fgets(ass->telefone, 50, stdin));
+    if(telefone_esta_ass(ass->telefone)){
+      printf("\nTelefone já cadastrado, digite novamente.\n");
+    }
+    }while(telefone_esta_ass(ass->telefone));
+
     printf("Email: ");
     fgets(ass->email, 50, stdin);
     remove_enter(ass->email);
@@ -158,8 +165,13 @@ void atualizar_assinatura(void){
     } 
     printf("Endereço: ");  
     remove_enter(fgets(ass->endereco, 100, stdin));
+    do{
     printf("Telefone: ");
     remove_enter(fgets(ass->telefone, 50, stdin));
+    if(telefone_esta_ass(ass->telefone)){
+      printf("\nTelefone já cadastrado, digite novamente.\n");
+    }
+    }while(telefone_esta_ass(ass->telefone));
     printf("Email: ");
     fgets(ass->email, 50, stdin);
     remove_enter(ass->email);
