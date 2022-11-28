@@ -122,8 +122,10 @@ int main() {
 					}else if(op3 == '2'){
 						rela_por_nivel_ass();
 					}else if(op3 == '3'){
-						rela_ass_ativas();
+						rela_por_nivel_ass();
 					}else if(op3 == '4'){
+						rela_ass_ativas();
+					}else if(op3 == '5'){
 						rela_ass_inativas();
 					}else if(op3 == '0'){
 						printf("Voltando\n");

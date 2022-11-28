@@ -109,10 +109,11 @@ char relatorio_assinatura(void){ //Quiser adicionar mais filtros
     "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
     "///               = = = = Relatórios Assinatura = = = =                    ///\n"       
     "///                                                                        ///\n"
-    "///             1. Por Ordem Alfabética                                    ///\n"
-    "///             2. Por Nível                                               ///\n"
-    "///             3. Cadastros Ativos                                        ///\n"
-    "///             4. Cadastros Inativos                                      ///\n"
+    "///             1. Ordem Alfabética                                        ///\n"
+    "///             2. Nível                                                   ///\n"
+    "///             3. Últimos 30 dias                                         ///\n"
+    "///             4. Cadastros Ativos                                        ///\n"
+    "///             5. Cadastros Inativos                                      ///\n"
     "///             0. Voltar                                                  ///\n"
     "///                                                                        ///\n"
     "//////////////////////////////////////////////////////////////////////////////\n");
@@ -249,6 +250,44 @@ void rela_ass_inativas(void){
     "//////////////////////////////////////////////////////////////////////////////\n"
     "///                                                                        ///\n"
     "///                         Assinaturas Inativas                           ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n");
+  while((fread(ass, sizeof(Assinatura), 1, arq))){
+    if(ass->status == 'i'){
+      cont++;
+      printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///  ASSINATURA %i                                                         ///", cont);
+      exibe_assinatura(ass, 'a');
+      printf("\n");
+    }
+  }
+  if(cont == 0){
+    printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///                                                                        ///\n"
+      "///                   Nenhuma Assinatura Inativa                           ///\n"
+      "///                                                                        ///\n"
+      "//////////////////////////////////////////////////////////////////////////////\n");
+  }
+  fclose(arq);
+  free(ass);
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
+}
+
+void rela_ass_ultmes(void){
+  int cont = 0;
+  FILE* arq;
+  Assinatura* ass;
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  
+  arq = fopen("files/assinatura.dat", "r+b");
+  printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///            Assinaturas Cadastradas nos Últimos 30 dias                 ///\n"
     "///                                                                        ///\n"
     "//////////////////////////////////////////////////////////////////////////////\n");
   while((fread(ass, sizeof(Assinatura), 1, arq))){
