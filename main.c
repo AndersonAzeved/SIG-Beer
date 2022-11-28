@@ -122,7 +122,7 @@ int main() {
 					}else if(op3 == '2'){
 						rela_por_nivel_ass();
 					}else if(op3 == '3'){
-						rela_por_nivel_ass();
+						rela_ass_ultmes();
 					}else if(op3 == '4'){
 						rela_ass_ativas();
 					}else if(op3 == '5'){
@@ -136,6 +136,14 @@ int main() {
 
 			}else if(op2 == '2'){
 				printf("\nRelatório de Cervejas\n");
+				op3 = relatorio_cerveja();
+					if(op3 == '1'){
+						rela_ordem_alfa_cer();
+					// }else if(op3 == '2'){
+					// 	rela_por_nivel_cer();
+					}else{
+						tela_opcao_invalida();
+					}
 			}else if(op2 == '3'){
 				printf("\nRelatório de Fornecedores\n");
 			}else if(op2 == '0'){
