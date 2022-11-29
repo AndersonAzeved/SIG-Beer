@@ -373,7 +373,7 @@ void rela_ordem_alfa_cer(void){
         cont++;
         printf("\n"
         "//////////////////////////////////////////////////////////////////////////////\n"
-        "///  Cerveja %i                                                            ///", cont);
+        "///  CERVEJA %i                                                            ///", cont);
         exibe_cerveja(cer, 'x');
         printf("\n");
       }
@@ -404,7 +404,7 @@ void rela_todas_cervejas(void){
     cont++;
     printf("\n"
     "//////////////////////////////////////////////////////////////////////////////\n"
-    "///  Cerveja %i                                                            ///", cont);
+    "///  CERVEJA %i                                                            ///", cont);
     exibe_cerveja(cer, 'x');
     printf("\n");
   }
@@ -425,7 +425,7 @@ void rela_todas_ass(void){
     cont++;
     printf("\n"
     "//////////////////////////////////////////////////////////////////////////////\n"
-    "///  Assinatura %i                                                         ///", cont);
+    "///  ASSINATURA %i                                                         ///", cont);
     exibe_assinatura(ass, 'x');
     printf("\n");
   }
@@ -454,7 +454,7 @@ void rela_cer_ativas(void){
       cont++;
       printf("\n"
       "//////////////////////////////////////////////////////////////////////////////\n"
-      "///  ASSINATURA %i                                                         ///", cont);
+      "///  CERVEJA %i                                                            ///", cont);
       exibe_cerveja(cer, 'i');
       printf("\n");
     }
@@ -491,7 +491,7 @@ void rela_cer_inativas(void){
       cont++;
       printf("\n"
       "//////////////////////////////////////////////////////////////////////////////\n"
-      "///  ASSINATURA %i                                                         ///", cont);
+      "///  CERVEJA %i                                                            ///", cont);
       exibe_cerveja(cer, 'a');
       printf("\n");
     }
@@ -521,11 +521,43 @@ void rela_todos_forne(void){
     cont++;
     printf("\n"
     "//////////////////////////////////////////////////////////////////////////////\n"
-    "///  Cerveja %i                                                            ///", cont);
+    "///  FORNECEDOR %i                                                            ///", cont);
     exibe_fornecedor(forne, 'x');
     printf("\n");
   }
   fclose(arq);
+  free(forne);
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
+}
+
+void rela_ordem_alfa_forne(void){
+  int cont = 0;
+  Fornecedor* forne;
+  FILE* arq;
+  forne = (Fornecedor*) malloc(sizeof(Fornecedor));
+  for(int i = 0; i <= 25; i++){
+    arq = fopen("files/fornecedor.dat", "r+b");
+    while((fread(forne, sizeof(Fornecedor), 1, arq))){
+      if(forne->empresa[0] == 65+i || forne->empresa[0] == 97+i){
+        cont++;
+        printf("\n"
+        "//////////////////////////////////////////////////////////////////////////////\n"
+        "///  FORNECEDOR %i                                                         ///", cont);
+        exibe_fornecedor(forne, 'x');
+        printf("\n");
+      }
+    }}
+    if(cont == 0){
+    printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///                                                                        ///\n"
+      "///                   Nenhum Fornecedor Cadastrado                         ///\n"
+      "///                                                                        ///\n"
+      "//////////////////////////////////////////////////////////////////////////////\n");
+  }
+    fclose(arq);
   free(forne);
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();
