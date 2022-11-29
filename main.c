@@ -140,11 +140,13 @@ int main() {
 				printf("\nRelatório de Cervejas\n");
 				op3 = relatorio_cerveja();
 					if(op3 == '1'){
-						rela_todas_cervejas();
+						rela_todas_cervejas();					
 					}else if(op3 == '2'){
-						rela_ordem_alfa_cer();
-					}else{
-						tela_opcao_invalida();
+						rela_ordem_alfa_cer();					
+					}else if(op3 == '3'){
+						rela_cer_ativas();
+					}else if(op3 =='4'){
+						rela_cer_inativas();
 					}
 			}else if(op2 == '3'){
 				printf("\nRelatório de Fornecedores\n");
