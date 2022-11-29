@@ -394,3 +394,41 @@ void rela_todas_ass(void){
   getchar();
   system("clear || cls");
 }
+
+
+void rela_cer_ativas(void){
+  int cont = 0;
+  FILE* arq;
+  Cerveja* cer;
+  cer = (Cerveja*) malloc(sizeof(Cerveja));
+  arq = fopen("files/cerveja.dat", "r+b");
+  printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///                         Assinaturas Ativas                             ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n");
+  while((fread(cer, sizeof(Cerveja), 1, arq))){
+    if(cer->status == 'a'){
+      cont++;
+      printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///  ASSINATURA %i                                                         ///", cont);
+      exibe_assinatura(cer, 'i');
+      printf("\n");
+    }
+  }
+  if(cont == 0){
+    printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///                                                                        ///\n"
+      "///                   Nenhuma Cerveja Ativa                                ///\n"
+      "///                                                                        ///\n"
+      "//////////////////////////////////////////////////////////////////////////////\n");
+  }
+  fclose(arq);
+  free(cer);
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
+}
