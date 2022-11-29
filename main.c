@@ -155,9 +155,8 @@ int main() {
 						rela_todos_forne();
 					}else if(op3 == '2'){
 						rela_ordem_alfa_forne();
-			
 					}else if(op3 == '3'){
-
+						rela_forne_ativos();
 					}else if(op3 =='4'){
 
 					}
