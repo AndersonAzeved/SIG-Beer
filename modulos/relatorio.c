@@ -143,7 +143,7 @@ void rela_ordem_alfa_ass(void){
   for(int i = 0; i <= 25; i++){
     arq = fopen("files/assinatura.dat", "r+b");
     while((fread(ass, sizeof(Assinatura), 1, arq))){
-      if(ass->nome[0] == 65+i || ass->nome[0] >= 97+i){
+      if(ass->nome[0] == 65+i || ass->nome[0] == 97+i){
         cont++;
         printf("\n"
         "//////////////////////////////////////////////////////////////////////////////\n"
@@ -329,7 +329,7 @@ void rela_ordem_alfa_cer(void){
   for(int i = 0; i <= 25; i++){
     arq = fopen("files/cerveja.dat", "r+b");
     while((fread(cer, sizeof(Cerveja), 1, arq))){
-      if(cer->nome[0] == 65+i || cer->nome[0] >= 97+i){
+      if(cer->nome[0] == 65+i || cer->nome[0] == 97+i){
         cont++;
         printf("\n"
         "//////////////////////////////////////////////////////////////////////////////\n"
