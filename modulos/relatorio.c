@@ -510,3 +510,24 @@ void rela_cer_inativas(void){
   getchar();
   system("clear || cls");
 }
+
+void rela_todos_forne(void){
+  int cont = 0;
+  FILE* arq;
+  Fornecedor* forne;
+  forne= (Fornecedor*) malloc(sizeof(Fornecedor));
+  arq = fopen("files/fornecedor.dat", "r+b");
+  while((fread(forne, sizeof(Fornecedor), 1, arq))){
+    cont++;
+    printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///  Cerveja %i                                                            ///", cont);
+    exibe_fornecedor(forne, 'x');
+    printf("\n");
+  }
+  fclose(arq);
+  free(forne);
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
+}

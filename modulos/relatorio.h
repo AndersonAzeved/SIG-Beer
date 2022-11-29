@@ -14,3 +14,4 @@ void rela_todas_cervejas(void);
 void rela_todas_ass(void);
 void rela_cer_ativas(void);
 void rela_cer_inativas(void);
+void rela_todos_forne(void);
