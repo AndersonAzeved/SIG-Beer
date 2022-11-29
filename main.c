@@ -146,7 +146,7 @@ int main() {
 					}else if(op3 == '3'){
 						rela_cer_ativas();
 					}else if(op3 =='4'){
-						rela_cer_inativas();
+						// rela_cer_inativas();
 					}
 			}else if(op2 == '3'){
 				printf("\nRelatório de Fornecedores\n");

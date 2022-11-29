@@ -414,7 +414,7 @@ void rela_cer_ativas(void){
       printf("\n"
       "//////////////////////////////////////////////////////////////////////////////\n"
       "///  ASSINATURA %i                                                         ///", cont);
-      exibe_assinatura(cer, 'i');
+      exibe_cerveja(cer, 'i');
       printf("\n");
     }
   }
@@ -433,39 +433,39 @@ void rela_cer_ativas(void){
   system("clear || cls");
 }
 
-void rela_ass_inativas(void){
-  int cont = 0;
-  FILE* arq;
-  Assinatura* ass;
-  ass = (Assinatura*) malloc(sizeof(Assinatura));
-  arq = fopen("files/assinatura.dat", "r+b");
-  printf("\n"
-    "//////////////////////////////////////////////////////////////////////////////\n"
-    "///                                                                        ///\n"
-    "///                         Assinaturas Inativas                           ///\n"
-    "///                                                                        ///\n"
-    "//////////////////////////////////////////////////////////////////////////////\n");
-  while((fread(ass, sizeof(Assinatura), 1, arq))){
-    if(ass->status == 'i'){
-      cont++;
-      printf("\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///  ASSINATURA %i                                                         ///", cont);
-      exibe_assinatura(ass, 'a');
-      printf("\n");
-    }
-  }
-  if(cont == 0){
-    printf("\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///                                                                        ///\n"
-      "///                   Nenhuma Assinatura Inativa                           ///\n"
-      "///                                                                        ///\n"
-      "//////////////////////////////////////////////////////////////////////////////\n");
-  }
-  fclose(arq);
-  free(ass);
-  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
-  getchar();
-  system("clear || cls");
-}
+// void rela_cer_inativas(void){
+//   int cont = 0;
+//   FILE* arq;
+//   Assinatura* ass;
+//   ass = (Assinatura*) malloc(sizeof(Assinatura));
+//   arq = fopen("files/assinatura.dat", "r+b");
+//   printf("\n"
+//     "//////////////////////////////////////////////////////////////////////////////\n"
+//     "///                                                                        ///\n"
+//     "///                         Assinaturas Inativas                           ///\n"
+//     "///                                                                        ///\n"
+//     "//////////////////////////////////////////////////////////////////////////////\n");
+//   while((fread(ass, sizeof(Assinatura), 1, arq))){
+//     if(ass->status == 'i'){
+//       cont++;
+//       printf("\n"
+//       "//////////////////////////////////////////////////////////////////////////////\n"
+//       "///  ASSINATURA %i                                                         ///", cont);
+//       exibe_assinatura(ass, 'a');
+//       printf("\n");
+//     }
+//   }
+//   if(cont == 0){
+//     printf("\n"
+//       "//////////////////////////////////////////////////////////////////////////////\n"
+//       "///                                                                        ///\n"
+//       "///             Nenhuma Assinatura Inativa Encontrada                      ///\n"
+//       "///                                                                        ///\n"
+//       "//////////////////////////////////////////////////////////////////////////////\n");
+//   }
+//   fclose(arq);
+//   free(ass);
+//   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+//   getchar();
+//   system("clear || cls");
+// }
