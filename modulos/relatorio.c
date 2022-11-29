@@ -405,7 +405,7 @@ void rela_cer_ativas(void){
   printf("\n"
     "//////////////////////////////////////////////////////////////////////////////\n"
     "///                                                                        ///\n"
-    "///                         Assinaturas Ativas                             ///\n"
+    "///                            Cervejas Ativas                             ///\n"
     "///                                                                        ///\n"
     "//////////////////////////////////////////////////////////////////////////////\n");
   while((fread(cer, sizeof(Cerveja), 1, arq))){
@@ -433,39 +433,39 @@ void rela_cer_ativas(void){
   system("clear || cls");
 }
 
-// void rela_cer_inativas(void){
-//   int cont = 0;
-//   FILE* arq;
-//   Assinatura* ass;
-//   ass = (Assinatura*) malloc(sizeof(Assinatura));
-//   arq = fopen("files/assinatura.dat", "r+b");
-//   printf("\n"
-//     "//////////////////////////////////////////////////////////////////////////////\n"
-//     "///                                                                        ///\n"
-//     "///                         Assinaturas Inativas                           ///\n"
-//     "///                                                                        ///\n"
-//     "//////////////////////////////////////////////////////////////////////////////\n");
-//   while((fread(ass, sizeof(Assinatura), 1, arq))){
-//     if(ass->status == 'i'){
-//       cont++;
-//       printf("\n"
-//       "//////////////////////////////////////////////////////////////////////////////\n"
-//       "///  ASSINATURA %i                                                         ///", cont);
-//       exibe_assinatura(ass, 'a');
-//       printf("\n");
-//     }
-//   }
-//   if(cont == 0){
-//     printf("\n"
-//       "//////////////////////////////////////////////////////////////////////////////\n"
-//       "///                                                                        ///\n"
-//       "///             Nenhuma Assinatura Inativa Encontrada                      ///\n"
-//       "///                                                                        ///\n"
-//       "//////////////////////////////////////////////////////////////////////////////\n");
-//   }
-//   fclose(arq);
-//   free(ass);
-//   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
-//   getchar();
-//   system("clear || cls");
-// }
+void rela_cer_inativas(void){
+  int cont = 0;
+  FILE* arq;
+  Cerveja* cer;
+  cer = (Cerveja*) malloc(sizeof(Cerveja));
+  arq = fopen("files/cerveja.dat", "r+b");
+  printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///                           Cervejas Inativas                            ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n");
+  while((fread(cer, sizeof(Cerveja), 1, arq))){
+    if(cer->status == 'i'){
+      cont++;
+      printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///  ASSINATURA %i                                                         ///", cont);
+      exibe_cerveja(cer, 'a');
+      printf("\n");
+    }
+  }
+  if(cont == 0){
+    printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///                                                                        ///\n"
+      "///                Nenhuma Cerveja Inativa Encontrada                      ///\n"
+      "///                                                                        ///\n"
+      "//////////////////////////////////////////////////////////////////////////////\n");
+  }
+  fclose(arq);
+  free(cer);
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
+}
