@@ -154,6 +154,7 @@ int main() {
 					if(op3 == '1'){
 						rela_todos_forne();
 					}else if(op3 == '2'){
+						rela_ordem_alfa_forne();
 			
 					}else if(op3 == '3'){
 
