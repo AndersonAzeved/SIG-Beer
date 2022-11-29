@@ -11,3 +11,4 @@ void rela_ass_ultmes(void);
 void rela_ordem_alfa_cer(void);
 void rela_todas_cervejas(void);
 void rela_todas_ass(void);
+void rela_cer_ativas(void);

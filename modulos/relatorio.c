@@ -71,7 +71,7 @@ char relatorio_cerveja(void){ //Quiser adicionar mais filtros
     "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
     "///               = = = = Relatórios Assinatura = = = =                    ///\n"       
     "///                                                                        ///\n"
-    "///             1. Cervejas                                                ///\n"
+    "///             1. Listar todas Cervejas                                   ///\n"
     "///             2. Ordem Alfabética                                        ///\n"
     "///             3. Cadastros Ativos                                        ///\n"
     "///             4. Cadastros Inativos                                      ///\n"
@@ -428,6 +428,43 @@ void rela_cer_ativas(void){
   }
   fclose(arq);
   free(cer);
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
+}
+
+void rela_ass_inativas(void){
+  int cont = 0;
+  FILE* arq;
+  Assinatura* ass;
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  arq = fopen("files/assinatura.dat", "r+b");
+  printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///                         Assinaturas Inativas                           ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n");
+  while((fread(ass, sizeof(Assinatura), 1, arq))){
+    if(ass->status == 'i'){
+      cont++;
+      printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///  ASSINATURA %i                                                         ///", cont);
+      exibe_assinatura(ass, 'a');
+      printf("\n");
+    }
+  }
+  if(cont == 0){
+    printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///                                                                        ///\n"
+      "///                   Nenhuma Assinatura Inativa                           ///\n"
+      "///                                                                        ///\n"
+      "//////////////////////////////////////////////////////////////////////////////\n");
+  }
+  fclose(arq);
+  free(ass);
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();
   system("clear || cls");
