@@ -92,7 +92,48 @@ char relatorio_cerveja(void){ //Quiser adicionar mais filtros
   return op[0];
 }
 
-char relatorio_assinatura(void){ //Quiser adicionar mais filtros
+char relatorio_fornecedor(void){
+  char op[11];
+  int ok = 0;
+  do{
+    system("clear||cls");
+    printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///             Universidade Federal do Rio Grande do Norte                ///\n"
+    "///                 Centro de Ensino Superior do Seridó                    ///\n"
+    "///               Departamento de Computação e Tecnologia                  ///\n"
+    "///                  Disciplina DCT1106 -- Programação                     ///\n"
+    "///                SIG - Beer: Assinatura de Cervejas                      ///\n"
+    "///    Developed by @andersonazeved and @ericleisonn -- since Aug,2022     ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+    "///              = = = = Relatórios Fornecedores = = = =                   ///\n"       
+    "///                                                                        ///\n"
+    "///             1. Listar todos fornecedores                               ///\n"
+    "///             2. Listar por Ordem Alfabética                             ///\n"
+    "///             3. Cadastros dos Fornecedores Ativos                       ///\n"
+    "///             4. Cadastros dos Fornecedores Inativos                     ///\n"
+    "///             0. Voltar                                                  ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n");
+    printf("Informe a opção: "); 
+    fgets(op, 10, stdin);
+      remove_enter(op);
+      if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '5')){
+        ok = 1;
+      }else{
+        system("clear||cls");
+        tela_opcao_invalida();
+        system("clear||cls");
+      }
+  }while(!ok);
+  return op[0];
+}
+
+char relatorio_assinatura(void){
   char op[11];
   int ok = 0;
   do{
