@@ -152,7 +152,7 @@ int main() {
 				printf("\nRelatório de Fornecedores\n");
 				op3= relatorio_fornecedor();
 					if(op3 == '1'){
-				
+						rela_todos_forne();
 					}else if(op3 == '2'){
 			
 					}else if(op3 == '3'){
