@@ -150,6 +150,18 @@ int main() {
 					}
 			}else if(op2 == '3'){
 				printf("\nRelatório de Fornecedores\n");
+				op3= relatorio_fornecedor();
+					if(op3 == '1'){
+				
+					}else if(op3 == '2'){
+			
+					}else if(op3 == '3'){
+
+					}else if(op3 =='4'){
+
+					}
+
+
 			}else if(op2 == '0'){
 				printf("\nVoltando...\n");
 			}
