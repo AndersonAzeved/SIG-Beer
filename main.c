@@ -158,7 +158,7 @@ int main() {
 					}else if(op3 == '3'){
 						rela_forne_ativos();
 					}else if(op3 =='4'){
-
+						rela_forne_inativos();
 					}
 
 
