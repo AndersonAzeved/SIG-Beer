@@ -16,3 +16,4 @@ void rela_cer_ativas(void);
 void rela_cer_inativas(void);
 void rela_todos_forne(void);
 void rela_ordem_alfa_forne(void);
+void rela_forne_ativos(void);

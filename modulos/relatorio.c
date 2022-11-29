@@ -563,3 +563,40 @@ void rela_ordem_alfa_forne(void){
   getchar();
   system("clear || cls");
 }
+
+void rela_forne_ativos(void){
+  int cont = 0;
+  FILE* arq;
+  Fornecedor* forne;
+  forne = (Fornecedor*) malloc(sizeof(Fornecedor));
+  arq = fopen("files/fornecedor.dat", "r+b");
+  printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///                        Fornecedores Ativos                             ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n");
+  while((fread(forne, sizeof(Fornecedor), 1, arq))){
+    if(forne->status == 'a'){
+      cont++;
+      printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///  FORNECEDOR %i                                                         ///", cont);
+      exibe_fornecedor(forne, 'i');
+      printf("\n");
+    }
+  }
+  if(cont == 0){
+    printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///                                                                        ///\n"
+      "///                   Nenhum Fornecedor Ativo                              ///\n"
+      "///                                                                        ///\n"
+      "//////////////////////////////////////////////////////////////////////////////\n");
+  }
+  fclose(arq);
+  free(forne);
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
+}
