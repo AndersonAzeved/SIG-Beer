@@ -1,4 +1,17 @@
 // Assinaturas das funções do módulo relatório
+typedef struct ass_din Ass_din;
+struct ass_din{
+    char *nome;
+    char *cpf;
+    char *endereco; 
+    char *telefone;
+    char *email;
+    char *cerveja_mes;
+    int *data;
+    char nivel;
+    char status;
+    Ass_din* prox;
+};
 
 char tela_relatorio(void);
 char relatorio_cerveja(void);
@@ -18,3 +31,4 @@ void rela_todos_forne(void);
 void rela_ordem_alfa_forne(void);
 void rela_forne_ativos(void);
 void rela_forne_inativos(void);
+void exibe_ass_din(Ass_din*, char);
