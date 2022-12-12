@@ -2,5 +2,6 @@
     "files.associations": {
         "biblioteca.h": "c",
         "principal.h": "c"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }

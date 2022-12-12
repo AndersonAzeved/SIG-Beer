@@ -176,37 +176,64 @@ char relatorio_assinatura(void){
   return op[0];
 }
 
-void rela_ordem_alfa_ass(void){
-  int cont = 0;
-  Assinatura* ass;
-  FILE* arq;
-  ass = (Assinatura*) malloc(sizeof(Assinatura));
-  for(int i = 0; i <= 25; i++){
-    arq = fopen("files/assinatura.dat", "r+b");
-    while((fread(ass, sizeof(Assinatura), 1, arq))){
-      if(ass->nome[0] == 65+i || ass->nome[0] == 97+i){
-        cont++;
-        printf("\n"
-        "//////////////////////////////////////////////////////////////////////////////\n"
-        "///  ASSINATURA %i                                                         ///", cont);
-        exibe_assinatura(ass, 'x');
-        printf("\n");
-      }
-    }}
-    if(cont == 0){
-    printf("\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///                                                                        ///\n"
-      "///                   Nenhuma Assinatura Cadastrada                        ///\n"
-      "///                                                                        ///\n"
-      "//////////////////////////////////////////////////////////////////////////////\n");
+void rela_ordem_alfa_ass(void){ //Adaptada de @FlaviusGorgonio
+  FILE *arq;
+  int i, tam;
+  char linha[256];
+  Assinatura *novaAss;
+  Assinatura* lista;
+  arq = fopen("files/assinatura.dat","r+b");
+  if(arq == NULL){
+    printf("Erro na abertura do arquivo!\n");
+    exit(1);
   }
-    fclose(arq);
-  free(ass);
-  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
-  getchar();
-  system("clear || cls");
+  lista = NULL;
+  while(fgets(linha,256,arq)){
+    novaAss = (Assinatura*) malloc(sizeof(Assinatura));
+    tam = strlen(linha) + 1;
+    novaAss->nome = (char*) malloc(tam*sizeof(char));
+    strcpy(novaAss->nome, linha);
+    if(lista == NULL){
+      lista = novaAss;
+      novaAss->prox
+    }
+  }
 }
+// void rela_ordem_alfa_ass(void){
+//   int cont = 0;
+//   Assinatura* ass;
+//   FILE* arq;
+//   ass = (Assinatura*) malloc(sizeof(Assinatura));
+//   for(int i = 0; i <= 25; i++){
+//     arq = fopen("files/assinatura.dat", "r+b");
+//     if(arq == NULL){
+//      printf("Erro na abertura do arquivo!\n");
+//      exit(1);
+//     }
+//     while((fread(ass, sizeof(Assinatura), 1, arq))){
+//       if(ass->nome[0] == 65+i || ass->nome[0] == 97+i){
+//         cont++;
+//         printf("\n"
+//         "//////////////////////////////////////////////////////////////////////////////\n"
+//         "///  ASSINATURA %i                                                         ///", cont);
+//         exibe_assinatura(ass, 'x');
+//         printf("\n");
+//       }
+//     }}
+//     if(cont == 0){
+//     printf("\n"
+//       "//////////////////////////////////////////////////////////////////////////////\n"
+//       "///                                                                        ///\n"
+//       "///                   Nenhuma Assinatura Cadastrada                        ///\n"
+//       "///                                                                        ///\n"
+//       "//////////////////////////////////////////////////////////////////////////////\n");
+//   }
+//     fclose(arq);
+//   free(ass);
+//   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+//   getchar();
+//   system("clear || cls");
+// }
 
 void rela_por_nivel_ass(void){
   int cont = 0;
