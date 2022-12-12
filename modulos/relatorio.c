@@ -255,11 +255,16 @@ void rela_ordem_alfa_ass(void){ //Adaptada de @FlaviusGorgonio
 }
 
 void rela_por_nivel_ass(void){
-  int cont = 0;
-  FILE* arq;
-  Assinatura* ass;
-  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  FILE *arq;
+  Assinatura *novaAss;
+  Assinatura* lista;
+  arq = fopen("files/assinatura.dat","r+b");
+  if(arq == NULL){
+    printf("Erro na abertura do arquivo!\n");
+    exit(1);
+  }
   for(int i = 1; i <= 3; i++){
+    lista = NULL;
     arq = fopen("files/assinatura.dat", "r+b");
     printf("\n"
     "//////////////////////////////////////////////////////////////////////////////\n"
@@ -267,27 +272,24 @@ void rela_por_nivel_ass(void){
     "///                        Assinaturas com nível %i                        ///\n"
     "///                                                                        ///\n"
     "//////////////////////////////////////////////////////////////////////////////\n", i);
-    while((fread(ass, sizeof(Assinatura), 1, arq))){
-      if(ass->nivel == (i+'0')){
-        cont++;
-        printf("\n"
-        "//////////////////////////////////////////////////////////////////////////////\n"
-        "///  ASSINATURA %i                                                         ///", cont);
-        exibe_assinatura(ass, 'x');
-        printf("\n");
+    while(!feof(arq)){
+      novaAss = (Assinatura*) malloc(sizeof(Assinatura));
+      if(fread(novaAss, sizeof(Assinatura), 1, arq)){
+        if(novaAss->status == 'a' && novaAss->nivel == (i+'0')){
+          if(lista == NULL){
+            lista = novaAss;
+            novaAss->prox = NULL;
+          }else{
+            novaAss->prox = lista;
+            lista = novaAss;
+          }
+        }
       }
     }
-    if(cont == 0){
-      printf("\n"
-        "//////////////////////////////////////////////////////////////////////////////\n"
-        "///                                                                        ///\n"
-        "///                   Nenhuma Assinatura Cadastrada                        ///\n"
-        "///                                                                        ///\n"
-        "//////////////////////////////////////////////////////////////////////////////\n");
-    }
     fclose(arq);
+    limpa_exibe_lista_ass(novaAss,lista);
   }
-  free(ass);
+  
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();
   system("clear || cls");
