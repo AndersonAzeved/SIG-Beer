@@ -115,15 +115,14 @@ char relatorio_cerveja(void){ //Quiser adicionar mais filtros
     "///                                                                        ///\n"
     "///             1. Listar todas Cervejas                                   ///\n"
     "///             2. Ordem Alfabética                                        ///\n"
-    "///             3. Cadastros Ativos                                        ///\n"
-    "///             4. Cadastros Inativos                                      ///\n"
+    "///             3. Relatório Completo                                      ///\n"
     "///             0. Voltar                                                  ///\n"
     "///                                                                        ///\n"
     "//////////////////////////////////////////////////////////////////////////////\n");
     printf("Informe a opção: "); 
     fgets(op, 10, stdin);
       remove_enter(op);
-      if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '5')){
+      if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '3')){
         ok = 1;
       }else{
         system("clear||cls");
@@ -426,59 +425,34 @@ void rela_ordem_alfa_cer(void){
   system("clear || cls");
 }
 
-void rela_todas_cervejas(void){
-  int cont = 0;
-  FILE* arq;
-  Cerveja* cer;
-  cer = (Cerveja*) malloc(sizeof(Cerveja));
-  arq = fopen("files/cerveja.dat", "r+b");
-  while((fread(cer, sizeof(Cerveja), 1, arq))){
-    cont++;
-    printf("\n"
-    "//////////////////////////////////////////////////////////////////////////////\n"
-    "///  CERVEJA %i                                                            ///", cont);
-    exibe_cerveja(cer, 'x');
-    printf("\n");
-  }
-  fclose(arq);
-  free(cer);
-  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
-  getchar();
-  system("clear || cls");
-}
-
 void rela_cer_ativas(void){
-  int cont = 0;
-  FILE* arq;
-  Cerveja* cer;
-  cer = (Cerveja*) malloc(sizeof(Cerveja));
-  arq = fopen("files/cerveja.dat", "r+b");
-  printf("\n"
-    "//////////////////////////////////////////////////////////////////////////////\n"
-    "///                                                                        ///\n"
-    "///                            Cervejas Ativas                             ///\n"
-    "///                                                                        ///\n"
-    "//////////////////////////////////////////////////////////////////////////////\n");
-  while((fread(cer, sizeof(Cerveja), 1, arq))){
-    if(cer->status == 'a'){
-      cont++;
-      printf("\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///  CERVEJA %i                                                            ///", cont);
-      exibe_cerveja(cer, 'i');
-      printf("\n");
+  FILE *arq;
+  Cerveja *novaCer;
+  Cerveja* lista;
+  arq = fopen("files/cerveja.dat","r+b");
+  if(arq == NULL){
+    printf("Erro na abertura do arquivo!\n");
+    exit(1);
+  }
+  lista = NULL;
+  while(!feof(arq)){
+    novaCer = (Cerveja*) malloc(sizeof(Cerveja));
+    if(fread(novaCer, sizeof(Cerveja), 1, arq)){
+      if(novaCer->status == 'a'){
+        if(lista == NULL){
+          lista = novaCer;
+          novaCer->prox = NULL;
+        }else{
+          novaCer->prox = lista;
+          lista = novaCer;
+        }
+      }
     }
   }
-  if(cont == 0){
-    printf("\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///                                                                        ///\n"
-      "///                   Nenhuma Cerveja Ativa                                ///\n"
-      "///                                                                        ///\n"
-      "//////////////////////////////////////////////////////////////////////////////\n");
-  }
   fclose(arq);
-  free(cer);
+
+  limpa_exibe_lista_cer(novaCer,lista,'a');
+
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();
   system("clear || cls");
@@ -646,4 +620,8 @@ void rela_forne_inativos(void){
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();
   system("clear || cls");
+}
+
+void rela_completo_cer(void){
+  printf("Em desenvolvimento\n");
 }

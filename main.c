@@ -136,19 +136,24 @@ int main() {
 
 			}else if(op2 == '2'){
 				printf("\nRelatório de Cervejas\n");
-				op3 = relatorio_cerveja();
+				do{
+					op3 = relatorio_cerveja();
 					if(op3 == '1'){
-						rela_todas_cervejas();					
+						rela_cer_ativas();				
 					}else if(op3 == '2'){
 						rela_ordem_alfa_cer();					
 					}else if(op3 == '3'){
-						rela_cer_ativas();
-					}else if(op3 =='4'){
-						rela_cer_inativas();
+						rela_completo_cer();
+					}else if(op3 == '0'){
+						printf("Voltando\n");
+					}else{
+						tela_opcao_invalida();
 					}
+				}while(op3 != '0');
 			}else if(op2 == '3'){
 				printf("\nRelatório de Fornecedores\n");
-				op3= relatorio_fornecedor();
+				do{
+					op3= relatorio_fornecedor();
 					if(op3 == '1'){
 						rela_todos_forne();
 					}else if(op3 == '2'){
@@ -157,8 +162,12 @@ int main() {
 						rela_forne_ativos();
 					}else if(op3 =='4'){
 						rela_forne_inativos();
+					}else if(op3 == '0'){
+						printf("Voltando\n");
+					}else{
+						tela_opcao_invalida();
 					}
-
+				}while(op3 != '0');
 
 			}else if(op2 == '0'){
 				printf("\nVoltando...\n");
