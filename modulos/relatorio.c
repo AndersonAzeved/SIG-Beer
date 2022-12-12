@@ -459,37 +459,33 @@ void rela_cer_ativas(void){
 }
 
 void rela_cer_inativas(void){
-  int cont = 0;
-  FILE* arq;
-  Cerveja* cer;
-  cer = (Cerveja*) malloc(sizeof(Cerveja));
-  arq = fopen("files/cerveja.dat", "r+b");
-  printf("\n"
-    "//////////////////////////////////////////////////////////////////////////////\n"
-    "///                                                                        ///\n"
-    "///                           Cervejas Inativas                            ///\n"
-    "///                                                                        ///\n"
-    "//////////////////////////////////////////////////////////////////////////////\n");
-  while((fread(cer, sizeof(Cerveja), 1, arq))){
-    if(cer->status == 'i'){
-      cont++;
-      printf("\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///  CERVEJA %i                                                            ///", cont);
-      exibe_cerveja(cer, 'a');
-      printf("\n");
+  FILE *arq;
+  Cerveja *novaCer;
+  Cerveja* lista;
+  arq = fopen("files/cerveja.dat","r+b");
+  if(arq == NULL){
+    printf("Erro na abertura do arquivo!\n");
+    exit(1);
+  }
+  lista = NULL;
+  while(!feof(arq)){
+    novaCer = (Cerveja*) malloc(sizeof(Cerveja));
+    if(fread(novaCer, sizeof(Cerveja), 1, arq)){
+      if(novaCer->status == 'i'){
+        if(lista == NULL){
+          lista = novaCer;
+          novaCer->prox = NULL;
+        }else{
+          novaCer->prox = lista;
+          lista = novaCer;
+        }
+      }
     }
   }
-  if(cont == 0){
-    printf("\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///                                                                        ///\n"
-      "///                Nenhuma Cerveja Inativa Encontrada                      ///\n"
-      "///                                                                        ///\n"
-      "//////////////////////////////////////////////////////////////////////////////\n");
-  }
   fclose(arq);
-  free(cer);
+
+  limpa_exibe_lista_cer(novaCer,lista,'i');
+
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();
   system("clear || cls");
