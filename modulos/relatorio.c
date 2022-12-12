@@ -234,8 +234,15 @@ void rela_ordem_alfa_ass(void){ //Adaptada de @FlaviusGorgonio
         novaAss = novaAss->prox;
       }
     }
-    
   }
+
+  novaAss = lista;
+  while(lista != NULL){
+    lista = lista->prox;
+    free(novaAss);
+    novaAss = lista;
+  }
+
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();
   system("clear || cls");
