@@ -75,13 +75,14 @@ char relatorio_assinatura(void){
     "///             2. Ordem Alfabética                                        ///\n"
     "///             3. Nível                                                   ///\n"
     "///             4. Últimos Mês                                             ///\n"
+    "///             5. Relatório Completo                                      ///\n"
     "///             0. Voltar                                                  ///\n"
     "///                                                                        ///\n"
     "//////////////////////////////////////////////////////////////////////////////\n");
     printf("Informe a opção: "); 
     fgets(op, 10, stdin);
       remove_enter(op);
-      if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '4')){
+      if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '5')){
         ok = 1;
       }else{
         system("clear||cls");
@@ -212,6 +213,7 @@ void rela_ass_ativas(void){
   system("clear || cls");
 }
 
+// Relatório das assinaturas por ordem alfabética
 void rela_ordem_alfa_ass(void){ //Adaptada de @FlaviusGorgonio
   FILE *arq;
   Assinatura *novaAss;
@@ -254,6 +256,7 @@ void rela_ordem_alfa_ass(void){ //Adaptada de @FlaviusGorgonio
   system("clear || cls");
 }
 
+// Relatório por nível
 void rela_por_nivel_ass(void){
   FILE *arq;
   Assinatura *novaAss;
@@ -295,6 +298,7 @@ void rela_por_nivel_ass(void){
   system("clear || cls");
 }
 
+// Relatório do mês atual
 void rela_ass_ultmes(void){
   int data[6];
   pega_data(data);
@@ -336,6 +340,7 @@ void rela_ass_ultmes(void){
   system("clear || cls");
 }
 
+// Relatório das assinaturas inativas
 void rela_ass_inativas(void){
   FILE *arq;
   Assinatura *novaAss;
@@ -368,6 +373,14 @@ void rela_ass_inativas(void){
   getchar();
   system("clear || cls");
 }
+
+void rela_ass_completo(void){
+  // FILE *arqass;
+  // FILE *arqcer;
+  // FILE *arqfore;
+  printf("Em desenvolvimento\n");
+}
+
 
 void rela_ordem_alfa_cer(void){
   int cont = 0;

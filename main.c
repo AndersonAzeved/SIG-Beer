@@ -125,6 +125,8 @@ int main() {
 						rela_por_nivel_ass();
 					}else if(op3 == '4'){
 						rela_ass_ultmes();
+					}else if(op3 == '5'){
+						rela_ass_completo();
 					}else if(op3 == '0'){
 						printf("Voltando\n");
 					}else{
