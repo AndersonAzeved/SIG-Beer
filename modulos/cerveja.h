@@ -18,4 +18,5 @@ struct cerveja{
   char codigo[51];
   char fornecedor[51];
   char status;
+  Cerveja *prox;
 };

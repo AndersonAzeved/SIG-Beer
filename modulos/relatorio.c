@@ -178,48 +178,88 @@ char relatorio_assinatura(void){
 
 void rela_ordem_alfa_ass(void){ //Adaptada de @FlaviusGorgonio
   FILE *arq;
-  int i, tam;
-  char linha[256];
-  Ass_din *novaAss;
-  Ass_din* lista;
+  Assinatura *novaAss;
+  Assinatura* lista;
   arq = fopen("files/assinatura.dat","r+b");
   if(arq == NULL){
     printf("Erro na abertura do arquivo!\n");
     exit(1);
   }
   lista = NULL;
-  while(fgets(linha,256,arq)){
-    novaAss = (Ass_din*) malloc(sizeof(Ass_din));
-    tam = strlen(linha) + 1;
-    novaAss->nome = (char*) malloc(tam*sizeof(char));
-    strcpy(novaAss->nome, linha);
-    if(lista == NULL){
-      lista = novaAss;
-      novaAss->prox = NULL;
-    }else if(strcmp(novaAss->nome, lista->nome) < 0){
-      novaAss->prox = lista;
-      lista = novaAss;
-    }else{
-      Ass_din* anter = lista;
-      Ass_din* atual = lista->prox;
-      while((atual != NULL) && strcmp(atual->nome,novaAss->nome) < 0){
-        anter = atual;
-        atual = atual->prox;
+  while(!feof(arq)){
+    novaAss = (Assinatura*) malloc(sizeof(Assinatura));
+    if(fread(novaAss, sizeof(Assinatura), 1, arq)){
+      if(lista == NULL){
+        lista = novaAss;
+        novaAss->prox = NULL;
+      }else if(strcmp(novaAss->nome, lista->nome) < 0){
+        novaAss->prox = lista;
+        lista = novaAss;
+      }else{
+        Assinatura* anter = lista;
+        Assinatura* atual = lista->prox;
+        while((atual != NULL) && strcmp(atual->nome,novaAss->nome) < 0){
+          anter = atual;
+          atual = atual->prox;
+        }
+        anter->prox = novaAss;
+        novaAss->prox = atual;
       }
-      anter->prox = novaAss;
-      novaAss->prox = atual;
     }
   }
   fclose(arq);
-
-  novaAss = lista;
-  i = 1;
   while(novaAss != NULL){
-    exibe_ass_din(novaAss, 'x');
+    exibe_assinatura(novaAss,'x');
+    getchar();
     novaAss = novaAss->prox;
-    i++;
   }
+
+  // novaAss = lista;
+  // while(novaAss != NULL){
+  //   if(novaAss == NULL){
+  //     printf("\n"
+  //     "//////////////////////////////////////////////////////////////////////////////\n"
+  //     "///                                                                        ///\n"
+  //     "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  //     "///                                                                        ///\n"
+  //     "///                                                                        ///\n"
+  //     "///                    Nenhuma assinatura cadastrada                       ///\n"
+  //     "///                                                                        ///\n"
+  //     "///                                                                        ///\n"
+  //     "//////////////////////////////////////////////////////////////////////////////\n"
+  //     "\n");
+  //   }else{
+  //     printf("\n"
+  //     "//////////////////////////////////////////////////////////////////////////////\n"
+  //     "///                                                                        ///\n"
+  //     "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+  //     "///                  = = = Assinatura Cadastrada = = =                     ///\n"
+  //     "///                                                                        ///\n");
+  //     printf("///         Nome: %s\n", novaAss->nome);
+  //     printf("///         CPF: %s\n", novaAss->cpf);
+  //     printf("///         Endereço: %s\n", novaAss->endereco);
+  //     printf("///         Telefone: %s\n", novaAss->telefone);
+  //     printf("///         Email: %s\n", novaAss->email);
+  //     if(novaAss->data[4] >= 0 && novaAss->data[4] <= 9){
+  //       printf("///         Data de adesão: %d/%d/%d/ às %dh0%d\n", novaAss->data[0],novaAss->data[1],novaAss->data[2],novaAss->data[3],novaAss->data[4]);
+  //     }else{
+  //       printf("///         Data de adesão: %d/%d/%d/ às %dh%d\n", novaAss->data[0],novaAss->data[1],novaAss->data[2],novaAss->data[3],novaAss->data[4]);
+  //     }
+      
+  //     printf("///         Nível: %c\n", novaAss->nivel);
+  //     if(quant_cervejas_cadas() == 0){
+  //       printf("///         Cerveja do Mês: A DEFINIR\n");
+  //     }else{
+  //       printf("///         Cerveja do Mês: %s\n", novaAss->cerveja_mes);
+  //     }
+  //     printf("///                                                                        ///\n");
+  //     printf("//////////////////////////////////////////////////////////////////////////////\n");
+  //   }
+  //   novaAss = novaAss->prox;
+  //   i++;
+  // }
 }
+
 // void rela_ordem_alfa_ass(void){
 //   int cont = 0;
 //   Assinatura* ass;
@@ -684,48 +724,4 @@ void rela_forne_inativos(void){
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();
   system("clear || cls");
-}
-
-void exibe_ass_din(Ass_din* ass, char status){ // status = status contrário
-  if((ass == NULL) || (ass->status == status)){ // ex.: status = 'i', a função só 
-                                                //exibe os cadastros ativos
-        
-    printf("\n"
-    "//////////////////////////////////////////////////////////////////////////////\n"
-    "///                                                                        ///\n"
-    "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
-    "///                                                                        ///\n"
-    "///                                                                        ///\n"
-    "///                  A assinatura não foi encontrada                       ///\n"
-    "///                                                                        ///\n"
-    "///                                                                        ///\n"
-    "//////////////////////////////////////////////////////////////////////////////\n"
-    "\n");
-  }else{
-    printf("\n"
-    "//////////////////////////////////////////////////////////////////////////////\n"
-    "///                                                                        ///\n"
-    "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
-    "///                  = = = Assinatura Cadastrada = = =                     ///\n"
-    "///                                                                        ///\n");
-    printf("///         Nome: %s\n", ass->nome);
-    printf("///         CPF: %s\n", ass->cpf);
-    printf("///         Endereço: %s\n", ass->endereco);
-    printf("///         Telefone: %s\n", ass->telefone);
-    printf("///         Email: %s\n", ass->email);
-    if(ass->data[4] >= 0 && ass->data[4] <= 9){
-      printf("///         Data de adesão: %d/%d/%d/ às %dh0%d\n", ass->data[0],ass->data[1],ass->data[2],ass->data[3],ass->data[4]);
-    }else{
-      printf("///         Data de adesão: %d/%d/%d/ às %dh%d\n", ass->data[0],ass->data[1],ass->data[2],ass->data[3],ass->data[4]);
-    }
-    
-    printf("///         Nível: %c\n", ass->nivel);
-    if(quant_cervejas_cadas() == 0){
-      printf("///         Cerveja do Mês: A DEFINIR\n");
-    }else{
-    printf("///         Cerveja do Mês: %s\n", ass->cerveja_mes);
-    }
-    printf("///                                                                        ///\n");
-    printf("//////////////////////////////////////////////////////////////////////////////\n");
-  }
 }

@@ -1,3 +1,4 @@
+typedef struct assinatura Assinatura;
 struct assinatura{
     char nome[101];
     char cpf[51];
@@ -8,9 +9,8 @@ struct assinatura{
     int data[5];
     char nivel;
     char status;
+    Assinatura *prox;
 };
-
-typedef struct assinatura Assinatura;
 
 struct data_sorteio{
     int codigo;

@@ -6,6 +6,7 @@ struct fornecedor{
   char emailempresa[51];
   char cnpj[51];
   char status;
+  Fornecedor *prox;
 };
 
 char tela_fornecedores(void);
