@@ -492,32 +492,42 @@ void rela_cer_inativas(void){
 
 
 void rela_ordem_alfa_forne(void){
-  int cont = 0;
-  Fornecedor* forne;
-  FILE* arq;
-  forne = (Fornecedor*) malloc(sizeof(Fornecedor));
-  for(int i = 0; i <= 25; i++){
-    arq = fopen("files/fornecedor.dat", "r+b");
-    while((fread(forne, sizeof(Fornecedor), 1, arq))){
-      if(forne->empresa[0] == 65+i || forne->empresa[0] == 97+i){
-        cont++;
-        printf("\n"
-        "//////////////////////////////////////////////////////////////////////////////\n"
-        "///  FORNECEDOR %i                                                         ///", cont);
-        exibe_fornecedor(forne, 'x');
-        printf("\n");
-      }
-    }}
-    if(cont == 0){
-    printf("\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///                                                                        ///\n"
-      "///                   Nenhum Fornecedor Cadastrado                         ///\n"
-      "///                                                                        ///\n"
-      "//////////////////////////////////////////////////////////////////////////////\n");
+  FILE *arq;
+  Fornecedor *novoForne;
+  Fornecedor* lista;
+  arq = fopen("files/fornecedor.dat","r+b");
+  if(arq == NULL){
+    printf("Erro na abertura do arquivo!\n");
+    exit(1);
   }
-    fclose(arq);
-  free(forne);
+  lista = NULL;
+  while(!feof(arq)){
+    novoForne = (Fornecedor*) malloc(sizeof(Fornecedor));
+    if(fread(novoForne, sizeof(Fornecedor), 1, arq)){
+      if(novoForne->status == 'a'){
+        if(lista == NULL){
+          lista = novoForne;
+          novoForne->prox = NULL;
+        }else if(strcmp(novoForne->empresa, lista->empresa) < 0){
+          novoForne->prox = lista;
+          lista = novoForne;
+        }else{
+          Fornecedor* anter = lista;
+          Fornecedor* atual = lista->prox;
+          while((atual != NULL) && strcmp(atual->empresa,novoForne->empresa) < 0){
+            anter = atual;
+            atual = atual->prox;
+          }
+          anter->prox = novoForne;
+          novoForne->prox = atual;
+        }
+      }
+    }
+  }
+  fclose(arq);
+
+  limpa_exibe_lista_forne(novoForne,lista,'a');
+
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();
   system("clear || cls");
