@@ -18,3 +18,4 @@ void rela_forne_ativos(void);
 void rela_forne_inativos(void);
 void rela_ass_completo(void);
 void rela_completo_cer(void);
+void rela_completo_forne(void);

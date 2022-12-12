@@ -113,7 +113,7 @@ char relatorio_cerveja(void){ //Quiser adicionar mais filtros
     "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
     "///               = = = = Relatórios Assinatura = = = =                    ///\n"       
     "///                                                                        ///\n"
-    "///             1. Listar todas Cervejas                                   ///\n"
+    "///             1. Cervejas                                                ///\n"
     "///             2. Ordem Alfabética                                        ///\n"
     "///             3. Relatório Completo                                      ///\n"
     "///             0. Voltar                                                  ///\n"
@@ -153,17 +153,16 @@ char relatorio_fornecedor(void){
     "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
     "///              = = = = Relatórios Fornecedores = = = =                   ///\n"       
     "///                                                                        ///\n"
-    "///             1. Listar todos fornecedores                               ///\n"
-    "///             2. Listar por Ordem Alfabética                             ///\n"
-    "///             3. Cadastros dos Fornecedores Ativos                       ///\n"
-    "///             4. Cadastros dos Fornecedores Inativos                     ///\n"
+    "///             1. Fornecedores                                            ///\n"
+    "///             2. Ordem Alfabética                                        ///\n"
+    "///             3. Relatório Completo                                      ///\n"
     "///             0. Voltar                                                  ///\n"
     "///                                                                        ///\n"
     "//////////////////////////////////////////////////////////////////////////////\n");
     printf("Informe a opção: "); 
     fgets(op, 10, stdin);
       remove_enter(op);
-      if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '5')){
+      if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '3')){
         ok = 1;
       }else{
         system("clear||cls");
@@ -491,26 +490,6 @@ void rela_cer_inativas(void){
   system("clear || cls");
 }
 
-void rela_todos_forne(void){
-  int cont = 0;
-  FILE* arq;
-  Fornecedor* forne;
-  forne= (Fornecedor*) malloc(sizeof(Fornecedor));
-  arq = fopen("files/fornecedor.dat", "r+b");
-  while((fread(forne, sizeof(Fornecedor), 1, arq))){
-    cont++;
-    printf("\n"
-    "//////////////////////////////////////////////////////////////////////////////\n"
-    "///  FORNECEDOR %i                                                            ///", cont);
-    exibe_fornecedor(forne, 'x');
-    printf("\n");
-  }
-  fclose(arq);
-  free(forne);
-  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
-  getchar();
-  system("clear || cls");
-}
 
 void rela_ordem_alfa_forne(void){
   int cont = 0;
@@ -611,5 +590,9 @@ void rela_forne_inativos(void){
 }
 
 void rela_completo_cer(void){
+  printf("Em desenvolvimento\n");
+}
+
+void rela_completo_forne(void){
   printf("Em desenvolvimento\n");
 }

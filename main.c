@@ -155,13 +155,11 @@ int main() {
 				do{
 					op3= relatorio_fornecedor();
 					if(op3 == '1'){
-						rela_todos_forne();
+						rela_forne_ativos();
 					}else if(op3 == '2'){
 						rela_ordem_alfa_forne();
 					}else if(op3 == '3'){
-						rela_forne_ativos();
-					}else if(op3 =='4'){
-						rela_forne_inativos();
+						rela_completo_forne();
 					}else if(op3 == '0'){
 						printf("Voltando\n");
 					}else{
