@@ -296,40 +296,41 @@ void rela_por_nivel_ass(void){
 }
 
 void rela_ass_ultmes(void){
-  int cont = 0;
   int data[6];
   pega_data(data);
-
-  FILE* arq;
-  Assinatura* ass;
-  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  FILE *arq;
+  Assinatura *novaAss;
+  Assinatura* lista;
+  arq = fopen("files/assinatura.dat","r+b");
+  if(arq == NULL){
+    printf("Erro na abertura do arquivo!\n");
+    exit(1);
+  }
   printf("\n"
     "//////////////////////////////////////////////////////////////////////////////\n"
     "///                                                                        ///\n"
     "///            Assinaturas Cadastradas no Último Mes                       ///\n"
     "///                                                                        ///\n"
     "//////////////////////////////////////////////////////////////////////////////\n");
-  arq = fopen("files/assinatura.dat", "r+b");
-  while((fread(ass, sizeof(Assinatura), 1, arq))){
-    if(ass->status == 'a' && ass->data[2] == data[2] && ass->data[1] == data[1]){
-      cont++;
-      printf("\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///  ASSINATURA %i                                                         ///", cont);
-      exibe_assinatura(ass, 'i');
-      printf("\n");
+    
+  lista = NULL;
+  while(!feof(arq)){
+    novaAss = (Assinatura*) malloc(sizeof(Assinatura));
+    if(fread(novaAss, sizeof(Assinatura), 1, arq)){
+      if(novaAss->status == 'a' && novaAss->data[2] == data[2] && novaAss->data[1] == data[1]){
+        if(lista == NULL){
+          lista = novaAss;
+          novaAss->prox = NULL;
+        }else{
+          novaAss->prox = lista;
+          lista = novaAss;
+        }
+      }
     }
   }
-  if(cont == 0){
-    printf("\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///                                                                        ///\n"
-      "///                   Nenhuma Assinatura Cadastrada                        ///\n"
-      "///                                                                        ///\n"
-      "//////////////////////////////////////////////////////////////////////////////\n");
-  }
   fclose(arq);
-  free(ass);
+  limpa_exibe_lista_ass(novaAss,lista);
+  
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();
   system("clear || cls");
