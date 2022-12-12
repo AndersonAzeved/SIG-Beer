@@ -545,37 +545,33 @@ void rela_ordem_alfa_forne(void){
 }
 
 void rela_forne_ativos(void){
-  int cont = 0;
-  FILE* arq;
-  Fornecedor* forne;
-  forne = (Fornecedor*) malloc(sizeof(Fornecedor));
-  arq = fopen("files/fornecedor.dat", "r+b");
-  printf("\n"
-    "//////////////////////////////////////////////////////////////////////////////\n"
-    "///                                                                        ///\n"
-    "///                        Fornecedores Ativos                             ///\n"
-    "///                                                                        ///\n"
-    "//////////////////////////////////////////////////////////////////////////////\n");
-  while((fread(forne, sizeof(Fornecedor), 1, arq))){
-    if(forne->status == 'a'){
-      cont++;
-      printf("\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///  FORNECEDOR %i                                                         ///", cont);
-      exibe_fornecedor(forne, 'i');
-      printf("\n");
+  FILE *arq;
+  Fornecedor *novoForne;
+  Fornecedor* lista;
+  arq = fopen("files/fornecedor.dat","r+b");
+  if(arq == NULL){
+    printf("Erro na abertura do arquivo!\n");
+    exit(1);
+  }
+  lista = NULL;
+  while(!feof(arq)){
+    novoForne = (Fornecedor*) malloc(sizeof(Fornecedor));
+    if(fread(novoForne, sizeof(Fornecedor), 1, arq)){
+      if(novoForne->status == 'a'){
+        if(lista == NULL){
+          lista = novoForne;
+          novoForne->prox = NULL;
+        }else{
+          novoForne->prox = lista;
+          lista = novoForne;
+        }
+      }
     }
   }
-  if(cont == 0){
-    printf("\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///                                                                        ///\n"
-      "///                   Nenhum Fornecedor Ativo                              ///\n"
-      "///                                                                        ///\n"
-      "//////////////////////////////////////////////////////////////////////////////\n");
-  }
   fclose(arq);
-  free(forne);
+
+  limpa_exibe_lista_forne(novoForne,lista,'a');
+
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();
   system("clear || cls");
