@@ -506,7 +506,7 @@ char* sortear_cerveja(void){
   free(cer);
 }
 
-int quant_ass_cadas(void){
+int quant_ass_cadas(char status){
   FILE* arq;
   Assinatura *ass;
   arq = fopen("files/assinatura.dat","r+b");
@@ -516,7 +516,7 @@ int quant_ass_cadas(void){
   ass = (Assinatura*) malloc(sizeof(Assinatura));
   int cont_ass = 0;
   while(fread(ass, sizeof(Assinatura), 1, arq) != 0){// LÊ A QUANTIDADE DE STRUCTS DO ARQUIVO ASSINATURA
-    if(ass->status != 'i'){
+    if(ass->status == status){
       cont_ass++;
     }
   }
@@ -698,8 +698,8 @@ int email_esta_ass(char *email){
   return 0;
 }
 
-void limpa_exibe_lista_ass(Assinatura *novaAss, Assinatura *lista){
-  if(quant_ass_cadas() == 0){
+void limpa_exibe_lista_ass(Assinatura *novaAss, Assinatura *lista, char status){
+  if(quant_ass_cadas(status) == 0){
     printf("\n"
       "//////////////////////////////////////////////////////////////////////////////\n"
       "///                                                                        ///\n"
@@ -713,11 +713,11 @@ void limpa_exibe_lista_ass(Assinatura *novaAss, Assinatura *lista){
       "\n");
   }else{
     novaAss = lista;
-    for(int i = 1; i <= quant_ass_cadas(); i++){
+    for(int i = 0; i < quant_ass_cadas(status); i++){
       while(novaAss != NULL){
         printf("\n"
         "//////////////////////////////////////////////////////////////////////////////\n"
-        "///  ASSINATURA %i                                                         ///", i);
+        "///  ASSINATURA %i                                                         ///", i+1);
         exibe_assinatura(novaAss,'x');
         novaAss = novaAss->prox;
       }

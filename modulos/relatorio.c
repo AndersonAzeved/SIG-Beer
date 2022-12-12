@@ -205,7 +205,7 @@ void rela_ass_ativas(void){
   }
   fclose(arq);
 
-  limpa_exibe_lista_ass(novaAss,lista);
+  limpa_exibe_lista_ass(novaAss,lista,'a');
 
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();
@@ -247,7 +247,7 @@ void rela_ordem_alfa_ass(void){ //Adaptada de @FlaviusGorgonio
   }
   fclose(arq);
 
-  limpa_exibe_lista_ass(novaAss,lista);
+  limpa_exibe_lista_ass(novaAss,lista,'a');
 
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();
@@ -287,7 +287,7 @@ void rela_por_nivel_ass(void){
       }
     }
     fclose(arq);
-    limpa_exibe_lista_ass(novaAss,lista);
+    limpa_exibe_lista_ass(novaAss,lista,'a');
   }
   
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
@@ -312,7 +312,7 @@ void rela_ass_ultmes(void){
     "///            Assinaturas Cadastradas no Último Mes                       ///\n"
     "///                                                                        ///\n"
     "//////////////////////////////////////////////////////////////////////////////\n");
-    
+
   lista = NULL;
   while(!feof(arq)){
     novaAss = (Assinatura*) malloc(sizeof(Assinatura));
@@ -329,7 +329,7 @@ void rela_ass_ultmes(void){
     }
   }
   fclose(arq);
-  limpa_exibe_lista_ass(novaAss,lista);
+  limpa_exibe_lista_ass(novaAss,lista,'a');
   
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();
@@ -337,37 +337,33 @@ void rela_ass_ultmes(void){
 }
 
 void rela_ass_inativas(void){
-  int cont = 0;
-  FILE* arq;
-  Assinatura* ass;
-  ass = (Assinatura*) malloc(sizeof(Assinatura));
-  arq = fopen("files/assinatura.dat", "r+b");
-  printf("\n"
-    "//////////////////////////////////////////////////////////////////////////////\n"
-    "///                                                                        ///\n"
-    "///                         Assinaturas Inativas                           ///\n"
-    "///                                                                        ///\n"
-    "//////////////////////////////////////////////////////////////////////////////\n");
-  while((fread(ass, sizeof(Assinatura), 1, arq))){
-    if(ass->status == 'i'){
-      cont++;
-      printf("\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///  ASSINATURA %i                                                         ///", cont);
-      exibe_assinatura(ass, 'a');
-      printf("\n");
+  FILE *arq;
+  Assinatura *novaAss;
+  Assinatura* lista;
+  arq = fopen("files/assinatura.dat","r+b");
+  if(arq == NULL){
+    printf("Erro na abertura do arquivo!\n");
+    exit(1);
+  }
+  lista = NULL;
+  while(!feof(arq)){
+    novaAss = (Assinatura*) malloc(sizeof(Assinatura));
+    if(fread(novaAss, sizeof(Assinatura), 1, arq)){
+      if(novaAss->status == 'i'){
+        if(lista == NULL){
+          lista = novaAss;
+          novaAss->prox = NULL;
+        }else{
+          novaAss->prox = lista;
+          lista = novaAss;
+        }
+      }
     }
   }
-  if(cont == 0){
-    printf("\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///                                                                        ///\n"
-      "///                   Nenhuma Assinatura Inativa                           ///\n"
-      "///                                                                        ///\n"
-      "//////////////////////////////////////////////////////////////////////////////\n");
-  }
   fclose(arq);
-  free(ass);
+
+  limpa_exibe_lista_ass(novaAss,lista,'i');
+
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();
   system("clear || cls");
