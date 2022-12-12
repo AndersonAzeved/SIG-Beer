@@ -118,17 +118,13 @@ int main() {
 				do{
 					op3 = relatorio_assinatura();
 					if(op3 == '1'){
-						rela_todas_ass();
+						rela_ass_ativas();
 					}else if(op3 == '2'){
 						rela_ordem_alfa_ass();
 					}else if(op3 == '3'){
 						rela_por_nivel_ass();
 					}else if(op3 == '4'){
 						rela_ass_ultmes();
-					}else if(op3 == '5'){
-						rela_ass_ativas();
-					}else if(op3 == '6'){
-						rela_ass_inativas();
 					}else if(op3 == '0'){
 						printf("Voltando\n");
 					}else{
@@ -183,12 +179,13 @@ int main() {
 			
 			if(op2 == '1'){
 				printf("\nLixeira de Cervejas\n");
+				rela_ass_inativas();
 			}else if(op2 == '2'){
 				printf("\nLixeira de Assinaturas\n");
+				rela_cer_inativas();
 			}else if(op2 == '3'){
 				printf("\nLixeira de Fornecedores\n");
-			}else if(op2 == '4'){
-				printf("\nLixeira de Relatórios\n");
+				rela_forne_inativos();
 			}else if(op2 == '0'){
 				printf("\nVoltando...\n");
 			}else{

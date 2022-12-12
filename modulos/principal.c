@@ -39,7 +39,7 @@ char tela_principal(void) {
     printf("Informe a opção: "); 
     fgets(op, 10, stdin);
     remove_enter(op);
-    if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '5')){
+    if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '7')){
       ok = 1;
     }else{
       system("clear||cls");
@@ -135,7 +135,6 @@ char tela_lixeira(void){
     "///             1. Lixeira de assinaturas                                  ///\n"
     "///             2. Lixeira das cervejas                                    ///\n"
     "///             3. Lixeira de fornecedores                                 ///\n"
-    "///             4. Lixeira de relatórios                                   ///\n"
     "///             0. Voltar                                                  ///\n"
     "///                                                                        ///\n"
     "///                                                                        ///\n"
@@ -143,7 +142,7 @@ char tela_lixeira(void){
     printf("Informe a opção: "); 
     fgets(op, 10, stdin);
     remove_enter(op);
-    if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '5')){
+    if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '3')){
       ok = 1;
     }else{
       system("clear||cls");

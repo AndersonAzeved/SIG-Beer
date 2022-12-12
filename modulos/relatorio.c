@@ -157,15 +157,13 @@ char relatorio_assinatura(void){
     "///             2. Ordem Alfabética                                        ///\n"
     "///             3. Nível                                                   ///\n"
     "///             4. Últimos Mês                                             ///\n"
-    "///             5. Cadastros Ativos                                        ///\n"
-    "///             6. Cadastros Inativos                                      ///\n"
     "///             0. Voltar                                                  ///\n"
     "///                                                                        ///\n"
     "//////////////////////////////////////////////////////////////////////////////\n");
     printf("Informe a opção: "); 
     fgets(op, 10, stdin);
       remove_enter(op);
-      if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '6')){
+      if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '4')){
         ok = 1;
       }else{
         system("clear||cls");
@@ -174,6 +172,46 @@ char relatorio_assinatura(void){
       }
   }while(!ok);
   return op[0];
+}
+
+//  RELÁTORIOS ASSINATURAS
+
+// Relatório de todas as assinaturas ativas cadastradas
+void rela_ass_ativas(void){
+  int cont = 0;
+  FILE* arq;
+  Assinatura* ass;
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  arq = fopen("files/assinatura.dat", "r+b");
+  printf("\n"
+    "//////////////////////////////////////////////////////////////////////////////\n"
+    "///                                                                        ///\n"
+    "///                         Assinaturas Ativas                             ///\n"
+    "///                                                                        ///\n"
+    "//////////////////////////////////////////////////////////////////////////////\n");
+  while((fread(ass, sizeof(Assinatura), 1, arq))){
+    if(ass->status == 'a'){
+      cont++;
+      printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///  ASSINATURA %i                                                         ///", cont);
+      exibe_assinatura(ass, 'i');
+      printf("\n");
+    }
+  }
+  if(cont == 0){
+    printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///                                                                        ///\n"
+      "///                   Nenhuma Assinatura Ativa                             ///\n"
+      "///                                                                        ///\n"
+      "//////////////////////////////////////////////////////////////////////////////\n");
+  }
+  fclose(arq);
+  free(ass);
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
 }
 
 void rela_ordem_alfa_ass(void){ //Adaptada de @FlaviusGorgonio
@@ -251,43 +289,6 @@ void rela_por_nivel_ass(void){
     }
     fclose(arq);
   }
-  free(ass);
-  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
-  getchar();
-  system("clear || cls");
-}
-
-void rela_ass_ativas(void){
-  int cont = 0;
-  FILE* arq;
-  Assinatura* ass;
-  ass = (Assinatura*) malloc(sizeof(Assinatura));
-  arq = fopen("files/assinatura.dat", "r+b");
-  printf("\n"
-    "//////////////////////////////////////////////////////////////////////////////\n"
-    "///                                                                        ///\n"
-    "///                         Assinaturas Ativas                             ///\n"
-    "///                                                                        ///\n"
-    "//////////////////////////////////////////////////////////////////////////////\n");
-  while((fread(ass, sizeof(Assinatura), 1, arq))){
-    if(ass->status == 'a'){
-      cont++;
-      printf("\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///  ASSINATURA %i                                                         ///", cont);
-      exibe_assinatura(ass, 'i');
-      printf("\n");
-    }
-  }
-  if(cont == 0){
-    printf("\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///                                                                        ///\n"
-      "///                   Nenhuma Assinatura Ativa                             ///\n"
-      "///                                                                        ///\n"
-      "//////////////////////////////////////////////////////////////////////////////\n");
-  }
-  fclose(arq);
   free(ass);
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();
@@ -424,28 +425,6 @@ void rela_todas_cervejas(void){
   getchar();
   system("clear || cls");
 }
-
-void rela_todas_ass(void){
-  int cont = 0;
-  FILE* arq;
-  Assinatura* ass;
-  ass = (Assinatura*) malloc(sizeof(Assinatura));
-  arq = fopen("files/assinatura.dat", "r+b");
-  while((fread(ass, sizeof(Assinatura), 1, arq))){
-    cont++;
-    printf("\n"
-    "//////////////////////////////////////////////////////////////////////////////\n"
-    "///  ASSINATURA %i                                                         ///", cont);
-    exibe_assinatura(ass, 'x');
-    printf("\n");
-  }
-  fclose(arq);
-  free(ass);
-  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
-  getchar();
-  system("clear || cls");
-}
-
 
 void rela_cer_ativas(void){
   int cont = 0;
