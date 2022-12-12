@@ -582,6 +582,38 @@ void rela_forne_ativos(void){
 }
 
 void rela_forne_inativos(void){
+  FILE *arq;
+  Fornecedor *novoForne;
+  Fornecedor* lista;
+  arq = fopen("files/fornecedor.dat","r+b");
+  if(arq == NULL){
+    printf("Erro na abertura do arquivo!\n");
+    exit(1);
+  }
+  lista = NULL;
+  while(!feof(arq)){
+    novoForne = (Fornecedor*) malloc(sizeof(Fornecedor));
+    if(fread(novoForne, sizeof(Fornecedor), 1, arq)){
+      if(novoForne->status == 'i'){
+        if(lista == NULL){
+          lista = novoForne;
+          novoForne->prox = NULL;
+        }else{
+          novoForne->prox = lista;
+          lista = novoForne;
+        }
+      }
+    }
+  }
+  fclose(arq);
+
+  limpa_exibe_lista_forne(novoForne,lista,'i');
+
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
+
+
   int cont = 0;
   FILE* arq;
   Fornecedor* forne;

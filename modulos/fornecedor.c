@@ -429,3 +429,55 @@ int email_esta_forne(char *email){
   free(forne);
   return 0;
 }
+
+// void limpa_exibe_lista_forne(Fornecedor *novoForne, Fornecedor *lista, char status){
+//   if(quant_ass_cadas(status) == 0){
+//     printf("\n"
+//       "//////////////////////////////////////////////////////////////////////////////\n"
+//       "///                                                                        ///\n"
+//       "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+//       "///                                                                        ///\n"
+//       "///                                                                        ///\n"
+//       "///                    Nenhuma assinatura cadastrada                       ///\n"
+//       "///                                                                        ///\n"
+//       "///                                                                        ///\n"
+//       "//////////////////////////////////////////////////////////////////////////////\n"
+//       "\n");
+//   }else{
+//     novaAss = lista;
+//     for(int i = 0; i < quant_ass_cadas(status); i++){
+//       while(novaAss != NULL){
+//         printf("\n"
+//         "//////////////////////////////////////////////////////////////////////////////\n"
+//         "///  ASSINATURA %i                                                         ///", i+1);
+//         exibe_assinatura(novaAss,'x');
+//         novaAss = novaAss->prox;
+//       }
+//     }
+//   }
+
+//   novaAss = lista;
+//   while(lista != NULL){
+//     lista = lista->prox;
+//     free(novaAss);
+//     novaAss = lista;
+//   }
+// }
+
+int quant_forne_cadas(char status){
+  FILE* arq;
+  Fornecedor *forne;
+  arq = fopen("files/fornecedor.dat","r+b");
+  if(arq == NULL){
+    exit(1);
+  }
+  forne = (Fornecedor*) malloc(sizeof(Fornecedor));
+  int cont_forne = 0;
+  while(fread(forne, sizeof(Fornecedor), 1, arq) != 0){// LÊ A QUANTIDADE DE STRUCTS DO ARQUIVO FORNECEDOR
+    if(forne->status == status){
+      cont_forne++;
+    }
+  }
+  fclose(arq);
+  return cont_forne;
+}

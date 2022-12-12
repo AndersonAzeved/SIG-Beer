@@ -21,3 +21,5 @@ void exibe_fornecedor(Fornecedor*, char);
 Fornecedor* buscar_forne(char *);
 int telefone_esta_forne(char *);
 int email_esta_forne(char *);
+void limpa_exibe_lista_forne(Fornecedor *, Fornecedor *, char);
+int quant_forne_cadas(char );
