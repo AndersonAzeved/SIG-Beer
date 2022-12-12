@@ -430,39 +430,39 @@ int email_esta_forne(char *email){
   return 0;
 }
 
-// void limpa_exibe_lista_forne(Fornecedor *novoForne, Fornecedor *lista, char status){
-//   if(quant_ass_cadas(status) == 0){
-//     printf("\n"
-//       "//////////////////////////////////////////////////////////////////////////////\n"
-//       "///                                                                        ///\n"
-//       "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
-//       "///                                                                        ///\n"
-//       "///                                                                        ///\n"
-//       "///                    Nenhuma assinatura cadastrada                       ///\n"
-//       "///                                                                        ///\n"
-//       "///                                                                        ///\n"
-//       "//////////////////////////////////////////////////////////////////////////////\n"
-//       "\n");
-//   }else{
-//     novaAss = lista;
-//     for(int i = 0; i < quant_ass_cadas(status); i++){
-//       while(novaAss != NULL){
-//         printf("\n"
-//         "//////////////////////////////////////////////////////////////////////////////\n"
-//         "///  ASSINATURA %i                                                         ///", i+1);
-//         exibe_assinatura(novaAss,'x');
-//         novaAss = novaAss->prox;
-//       }
-//     }
-//   }
+void limpa_exibe_lista_forne(Fornecedor *novoForne, Fornecedor *lista, char status){
+  if(quant_forne_cadas(status) == 0){
+    printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///                                                                        ///\n"
+      "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+      "///                                                                        ///\n"
+      "///                                                                        ///\n"
+      "///                    Nenhum fornecedor cadastrado                        ///\n"
+      "///                                                                        ///\n"
+      "///                                                                        ///\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "\n");
+  }else{
+    novoForne = lista;
+    for(int i = 0; i < quant_forne_cadas(status); i++){
+      while(novoForne != NULL){
+        printf("\n"
+        "//////////////////////////////////////////////////////////////////////////////\n"
+        "///  FORNECEDOR %i                                                         ///", i+1);
+        exibe_fornecedor(novoForne,'x');
+        novoForne = novoForne->prox;
+      }
+    }
+  }
 
-//   novaAss = lista;
-//   while(lista != NULL){
-//     lista = lista->prox;
-//     free(novaAss);
-//     novaAss = lista;
-//   }
-// }
+  novoForne = lista;
+  while(lista != NULL){
+    lista = lista->prox;
+    free(novoForne);
+    novoForne = lista;
+  }
+}
 
 int quant_forne_cadas(char status){
   FILE* arq;
