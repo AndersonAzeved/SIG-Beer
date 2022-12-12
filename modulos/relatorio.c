@@ -211,6 +211,14 @@ void rela_ordem_alfa_ass(void){ //Adaptada de @FlaviusGorgonio
   }
   fclose(arq);
 
+  limpa_exibe_lista_ass(novaAss,lista);
+
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
+}
+
+void limpa_exibe_lista_ass(Assinatura *novaAss, Assinatura *lista){
   if(quant_ass_cadas() == 0){
     printf("\n"
       "//////////////////////////////////////////////////////////////////////////////\n"
@@ -242,47 +250,7 @@ void rela_ordem_alfa_ass(void){ //Adaptada de @FlaviusGorgonio
     free(novaAss);
     novaAss = lista;
   }
-
-  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
-  getchar();
-  system("clear || cls");
 }
-
-// void rela_ordem_alfa_ass(void){
-//   int cont = 0;
-//   Assinatura* ass;
-//   FILE* arq;
-//   ass = (Assinatura*) malloc(sizeof(Assinatura));
-//   for(int i = 0; i <= 25; i++){
-//     arq = fopen("files/assinatura.dat", "r+b");
-//     if(arq == NULL){
-//      printf("Erro na abertura do arquivo!\n");
-//      exit(1);
-//     }
-//     while((fread(ass, sizeof(Assinatura), 1, arq))){
-//       if(ass->nome[0] == 65+i || ass->nome[0] == 97+i){
-//         cont++;
-//         printf("\n"
-//         "//////////////////////////////////////////////////////////////////////////////\n"
-//         "///  ASSINATURA %i                                                         ///", cont);
-//         exibe_assinatura(ass, 'x');
-//         printf("\n");
-//       }
-//     }}
-//     if(cont == 0){
-//     printf("\n"
-//       "//////////////////////////////////////////////////////////////////////////////\n"
-//       "///                                                                        ///\n"
-//       "///                   Nenhuma Assinatura Cadastrada                        ///\n"
-//       "///                                                                        ///\n"
-//       "//////////////////////////////////////////////////////////////////////////////\n");
-//   }
-//     fclose(arq);
-//   free(ass);
-//   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
-//   getchar();
-//   system("clear || cls");
-// }
 
 void rela_por_nivel_ass(void){
   int cont = 0;
