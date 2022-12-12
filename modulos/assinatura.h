@@ -42,3 +42,4 @@ int quant_ass_cadas(void);
 void pega_data(int*);
 int telefone_esta_ass(char *);
 int email_esta_ass(char *);
+void limpa_exibe_lista_ass(Assinatura *, Assinatura *);

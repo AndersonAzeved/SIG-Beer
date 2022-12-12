@@ -18,4 +18,3 @@ void rela_todos_forne(void);
 void rela_ordem_alfa_forne(void);
 void rela_forne_ativos(void);
 void rela_forne_inativos(void);
-void limpa_exibe_lista_ass(Assinatura *, Assinatura *);

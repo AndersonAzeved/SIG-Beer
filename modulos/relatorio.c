@@ -218,40 +218,6 @@ void rela_ordem_alfa_ass(void){ //Adaptada de @FlaviusGorgonio
   system("clear || cls");
 }
 
-void limpa_exibe_lista_ass(Assinatura *novaAss, Assinatura *lista){
-  if(quant_ass_cadas() == 0){
-    printf("\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "///                                                                        ///\n"
-      "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
-      "///                                                                        ///\n"
-      "///                                                                        ///\n"
-      "///                    Nenhuma assinatura cadastrada                       ///\n"
-      "///                                                                        ///\n"
-      "///                                                                        ///\n"
-      "//////////////////////////////////////////////////////////////////////////////\n"
-      "\n");
-  }else{
-    novaAss = lista;
-    for(int i = 1; i <= quant_ass_cadas(); i++){
-      while(novaAss != NULL){
-        printf("\n"
-        "//////////////////////////////////////////////////////////////////////////////\n"
-        "///  ASSINATURA %i                                                         ///", i);
-        exibe_assinatura(novaAss,'x');
-        novaAss = novaAss->prox;
-      }
-    }
-  }
-
-  novaAss = lista;
-  while(lista != NULL){
-    lista = lista->prox;
-    free(novaAss);
-    novaAss = lista;
-  }
-}
-
 void rela_por_nivel_ass(void){
   int cont = 0;
   FILE* arq;
