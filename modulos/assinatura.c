@@ -274,7 +274,7 @@ void exibe_assinatura(Assinatura* ass, char status){ // status = status contrár
     }
     
     printf("///         Nível: %c\n", ass->nivel);
-    if(quant_cervejas_cadas() == 0){
+    if(quant_cervejas_cadas('a') == 0){
       printf("///         Cerveja do Mês: A DEFINIR\n");
     }else{
     printf("///         Cerveja do Mês: %s\n", ass->cerveja_mes);
@@ -489,10 +489,10 @@ char* sortear_cerveja(void){
     exit(1);
   }
   int num = 0;
-  if(quant_cervejas_cadas() == 1){
+  if(quant_cervejas_cadas('a') == 1){
     num = 1;
   }else{
-    num = sorteio_numero(quant_cervejas_cadas());
+    num = sorteio_numero(quant_cervejas_cadas('a'));
   }
   int cont2 = 0;        
   while(cont2 != num){
@@ -525,7 +525,7 @@ int quant_ass_cadas(char status){
 }
 
 void preenche_data_sorteio(void){
-  int status = quant_cervejas_cadas();
+  int status = quant_cervejas_cadas('a');
   if(status == 0){
     erro_cadastre_cerveja();
   }else{

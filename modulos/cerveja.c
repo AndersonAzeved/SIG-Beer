@@ -351,7 +351,7 @@ void buscar_cerveja(void){
   free(cer);
 }
 
-int quant_cervejas_cadas(void){
+int quant_cervejas_cadas(char status){
   FILE* arqcer;
   Cerveja *cer;
   arqcer = fopen("files/cerveja.dat","r+b");
@@ -361,10 +361,44 @@ int quant_cervejas_cadas(void){
   cer = (Cerveja*) malloc(sizeof(Cerveja));
   int cont_cer = 0;
   while(fread(cer, sizeof(Cerveja), 1, arqcer) != 0){// LÊ A QUANTIDADE DE STRUCTS DO ARQUIVO CERVEJA
-    if(cer->status != 'i'){
+    if(cer->status == status){
       cont_cer++;
     }
   }
   fclose(arqcer);
   return cont_cer;
+}
+
+void limpa_exibe_lista_cer(Cerveja *novaCer, Cerveja *lista, char status){
+  if(quant_cervejas_cadas(status) == 0){
+    printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///                                                                        ///\n"
+      "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+      "///                                                                        ///\n"
+      "///                                                                        ///\n"
+      "///                    Nenhuma cerveja cadastrada                          ///\n"
+      "///                                                                        ///\n"
+      "///                                                                        ///\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "\n");
+  }else{
+    novaCer = lista;
+    for(int i = 0; i < quant_cervejas_cadas(status); i++){
+      while(novaCer != NULL){
+        printf("\n"
+        "//////////////////////////////////////////////////////////////////////////////\n"
+        "///  CERVEJA %i                                                            ///", i+1);
+        exibe_cerveja(novaCer,'x');
+        novaCer = novaCer->prox;
+      }
+    }
+  }
+
+  novaCer = lista;
+  while(lista != NULL){
+    lista = lista->prox;
+    free(novaCer);
+    novaCer = lista;
+  }
 }

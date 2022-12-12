@@ -18,4 +18,5 @@ int cer_esta(char *);
 void exibe_cerveja(Cerveja*,char );
 void grava_cerveja(Cerveja*);
 Cerveja* buscar__cer(char *);
-int quant_cervejas_cadas(void);
+int quant_cervejas_cadas(char);
+void limpa_exibe_lista_cer(Cerveja *, Cerveja *, char);
