@@ -351,3 +351,20 @@ void buscar_cerveja(void){
   free(cer);
 }
 
+int quant_cervejas_cadas(void){
+  FILE* arqcer;
+  Cerveja *cer;
+  arqcer = fopen("files/cerveja.dat","r+b");
+  if(arqcer == NULL){
+    exit(1);
+  }
+  cer = (Cerveja*) malloc(sizeof(Cerveja));
+  int cont_cer = 0;
+  while(fread(cer, sizeof(Cerveja), 1, arqcer) != 0){// LÊ A QUANTIDADE DE STRUCTS DO ARQUIVO CERVEJA
+    if(cer->status != 'i'){
+      cont_cer++;
+    }
+  }
+  fclose(arqcer);
+  return cont_cer;
+}

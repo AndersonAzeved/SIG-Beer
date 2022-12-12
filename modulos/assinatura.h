@@ -38,7 +38,7 @@ void preenche_data_sorteio(void);
 int sorteio_numero(int );
 void preenche_assinaturas(void);
 char* sortear_cerveja(void);
-int quant_cervejas_cadas(void);
+int quant_ass_cadas(void);
 void pega_data(int*);
 int telefone_esta_ass(char *);
 int email_esta_ass(char *);

@@ -506,23 +506,22 @@ char* sortear_cerveja(void){
   free(cer);
 }
 
-
-int quant_cervejas_cadas(void){
-  FILE* arqcer;
-  Cerveja *cer;
-  arqcer = fopen("files/cerveja.dat","r+b");
-  if(arqcer == NULL){
+int quant_ass_cadas(void){
+  FILE* arq;
+  Assinatura *ass;
+  arq = fopen("files/assinatura.dat","r+b");
+  if(arq == NULL){
     exit(1);
   }
-  cer = (Cerveja*) malloc(sizeof(Cerveja));
-  int cont_cer = 0;
-  while(fread(cer, sizeof(Cerveja), 1, arqcer) != 0){// LÊ A QUANTIDADE DE STRUCTS DO ARQUIVO CERVEJA
-    if(cer->status != 'i'){
-      cont_cer++;
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  int cont_ass = 0;
+  while(fread(ass, sizeof(Assinatura), 1, arq) != 0){// LÊ A QUANTIDADE DE STRUCTS DO ARQUIVO ASSINATURA
+    if(ass->status != 'i'){
+      cont_ass++;
     }
   }
-  fclose(arqcer);
-  return cont_cer;
+  fclose(arq);
+  return cont_ass;
 }
 
 void preenche_data_sorteio(void){

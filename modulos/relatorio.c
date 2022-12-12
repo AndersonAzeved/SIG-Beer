@@ -165,7 +165,7 @@ char relatorio_assinatura(void){
     printf("Informe a opção: "); 
     fgets(op, 10, stdin);
       remove_enter(op);
-      if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '4')){
+      if((strlen(op) == 1) && (op[0] >= '0' && op[0] <= '6')){
         ok = 1;
       }else{
         system("clear||cls");
@@ -189,75 +189,56 @@ void rela_ordem_alfa_ass(void){ //Adaptada de @FlaviusGorgonio
   while(!feof(arq)){
     novaAss = (Assinatura*) malloc(sizeof(Assinatura));
     if(fread(novaAss, sizeof(Assinatura), 1, arq)){
-      if(lista == NULL){
-        lista = novaAss;
-        novaAss->prox = NULL;
-      }else if(strcmp(novaAss->nome, lista->nome) < 0){
-        novaAss->prox = lista;
-        lista = novaAss;
-      }else{
-        Assinatura* anter = lista;
-        Assinatura* atual = lista->prox;
-        while((atual != NULL) && strcmp(atual->nome,novaAss->nome) < 0){
-          anter = atual;
-          atual = atual->prox;
+      if(novaAss->status == 'a'){
+        if(lista == NULL){
+          lista = novaAss;
+          novaAss->prox = NULL;
+        }else if(strcmp(novaAss->nome, lista->nome) < 0){
+          novaAss->prox = lista;
+          lista = novaAss;
+        }else{
+          Assinatura* anter = lista;
+          Assinatura* atual = lista->prox;
+          while((atual != NULL) && strcmp(atual->nome,novaAss->nome) < 0){
+            anter = atual;
+            atual = atual->prox;
+          }
+          anter->prox = novaAss;
+          novaAss->prox = atual;
         }
-        anter->prox = novaAss;
-        novaAss->prox = atual;
       }
     }
   }
   fclose(arq);
-  while(novaAss != NULL){
-    exibe_assinatura(novaAss,'x');
-    getchar();
-    novaAss = novaAss->prox;
-  }
 
-  // novaAss = lista;
-  // while(novaAss != NULL){
-  //   if(novaAss == NULL){
-  //     printf("\n"
-  //     "//////////////////////////////////////////////////////////////////////////////\n"
-  //     "///                                                                        ///\n"
-  //     "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
-  //     "///                                                                        ///\n"
-  //     "///                                                                        ///\n"
-  //     "///                    Nenhuma assinatura cadastrada                       ///\n"
-  //     "///                                                                        ///\n"
-  //     "///                                                                        ///\n"
-  //     "//////////////////////////////////////////////////////////////////////////////\n"
-  //     "\n");
-  //   }else{
-  //     printf("\n"
-  //     "//////////////////////////////////////////////////////////////////////////////\n"
-  //     "///                                                                        ///\n"
-  //     "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
-  //     "///                  = = = Assinatura Cadastrada = = =                     ///\n"
-  //     "///                                                                        ///\n");
-  //     printf("///         Nome: %s\n", novaAss->nome);
-  //     printf("///         CPF: %s\n", novaAss->cpf);
-  //     printf("///         Endereço: %s\n", novaAss->endereco);
-  //     printf("///         Telefone: %s\n", novaAss->telefone);
-  //     printf("///         Email: %s\n", novaAss->email);
-  //     if(novaAss->data[4] >= 0 && novaAss->data[4] <= 9){
-  //       printf("///         Data de adesão: %d/%d/%d/ às %dh0%d\n", novaAss->data[0],novaAss->data[1],novaAss->data[2],novaAss->data[3],novaAss->data[4]);
-  //     }else{
-  //       printf("///         Data de adesão: %d/%d/%d/ às %dh%d\n", novaAss->data[0],novaAss->data[1],novaAss->data[2],novaAss->data[3],novaAss->data[4]);
-  //     }
-      
-  //     printf("///         Nível: %c\n", novaAss->nivel);
-  //     if(quant_cervejas_cadas() == 0){
-  //       printf("///         Cerveja do Mês: A DEFINIR\n");
-  //     }else{
-  //       printf("///         Cerveja do Mês: %s\n", novaAss->cerveja_mes);
-  //     }
-  //     printf("///                                                                        ///\n");
-  //     printf("//////////////////////////////////////////////////////////////////////////////\n");
-  //   }
-  //   novaAss = novaAss->prox;
-  //   i++;
-  // }
+  if(quant_ass_cadas() == 0){
+    printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///                                                                        ///\n"
+      "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+      "///                                                                        ///\n"
+      "///                                                                        ///\n"
+      "///                    Nenhuma assinatura cadastrada                       ///\n"
+      "///                                                                        ///\n"
+      "///                                                                        ///\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "\n");
+  }else{
+    novaAss = lista;
+    for(int i = 1; i <= quant_ass_cadas(); i++){
+      while(novaAss != NULL){
+        printf("\n"
+        "//////////////////////////////////////////////////////////////////////////////\n"
+        "///  ASSINATURA %i                                                         ///", i);
+        exibe_assinatura(novaAss,'x');
+        novaAss = novaAss->prox;
+      }
+    }
+    
+  }
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
 }
 
 // void rela_ordem_alfa_ass(void){
