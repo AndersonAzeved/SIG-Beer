@@ -377,11 +377,11 @@ void rela_ass_completo(void){
   FILE *arqdts;
   Data_sorteio* dts;
   arqdts = fopen("files/data_sorteio.dat","r+b");
+  dts = (Data_sorteio*) malloc(sizeof(Data_sorteio));
   if(arqdts == NULL){
     printf("Erro na abertura do arquivo!\n");
     exit(1);
   }
-  dts = (Data_sorteio*) malloc(sizeof(Data_sorteio));
   fread(dts, sizeof(Data_sorteio), 1, arqdts);
   fclose(arqdts);
 
@@ -389,32 +389,38 @@ void rela_ass_completo(void){
   cer = (Cerveja*) malloc(sizeof(Cerveja));
   cer = buscar__cer(dts->codigo_cer);
 
-  free(dts);
-
   Assinatura *ass;
   Assinatura *lista;
-  lista = NULL;
-  arqass = fopen("files/data_sorteio.dat","r+b");
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  arqass = fopen("files/assinatura.dat","r+b");
   if(arqass == NULL){
     printf("Erro na abertura do arquivo!\n");
     exit(1);
   }
-  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  lista = NULL;
   while(!feof(arqass)){
-    fread(ass, sizeof(Assinatura), 1, arqass);
-    if(ass->codigo_cerveja == cer->codigo){
-      if(lista == NULL){
+    if(fread(ass, sizeof(Assinatura), 1, arqass)){
+      if(strcmp(ass->codigo_cerveja,dts->codigo_cer) == 0 && ass->status == 'a'){
+        if(lista == NULL){
           lista = ass;
           ass->prox = NULL;
-      }else{
+        }else{
           ass->prox = lista;
           lista = ass;
+        }
       }
     }
   }
   fclose(arqass);
+  
+  limpExibListCompAss(ass,lista,cer->codigo,'a');
 
+  free(cer);
+  free(dts);
 
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
 }
 
 // RELATÓRIOS CERVEJAS

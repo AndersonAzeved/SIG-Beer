@@ -774,9 +774,12 @@ void limpExibListCompAss(Assinatura *ass, Assinatura *lista, char *cerveja, char
         "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
         "///                  = = = Assinatura Cadastrada = = =                     ///\n"
         "///                                                                        ///\n");
-        printf("\n"
+        printf(""
         "//////////////////////////////////////////////////////////////////////////////\n"
-        "///  ASSINATURA %i                                                         ///", i+1);
+        "///  ASSINATURA %i                                                          \n", i+1);
+        printf("///                                                                        \n");
+        printf("///  Dados da Assinatura                                                   \n");
+        printf("///                                                                        \n");
         printf("///         Nome: %s\n", ass->nome);
         printf("///         CPF: %s\n", ass->cpf);
         printf("///         Endereço: %s\n", ass->endereco);
@@ -788,18 +791,21 @@ void limpExibListCompAss(Assinatura *ass, Assinatura *lista, char *cerveja, char
           printf("///         Data de adesão: %d/%d/%d/ às %dh%d\n", ass->data[0],ass->data[1],ass->data[2],ass->data[3],ass->data[4]);
         }
         printf("///         Nível: %c\n", ass->nivel);
+        printf("///                                                                        \n");
+        printf("///  Dados da Cerveja                                                      \n");
+        printf("///                                                                        \n");
         printf("///         Cerveja do Mês: %s\n", ass->cerveja_mes);
         printf("///         Código da Cerveja: %s\n", cer->codigo);
-        printf("///         Código da Cerveja: %s\n", cer->codigo);
+        printf("///                                                                        \n");
+        printf("///  Dados do Fornecedor                                                   \n");
+        printf("///                                                                        \n");
         printf("///         CNPJ do Fornecedor: %s\n", forne->cnpj);
         printf("///         Nome da Empresa: %s\n", forne->empresa);
         printf("///         CFP do Dono da Empresa: %s\n", forne->cpfempresa);
-        printf("///         Nome da Empresa: %s\n", forne->empresa);
         printf("///         Telefone da Empresa: %s\n", forne->telefoneempresa);
         printf("///         Email da Empresa: %s\n", forne->emailempresa);
-        printf("///                                                                        ///\n");
+        printf("///                                                                        \n");
         printf("//////////////////////////////////////////////////////////////////////////////\n");
-        exibe_assinatura(ass,'x');
         ass = ass->prox;
       }
     }
