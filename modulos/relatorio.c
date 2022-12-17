@@ -373,10 +373,7 @@ void rela_ass_inativas(void){
 }
 
 void rela_ass_completo(void){
-  // FILE *arqass;
-  // FILE *arqcer;
-  // FILE *arqfore;
-  printf("Em desenvolvimento\n");
+  
 }
 
 // RELATÓRIOS CERVEJAS
