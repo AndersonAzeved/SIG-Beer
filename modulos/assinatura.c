@@ -551,7 +551,7 @@ void preenche_data_sorteio(void){
     cerveja = sortear_cerveja();
     Cerveja *cer;
     cer = (Cerveja*) malloc(sizeof(Cerveja));
-    buscar__cer(cerveja);
+    cer = buscar__cer(cerveja);
     if(fread(dts, sizeof(Data_sorteio), 1, arq) == 1){
       if(dts->codigo == 1){
         if(mes_atual != dts->mes){
@@ -559,7 +559,7 @@ void preenche_data_sorteio(void){
           dts->ano = data[0];
           dts->mes = data[1];
           dts->dia = data[2];
-          strcpy(dts->cerveja_sort, cerveja);
+          strcpy(dts->cerveja_sort, cer->nome);
           strcpy(dts->codigo_cer, cer->codigo);
           fseek(arq, -1*sizeof(Data_sorteio), SEEK_CUR);
           fwrite(dts, sizeof(Data_sorteio), 1, arq);
@@ -577,7 +577,7 @@ void preenche_data_sorteio(void){
       dts->ano = data[0];
       dts->mes = data[1];
       dts->dia = data[2];
-      strcpy(dts->cerveja_sort, cerveja);
+      strcpy(dts->cerveja_sort, cer->nome);
       strcpy(dts->codigo_cer, cer->codigo);
       fwrite(dts, sizeof(Data_sorteio), 1, arq);
     }
@@ -604,8 +604,8 @@ void preenche_assinaturas(void){
     fread(ass, sizeof(Data_sorteio), 1, arqass);
     j++;
   }
-  cerveja_ass = (char*) malloc(sizeof(char)*strlen(ass->cerveja_mes));
-  cerveja_ass = ass->cerveja_mes;
+  cerveja_ass = (char*) malloc(sizeof(char)*strlen(ass->codigo_cerveja));
+  cerveja_ass = ass->codigo_cerveja;
   fclose(arqass);
   
   FILE* arqdts;
@@ -622,8 +622,8 @@ void preenche_assinaturas(void){
     fread(dts, sizeof(Data_sorteio), 1, arqdts);
     i++;
   }
-  cerveja_sorteada = (char*) malloc(sizeof(char)*strlen(dts->cerveja_sort));
-  cerveja_sorteada = dts->cerveja_sort;
+  cerveja_sorteada = (char*) malloc(sizeof(char)*strlen(dts->codigo_cer));
+  cerveja_sorteada = dts->codigo_cer;
   
   arqass = fopen("files/assinatura.dat","r+b");
   if(arqass == NULL){
@@ -631,10 +631,14 @@ void preenche_assinaturas(void){
     printf("Não é possível continuar este programa...\n");
     exit(1);
   }
+  Cerveja *cer;
+  cer = (Cerveja*) malloc(sizeof(Cerveja));
+  cer = buscar__cer(cerveja_sorteada);
   if(cerveja_sorteada != cerveja_ass){
     while(fread(ass, sizeof(Assinatura), 1, arqass)){      
       fseek(arqass, -1*sizeof(Assinatura), SEEK_CUR);
-      strcpy(ass->cerveja_mes, cerveja_sorteada);
+      strcpy(ass->codigo_cerveja, cerveja_sorteada);
+      strcpy(ass->cerveja_mes,cer->nome);
       fwrite(ass, sizeof(Assinatura), 1, arqass);
     }
   }

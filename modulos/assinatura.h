@@ -18,7 +18,7 @@ struct data_sorteio{
     int mes;
     int dia;
     int ano;
-    char cerveja_sort[21];
+    char cerveja_sort[51];
     char codigo_cer[51];
 };
 
