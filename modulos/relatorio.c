@@ -644,9 +644,59 @@ void rela_forne_inativos(void){
 }
 
 void rela_completo_cer(void){
-  printf("Em desenvolvimento\n");
+  FILE *arq;
+  Cerveja *cer;
+  cer = (Cerveja*) malloc(sizeof(Cerveja));
+  Fornecedor *forne;
+  forne = (Fornecedor*) malloc(sizeof(Cerveja));
+  arq = fopen("files/cerveja.dat","r+b");
+  if(arq == NULL){
+    printf("Erro na abertura do arquivo!\n");
+    exit(1);
+  }
+  int i = 0;
+  while(!feof(arq)){
+    if(fread(cer, sizeof(Cerveja), 1, arq)){
+      if(cer->status == 'a'){
+        forne = buscar_forne(cer->fornecedor);
+        printf("\n"
+        "//////////////////////////////////////////////////////////////////////////////\n"
+        "///                                                                        ///\n"
+        "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+        "///                   = = = Cerveja Cadastrada = = =                       ///\n"
+        "///                                                                        ///\n");
+        printf(""
+        "//////////////////////////////////////////////////////////////////////////////\n"
+        "///  Cerveja %i                                                          \n", i+1);
+        printf("///                                                                        \n");                 
+        printf("///  Dados da Cerveja                                                      \n");
+        printf("///                                                                        \n");
+        printf("///         Cerveja: %s\n", cer->nome);
+        printf("///         Código da Cerveja: %s\n", cer->codigo);
+        printf("///                                                                        \n");
+        printf("///  Dados do Fornecedor                                                   \n");
+        printf("///                                                                        \n");
+        printf("///         CNPJ do Fornecedor: %s\n", forne->cnpj);
+        printf("///         Nome da Empresa: %s\n", forne->empresa);
+        printf("///         CFP do Dono da Empresa: %s\n", forne->cpfempresa);
+        printf("///         Telefone da Empresa: %s\n", forne->telefoneempresa);
+        printf("///         Email da Empresa: %s\n", forne->emailempresa);
+        printf("///                                                                        \n");
+        printf("//////////////////////////////////////////////////////////////////////////////\n");
+      }
+    }
+  }
+  fclose(arq);
+  free(cer);
+  free(forne);
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
 }
 
 void rela_completo_forne(void){
   printf("Em desenvolvimento\n");
+  printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
+  getchar();
+  system("clear || cls");
 }
