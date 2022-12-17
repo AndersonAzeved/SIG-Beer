@@ -373,7 +373,48 @@ void rela_ass_inativas(void){
 }
 
 void rela_ass_completo(void){
-  
+  FILE *arqass;
+  FILE *arqdts;
+  Data_sorteio* dts;
+  arqdts = fopen("files/data_sorteio.dat","r+b");
+  if(arqdts == NULL){
+    printf("Erro na abertura do arquivo!\n");
+    exit(1);
+  }
+  dts = (Data_sorteio*) malloc(sizeof(Data_sorteio));
+  fread(dts, sizeof(Data_sorteio), 1, arqdts);
+  fclose(arqdts);
+
+  Cerveja *cer;
+  cer = (Cerveja*) malloc(sizeof(Cerveja));
+  cer = buscar__cer(dts->codigo_cer);
+
+  free(dts);
+
+  Assinatura *ass;
+  Assinatura *lista;
+  lista = NULL;
+  arqass = fopen("files/data_sorteio.dat","r+b");
+  if(arqass == NULL){
+    printf("Erro na abertura do arquivo!\n");
+    exit(1);
+  }
+  ass = (Assinatura*) malloc(sizeof(Assinatura));
+  while(!feof(arqass)){
+    fread(ass, sizeof(Assinatura), 1, arqass);
+    if(ass->codigo_cerveja == cer->codigo){
+      if(lista == NULL){
+          lista = ass;
+          ass->prox = NULL;
+      }else{
+          ass->prox = lista;
+          lista = ass;
+      }
+    }
+  }
+  fclose(arqass);
+
+
 }
 
 // RELATÓRIOS CERVEJAS
