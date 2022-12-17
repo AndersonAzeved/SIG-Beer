@@ -7,6 +7,7 @@ struct assinatura{
     char email[51];
     char cerveja_mes[21];
     int data[5];
+    char codigo_cerveja[51];
     char nivel;
     char status;
     Assinatura *prox;
@@ -18,6 +19,7 @@ struct data_sorteio{
     int dia;
     int ano;
     char cerveja_sort[21];
+    char codigo_cer[51];
 };
 
 typedef struct data_sorteio Data_sorteio;

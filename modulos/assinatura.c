@@ -500,8 +500,8 @@ char* sortear_cerveja(void){
     cont2++;
   }
   char* cerveja;
-  cerveja = (char*) malloc(sizeof(char)*(strlen(cer->nome)));
-  cerveja = cer->nome;  
+  cerveja = (char*) malloc(sizeof(char)*(strlen(cer->codigo)));
+  cerveja = cer->codigo;  
   return cerveja;
   free(cer);
 }
@@ -549,6 +549,9 @@ void preenche_data_sorteio(void){
     dts = (Data_sorteio*) malloc(sizeof(Data_sorteio));
     char *cerveja;
     cerveja = sortear_cerveja();
+    Cerveja *cer;
+    cer = (Cerveja*) malloc(sizeof(Cerveja));
+    buscar__cer(cerveja);
     if(fread(dts, sizeof(Data_sorteio), 1, arq) == 1){
       if(dts->codigo == 1){
         if(mes_atual != dts->mes){
@@ -557,6 +560,7 @@ void preenche_data_sorteio(void){
           dts->mes = data[1];
           dts->dia = data[2];
           strcpy(dts->cerveja_sort, cerveja);
+          strcpy(dts->codigo_cer, cer->codigo);
           fseek(arq, -1*sizeof(Data_sorteio), SEEK_CUR);
           fwrite(dts, sizeof(Data_sorteio), 1, arq);
         }
@@ -574,6 +578,7 @@ void preenche_data_sorteio(void){
       dts->mes = data[1];
       dts->dia = data[2];
       strcpy(dts->cerveja_sort, cerveja);
+      strcpy(dts->codigo_cer, cer->codigo);
       fwrite(dts, sizeof(Data_sorteio), 1, arq);
     }
     fclose(arq);
