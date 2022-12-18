@@ -678,7 +678,7 @@ void rela_completo_cer(void){
         printf("///                                                                        \n");
         printf("///         CNPJ do Fornecedor: %s\n", forne->cnpj);
         printf("///         Nome da Empresa: %s\n", forne->empresa);
-        printf("///         CFP do Dono da Empresa: %s\n", forne->cpfempresa);
+        printf("///         CPF do Dono da Empresa: %s\n", forne->cpfempresa);
         printf("///         Telefone da Empresa: %s\n", forne->telefoneempresa);
         printf("///         Email da Empresa: %s\n", forne->emailempresa);
         printf("///                                                                        \n");
@@ -716,7 +716,7 @@ void rela_completo_forne(void){
         "///                                                                        ///\n");
         printf(""
         "//////////////////////////////////////////////////////////////////////////////\n"
-        "///  Cerveja %i                                                          \n", i+1);
+        "///  Fornecedor %i                                                          \n", i+1);
         printf("///                                                                        \n");                 
         printf("///  Dados do Fornecedor                                                   \n");
         printf("///                                                                        \n");
@@ -725,15 +725,6 @@ void rela_completo_forne(void){
         printf("///         CPF: %s\n", forne->cpfempresa);     
         printf("///         Telefone: %s\n", forne->telefoneempresa);             
         printf("///         E-mail: %s\n", forne->emailempresa);
-        printf("///                                                                        \n");
-        printf("///                                                                        \n");
-        printf("///  Dados do Fornecedor                                                   \n");
-        printf("///                                                                        \n");
-        printf("///         CNPJ do Fornecedor: %s\n", forne->cnpj);
-        printf("///         Nome da Empresa: %s\n", forne->empresa);
-        printf("///         CFP do Dono da Empresa: %s\n", forne->cpfempresa);
-        printf("///         Telefone da Empresa: %s\n", forne->telefoneempresa);
-        printf("///         Email da Empresa: %s\n", forne->emailempresa);
         printf("///                                                                        \n");
         printf("//////////////////////////////////////////////////////////////////////////////\n");
       }
