@@ -696,6 +696,7 @@ void rela_completo_cer(void){
 }
 
 void rela_completo_forne(void){
+  int cont =1;
   FILE *arq;
   Fornecedor *forne;
   forne = (Fornecedor*) malloc(sizeof(Fornecedor));
@@ -704,7 +705,6 @@ void rela_completo_forne(void){
     printf("Erro na abertura do arquivo!\n");
     exit(1);
   }
-  int i = 0;
   while(!feof(arq)){
     if(fread(forne, sizeof(Fornecedor), 1, arq)){
       if(forne->status == 'a'){
@@ -717,7 +717,7 @@ void rela_completo_forne(void){
         "///                                                                        ///\n");
         printf(""
         "//////////////////////////////////////////////////////////////////////////////\n"
-        "///  Fornecedor %i                                                          \n", i+1);
+        "///  Fornecedor %i                                                          \n", cont);
         printf("///                                                                        \n");                 
         printf("///  Dados do Fornecedor                                                   \n");
         printf("///                                                                        \n");
@@ -728,6 +728,7 @@ void rela_completo_forne(void){
         printf("///         E-mail: %s\n", forne->emailempresa);
         printf("///                                                                        \n");
         printf("//////////////////////////////////////////////////////////////////////////////\n");
+        cont++;
       }
     }
   }
