@@ -10,7 +10,7 @@ char tela_principal(void) {
   char op[11];
   int ok = 0;
   do{
-    //system("clear||cls");
+    system("clear||cls");
     printf("\n"
     "//////////////////////////////////////////////////////////////////////////////\n"
     "///                                                                        ///\n"

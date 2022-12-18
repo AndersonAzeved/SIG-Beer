@@ -384,14 +384,14 @@ void limpa_exibe_lista_cer(Cerveja *novaCer, Cerveja *lista, char status){
       "\n");
   }else{
     novaCer = lista;
-    for(int i = 0; i < quant_cervejas_cadas(status); i++){
-      while(novaCer != NULL){
-        printf("\n"
-        "//////////////////////////////////////////////////////////////////////////////\n"
-        "///  CERVEJA %i                                                            ///", i+1);
-        exibe_cerveja(novaCer,'x');
-        novaCer = novaCer->prox;
-      }
+    int i = 0;
+    while(novaCer != NULL){
+      printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///  CERVEJA %i                                                            ///", i+1);
+      exibe_cerveja(novaCer,'x');
+      novaCer = novaCer->prox;
+      i++;
     }
   }
 

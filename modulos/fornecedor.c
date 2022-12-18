@@ -343,28 +343,19 @@ void exibe_fornecedor(Fornecedor* forne, char status){
     printf("\n = = = Cadastro encontrado, porém inativo = = =");
     printf("\n = = =    Utilize a área de recuperar     = = =");
     printf("\n = = =    Caso deseja recuperá-lo         = = =\n");
-    printf("CNPJ: %s\n", forne->cnpj);
-    printf("Nome da empresa: %s\n", forne->empresa);
-    printf("CPF do dono da empresa: %s\n", forne->cpfempresa);
-    printf("Telefone: %s\n", forne->telefoneempresa);
-    printf("Email: %s\n", forne->emailempresa);
-    if(forne->status == 'a'){
-      printf("Status: ativo\n");}
-    else{
-      printf("Status: inativo\n");
-    }
+    printf("\n = = =   CNPJ: %s\n", forne->cnpj);
+    printf("\n = = =   Nome da empresa: %s\n", forne->empresa);
+    printf("\n = = =   CPF do dono da empresa: %s\n", forne->cpfempresa);
+    printf("\n = = =   Telefone: %s\n", forne->telefoneempresa);
+    printf("\n = = =   Email: %s\n", forne->emailempresa);
   }
   else{
     printf("\n= = = Fornecedor Cadastrado = = =\n");
-    printf("CNPJ: %s\n", forne->cnpj);
-    printf("Nome da empresa: %s\n", forne->empresa);
-    printf("CPF do dono da empresa: %s\n", forne->cpfempresa);
-    printf("Telefone: %s\n", forne->telefoneempresa);
-    printf("Email: %s\n", forne->emailempresa);
-    if(forne->status == 'a'){
-      printf("Status: ativo\n");}
-    else{
-      printf("Status: inativo\n");} 
+    printf("\n = = =   CNPJ: %s\n", forne->cnpj);
+    printf("\n = = =   Nome da empresa: %s\n", forne->empresa);
+    printf("\n = = =   CPF do dono da empresa: %s\n", forne->cpfempresa);
+    printf("\n = = =   Telefone: %s\n", forne->telefoneempresa);
+    printf("\n = = =   Email: %s\n", forne->emailempresa);
   }}
 
 
@@ -445,14 +436,14 @@ void limpa_exibe_lista_forne(Fornecedor *novoForne, Fornecedor *lista, char stat
       "\n");
   }else{
     novoForne = lista;
-    for(int i = 0; i < quant_forne_cadas(status); i++){
-      while(novoForne != NULL){
-        printf("\n"
-        "//////////////////////////////////////////////////////////////////////////////\n"
-        "///  FORNECEDOR %i                                                         ///", i+1);
-        exibe_fornecedor(novoForne,'x');
-        novoForne = novoForne->prox;
-      }
+    int i = 0;
+    while(novoForne != NULL){
+      printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///  FORNECEDOR %i                                                         ///", i+1);
+      exibe_fornecedor(novoForne,'x');
+      novoForne = novoForne->prox;
+      i++;
     }
   }
 

@@ -389,39 +389,88 @@ void rela_ass_completo(void){
   cer = (Cerveja*) malloc(sizeof(Cerveja));
   cer = buscar__cer(dts->codigo_cer);
 
+  Fornecedor *forne;
+  forne = (Fornecedor*) malloc(sizeof(Cerveja));
+  forne = buscar_forne(cer->fornecedor);
+
   Assinatura *ass;
-  Assinatura *lista;
   ass = (Assinatura*) malloc(sizeof(Assinatura));
   arqass = fopen("files/assinatura.dat","r+b");
-  if(arqass == NULL){
+  if(quant_ass_cadas('a') == 0){
+    printf("\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "///                                                                        ///\n"
+      "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+      "///                                                                        ///\n"
+      "///                                                                        ///\n"
+      "///                    Nenhuma assinatura cadastrada                       ///\n"
+      "///                                                                        ///\n"
+      "///                                                                        ///\n"
+      "//////////////////////////////////////////////////////////////////////////////\n"
+      "\n");
+  }else{
+    if(arqass == NULL){
     printf("Erro na abertura do arquivo!\n");
     exit(1);
-  }
-  lista = NULL;
-  while(!feof(arqass)){
-    if(fread(ass, sizeof(Assinatura), 1, arqass)){
-      if(strcmp(ass->codigo_cerveja,dts->codigo_cer) == 0 && ass->status == 'a'){
-        if(lista == NULL){
-          lista = ass;
-          ass->prox = NULL;
-        }else{
-          ass->prox = lista;
-          lista = ass;
+    } 
+    int i = 0;
+    while(!feof(arqass)){
+      if(fread(ass, sizeof(Assinatura), 1, arqass)){
+        if(strcmp(ass->codigo_cerveja,dts->codigo_cer) == 0 && ass->status == 'a'){
+          printf("\n"
+          "//////////////////////////////////////////////////////////////////////////////\n"
+          "///                                                                        ///\n"
+          "///         = = = = Sistema de assinatura de cervejas = = = =              ///\n"
+          "///                  = = = Assinatura Cadastrada = = =                     ///\n"
+          "///                                                                        ///\n");
+          printf(""
+          "//////////////////////////////////////////////////////////////////////////////\n"
+          "///  ASSINATURA %i                                                          \n", i+1);
+          printf("///                                                                        \n");
+          printf("///  Dados da Assinatura                                                   \n");
+          printf("///                                                                        \n");
+          printf("///         Nome: %s\n", ass->nome);
+          printf("///         CPF: %s\n", ass->cpf);
+          printf("///         Endereço: %s\n", ass->endereco);
+          printf("///         Telefone: %s\n", ass->telefone);
+          printf("///         Email: %s\n", ass->email);
+          if(ass->data[4] >= 0 && ass->data[4] <= 9){
+            printf("///         Data de adesão: %d/%d/%d/ às %dh0%d\n", ass->data[0],ass->data[1],ass->data[2],ass->data[3],ass->data[4]);
+          }else{
+            printf("///         Data de adesão: %d/%d/%d/ às %dh%d\n", ass->data[0],ass->data[1],ass->data[2],ass->data[3],ass->data[4]);
+          }
+          printf("///         Nível: %c\n", ass->nivel);
+          printf("///                                                                        \n");
+          printf("///  Dados da Cerveja                                                      \n");
+          printf("///                                                                        \n");
+          printf("///         Cerveja do Mês: %s\n", ass->cerveja_mes);
+          printf("///         Código da Cerveja: %s\n", cer->codigo);
+          printf("///                                                                        \n");
+          printf("///  Dados do Fornecedor                                                   \n");
+          printf("///                                                                        \n");
+          printf("///         CNPJ do Fornecedor: %s\n", forne->cnpj);
+          printf("///         Nome da Empresa: %s\n", forne->empresa);
+          printf("///         CFP do Dono da Empresa: %s\n", forne->cpfempresa);
+          printf("///         Telefone da Empresa: %s\n", forne->telefoneempresa);
+          printf("///         Email da Empresa: %s\n", forne->emailempresa);
+          printf("///                                                                        \n");
+          printf("//////////////////////////////////////////////////////////////////////////////\n");
         }
       }
+      i++;
     }
   }
   fclose(arqass);
-  
-  limpExibListCompAss(ass,lista,cer->codigo,'a');
-
   free(cer);
   free(dts);
+  free(ass);
+  free(forne);
 
   printf(">>> APERTE ENTER PARA CONTINUAR >>> ");
   getchar();
   system("clear || cls");
 }
+
 
 // RELATÓRIOS CERVEJAS
 
